@@ -1,6 +1,8 @@
 set theme_color_scheme zenburn
 
-thefuck --alias | source
+if command -v thefuck > /dev/null
+    thefuck --alias | source
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
