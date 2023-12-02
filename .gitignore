@@ -6,7 +6,9 @@
 
 # shell
 !fish/**
+!nvim/**
 !omf/**
 !thefuck/**
 
 **/__pycache__/
+
