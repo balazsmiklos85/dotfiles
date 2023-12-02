@@ -34,5 +34,5 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/Users/balazsmiklos/\x2envm\x1e/Users/balazsmiklos/\x2esdkman\x1e/opt/homebrew/opt/ruby/bin\x1e/Users/balazsmiklos/projects/scripts\x1e/Users/balazsmiklos/projects/hybris/core\x2dcustomize/hybris/bin/platform/apache\x2dant/bin
+SETUVAR fish_user_paths:/opt/homebrew/bin\x1e$HOME/\x2envm\x1e$HOME/\x2esdkman\x1e/opt/homebrew/opt/ruby/bin\x1e$HOME/projects/scripts\x1e$HOME/projects/hybris/core\x2dcustomize/hybris/bin/platform/apache\x2dant/bin
 
