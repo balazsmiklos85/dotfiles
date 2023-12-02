@@ -1,3 +1,5 @@
+set theme_color_scheme zenburn
+
 thefuck --alias | source
 
 if status is-interactive
