@@ -1,2 +1,2 @@
-require'lspconfig'.ruby_lsp.setup{}
+require'lspconfig'.ruby_ls.setup{}
 
