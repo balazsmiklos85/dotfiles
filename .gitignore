@@ -6,6 +6,7 @@
 
 # shell
 !fish/**
+!mc/**
 !nvim/**
 !omf/**
 !thefuck/**
