@@ -5,6 +5,7 @@ Plug 'vim-airline/vim-airline' "lean & mean status/tabline for vim that's light 
 Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the 'gutter'
 Plug 'drewtempelmeyer/palenight.vim' "Soothing color scheme
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
 
 call plug#end()
 
