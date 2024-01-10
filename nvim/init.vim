@@ -6,8 +6,12 @@ Plug 'airblade/vim-gitgutter' "A Vim plugin which shows a git diff in the 'gutte
 Plug 'drewtempelmeyer/palenight.vim' "Soothing color scheme
 Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'junegunn/fzf' "a general-purpose command-line fuzzy finder.
+Plug 'junegunn/fzf.vim' "fzf <3 vim
 
 call plug#end()
+
+ap <C-p> :Files<CR>
 
 set background=dark
 colorscheme palenight
