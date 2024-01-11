@@ -11,7 +11,7 @@ Plug 'junegunn/fzf.vim' "fzf <3 vim
 
 call plug#end()
 
-ap <C-p> :Files<CR>
+nmap <C-p> :Files<CR>
 
 set background=dark
 colorscheme palenight
