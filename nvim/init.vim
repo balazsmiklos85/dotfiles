@@ -8,6 +8,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'junegunn/fzf' "a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf.vim' "fzf <3 vim
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -21,5 +22,6 @@ set number "showing line numbers
 set cc=80 "having a right margin in the 80th column
 set list "showing whitespaces
 
+lua require('treesitter')
 lua require('lsp')
 
