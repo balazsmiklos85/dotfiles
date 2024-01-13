@@ -1,6 +1,6 @@
-vim.cmd 'set shiftwidth=4 smarttab'
-vim.cmd 'set expandtab'
-vim.cmd 'set cc=120'
+vim.cmd 'setlocal shiftwidth=4 smarttab'
+vim.cmd 'setlocal expandtab'
+vim.cmd 'setlocal cc=120'
 
 local config = {
     cmd = {os.getenv("HOME") .. '/.local/bin/jdtls/bin/jdtls'},
