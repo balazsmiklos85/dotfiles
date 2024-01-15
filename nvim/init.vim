@@ -8,7 +8,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'junegunn/fzf' "a general-purpose command-line fuzzy finder.
 Plug 'junegunn/fzf.vim' "fzf <3 vim
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 
