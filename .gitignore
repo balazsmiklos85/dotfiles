@@ -11,5 +11,7 @@
 !omf/**
 !thefuck/**
 
+fish/secrets/**
+
 **/__pycache__/
 
