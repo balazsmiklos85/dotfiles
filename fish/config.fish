@@ -1,3 +1,5 @@
+source ~/.config/fish/secrets.fish
+
 set theme_color_scheme zenburn
 
 set -gx PATH $HOME/.local/bin $PATH
