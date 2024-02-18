@@ -8,6 +8,8 @@ set -gx PATH $HOME/.nvm $PATH
 set -gx PATH $HOME/.sdkman $PATH
 set -gx PATH $HOME/projects/hybris/core-customize/hybris/bin/platform/apache-ant/bin $PATH
 
+alias gw ./gradlew
+
 if [ (uname) = "Darwin" ]
     # Commands to run only on MacOS can go here
     set -x theme_powerline_fonts no
