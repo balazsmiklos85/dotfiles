@@ -12,7 +12,6 @@ alias gw ./gradlew
 
 if [ (uname) = "Darwin" ]
     # Commands to run only on MacOS can go here
-    set -x theme_powerline_fonts no
     set -gx PATH /opt/homebrew/bin $PATH
     set -gx PATH /opt/homebrew/opt/ruby/bin $PATH
 else
