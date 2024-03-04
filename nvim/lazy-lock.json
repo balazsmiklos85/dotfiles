@@ -1,4 +1,5 @@
 {
+  "catppuccin": { "branch": "main", "commit": "c0de3b46811fe1ce3912e2245a9dfbea6b41c300" },
   "fzf": { "branch": "master", "commit": "7444eff6d4cfc22f4488b8b5f62b7c859569ad2f" },
   "fzf.vim": { "branch": "master", "commit": "8ea9574b3ebdc44fbe3dc6381a13f9ce0c290e2f" },
   "lazy.nvim": { "branch": "main", "commit": "28126922c9b54e35a192ac415788f202c3944c9f" },
