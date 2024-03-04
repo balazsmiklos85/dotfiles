@@ -15,6 +15,8 @@ if [ (uname) = "Darwin" ]
     set -x theme_powerline_fonts no
     set -gx PATH /opt/homebrew/bin $PATH
     set -gx PATH /opt/homebrew/opt/ruby/bin $PATH
+else
+    set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 end
 
 if command -v thefuck > /dev/null
