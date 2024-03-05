@@ -19,7 +19,7 @@ local plugins = {
   {'junegunn/fzf', {}},
   {'junegunn/fzf.vim', {}},
   {'nvim-treesitter/nvim-treesitter', {}},
-  { 'rewtempelmeyer/palenight.vim' },
+  { 'drewtempelmeyer/palenight.vim' },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 }
 

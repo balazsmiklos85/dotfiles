@@ -1,11 +1,11 @@
 {
   "catppuccin": { "branch": "main", "commit": "c0de3b46811fe1ce3912e2245a9dfbea6b41c300" },
-  "fzf": { "branch": "master", "commit": "7444eff6d4cfc22f4488b8b5f62b7c859569ad2f" },
+  "fzf": { "branch": "master", "commit": "507089d7b235b602f2f400be34c79a895e8c10dc" },
   "fzf.vim": { "branch": "master", "commit": "8ea9574b3ebdc44fbe3dc6381a13f9ce0c290e2f" },
-  "lazy.nvim": { "branch": "main", "commit": "28126922c9b54e35a192ac415788f202c3944c9f" },
+  "lazy.nvim": { "branch": "main", "commit": "aedcd79811d491b60d0a6577a9c1701063c2a609" },
   "nvim-jdtls": { "branch": "master", "commit": "382b9f625861f47d95876bcfb4c261f3b96077cb" },
-  "nvim-lspconfig": { "branch": "master", "commit": "7f5cf1121f772850a30bdaf83fb448e88846aa58" },
-  "nvim-treesitter": { "branch": "master", "commit": "70f03829afa31f8b619b56296cdcaa921118d912" },
+  "nvim-lspconfig": { "branch": "master", "commit": "a1c9b24a0b4aae7db95fff3c5017d1b2fb69922e" },
+  "nvim-treesitter": { "branch": "master", "commit": "cc6b108ea1251bd361f091b7d5a0dd41c04f8611" },
   "palenight.vim": { "branch": "master", "commit": "5552a6349bcd927df9f17db34f017b77b963e503" },
   "vim-airline": { "branch": "master", "commit": "d9f42cb46710e31962a9609939ddfeb0685dd779" },
   "vim-gitgutter": { "branch": "main", "commit": "67ef116100b40f9ca128196504a2e0bc0a2753b0" }
