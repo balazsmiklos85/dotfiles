@@ -13,3 +13,5 @@ end
 
 vim.cmd[[set number]]
 vim.cmd[[set list]]
+vim.cmd[[set cc=80]]
+
