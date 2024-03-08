@@ -7,9 +7,6 @@
 # shell
 !fish/**
 
-# Midnight Commander
-!mc/**
-
 # Neovim
 !nvim/**
 nvim/lazy-lock.json
