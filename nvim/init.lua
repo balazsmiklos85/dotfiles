@@ -1,6 +1,7 @@
 require('lazy_config')
-require('treesitter_config')
+require('neo-tree_config')
 require('lsp_config')
+require('treesitter_config')
 
 vim.keymap.set('n', '<C-p>', ':Files<CR>')
 
