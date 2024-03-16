@@ -4,9 +4,8 @@ require('lsp_config')
 require('bufferline_config')
 require('lualine_config')
 require('neo-tree_config')
+require('telescope_config')
 require('treesitter_config')
-
-vim.keymap.set('n', '<C-p>', ':Files<CR>')
 
 vim.cmd[[set background=dark]]
 
