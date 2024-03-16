@@ -22,6 +22,7 @@ local plugins = {
   },
   {'nvim-treesitter/nvim-treesitter', {}},
   { 'drewtempelmeyer/palenight.vim' },
+  { 'sainnhe/everforest' },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   {
     "nvim-neo-tree/neo-tree.nvim",
