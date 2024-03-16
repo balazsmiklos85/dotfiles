@@ -1,7 +1,4 @@
 -- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.ruby_ls.setup{}
-lspconfig.solargraph.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
