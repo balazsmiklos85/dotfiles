@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {'vim-airline/vim-airline', {}},
   {'airblade/vim-gitgutter', {}},
   {'neovim/nvim-lspconfig', {}},
   {'mfussenegger/nvim-jdtls', {}},
@@ -29,6 +28,10 @@ local plugins = {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   }
 }
 
