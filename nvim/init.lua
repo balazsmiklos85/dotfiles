@@ -4,6 +4,7 @@ require('lsp_config')
 require('bufferline_config')
 require('lualine_config')
 require('neo-tree_config')
+require('obsidian_config')
 require('telescope_config')
 require('treesitter_config')
 

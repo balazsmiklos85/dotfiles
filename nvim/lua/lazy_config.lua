@@ -57,6 +57,11 @@ local plugins = {
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
+  {
+    'epwalsh/obsidian.nvim',
+    name = 'obsidian',
+    dependencies = 'nvim-lua/plenary.nvim'
+  },
 }
 
 local opts = {
