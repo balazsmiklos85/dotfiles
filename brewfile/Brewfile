@@ -1,6 +1,6 @@
 tap homebrew/cask
 cask font-hack-nerd-font
-cask tabby
+cask iterm2
 
 brew bat
 brew dust
