@@ -1,0 +1,18 @@
+cask "font-hack-nerd-font"
+cask "iterm2"
+
+brew "bat"
+brew "dust"
+brew "fish"
+brew "gcc"
+brew "git-delta"
+brew "lsd"
+brew "midnight-commander"
+brew "neovim"
+brew "nvm"
+brew "ripgrep"
+brew "the_silver_searcher"
+brew "thefuck"
+brew "w3m"
+brew "wget"
+

@@ -18,7 +18,7 @@ nvim/lazy-lock.json
 !thefuck/**
 
 # Homebrew
-!brewfile/**
+!Brewfile
 
 fish/secrets/**
 
