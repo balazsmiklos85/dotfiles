@@ -18,6 +18,8 @@ else
     vim.cmd[[colorscheme palenight]]
 end
 
+vim.cmd[[set linebreak]]
+vim.cmd[[set conceallevel=1]]
 vim.cmd[[set number]]
 vim.cmd[[set list]]
 vim.cmd[[set cc=80,120]]
