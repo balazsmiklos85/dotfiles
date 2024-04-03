@@ -11,10 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local osType = io.popen("uname"):read("*l")
-local isMac = osType == "Darwin"
 local isSsh = not(not(os.getenv("SSH_CLIENT")) and not(os.getenv("SSH_TTY")))
-local isLinux = osType == "Linux" and not isSsh
 
 local plugins = {
   {'airblade/vim-gitgutter', {}},
@@ -27,17 +24,12 @@ local plugins = {
   },
   {'nvim-treesitter/nvim-treesitter', {}},
   {
-    'drewtempelmeyer/palenight.vim',
-    enabled = isMac
-  },
-  {
     'sainnhe/everforest',
     enabled = isSsh
   },
   {
     'catppuccin/nvim',
     name = 'catppuccin',
-    enabled = isLinux
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

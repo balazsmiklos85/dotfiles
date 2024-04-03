@@ -12,10 +12,8 @@ vim.cmd[[set background=dark]]
 
 if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
   vim.cmd[[colorscheme everforest]]
-elseif io.popen("uname"):read("*l") == 'Linux' then
-    vim.cmd[[colorscheme catppuccin]]
 else
-    vim.cmd[[colorscheme palenight]]
+    vim.cmd[[colorscheme catppuccin]]
 end
 
 vim.cmd[[set linebreak]]
