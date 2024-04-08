@@ -1,12 +1,6 @@
 require('config.lazy')
 require('config.lspconfig')
-
-require('config.bufferline')
-require('config.lualine')
-require('config.neo-tree')
-require('config.obsidian')
 require('config.telescope')
-require('config.treesitter')
 
 vim.cmd[[set background=dark]]
 
