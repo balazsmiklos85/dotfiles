@@ -1,12 +1,12 @@
-require('lazy_config')
-require('lsp_config')
+require('config.lazy')
+require('config.lspconfig')
 
-require('bufferline_config')
-require('lualine_config')
-require('neo-tree_config')
-require('obsidian_config')
-require('telescope_config')
-require('treesitter_config')
+require('config.bufferline')
+require('config.lualine')
+require('config.neo-tree')
+require('config.obsidian')
+require('config.telescope')
+require('config.treesitter')
 
 vim.cmd[[set background=dark]]
 
