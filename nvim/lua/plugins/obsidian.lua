@@ -1,14 +1,10 @@
+
 local Path = require("plenary.path")
 
-local workspaces = {}
+local documents = os.getenv("HOME") .. "/Documents/notes"
 
-local documents_en = os.getenv("HOME") .. "/Documents/notes"
-local documents_hu = os.getenv("HOME") .. "/Dokumentumok/notes"
-
-if Path:new(documents_en):exists() then
-  table.insert(workspaces, { path = documents_en, name = "notes" })
-elseif Path:new(documents_hu):exists() then
-  table.insert(workspaces, { path = documents_hu, name = "notes" })
+if not Path:new(documents):exists() then
+  documents = os.getenv("HOME") .. "/Dokomentumok/notes"
 end
 
 return {
@@ -19,36 +15,24 @@ return {
     'hrsh7th/nvim-cmp'
   },
   opts = {
-  workspaces = workspaces,
-  -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
-  -- 'workspaces'. For example:
-  -- dir = "~/vaults/work",
+    workspaces = {
+      {
+        path = documents,
+        name = "notes"
+      }
+    },
+    notes_subdir = "új",
+    daily_notes = {
+      folder = "naptár/" .. os.date("%Y/%m"),
+      date_format = "%Y-%m-%d",
+      alias_format = "%B %-d, %Y",
+      template = nil
+    },
 
-  -- Optional, if you keep notes in a specific subdirectory of your vault.
-  notes_subdir = "notes",
-
-  -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
-  -- levels defined by "vim.log.levels.*".
-  log_level = vim.log.levels.INFO,
-
-  daily_notes = {
-    -- Optional, if you keep daily notes in a separate directory.
-    folder = "notes/dailies",
-    -- Optional, if you want to change the date format for the ID of daily notes.
-    date_format = "%Y-%m-%d",
-    -- Optional, if you want to change the date format of the default alias of daily notes.
-    alias_format = "%B %-d, %Y",
-    -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-    template = nil
-  },
-
-  -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-  completion = {
-    -- Set to false to disable completion.
-    nvim_cmp = true,
-    -- Trigger completion at 2 chars.
-    min_chars = 2,
-  },
+    completion = {
+      nvim_cmp = true,
+      min_chars = 2,
+    },
 
   -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
   -- way then set 'mappings = {}'.
