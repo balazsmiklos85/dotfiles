@@ -4,7 +4,7 @@ local Path = require("plenary.path")
 local documents = os.getenv("HOME") .. "/Documents/notes"
 
 if not Path:new(documents):exists() then
-  documents = os.getenv("HOME") .. "/Dokomentumok/notes"
+  documents = os.getenv("HOME") .. "/Dokumentumok/notes"
 end
 
 return {
