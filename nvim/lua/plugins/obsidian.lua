@@ -137,14 +137,12 @@ return {
     return out
   end,
 
-  -- Optional, for templates (see below).
---  templates = {
---    subdir = "templates",
---    date_format = "%Y-%m-%d",
---    time_format = "%H:%M",
-    -- A map for custom variables, the key should be the variable and the value a function
---    substitutions = {},
---  },
+  templates = {
+    subdir = "sablonok",
+    date_format = "%Y-%m-%d",
+    time_format = "%H:%M",
+    substitutions = {},
+  },
 
   -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
   -- URL it will be ignored but you can customize this behavior here.
