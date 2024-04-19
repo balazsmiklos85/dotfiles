@@ -4,6 +4,7 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim"
   },
+  enabled = io.popen("uname"):read("*l") ~= "Darwin", 
   opts = {}
 }
 
