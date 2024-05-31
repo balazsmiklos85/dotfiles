@@ -8,7 +8,15 @@ vim.cmd[[set background=dark]]
 if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
   vim.cmd[[colorscheme everforest]]
 else
-    vim.cmd[[colorscheme catppuccin]]
+  local handle = io.popen("networksetup -getairportnetwork en0")
+  local wifi = handle:read("*a")
+  handle:close()
+
+  if string.match(wifi, "FN%-BYOD") then
+    vim.cmd[[colorscheme catppuccin-latte]]
+  else
+   vim.cmd[[colorscheme catppuccin]]
+  end
 end
 
 vim.cmd[[set linebreak]]
