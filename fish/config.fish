@@ -7,6 +7,12 @@ set -gx PATH $HOME/.local/bin/scripts $PATH
 set -gx PATH $HOME/.nvm $PATH
 set -gx PATH $HOME/.sdkman $PATH
 
+if am_i_at_work
+    set -g theme_color_scheme light
+else
+    set -g theme_color_scheme dark
+end
+
 if [ (uname) = "Darwin" ]
     set -gx PATH /opt/homebrew/bin $PATH
     set -gx PATH /opt/homebrew/opt/ruby/bin $PATH
