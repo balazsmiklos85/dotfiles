@@ -1,9 +1,10 @@
-
 function switch_light
-    if am_i_at_work
+    am_i_at_work
+
+    if test $status -eq 0
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
         set -g theme_color_scheme light
-    else
+    else if [ (uname) = "Darwin" ]
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
         set -g theme_color_scheme dark
     end
