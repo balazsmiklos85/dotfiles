@@ -10,10 +10,4 @@ require('mason-lspconfig').setup {
     "rust_analyzer",
   }
 }
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    "groovy-language-server",
-    "sonarlint-language-server",
-  }
-}
 
