@@ -9,7 +9,7 @@ if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
   vim.cmd[[colorscheme everforest]]
 else
   local wifi = ""
-  if io.popen("uname"):read("*l") ~= "Darwin" then
+  if io.popen("uname"):read("*l") == "Darwin" then
     local handle = io.popen("networksetup -getairportnetwork en0")
     wifi = handle:read("*a")
     handle:close()
