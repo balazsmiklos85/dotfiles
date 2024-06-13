@@ -7,6 +7,9 @@
 # shell
 !fish/**
 
+# Neomutt
+!neomutt/**
+
 # Neovim
 !nvim/**
 nvim/lazy-lock.json
