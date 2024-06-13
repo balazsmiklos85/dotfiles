@@ -2,10 +2,12 @@
 *
 !*/
 
-!.gitignore
-
 # shell
 !fish/**
+
+# Git
+!.gitignore
+!git/**
 
 # Neomutt
 !neomutt/**
