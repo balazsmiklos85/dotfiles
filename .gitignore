@@ -9,6 +9,9 @@
 !.gitignore
 !git/**
 
+# $MAILCAPS
+!mailcap
+
 # Neomutt
 !neomutt/**
 

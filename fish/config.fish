@@ -19,6 +19,8 @@ else
     set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 end
 
+set -gx MAILCAPS $HOME/.config/mailcap
+
 if command -v thefuck > /dev/null
     thefuck --alias | source
 end

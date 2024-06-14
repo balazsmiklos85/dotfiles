@@ -1,4 +1,6 @@
 set editor = "nvim"
+auto_view text/html
+
 set from = "Balázs Miklós <`pass mail/personal/gmail/user`@gmail.com>"
 
 # IMAP settings
