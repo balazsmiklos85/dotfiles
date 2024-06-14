@@ -14,6 +14,7 @@ if [ (uname) = "Darwin" ]
     if am_i_at_work
         set -g theme_color_scheme light
     end
+    set -gx GIT_EDITOR /opt/homebrew/bin/nvim
 else
     set -gx PATH /home/linuxbrew/.linuxbrew/bin $PATH
 end
