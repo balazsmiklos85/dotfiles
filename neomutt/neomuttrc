@@ -1,16 +1,16 @@
 set editor = "nvim"
 auto_view text/html
-
+set sidebar_visible
 set from = "Balázs Miklós <`pass mail/personal/gmail/user`@gmail.com>"
 
 # IMAP settings
 set imap_user = "`pass mail/personal/gmail/user`@gmail.com"
 set imap_pass = "`pass mail/personal/gmail/password`"
-set folder = "imaps://imap.gmail.com:993"
+set folder = "imaps://imap.gmail.com"
 set spoolfile = "+INBOX"
-set record = "+Sent"
-set postponed = "+Drafts"
-set trash = "+Trash"
+set record = "+[Gmail]/Elküldött levelek"
+set postponed = "+[Gmail]/Piszkozatok"
+set trash = "+[Gmail]/Kuka"
 
 # SMTP settings
 set smtp_url = "smtp://`pass mail/personal/gmail/user`@smtp.gmail.com:587/"
