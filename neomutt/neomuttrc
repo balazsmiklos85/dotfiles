@@ -12,6 +12,8 @@ set record = "+[Gmail]/Elküldött levelek"
 set postponed = "+[Gmail]/Piszkozatok"
 set trash = "+[Gmail]/Kuka"
 
+mailboxes =INBOX =[Gmail]/Elküldött\ levelek =[Gmail]/Piszkozatok =[Gmail]/Spam =[Gmail]/Kuka =[Gmail]/Összes\ levél
+
 # SMTP settings
 set smtp_url = "smtp://`pass mail/personal/gmail/user`@smtp.gmail.com:587/"
 set smtp_pass = "`pass mail/personal/gmail/password`"
