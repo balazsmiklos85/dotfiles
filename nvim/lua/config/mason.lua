@@ -4,7 +4,7 @@ require('mason-lspconfig').setup {
     "jdtls",
     "lua_ls",
     "rubocop",
-    "ruby_lsp",
+    "ruby_ls",
     "sorbet",
     "solargraph",
     "rust_analyzer",
