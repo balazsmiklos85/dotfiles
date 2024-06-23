@@ -1,6 +1,36 @@
 #!/usr/bin/fish
 
 function init_opensuse
-	sudo zypper install --no-recommends fd neomutt password-store evince-plugin-djvudocument powertop youtube-dl graphviz w3m lynx lsd git-delta ripgrep bat telnet encfs symbols-only-nerd-fonts powerline-fonts thefuck neovim mc git docker docker-compose fish syncthing
+	sudo zypper install --no-recommends \
+		bat \
+		docker \
+		docker-compose \
+		encfs \
+		fd \
+		fish \
+		git \
+		git-delta \
+		graphviz \
+		lsd \
+		lynx \
+		mc \
+		neomutt \
+		neovim \
+		password-store \
+		powerline-fonts \
+		powertop \
+		ripgrep \
+		symbols-only-nerd-fonts \
+		syncthing \
+		telnet \
+		thefuck \
+		w3m \
+		youtube-dl
+	if not [ -z "$DISPLAY" ]
+		sudo zypper install --no-recommends \
+			evince-plugin-djvudocument \
+			firefox \
+			thunderbird
+	end
 end
 
