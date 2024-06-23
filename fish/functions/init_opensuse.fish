@@ -8,6 +8,7 @@ function init_opensuse
 		encfs \
 		fd \
 		fish \
+		fzf \
 		git \
 		git-delta \
 		graphviz \
