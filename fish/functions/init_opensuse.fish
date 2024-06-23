@@ -11,6 +11,7 @@ function init_opensuse
 		git \
 		git-delta \
 		graphviz \
+		jq \
 		lsd \
 		lynx \
 		mc \
