@@ -2,6 +2,9 @@
 *
 !*/
 
+# bat
+!bat/**
+
 # shell
 !fish/**
 

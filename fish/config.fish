@@ -1,6 +1,7 @@
 source ~/.config/fish/secrets.fish
 
 set -g theme_color_scheme zenburn
+set -gx BAT_THEME "Catppuccin Mocha"
 
 set -gx PATH $HOME/.sdkman $PATH
 
@@ -10,6 +11,7 @@ if [ (uname) = "Darwin" ]
 	set -gx PATH $HOME/.nvm $PATH
 	if am_i_at_work
 		set -g theme_color_scheme light
+		set -gx BAT_THEME "Catppuccin Latte"
 	end
 	set -gx GIT_EDITOR /opt/homebrew/bin/nvim
 end
