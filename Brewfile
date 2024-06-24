@@ -16,4 +16,5 @@ brew "ripgrep"
 brew "thefuck"
 brew "w3m"
 brew "wget"
+brew "zoxide"
 

@@ -26,7 +26,8 @@ function init_opensuse
 		syncthing \
 		thefuck \
 		w3m \
-		youtube-dl
+		youtube-dl \
+		zoxide
 	if not [ -z "$DISPLAY" ]
 		sudo zypper install --no-recommends \
 			evince-plugin-djvudocument \
