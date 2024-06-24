@@ -3,6 +3,10 @@ source ~/.config/fish/secrets.fish
 set -g theme_color_scheme zenburn
 set -gx BAT_THEME "Catppuccin Mocha"
 
+set -gx FZF_DEFAULT_COMMAND "fd . $HOME"
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -gx FZF_ALT_C_COMMAND "fd -t d . $HOME"
+
 set -gx PATH $HOME/.sdkman $PATH
 
 if [ (uname) = "Darwin" ]
