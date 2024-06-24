@@ -1,2 +1,4 @@
 [core]
 	editor = /usr/bin/nvim
+[delta]
+	side-by-side = true
