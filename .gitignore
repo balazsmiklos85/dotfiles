@@ -2,33 +2,27 @@
 *
 !*/
 
-# bat
 !bat/**
 
-# shell
 !fish/**
 
-# Git
 !.gitignore
 !git/**
+
+!iterm2/settings/**
 
 # $MAILCAPS
 !mailcap
 
-# Neomutt
 !neomutt/**
 
-# Neovim
 !nvim/**
 nvim/lazy-lock.json
 
-# oh-my-fish
 !omf/**
 
-# thefuck
 !thefuck/**
 
-# Homebrew
 !Brewfile
 
 fish/secrets/**
