@@ -24,7 +24,6 @@ function init_opensuse
 		ripgrep \
 		symbols-only-nerd-fonts \
 		syncthing \
-		telnet \
 		thefuck \
 		w3m \
 		youtube-dl
