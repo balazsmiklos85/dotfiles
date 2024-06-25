@@ -11,6 +11,8 @@
 
 !iterm2/settings/**
 
+!lsd/**
+
 # $MAILCAPS
 !mailcap
 
