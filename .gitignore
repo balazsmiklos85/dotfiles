@@ -9,7 +9,11 @@
 !.gitignore
 !git/**
 
+!hypr/**
+
 !iterm2/settings/**
+
+!kitty/**
 
 !lsd/**
 

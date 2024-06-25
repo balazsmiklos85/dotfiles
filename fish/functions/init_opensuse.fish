@@ -12,7 +12,9 @@ function init_opensuse
 		git \
 		git-delta \
 		graphviz \
+		hyprland \
 		jq \
+		kitty \
 		lsd \
 		lynx \
 		mc \
@@ -25,6 +27,7 @@ function init_opensuse
 		symbols-only-nerd-fonts \
 		syncthing \
 		thefuck \
+		waybar \
 		w3m \
 		youtube-dl \
 		zoxide
