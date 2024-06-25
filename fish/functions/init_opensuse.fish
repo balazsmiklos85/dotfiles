@@ -32,6 +32,8 @@ function init_opensuse
 		sudo zypper install --no-recommends \
 			evince-plugin-djvudocument \
 			hyprland \
+			hyprpaper \
+			hyprshot \
 			kitty \
 			kitty-terminfo \
 			MozillaFirefox \
