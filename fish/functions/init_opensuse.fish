@@ -12,9 +12,7 @@ function init_opensuse
 		git \
 		git-delta \
 		graphviz \
-		hyprland \
 		jq \
-		kitty \
 		lsd \
 		lynx \
 		mc \
@@ -27,15 +25,17 @@ function init_opensuse
 		symbols-only-nerd-fonts \
 		syncthing \
 		thefuck \
-		waybar \
 		w3m \
 		youtube-dl \
 		zoxide
 	if not [ -z "$DISPLAY" ]
 		sudo zypper install --no-recommends \
 			evince-plugin-djvudocument \
-			firefox \
-			thunderbird
+			hyprland \
+			kitty \
+			MozillaFirefox \
+			MozillaThunderbird \
+			waybar
 	end
 end
 
