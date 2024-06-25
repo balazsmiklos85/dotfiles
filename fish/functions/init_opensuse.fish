@@ -33,6 +33,7 @@ function init_opensuse
 			evince-plugin-djvudocument \
 			hyprland \
 			kitty \
+			kitty-terminfo \
 			MozillaFirefox \
 			MozillaThunderbird \
 			waybar
