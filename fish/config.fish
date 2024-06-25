@@ -28,3 +28,6 @@ if command -v thefuck > /dev/null
 	thefuck --alias | source
 end
 
+alias cd='z'
+alias ls='lsd -al'
+
