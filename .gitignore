@@ -15,6 +15,7 @@
 
 !kitty/**
 kitty/*.bak
+kitty/current-theme.conf
 
 !lsd/**
 
