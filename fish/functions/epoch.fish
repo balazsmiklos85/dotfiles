@@ -8,6 +8,10 @@ function epoch
 		return
 	end
 
-	echo (date --date="$date" +"%s")
+	if [ (uname) = "Darwin" ]
+		echo (date -j -f "%F %T" "$date" +%s)
+	else
+		echo (date --date="$date" +"%s")
+	end
 end
 
