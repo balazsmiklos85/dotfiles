@@ -32,4 +32,5 @@ end
 
 alias cd='z'
 alias ls='lsd -al'
+alias tree='lsd --tree'
 
