@@ -39,7 +39,8 @@ function init_opensuse
 			kitty-terminfo \
 			MozillaFirefox \
 			MozillaThunderbird \
-			waybar
+			waybar \
+			wofi
 	end
 	sudo zypper remove -u vim vim-data vim-data-common 2>/dev/null
 end
