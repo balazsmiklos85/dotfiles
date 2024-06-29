@@ -5,6 +5,7 @@ function init_opensuse
 		bat \
 		docker \
 		docker-compose \
+		dust \
 		encfs \
 		fd \
 		fish \
