@@ -41,5 +41,6 @@ function init_opensuse
 			MozillaThunderbird \
 			waybar
 	end
+	sudo zypper remove -u vim vim-data vim-data-common 2>/dev/null
 end
 
