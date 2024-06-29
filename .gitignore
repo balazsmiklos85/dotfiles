@@ -33,7 +33,5 @@ nvim/lazy-lock.json
 
 !Brewfile
 
-fish/secrets/**
-
 **/__pycache__/
 
