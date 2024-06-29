@@ -24,6 +24,10 @@ end
 
 set -gx MAILCAPS $HOME/.config/mailcap
 
+if command -v fzf > /dev/null
+	fzf --fish | source
+end
+
 zoxide init fish | source
 
 if command -v thefuck > /dev/null
