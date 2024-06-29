@@ -31,6 +31,8 @@ nvim/lazy-lock.json
 
 !thefuck/**
 
+!waybar/**
+
 !Brewfile
 
 **/__pycache__/
