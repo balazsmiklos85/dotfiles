@@ -7,3 +7,5 @@ local config = {
 }
 require('jdtls').start_or_attach(config)
 
+vim.cmd[[set cc=120]]
+

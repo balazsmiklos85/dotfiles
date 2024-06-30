@@ -5,3 +5,5 @@ local lspconfig = require('lspconfig')
 lspconfig.ruby_lsp.setup{}
 lspconfig.solargraph.setup{}
 
+vim.cmd[[set cc=80]]
+
