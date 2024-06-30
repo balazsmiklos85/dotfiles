@@ -37,6 +37,7 @@ function init_opensuse
 			hyprshot \
 			kitty \
 			kitty-terminfo \
+			libqt5-qtwayland \
 			MozillaFirefox \
 			MozillaThunderbird \
 			waybar \
