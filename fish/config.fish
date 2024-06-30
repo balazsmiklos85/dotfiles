@@ -1,8 +1,6 @@
 source ~/.config/fish/secrets.fish
 
-set -g theme_color_scheme zenburn
-set -gx BAT_THEME "Catppuccin Mocha"
-kitty +kitten themes --reload-in=all Catppuccin-Mocha 
+switch_light
 
 set -gx FZF_DEFAULT_COMMAND "fd . $HOME"
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
@@ -14,12 +12,6 @@ if [ (uname) = "Darwin" ]
 	set -gx PATH /opt/homebrew/bin $PATH
 	set -gx PATH $HOME/DEV/projects/hybris/core-customize/hybris/bin/platform/apache-ant/bin $PATH
 	set -gx PATH $HOME/.nvm $PATH
-	if am_i_at_work
-		set -g theme_color_scheme light
-		set -gx BAT_THEME "Catppuccin Latte"
-		kitty +kitten themes --reload-in=all Catppuccin-Latte
-	end
-	set -gx GIT_EDITOR /opt/homebrew/bin/nvim
 end
 
 set -gx MAILCAPS $HOME/.config/mailcap
