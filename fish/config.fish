@@ -1,5 +1,3 @@
-source ~/.config/fish/secrets.fish
-
 switch_light
 
 set -gx FZF_DEFAULT_COMMAND "fd . $HOME"
@@ -29,4 +27,6 @@ end
 alias cd='z'
 alias ls='lsd -al'
 alias tree='lsd --tree'
+
+source ~/.config/fish/secrets.fish
 
