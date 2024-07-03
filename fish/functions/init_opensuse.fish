@@ -40,6 +40,7 @@ function init_opensuse
 			libqt5-qtwayland \
 			MozillaFirefox \
 			MozillaThunderbird \
+			qt6-wayland \
 			waybar \
 			wofi
 	end
