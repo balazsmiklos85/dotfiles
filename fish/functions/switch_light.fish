@@ -5,7 +5,9 @@ function switch_light
 		osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
 		set -g theme_color_scheme switch_light
 		set -gx BAT_THEME "Catppuccin Latte"
-		kitty +kitten themes --reload-in=all Catppuccin-Latte
+		if command -v kitty > /dev/null
+			kitty +kitten themes --reload-in=all Catppuccin-Latte
+		end
 	else
 		if [ (uname) = "Darwin" ]
 			osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
