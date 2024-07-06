@@ -2,8 +2,8 @@ require('config.lazy')
 require('config.mason')
 require('config.lspconfig')
 require('config.telescope')
-
-vim.cmd[[set background=dark]]
+require('catppuccin')
+require('config.bufferline')
 
 if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
   vim.cmd[[colorscheme everforest]]
