@@ -2,7 +2,7 @@ require('config.lazy')
 require('config.mason')
 require('config.lspconfig')
 require('config.telescope')
-require('catppuccin')
+require('config.catppuccin')
 require('config.bufferline')
 
 if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
