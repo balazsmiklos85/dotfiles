@@ -6,7 +6,7 @@ require('catppuccin')
 require('config.bufferline')
 
 if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
-  vim.cmd[[colorscheme everforest]]
+  vim.cmd[[colorscheme catppuccin-frappe]]
 else
   local wifi = ""
   if io.popen("uname"):read("*l") == "Darwin" then
