@@ -18,7 +18,15 @@ config['init_options'] = {
 }
 
 require('jdtls').start_or_attach(config)
--- FIXME somehow at this point `require('dap').adapters.java` should be automagically set by nvim-jdtls, but apparently isn't
+require('dap').configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Debug (Attach)";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+}
 
 vim.cmd[[set cc=120]]
 
