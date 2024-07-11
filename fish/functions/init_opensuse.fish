@@ -26,6 +26,7 @@ function init_opensuse
 		symbols-only-nerd-fonts \
 		syncthing \
 		thefuck \
+		traceroute \
 		w3m \
 		youtube-dl \
 		zoxide
