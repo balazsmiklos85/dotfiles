@@ -9,7 +9,7 @@ local config = {
 }
 
 local bundles = {
-  vim.fn.glob(mason_packages .. "java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+  vim.fn.glob(mason_packages .. "java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
 };
 
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_packages .. "vscode-java-test/server/*.jar", 1), "\n"))
