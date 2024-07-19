@@ -17,6 +17,7 @@ require('mason-lspconfig').setup {
 require('mason-tool-installer').setup {
   ensure_installed = {
     -- Java
+    'clang-format',
     "java-debug-adapter",
     "java-test",
     -- Lua
