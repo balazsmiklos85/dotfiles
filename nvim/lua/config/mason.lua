@@ -19,6 +19,8 @@ require('mason-tool-installer').setup {
     -- Java
     "java-debug-adapter",
     "java-test",
+    -- Lua
+    'stylua',
   }
 }
 
