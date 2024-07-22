@@ -14,7 +14,6 @@ require("config.mason")
 require("config.lspconfig")
 require("config.dap-ui")
 require("config.telescope")
-require("config.catppuccin")
 
 if is_ssh then
 	vim.cmd([[colorscheme catppuccin-frappe]])
