@@ -1,3 +1,13 @@
+local is_ssh = os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY")
+local is_macos = io.popen("uname"):read("*l") == "Darwin"
+local layout_command = "defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $3}' | sed 's/;//'"
+
+local leader = 'ű'
+if is_macos and io.popen(layout_command):read('*a') == 'ABC' then
+  leader = '\\'
+end
+vim.g.mapleader = leader
+
 require('config.lazy')
 require('config.mason')
 require('config.lspconfig')
@@ -5,11 +15,11 @@ require('config.dap-ui')
 require('config.telescope')
 require('config.catppuccin')
 
-if os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY") then
+if is_ssh then
   vim.cmd[[colorscheme catppuccin-frappe]]
 else
   local wifi = ""
-  if io.popen("uname"):read("*l") == "Darwin" then
+  if is_macos then
     local handle = io.popen("networksetup -getairportnetwork en0")
     wifi = handle:read("*a")
     handle:close()
