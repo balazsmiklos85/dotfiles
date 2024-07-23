@@ -1,9 +1,9 @@
-vim.cmd 'setlocal shiftwidth=2 smarttab'
-vim.cmd 'setlocal expandtab'
+vim.cmd("setlocal shiftwidth=2 smarttab")
+vim.cmd("setlocal expandtab")
 
-local lspconfig = require('lspconfig')
-lspconfig.ruby_lsp.setup{}
-lspconfig.solargraph.setup{}
+local lspconfig = require("lspconfig")
+lspconfig.ruby_lsp.setup({})
+lspconfig.solargraph.setup({})
+require("dap-ruby").setup()
 
-vim.cmd[[set cc=80]]
-
+vim.cmd([[set cc=80]])

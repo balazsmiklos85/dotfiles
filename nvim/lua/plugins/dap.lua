@@ -1,4 +1,6 @@
 return {
-  'mfussenegger/nvim-dap'
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"suketa/nvim-dap-ruby",
+	},
 }
-
