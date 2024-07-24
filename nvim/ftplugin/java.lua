@@ -1,6 +1,3 @@
-vim.cmd 'setlocal shiftwidth=4 smarttab'
-vim.cmd 'setlocal expandtab'
-
 local mason_packages = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/"
 
 local config = {

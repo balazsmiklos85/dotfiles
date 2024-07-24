@@ -1,6 +1,3 @@
-vim.cmd 'setlocal shiftwidth=4 smarttab'
-vim.cmd 'setlocal expandtab'
-
 local lspconfig = require('lspconfig')
 lspconfig.groovyls.setup {
   cmd = {

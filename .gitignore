@@ -4,6 +4,8 @@
 
 !bat/**
 
+!.editorconfig
+
 !fish/**
 
 !.gitignore
