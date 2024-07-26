@@ -1,13 +1,12 @@
 local is_ssh = os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY")
 local is_macos = io.popen("uname"):read("*l") == "Darwin"
 local layout_command =
-	"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $3}' | sed 's/;//'"
+	"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $4}' | sed 's/;//'"
 
-local leader = "ű"
-if is_macos and io.popen(layout_command):read("*a") == "ABC" then
-	leader = "\\"
+vim.g.leader = "ű"
+if is_macos and string.find(io.popen(layout_command):read("*a"), "ABC") then
+	vim.g.leader = "\\"
 end
-vim.g.mapleader = leader
 
 require("config.lazy")
 require("config.mason")
