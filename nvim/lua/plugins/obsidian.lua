@@ -23,7 +23,7 @@ return {
     },
     notes_subdir = "új",
     daily_notes = {
-      folder = "naptár/" .. os.date("%Y/%m"),
+      folder = "napló/" .. os.date("%Y/%m"),
       date_format = "%Y-%m-%d",
       alias_format = "%B %-d, %Y",
       template = nil
