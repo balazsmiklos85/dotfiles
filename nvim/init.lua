@@ -3,9 +3,9 @@ local is_macos = io.popen("uname"):read("*l") == "Darwin"
 local layout_command =
 	"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $4}' | sed 's/;//'"
 
-vim.g.leader = "ű"
+vim.g.mapleader = "ű"
 if is_macos and string.find(io.popen(layout_command):read("*a"), "ABC") then
-	vim.g.leader = "\\"
+	vim.g.mapleader = "\\"
 end
 
 require("config.lazy")
