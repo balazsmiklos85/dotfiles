@@ -60,13 +60,17 @@ return {
 		note_id_func = function(title)
 			local suffix = ""
 			if title ~= nil then
-			suffix = title:gsub("[*\"\\/<>:|?]", ""):lower()
+				suffix = title:gsub('[*"\\/<>:|?]', ""):lower()
 			else
 				for _ = 1, 4 do
 					suffix = suffix .. string.char(math.random(65, 90))
 				end
 			end
-			return tostring(os.time()) .. "-" .. suffix
+			local pattern = "^%d+%-"
+			if not suffix:match(pattern) then
+				suffix = tostring(os.time()) .. "-" .. suffix
+			end
+			return suffix
 		end,
 
 		-- Optional, customize how note file names are generated given the ID, target directory, and title.
