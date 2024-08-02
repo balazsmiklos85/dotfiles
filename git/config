@@ -1,4 +1,6 @@
 [core]
 	editor = nvim
+	autocrlf = input
+	eol = lf
 [delta]
 	side-by-side = true
