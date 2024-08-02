@@ -6,7 +6,7 @@ local lsps_to_install = {
 }
 local tools_to_install = {
 	-- Java
-	"clang-format",
+	"google-java-format",
 	"java-debug-adapter",
 	"java-test",
 	-- Lua

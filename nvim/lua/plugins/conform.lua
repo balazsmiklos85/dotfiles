@@ -12,7 +12,7 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			java = { "clang-format" },
+			java = { "google-java-format" },
 			lua = { "stylua" },
 		},
 	},
