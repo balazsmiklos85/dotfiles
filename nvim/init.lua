@@ -1,4 +1,5 @@
-local is_ssh = os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY")
+local util = require("util.functions")
+
 local is_macos = io.popen("uname"):read("*l") == "Darwin"
 local layout_command =
 	"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $4}' | sed 's/;//'"
@@ -14,7 +15,7 @@ require("config.lspconfig")
 require("config.dap-ui")
 require("config.telescope")
 
-if is_ssh then
+if util.is_ssh() then
 	vim.cmd([[colorscheme catppuccin-frappe]])
 else
 	local wifi = ""
