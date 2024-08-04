@@ -45,6 +45,12 @@ function init_opensuse
 			waybar \
 			wofi
 	end
-	sudo zypper remove -u vim vim-data vim-data-common 2>/dev/null
+	sudo zypper remove -u \
+        samba \
+        samba-client \
+        vim \
+        vim-data \
+        vim-data-common \
+        2>/dev/null
 end
 
