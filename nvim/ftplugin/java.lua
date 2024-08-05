@@ -25,5 +25,3 @@ require('dap').configurations.java = {
   },
 }
 
-vim.cmd[[set cc=120]]
-

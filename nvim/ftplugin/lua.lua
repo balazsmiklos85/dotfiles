@@ -8,4 +8,3 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-vim.cmd([[set cc=80]])
