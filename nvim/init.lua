@@ -1,13 +1,9 @@
 local util = require("util.functions")
 
 local is_macos = io.popen("uname"):read("*l") == "Darwin"
-local layout_command =
-	"defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep -w 'KeyboardLayout Name' | awk '{print $4}' | sed 's/;//'"
 
-vim.g.mapleader = "ű"
-if is_macos and string.find(io.popen(layout_command):read("*a"), "ABC") then
-	vim.g.mapleader = "\\"
-end
+vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
+vim.g.mapleader = " "
 
 require("config.lazy")
 require("config.mason")
