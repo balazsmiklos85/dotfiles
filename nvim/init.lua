@@ -1,7 +1,5 @@
 local util = require("util.functions")
 
-local is_macos = io.popen("uname"):read("*l") == "Darwin"
-
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 
@@ -15,7 +13,7 @@ if util.is_ssh() then
 	vim.cmd([[colorscheme catppuccin-frappe]])
 else
 	local wifi = ""
-	if is_macos then
+	if util.is_macos() then
 		local handle = io.popen("networksetup -getairportnetwork en0")
 		wifi = handle:read("*a")
 		handle:close()
