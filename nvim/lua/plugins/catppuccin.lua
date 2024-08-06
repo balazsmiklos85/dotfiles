@@ -3,13 +3,7 @@ local flavour = "auto" -- latte, frappe, macchiato, mocha
 if util.is_ssh() then
 	flavour = "frappe"
 else
-	local wifi = ""
-	if util.is_macos() then
-		local handle = io.popen("networksetup -getairportnetwork en0")
-		wifi = handle:read("*a")
-		handle:close()
-	end
-	if string.match(wifi, "FN%-BYOD") then
+	if util.is_macos() and util.is_wifi_ssid("FN%-BYOD") then
 		flavour = "latte"
 	end
 end
