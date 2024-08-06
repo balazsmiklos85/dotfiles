@@ -1,5 +1,3 @@
-local util = require("util.functions")
-
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
 
