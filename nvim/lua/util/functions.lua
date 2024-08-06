@@ -1,5 +1,10 @@
 local util = {}
 
+util.is_file = function (file_name)
+   local file_handle = io.open(file_name, "r")
+   return file_handle ~= nil and io.close(file_handle)
+end
+
 util.is_macos = function()
 	local process_handle = io.popen("uname")
 

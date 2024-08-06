@@ -1,7 +1,18 @@
-local mason_packages = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/"
+local util = require("util.functions")
+
+local home = os.getenv("HOME")
+local mason_packages = home .. "/.local/share/nvim/mason/packages/"
+local jdtls_command =
+{
+	  mason_packages .. "jdtls/bin/jdtls"
+}
+local lombok_jar = home .. "/.local/bin/lombok.jar"
+if util.is_file(lombok_jar) then
+	table.insert(jdtls_command, "--jvm-arg=-javaagent:" .. lombok_jar)
+end
 
 local config = {
-  cmd = { mason_packages .. "jdtls/bin/jdtls" },
+  cmd = jdtls_command,
   root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
 }
 
