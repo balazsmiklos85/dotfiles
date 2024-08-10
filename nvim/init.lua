@@ -1,12 +1,9 @@
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>")
 
 require("config.lazy")
 require("config.mason")
-require("config.lspconfig")
-require("config.dap-ui")
-require("config.telescope")
+require("config.keymaps")
 
 vim.cmd([[colorscheme catppuccin]])
 vim.cmd([[set linebreak]])
