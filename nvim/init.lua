@@ -1,5 +1,6 @@
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>")
 
 require("config.lazy")
 require("config.mason")
