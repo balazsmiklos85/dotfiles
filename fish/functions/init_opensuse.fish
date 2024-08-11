@@ -33,17 +33,8 @@ function init_opensuse
 	if not [ -z "$DISPLAY" ]
 		sudo zypper install --no-recommends \
 			evince-plugin-djvudocument \
-			hyprland \
-			hyprpaper \
-			hyprshot \
-			kitty \
-			kitty-terminfo \
-			libqt5-qtwayland \
 			MozillaFirefox \
 			MozillaThunderbird \
-			qt6-wayland \
-			waybar \
-			wofi
 	end
 	sudo zypper remove -u \
         samba \
