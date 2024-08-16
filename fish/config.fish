@@ -11,6 +11,8 @@ if [ (uname) = "Darwin" ]
 	set -gx PATH /opt/homebrew/bin $PATH
 	set -gx PATH $HOME/DEV/projects/hybris/core-customize/hybris/bin/platform/apache-ant/bin $PATH
 	set -gx PATH $HOME/.nvm $PATH
+else
+    set -gx PATH $HOME/.rvm/gems/ruby-3.3.0/bin $PATH
 end
 
 set -gx MAILCAPS $HOME/.config/mailcap
