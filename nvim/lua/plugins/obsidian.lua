@@ -13,6 +13,22 @@ return {
 		"nvim-lua/plenary.nvim",
 		"hrsh7th/nvim-cmp",
 	},
+	keys = {
+		{
+			"<leader>on",
+			":ObsidianNew<CR>",
+			mode = "n",
+
+			desc = "New Obsidian note",
+		},
+		{
+			"<leader>od",
+			":ObsidianDailies<CR>",
+			mode = "n",
+
+			desc = "New Obsidian daily note",
+		},
+	},
 	opts = {
 		workspaces = {
 			{
