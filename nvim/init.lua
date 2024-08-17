@@ -9,6 +9,7 @@ vim.cmd([[set list]])
 require("config.lazy")
 require("config.mason")
 require("config.keymaps")
+require("config.relative_numbers")
 
 vim.cmd([[colorscheme catppuccin]])
 
