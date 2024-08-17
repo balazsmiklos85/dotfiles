@@ -1,9 +1,5 @@
 vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>")
 
-local dapui = require("dapui")
-vim.keymap.set("n", "<leader>du", dapui.open, {})
-vim.keymap.set("n", "<leader>dc", dapui.close, {})
-
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
