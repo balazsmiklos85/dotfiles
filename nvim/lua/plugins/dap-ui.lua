@@ -4,26 +4,6 @@ return {
 		"nvim-neotest/nvim-nio",
 		"mfussenegger/nvim-dap",
 	},
-	keys = {
-		{
-			"<leader>do",
-			function()
-				require("dapui").open()
-			end,
-			mode = "n",
-
-			desc = "Open Debug Adapter Protocol UI",
-		},
-		{
-			"<leader>dc",
-			function()
-				require("dapui").close()
-			end,
-			mode = "n",
-
-			desc = "Close Debug Adapter Protocol UI",
-		},
-	},
 	opts = {
 		icons = { expanded = "▾", collapsed = "▸" },
 		mappings = {
