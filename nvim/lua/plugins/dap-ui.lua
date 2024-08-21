@@ -4,6 +4,24 @@ return {
 		"nvim-neotest/nvim-nio",
 		"mfussenegger/nvim-dap",
 	},
+	keys = {
+		{
+			"<leader>do",
+			function()
+				require("dapui").open()
+			end,
+			mode = "",
+			desc = "Open",
+		},
+		{
+			"<leader>dc",
+			function()
+				require("dapui").close()
+			end,
+			mode = "",
+			desc = "Close",
+		},
+	},
 	opts = {
 		icons = { expanded = "▾", collapsed = "▸" },
 		mappings = {

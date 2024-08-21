@@ -1,21 +1,10 @@
 local wk = require("which-key")
 
-wk.add({ "<leader>c", group = "Code formatting"})
-
-vim.keymap.set("n", "<leader>do", require("dapui").open)
-vim.keymap.set("n", "<leader>dc", require("dapui").close)
-
 wk.add({
+	{ "<leader>c", group = "Code formatting" },
 	{ "<leader>d", group = "Debug Adapter Protocol UI" },
-	{ "<leader>do", desc = "Open", mode = "n" },
-	{ "<leader>dc", desc = "Close", mode = "n" },
-})
-
-vim.keymap.set("n", "<leader>nt", ":Neotree toggle<CR>")
-
-wk.add({
-	{ "<leader>n", group = "Files" },
-	{ "<leader>nt", desc = "Neotree toggle", mode = "n" },
+	{ "<leader>n", group = "Neotree files" },
+	{ "<leader>f", group = "Find with Telescope" },
 })
 
 vim.keymap.set("n", "<leader>od", ":ObsidianDailies<CR>")
@@ -25,20 +14,6 @@ wk.add({
 	{ "<leader>o", group = "Notes" },
 	{ "<leader>od", desc = "Dailies", mode = "n" },
 	{ "<leader>on", desc = "New", mode = "n" },
-})
-
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
-wk.add({
-	{ "<leader>f", group = "Find" },
-	{ "<leader>ff", desc = "Find file", mode = "n" },
-	{ "<leader>fg", desc = "Grep files", mode = "n" },
-	{ "<leader>fb", desc = "Find buffer", mode = "n" },
-	{ "<leader>fh", desc = "Find help tag", mode = "n" },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
