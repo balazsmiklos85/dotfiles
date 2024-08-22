@@ -13,6 +13,9 @@ return {
 		"nvim-lua/plenary.nvim",
 		"hrsh7th/nvim-cmp",
 	},
+	cond = function ()
+		return vim.fn.getcwd() == documents
+	end,
 	opts = {
 		workspaces = {
 			{
