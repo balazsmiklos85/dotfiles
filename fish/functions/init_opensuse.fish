@@ -34,7 +34,7 @@ function init_opensuse
 		sudo zypper install --no-recommends \
 			evince-plugin-djvudocument \
 			MozillaFirefox \
-			MozillaThunderbird \
+			MozillaThunderbird
 	end
 	sudo zypper remove -u \
         samba \
