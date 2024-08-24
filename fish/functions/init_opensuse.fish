@@ -38,7 +38,10 @@ function init_opensuse
 	end
 	sudo zypper remove -u \
         samba \
+        samba-ad-dc-libs \
         samba-client \
+        samba-client-libs \
+        samba-libs \
         vim \
         vim-data \
         vim-data-common \
