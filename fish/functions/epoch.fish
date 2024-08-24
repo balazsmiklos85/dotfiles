@@ -11,7 +11,7 @@ function epoch
 	if [ (uname) = "Darwin" ]
 		echo (date -j -f "%F %T" "$date" +%s)
 	else
-		echo (date --date="$date" +"%s")
+		echo (TZ='Europe/Budapest' date --date="$date" +"%s")
 	end
 end
 
