@@ -1,9 +1,10 @@
 local Path = require("plenary.path")
 
-local documents = os.getenv("HOME") .. "/Documents/notes"
-
-if not Path:new(documents):exists() then
-	documents = os.getenv("HOME") .. "/Dokumentumok/notes"
+local documents = ""
+local current_dir = vim.fn.getcwd()
+local ending = "/notes"
+if current_dir:sub(-#ending) == ending then
+	documents = current_dir
 end
 
 return {
@@ -14,7 +15,7 @@ return {
 		"hrsh7th/nvim-cmp",
 	},
 	cond = function ()
-		return vim.fn.getcwd() == documents
+		return current_dir == documents
 	end,
 	opts = {
 		workspaces = {
