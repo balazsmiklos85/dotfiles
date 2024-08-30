@@ -1,3 +1,4 @@
+cask "bruno"
 cask "dbeaver-community"
 cask "font-hack-nerd-font"
 cask "iterm2"
