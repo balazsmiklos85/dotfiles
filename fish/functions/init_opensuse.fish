@@ -37,11 +37,12 @@ function init_opensuse
 			MozillaThunderbird
 	end
 	sudo zypper remove -u \
+        gvfs-backend-samba \
         samba \
         samba-ad-dc-libs \
         samba-client \
-        samba-client-libs \
         samba-libs \
+        samba-libs-python3 \
         vim \
         vim-data \
         vim-data-common \
