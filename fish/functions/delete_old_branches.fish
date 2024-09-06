@@ -8,8 +8,7 @@ function delete_old_branches
     for branch in $local_branches
         if echo $branch | grep -q -E $branches_to_keep
             set old_enough (math $old_enough+1)
-        end
-        if test $old_enough -ge $old_enough_limit
+        else if test $old_enough -ge $old_enough_limit
             set to_delete $to_delete $branch
         end
     end
