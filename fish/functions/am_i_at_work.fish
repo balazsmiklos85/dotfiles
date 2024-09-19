@@ -1,8 +1,8 @@
 
 function am_i_at_work
     if [ (uname) = "Darwin" ]
-        set wifi_ssid (networksetup -getairportnetwork en0 | cut -d ":" -f 2 | string trim)
-        if [ "$wifi_ssid" = "FN-BYOD" ]
+        set ip_third_octet (ifconfig | rg 'inet\s' | rg '192.168' | awk '{print $2}' | awk -F. '{print $3}')
+        if [ "$ip_third_octet" != "0" ]
             return 0
         else
             return 1

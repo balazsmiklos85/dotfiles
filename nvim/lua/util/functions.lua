@@ -3,7 +3,7 @@ local util = {}
 util.get_wifi_ssid = function ()
 	local result = ""
 	if util.is_macos() then
-		local process_handle = io.popen("networksetup -getairportnetwork en0")
+		local process_handle = io.popen("ifconfig | rg 'inet' | rg '192.168' | awk '{print $2}' | awk -F. '{print $3}'")
 		if process_handle == nil then
 			return result
 		end
