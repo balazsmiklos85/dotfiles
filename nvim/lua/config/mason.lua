@@ -1,3 +1,5 @@
+local util = require("util.functions")
+
 local lsps_to_install = {
 	-- Java
 	"jdtls",
@@ -13,8 +15,7 @@ local tools_to_install = {
 	"stylua",
 }
 
-local is_macos = io.popen("uname"):read("*l") == "Darwin"
-if is_macos then
+if util.is_macos() then
 	table.insert(lsps_to_install, "kotlin_language_server")
 else
 	-- Ruby

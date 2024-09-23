@@ -2,10 +2,6 @@ local util = require("util.functions")
 local flavour = "auto" -- latte, frappe, macchiato, mocha
 if util.is_ssh() then
 	flavour = "frappe"
-else
-	if util.is_macos() and util.is_wifi_ssid("FN%-BYOD") then
-		flavour = "latte"
-	end
 end
 
 return {
