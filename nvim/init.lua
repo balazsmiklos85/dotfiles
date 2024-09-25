@@ -5,6 +5,7 @@ vim.cmd([[set linebreak]])
 vim.cmd([[set conceallevel=1]])
 vim.cmd([[set number]])
 vim.cmd([[set list]])
+vim.cmd([[set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣]])
 
 require("config.lazy")
 require("config.mason")
