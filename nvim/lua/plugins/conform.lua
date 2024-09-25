@@ -13,7 +13,10 @@ return {
 	opts = {
 		formatters_by_ft = {
 			java = { "google-java-format" },
+			json = { "jsonnetfmt" },
 			lua = { "stylua" },
+
+			yaml = { "yamlfmt" },
 		},
 	},
 }

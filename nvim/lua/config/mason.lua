@@ -11,8 +11,12 @@ local tools_to_install = {
 	"google-java-format",
 	"java-debug-adapter",
 	"java-test",
+	-- JSON
+	"jsonnetfmt",
 	-- Lua
 	"stylua",
+	-- YAML
+	"yamlfmt",
 }
 
 if util.is_macos() then
