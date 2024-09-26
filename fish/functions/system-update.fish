@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 
-function init_opensuse
+function system-update
+    sudo zypper refresh
 	sudo zypper install --no-recommends \
 		bat \
 		docker \
@@ -47,5 +48,6 @@ function init_opensuse
         vim-data \
         vim-data-common \
         2>/dev/null
+    sudo zypper dist-upgrade --no-recommends
 end
 
