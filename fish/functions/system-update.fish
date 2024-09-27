@@ -13,6 +13,7 @@ function system-update
 		fzf \
 		git \
 		git-delta \
+        go \
 		graphviz \
 		jq \
 		lsd \
