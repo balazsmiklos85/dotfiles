@@ -12,6 +12,7 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
+			fish = { "fish_indent" },
 			java = { "google-java-format" },
 			json = { "jsonnetfmt" },
 			lua = { "stylua" },
