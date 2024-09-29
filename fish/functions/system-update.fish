@@ -2,43 +2,43 @@
 
 function system-update
     sudo zypper refresh
-	sudo zypper install --no-recommends \
-		bat \
-		docker \
-		docker-compose \
-		dust \
-		encfs \
-		fd \
-		fish \
-		fzf \
-		git \
-		git-delta \
+    sudo zypper install --no-recommends \
+        bat \
+        docker \
+        docker-compose \
+        dust \
+        encfs \
+        fd \
+        fish \
+        fzf \
+        git \
+        git-delta \
         go \
-		graphviz \
-		jq \
-		lsd \
-		lynx \
-		mc \
-		neomutt \
-		neovim \
-		password-store \
-		powerline-fonts \
-		powertop \
-		ripgrep \
-		symbols-only-nerd-fonts \
-		syncthing \
-		thefuck \
-		traceroute \
-		w3m \
-		youtube-dl \
-		zoxide
-	if not [ -z "$DISPLAY" ]
-		sudo zypper install --no-recommends \
-			evince-plugin-djvudocument \
-			MozillaFirefox \
-			MozillaThunderbird
-	end
-	sudo zypper remove -u \
+        graphviz \
+        jq \
+        lsd \
+        lynx \
+        mc \
+        neomutt \
+        neovim \
+        password-store \
+        powerline-fonts \
+        powertop \
+        ripgrep \
+        symbols-only-nerd-fonts \
+        syncthing \
+        thefuck \
+        traceroute \
+        w3m \
+        youtube-dl \
+        zoxide
+    if not [ -z "$DISPLAY" ]
+        sudo zypper install --no-recommends \
+            evince-plugin-djvudocument \
+            MozillaFirefox \
+            MozillaThunderbird
+    end
+    sudo zypper remove -u \
         gvfs-backend-samba \
         samba \
         samba-ad-dc-libs \
@@ -47,8 +47,6 @@ function system-update
         samba-libs-python3 \
         vim \
         vim-data \
-        vim-data-common \
-        2>/dev/null
+        vim-data-common 2>/dev/null
     sudo zypper dist-upgrade --no-recommends
 end
-
