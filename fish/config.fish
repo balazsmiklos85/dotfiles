@@ -30,6 +30,7 @@ end
 alias cd='z'
 alias ls='lsd -al'
 alias tree='lsd --tree'
+alias cat='bat --style plain'
 
 source ~/.config/fish/secrets.fish
 
