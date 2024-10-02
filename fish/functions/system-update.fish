@@ -4,8 +4,6 @@ function system-update
     sudo zypper refresh
     sudo zypper install --no-recommends \
         bat \
-        docker \
-        docker-compose \
         dust \
         encfs \
         fd \
@@ -22,6 +20,7 @@ function system-update
         neomutt \
         neovim \
         password-store \
+        podman \
         powerline-fonts \
         powertop \
         ripgrep \
