@@ -30,6 +30,7 @@ function system-update
         traceroute \
         w3m \
         youtube-dl \
+        zellij \
         zoxide
     if not [ -z "$DISPLAY" ]
         sudo zypper install --no-recommends \
