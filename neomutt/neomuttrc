@@ -8,7 +8,7 @@ set imap_user = "`pass mail/personal/gmail/user`@gmail.com"
 set imap_pass = "`pass mail/personal/gmail/password`"
 set folder = "imaps://imap.gmail.com"
 set spoolfile = "+INBOX"
-set record = "+[Gmail]/Elküldött levelek"
+# set record = "+[Gmail]/Elküldött levelek"
 set postponed = "+[Gmail]/Piszkozatok"
 set trash = "+[Gmail]/Kuka"
 
