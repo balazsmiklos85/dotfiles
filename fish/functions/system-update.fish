@@ -39,6 +39,7 @@ function system-update
             MozillaThunderbird
     end
     sudo zypper remove -u \
+        icewm \
         gvfs-backend-samba \
         samba \
         samba-ad-dc-libs \
