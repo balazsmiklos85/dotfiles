@@ -21,13 +21,17 @@ if command -v fzf >/dev/null
     fzf --fish | source
 end
 
-zoxide init fish | source
+if command -v zoxide >/dev/null
+    zoxide init fish | source
+    alias cd='z'
+else
+    alias z='cd'
+end
 
 if command -v thefuck >/dev/null
     thefuck --alias | source
 end
 
-alias cd='z'
 alias ls='lsd -al'
 alias tree='lsd --tree'
 alias cat='bat --style plain'
