@@ -41,6 +41,7 @@ function system-update
     sudo zypper remove -u \
         icewm \
         gvfs-backend-samba \
+        remmina \
         samba \
         samba-ad-dc-libs \
         samba-client \
