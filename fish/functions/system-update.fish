@@ -117,6 +117,7 @@ function system-update
             samba \
             samba-ad-dc-libs \
             samba-client \
+            samba-client-libs \
             samba-libs \
             samba-libs-python3
     end
