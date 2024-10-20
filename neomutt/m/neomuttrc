@@ -1,6 +1,5 @@
 set editor = "nvim"
 auto_view text/html
-set sidebar_visible
 set from = "BALÁZS, Miklós <`pass mail/m/gmail/user`>"
 
 # IMAP settings
@@ -29,56 +28,38 @@ set ssl_use_tlsv1_2=yes
 set ssl_verify_dates=yes
 set ssl_verify_host=yes
 
-# general-doesn't-fit stuff
-color normal     color188 color237
-color error      color115 color236
-color markers    color142 color238
-color tilde      color108 color237
-color status     color144 color234
+color normal		  default default         # Text is "Text"
+color index		    color2 default ~N       # New Messages are Green
+color index		    color1 default ~F       # Flagged messages are Red
+color index		    color13 default ~T      # Tagged Messages are Red
+color index		    color1 default ~D       # Messages to delete are Red
+color attachment	color5 default          # Attachments are Pink
+color signature	  color8 default          # Signatures are Surface 2
+color search		  color4 default          # Highlighted results are Blue
 
-# index stuff
-color indicator  color108 color236
-color tree       color109 color237
-color index      color188 color237 ~A
-color index      color188 color237 ~N
-color index      color188 color237 ~O
-color index      color174 color237 ~F
-color index      color174 color237 ~D
+color indicator		default color8          # currently highlighted message Surface 2=Background Text=Foreground
+color error		    color1 default          # error messages are Red
+color status		  color15 default         # status line "Subtext 0"
+color tree        color15 default         # thread tree arrows Subtext 0
+color tilde       color15 default         # blank line padding Subtext 0
 
-# header stuff
-color hdrdefault color223 color237
-color header     color223 color237 "^Subject"
+color hdrdefault  color13 default         # default headers Pink
+color header		  color13 default "^From:"
+color header	 	  color13 default "^Subject:"
 
-# gpg stuff
-color body       color188 color237 "^gpg: Good signature.*"
-color body       color115 color236 "^gpg: BAD signature.*"
-color body       color174 color237 "^gpg: Can't check signature.*"
-color body       color174 color237 "^-----BEGIN PGP SIGNED MESSAGE-----"
-color body       color174 color237 "^-----BEGIN PGP SIGNATURE-----"
-color body       color174 color237 "^-----END PGP SIGNED MESSAGE-----"
-color body       color174 color237 "^-----END PGP SIGNATURE-----"
-color body       color174 color237 "^Version: GnuPG.*"
-color body       color174 color237 "^Comment: .*"
+color quoted		  color15 default         # Subtext 0
+color quoted1		  color7 default          # Subtext 1
+color quoted2		  color8 default          # Surface 2
+color quoted3		  color0 default          # Surface 1
+color quoted4		  color0 default
+color quoted5		  color0 default
 
-# url, email and web stuff
-color body       color174 color237 "(finger|ftp|http|https|news|telnet)://[^ >]*"
-color body       color174 color237 "<URL:[^ ]*>"
-color body       color174 color237 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
-color body       color174 color237 "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
-color body       color174 color237 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body		color2 default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses Green
+color body	  color2 default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs Green
+color body		color4 default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text Blue
+color body		color4 default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text Blue
+color body		color4 default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text Blue
 
-# misc body stuff
-color attachment color174 color237 #Add-ons to the message
-color signature  color223 color237
+color sidebar_flagged   color1 default    # Mailboxes with flagged mails are Red
+color sidebar_new       color10 default   # Mailboxes with new mail are Green
 
-# quote levels
-color quoted     color108 color237
-color quoted1    color116 color237
-color quoted2    color247 color237
-color quoted3    color108 color237
-color quoted4    color116 color237
-color quoted5    color247 color237
-color quoted6    color108 color237
-color quoted7    color116 color237
-color quoted8    color247 color237
-color quoted9    color108 color237
