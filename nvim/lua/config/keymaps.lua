@@ -16,6 +16,19 @@ wk.add({
 	{ "<leader>on", desc = "New", mode = "n" },
 })
 
+vim.keymap.set("n", "<leader>sh", ":setlocal spell spelllang=hu<CR>")
+vim.keymap.set("n", "<leader>se", ":setlocal spell spelllang=en_us<CR>")
+vim.keymap.set("n", "<leader>sb", ":setlocal spell spelllang=en_gb<CR>")
+vim.keymap.set("n", "<leader>sg", ":setlocal spell spelllang=de<CR>")
+
+wk.add({
+	{ "<leader>s", group = "Spell check" },
+	{ "<leader>sh", desc = "Hungarian", mode = "n" },
+	{ "<leader>se", desc = "American English", mode = "n" },
+	{ "<leader>sb", desc = "British English", mode = "n" },
+	{ "<leader>sg", desc = "German", mode = "n" },
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
