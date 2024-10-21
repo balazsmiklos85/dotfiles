@@ -6,6 +6,7 @@ set -gx FZF_ALT_C_COMMAND "fd -t d . $HOME"
 
 set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.sdkman $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 
 if [ (uname) = Darwin ]
     set -gx PATH /opt/homebrew/bin $PATH
