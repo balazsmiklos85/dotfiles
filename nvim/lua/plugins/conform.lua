@@ -12,12 +12,15 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
+			css = { "prettier" },
 			fish = { "fish_indent" },
+			html = { "prettier" },
 			java = { "google-java-format" },
-			json = { "jsonnetfmt" },
+			javascript = { "prettier" },
+			json = { "prettier" },
 			lua = { "stylua" },
-
-			yaml = { "yamlfmt" },
+			markdown = { "prettier" },
+			yaml = { "prettier" },
 		},
 	},
 }

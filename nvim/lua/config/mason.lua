@@ -7,16 +7,14 @@ local lsps_to_install = {
 	"lua_ls",
 }
 local tools_to_install = {
+	-- HTML, JavaScript, CSS, GraphQL, JSON, YAML, Markdown
+	"prettier",
 	-- Java
 	"google-java-format",
 	"java-debug-adapter",
 	"java-test",
-	-- JSON
-	"jsonnetfmt",
 	-- Lua
 	"stylua",
-	-- YAML
-	"yamlfmt",
 }
 
 if util.is_macos() then
