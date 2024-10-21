@@ -27,8 +27,6 @@ else
 	table.insert(lsps_to_install, "ruby_lsp")
 	table.insert(lsps_to_install, "sorbet")
 	table.insert(lsps_to_install, "solargraph")
-	-- Rust
-	table.insert(lsps_to_install, "rust_analyzer")
 end
 require("mason").setup()
 require("mason-lspconfig").setup({
