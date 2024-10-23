@@ -68,6 +68,9 @@ function system-update
     if ! command -v rg >/dev/null
         set packages_to_install $packages_to_install ripgrep
     end
+    if ! command -v cargo >/dev/null
+        set packages_to_install $packages_to_install cargo rust
+    end
     if ! fc-list | grep "Powerline" >/dev/null
         set packages_to_install $packages_to_install symbols-only-nerd-fonts
     end
