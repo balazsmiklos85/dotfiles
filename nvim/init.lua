@@ -5,6 +5,7 @@ vim.cmd([[set linebreak]])
 vim.cmd([[set conceallevel=1]])
 vim.cmd([[set number]])
 vim.cmd([[set list]])
+vim.cmd([[autocmd FileType mail setlocal textwidth=0]])
 
 require("config.lazy")
 require("config.mason")
