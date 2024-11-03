@@ -7,12 +7,14 @@ wk.add({
 	{ "<leader>f", group = "Find with Telescope" },
 })
 
-vim.keymap.set("n", "<leader>od", ":ObsidianDailies<CR>")
-vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>")
+vim.keymap.set("n", "<localleader>od", ":ObsidianDailies<CR>")
+vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
+vim.keymap.set("n", "<localleader>on", ":ObsidianNew<CR>")
 
 wk.add({
 	{ "<leader>o", group = "Notes" },
 	{ "<leader>od", desc = "Dailies", mode = "n" },
+	{ "<leader>of", desc = "Follow", mode = "n" },
 	{ "<leader>on", desc = "New", mode = "n" },
 })
 
