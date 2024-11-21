@@ -35,6 +35,9 @@ nvim/lazy-lock.json
 
 !waybar/**
 
+!zellij/**
+zellij/config.kdl.bak
+
 !Brewfile
 
 **/__pycache__/
