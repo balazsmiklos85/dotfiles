@@ -23,8 +23,6 @@ else
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
 	table.insert(lsps_to_install, "ruby_lsp")
-	table.insert(lsps_to_install, "sorbet")
-	table.insert(lsps_to_install, "solargraph")
 end
 require("mason").setup()
 require("mason-lspconfig").setup({
