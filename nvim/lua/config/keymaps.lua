@@ -7,16 +7,18 @@ wk.add({
 	{ "<leader>f", group = "Find with Telescope" },
 })
 
-vim.keymap.set("n", "<localleader>od", ":ObsidianDailies<CR>")
-vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
-vim.keymap.set("n", "<localleader>on", ":ObsidianNew<CR>")
+if package.loaded["obsidian"] then
+	vim.keymap.set("n", "<localleader>od", ":ObsidianDailies<CR>")
+	vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
+	vim.keymap.set("n", "<localleader>on", ":ObsidianNew<CR>")
 
-wk.add({
-	{ "<leader>o", group = "Notes" },
-	{ "<leader>od", desc = "Dailies", mode = "n" },
-	{ "<leader>of", desc = "Follow", mode = "n" },
-	{ "<leader>on", desc = "New", mode = "n" },
-})
+	wk.add({
+		{ "<leader>o", group = "Notes" },
+		{ "<leader>od", desc = "Dailies", mode = "n" },
+		{ "<leader>of", desc = "Follow", mode = "n" },
+		{ "<leader>on", desc = "New", mode = "n" },
+	})
+end
 
 vim.keymap.set("n", "<leader>sh", ":setlocal spell spelllang=hu<CR>")
 vim.keymap.set("n", "<leader>se", ":setlocal spell spelllang=en_us<CR>")
