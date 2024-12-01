@@ -22,5 +22,8 @@ return {
 			markdown = { "prettier" },
 			yaml = { "prettier" },
 		},
+		default_format_opts = {
+			timeout_ms = 20000,
+		},
 	},
 }
