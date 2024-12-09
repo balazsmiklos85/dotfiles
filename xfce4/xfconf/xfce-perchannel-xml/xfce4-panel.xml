@@ -4,9 +4,9 @@
   <property name="configver" type="empty"/>
   <property name="panels" type="empty">
     <property name="panel-1" type="empty">
-      <property name="position" type="empty"/>
+      <property name="position" type="string" value="p=6;x=1280;y=13"/>
       <property name="length" type="empty"/>
-      <property name="position-locked" type="empty"/>
+      <property name="position-locked" type="bool" value="true"/>
       <property name="size" type="empty"/>
       <property name="length-adjust" type="empty"/>
       <property name="plugin-ids" type="array">
@@ -41,7 +41,9 @@
       <property name="expand" type="empty"/>
       <property name="style" type="empty"/>
     </property>
-    <property name="plugin-6" type="empty"/>
+    <property name="plugin-6" type="empty">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
     <property name="plugin-14" type="empty"/>
     <property name="plugin-13" type="string" value="launcher">
       <property name="items" type="array">
@@ -53,6 +55,9 @@
       <property name="square-icons" type="empty"/>
       <property name="icon-size" type="empty"/>
       <property name="symbolic-icons" type="empty"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
+      </property>
     </property>
     <property name="plugin-15" type="string" value="launcher">
       <property name="menu-is-primary" type="empty"/>
@@ -70,6 +75,10 @@
     <property name="plugin-10" type="empty">
       <property name="show-frame" type="empty"/>
       <property name="digital-format" type="empty"/>
+      <property name="digital-time-format" type="string" value="%Y-%m-%d %H:%M:%S"/>
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="timezone" type="string" value="Europe/Budapest"/>
+      <property name="tooltip-format" type="string" value="%x"/>
     </property>
     <property name="plugin-11" type="empty">
       <property name="style" type="empty"/>
