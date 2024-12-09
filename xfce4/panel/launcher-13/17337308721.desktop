@@ -2,6 +2,7 @@
 Categories=Network;WebBrowser;GTK;
 Encoding=UTF-8
 Name=Firefox
+Name[hu]=Firefox
 GenericName=Web Browser
 GenericName[hu]=Webböngésző
 Comment=Browse the Web
