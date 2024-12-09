@@ -35,6 +35,13 @@ nvim/lazy-lock.json
 
 !waybar/**
 
+!xfce4/**
+xfce4/desktop/icons.screen0-2544x1399.rc
+xfce4/desktop/icons.screen.latest.rc
+xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
+xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+xfce4/xfce4-screenshooter
+
 !zellij/**
 zellij/config.kdl.bak
 

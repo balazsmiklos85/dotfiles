@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="empty"/>
+  <property name="panels" type="empty">
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=1280;y=13"/>
+      <property name="length" type="empty"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="empty"/>
+      <property name="length-adjust" type="empty"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="12"/>
+        <value type="int" value="8"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+        <value type="int" value="7"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="14"/>
+      </property>
+    </property>
+    <property name="dark-mode" type="bool" value="true"/>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="empty">
+      <property name="command-switchuser" type="string" value="dm-tool switch-to-greeter"/>
+      <property name="favorites" type="array">
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+        <value type="string" value="md.obsidian.Obsidian.desktop"/>
+        <value type="string" value="steam.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+        <value type="string" value="org.keepassxc.KeePassXC.desktop"/>
+      </property>
+      <property name="recent" type="array">
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+        <value type="string" value="thunderbird-esr.desktop"/>
+        <value type="string" value="xfce-settings-manager.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+        <value type="string" value="md.obsidian.Obsidian.desktop"/>
+        <value type="string" value="steam.desktop"/>
+        <value type="string" value="chromium-browser.desktop"/>
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="virtualbox.desktop"/>
+        <value type="string" value="torbrowser.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-2" type="empty">
+      <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-3" type="empty"/>
+    <property name="plugin-4" type="empty">
+      <property name="flat-buttons" type="empty"/>
+      <property name="show-handle" type="empty"/>
+      <property name="grouping" type="bool" value="false"/>
+    </property>
+    <property name="plugin-5" type="empty">
+      <property name="expand" type="empty"/>
+      <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-6" type="empty">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="firefox.instance2686"/>
+      <property name="known-players" type="string" value="audacious;firefox;Firefox;vlc;VLC médialejátszó"/>
+    </property>
+    <property name="plugin-14" type="empty"/>
+    <property name="plugin-13" type="empty"/>
+    <property name="plugin-7" type="empty">
+      <property name="show-frame" type="empty"/>
+      <property name="square-icons" type="empty"/>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="symbolic-icons" type="empty"/>
+      <property name="known-items" type="array">
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="com.hunterwittenborn.Celeste"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="nm-applet"/>
+      </property>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="trgui-ng"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (73%)"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (100%)"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (65%)"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (59%)"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (71%)"/>
+        <value type="string" value="javaembeddedframe"/>
+        <value type="string" value="xfce terminál"/>
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (69%)"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="pidgin"/>
+      </property>
+    </property>
+    <property name="plugin-15" type="empty">
+      <property name="menu-is-primary" type="empty"/>
+      <property name="square-icons" type="empty"/>
+      <property name="icon-size" type="empty"/>
+      <property name="symbolic-icons" type="empty"/>
+    </property>
+    <property name="plugin-8" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17230462911.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-9" type="empty">
+      <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-10" type="empty">
+      <property name="show-frame" type="empty"/>
+      <property name="digital-format" type="empty"/>
+      <property name="digital-time-format" type="string" value="%T"/>
+      <property name="digital-layout" type="uint" value="0"/>
+      <property name="tooltip-format" type="string" value="%x"/>
+    </property>
+    <property name="plugin-11" type="empty">
+      <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-12" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17233014691.desktop"/>
+      </property>
+    </property>
+  </property>
+</channel>
