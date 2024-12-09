@@ -27,15 +27,26 @@
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-1" type="empty"/>
+    <property name="plugin-1" type="empty">
+      <property name="favorites" type="array">
+      </property>
+      <property name="recent" type="array">
+      </property>
+      <property name="view-mode" type="int" value="1"/>
+      <property name="default-category" type="int" value="2"/>
+      <property name="recent-items-max" type="int" value="0"/>
+    </property>
     <property name="plugin-2" type="empty">
       <property name="style" type="empty"/>
     </property>
     <property name="plugin-3" type="empty"/>
     <property name="plugin-4" type="empty">
-      <property name="flat-buttons" type="empty"/>
+      <property name="flat-buttons" type="bool" value="true"/>
       <property name="show-handle" type="empty"/>
-      <property name="grouping" type="empty"/>
+      <property name="grouping" type="bool" value="false"/>
+      <property name="sort-order" type="uint" value="4"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
     </property>
     <property name="plugin-5" type="empty">
       <property name="expand" type="empty"/>
