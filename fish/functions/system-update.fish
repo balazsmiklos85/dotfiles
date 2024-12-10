@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+!/usr/bin/fish
 
 function system-update
     sudo zypper refresh
@@ -59,7 +59,7 @@ function system-update
     if ! command -v podman >/dev/null
         set packages_to_install $packages_to_install podman
     end
-    if ! fc-list | grep "Powerline" >/dev/null
+    if ! fc-list | grep Powerline >/dev/null
         set packages_to_install $packages_to_install powerline-fonts
     end
     if ! test -f /usr/sbin/powertop >/dev/null
@@ -71,7 +71,7 @@ function system-update
     if ! command -v cargo >/dev/null
         set packages_to_install $packages_to_install cargo rust
     end
-    if ! fc-list | grep "Powerline" >/dev/null
+    if ! fc-list | grep Powerline >/dev/null
         set packages_to_install $packages_to_install symbols-only-nerd-fonts
     end
     if ! command -v syncthing >/dev/null
@@ -101,7 +101,7 @@ function system-update
             set packages_to_install $packages_to_install MozillaFirefox
         end
         if ! zypper search --installed-only evince-plugin-djvudocument >/dev/null
-          set packages_to_install $packages_to_install evince-plugin-djvudocument
+            set packages_to_install $packages_to_install evince-plugin-djvudocument
         end
         if ! command -v thunderbird >/dev/null
             set packages_to_install $packages_to_install MozillaThunderbird
