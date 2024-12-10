@@ -150,4 +150,6 @@ function system-update
     else
         echo "Unsupported distribution: $distro"
     end
+
+    zypper ps -s
 end
