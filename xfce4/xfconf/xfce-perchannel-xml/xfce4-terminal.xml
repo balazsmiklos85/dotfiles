@@ -56,6 +56,6 @@
   <property name="dropdown-show-borders" type="bool" value="true"/>
   <property name="background-image-shading" type="double" value="0.94999999999999996"/>
   <property name="background-image-style" type="string" value="TERMINAL_BACKGROUND_STYLE_FILLED"/>
-  <property name="background-image-file" type="string" value="~/.local/share/wallpaper"/>
+  <property name="background-image-file" type="string" value="$HOME/.local/share/wallpaper"/>
   <property name="dropdown-position-vertical" type="uint" value="0"/>
 </channel>
