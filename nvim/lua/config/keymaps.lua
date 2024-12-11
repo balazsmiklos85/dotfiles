@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<localleader>D", vim.lsp.buf.type_definition, opts)
 		vim.keymap.set("n", "<localleader>rn", vim.lsp.buf.rename, opts)
 		vim.keymap.set({ "n", "v" }, "<localleader>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "<localleader>cf", vim.lsp.buf.format, opts)
 		vim.keymap.set("n", "<localleader>gr", vim.lsp.buf.references, opts)
 
 		wk.add({
@@ -63,6 +64,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ "<localleader>D", desc = "Type definition", mode = "n" },
 			{ "<localleader>rn", desc = "Rename", mode = "n" },
 			{ "<localleader>ca", desc = "Code action", mode = "nv" },
+			{ "<localleader>cf", desc = "Format", mode = "n" },
 		})
 	end,
 })
