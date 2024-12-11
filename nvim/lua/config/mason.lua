@@ -23,6 +23,8 @@ else
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
 	table.insert(lsps_to_install, "ruby_lsp")
+	-- Rust
+	table.insert(lsps_to_install, "rust_analyzer")
 end
 require("mason").setup()
 require("mason-lspconfig").setup({
