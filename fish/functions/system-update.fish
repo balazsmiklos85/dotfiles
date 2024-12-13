@@ -1,4 +1,4 @@
-!/usr/bin/fish
+#!/usr/bin/fish
 
 function system-update
     sudo zypper refresh
