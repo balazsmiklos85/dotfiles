@@ -4,6 +4,7 @@ local sonarlint_analyzers_path = mason_path .. "/share/sonarlint-analyzers/"
 
 return {
   'https://gitlab.com/schrieveslaach/sonarlint.nvim',
+  ft = 'java',
   dependencies = {
     'neovim/nvim-lspconfig'
   },
