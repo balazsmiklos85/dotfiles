@@ -25,6 +25,7 @@ else
 	table.insert(lsps_to_install, "ruby_lsp")
 	-- Rust
 	table.insert(lsps_to_install, "rust_analyzer")
+	table.insert(tools_to_install, "codelldb")
 end
 require("mason").setup()
 require("mason-lspconfig").setup({
