@@ -38,9 +38,37 @@ tooltip {
     background: #010409;
 }
 
-#workspaces button:hover {
+*:hover {
     background: #010409;
     color: #cdd6f4;
+}
+
+#custom-opensuse-logo {
+    color: #73ba25;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#custom-firefox-private {
+    color: #7851a9;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#custom-firefox-personal {
+    color: #ff7f00;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#custom-keepass {
+    color: #008000;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 #window,

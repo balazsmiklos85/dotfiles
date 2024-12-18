@@ -5,10 +5,14 @@
   "margin": "5 5 0 5",
 
   "modules-left": [
-    "hyprland/workspaces"
+      "custom/opensuse-logo",
+    "custom/firefox-private",
+    "custom/firefox-personal",
+    "custom/keepass",
   ],
   "modules-center": [],
   "modules-right": [
+      "hyprland/workspaces",
     "clock"
   ],
 
@@ -24,14 +28,35 @@
       "7": "󰎸",
       "8": "󰎻",
       "9": "󰎾",
-      "10": "󰎣",
+      "10": "󰎣"
     },
     "active-only": false
+  },
+
+  "custom/opensuse-logo": {
+    "format": "",
+    "tooltip-format": "openSUSE"
+  },
+  "custom/keepass": {
+    "format": "",
+    "tooltip-format": "KeepassXC",
+    "on-click": "keepassxc"
+  },
+
+  "custom/firefox-private": {
+
+    "format": "󰈹",
+    "tooltip-format": "Firefox Private",
+    "on-click": "firefox -P private"
+  },
+  "custom/firefox-personal": {
+    "format": "󰈹",
+    "tooltip-format": "Firefox Personal",
+    "on-click": "firefox -P personal"
   },
   "clock": {
     "timezone": "Europe/Budapest",
     "format": "{:%Y-%m-%d %H:%M}",
-//    "tooltip-format": "<big>{:%Y-%m-%d %H:%M:%S}</big>"
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 }
