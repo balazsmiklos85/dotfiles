@@ -14,6 +14,7 @@
   "modules-right": [
       "hyprland/workspaces",
       "pulseaudio",
+      "network",
     "clock",
   ],
 
@@ -63,6 +64,20 @@
     "tooltip-format": "Firefox Personal",
     "on-click": "firefox -P personal"
   },
+"network": {
+    "interval": 60,
+    "format-wifi": "{icon}",
+    "format-ethernet": "{ipaddr}",
+    "format-disconnected": "󰲜",
+    "format-disabled": "󰱟",
+    "format-icons": [
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨"
+    ],
+    "tooltip-format": "{essid}"
+},
   "clock": {
     "timezone": "Europe/Budapest",
     "format": "{:%Y-%m-%d %H:%M}",
