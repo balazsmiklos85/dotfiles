@@ -64,6 +64,13 @@ tooltip {
     border-radius: 5px;
 }
 
+#custom-vlc {
+    color: #FF7900;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 #custom-keepass {
     color: #008000;
     font-size: 16px;

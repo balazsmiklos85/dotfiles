@@ -9,6 +9,7 @@
     "custom/firefox-private",
     "custom/firefox-personal",
     "custom/keepass",
+    "custom/vlc"
   ],
   "modules-center": [],
   "modules-right": [
@@ -63,6 +64,11 @@
     "format": "󰈹",
     "tooltip-format": "Firefox Personal",
     "on-click": "firefox -P personal"
+  },
+  "custom/vlc" : {
+    "format": "󰕼",
+    "tooltip-format": "VLC",
+    "on-click": "vlc"
   },
 "network": {
     "interval": 60,
