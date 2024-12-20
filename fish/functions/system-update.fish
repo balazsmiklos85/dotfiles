@@ -96,7 +96,10 @@ function system-update
         set packages_to_install $packages_to_install zoxide
     end
 
-    if not [ -z "$DISPLAY" ]
+    if [ -n "$DISPLAY" ]
+        if ! command -v hyprctl >/dev/null
+            set packages_to_install $packages_to_install hyprland waybar hyprshot
+        end
         if ! command -v firefox >/dev/null
             set packages_to_install $packages_to_install MozillaFirefox
         end
