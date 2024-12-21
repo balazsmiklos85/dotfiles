@@ -3,13 +3,13 @@ function switch_light
 
 	if test $status -eq 0
 		osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
-		set -g theme_color_scheme "Catppuccin Latte"
+		set -g theme_color_scheme catppuccin-latte
 		set -gx BAT_THEME "Catppuccin Latte"
 	else
 		if [ (uname) = "Darwin" ]
 			osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
 		end
-		set -g theme_color_scheme "Catppuccin Mocha"
+		set -g theme_color_scheme catppuccin-mocha
 		set -gx BAT_THEME "Catppuccin Mocha"
 	end
 end
