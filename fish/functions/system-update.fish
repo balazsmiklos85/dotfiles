@@ -5,6 +5,10 @@ function system-update
     set packages_to_install
     set packages_to_remove
 
+    if ! command -v alacritty >/dev/null
+        set packages_to_install $packages_to_install alacritty
+    end
+
     if ! command -v bat >/dev/null
         set packages_to_install $packages_to_install bat
     end
