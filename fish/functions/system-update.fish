@@ -5,10 +5,6 @@ function system-update
     set packages_to_install
     set packages_to_remove
 
-    if ! command -v alacritty >/dev/null
-        set packages_to_install $packages_to_install alacritty
-    end
-
     if ! command -v bat >/dev/null
         set packages_to_install $packages_to_install bat
     end
@@ -102,7 +98,7 @@ function system-update
 
     if [ -n "$DISPLAY" ]
         if ! command -v hyprctl >/dev/null
-            set packages_to_install $packages_to_install hyprland waybar hyprshot
+            set packages_to_install $packages_to_install hyprland waybar hyprshot alacritty
         end
         if ! command -v firefox >/dev/null
             set packages_to_install $packages_to_install MozillaFirefox
