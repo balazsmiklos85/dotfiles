@@ -18,6 +18,7 @@ return {
 			java = { "google-java-format" },
 			javascript = { "prettier" },
 			json = { "prettier" },
+			jsonc = { "prettier" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
 			yaml = { "prettier" },

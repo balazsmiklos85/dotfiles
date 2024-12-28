@@ -1,99 +1,93 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 20, // Adjust as needed
-  "margin": "5 5 0 5",
+    "layer": "top",
+    "position": "top",
+    "height": 20, // Adjust as needed
+    "margin": "5 5 0 5",
 
-  "modules-left": [
-    "custom/opensuse-logo",
-    "custom/firefox-private",
-    "custom/firefox-personal",
-    "custom/keepass",
-    "custom/vlc"
-  ],
-  "modules-center": [],
-  "modules-right": [
-      "hyprland/workspaces",
-      "pulseaudio",
-      "network",
-      "clock",
-      "custom/exit",
-  ],
+    "modules-left": [
+        "custom/opensuse-logo",
+        "custom/firefox-private",
+        "custom/firefox-personal",
+        "custom/keepass",
+        "custom/vlc",
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "hyprland/workspaces",
+        "pulseaudio",
+        "network",
+        "clock",
+        "custom/exit",
+    ],
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "󰎦",
-      "2": "󰎩",
-      "3": "󰎬",
-      "4": "󰎮",
-      "5": "󰎰",
-      "6": "󰎵",
-      "7": "󰎸",
-      "8": "󰎻",
-      "9": "󰎾",
-      "10": "󰎣"
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰎦",
+            "2": "󰎩",
+            "3": "󰎬",
+            "4": "󰎮",
+            "5": "󰎰",
+            "6": "󰎵",
+            "7": "󰎸",
+            "8": "󰎻",
+            "9": "󰎾",
+            "10": "󰎣",
+        },
+        "active-only": false,
     },
-    "active-only": false
-  },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
-            "default": ["", "", " "]
+            "default": ["", "", " "],
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
     },
-  "custom/opensuse-logo": {
-    "format": "",
-    "tooltip-format": "openSUSE"
-  },
-  "custom/keepass": {
-    "format": "",
-    "tooltip-format": "KeepassXC",
-    "on-click": "keepassxc"
-  },
+    "custom/opensuse-logo": {
+        "format": "",
+        "tooltip-format": "openSUSE",
+    },
+    "custom/keepass": {
+        "format": "",
+        "tooltip-format": "KeepassXC",
+        "on-click": "keepassxc",
+    },
 
-  "custom/firefox-private": {
+    "custom/firefox-private": {
+        "format": "󰈹",
+        "tooltip-format": "Firefox Private",
+        "on-click": "firefox -P private",
+    },
+    "custom/firefox-personal": {
+        "format": "󰈹",
+        "tooltip-format": "Firefox Personal",
+        "on-click": "firefox -P personal",
+    },
+    "custom/vlc": {
+        "format": "󰕼",
+        "tooltip-format": "VLC",
+        "on-click": "vlc",
+    },
+    "network": {
+        "interval": 60,
+        "format-wifi": "{icon}",
+        "format-ethernet": "{ipaddr}",
+        "format-disconnected": "󰲜",
+        "format-disabled": "󰱟",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format": "{essid}",
+    },
+    "clock": {
+        "timezone": "Europe/Budapest",
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
 
-    "format": "󰈹",
-    "tooltip-format": "Firefox Private",
-    "on-click": "firefox -P private"
-  },
-  "custom/firefox-personal": {
-    "format": "󰈹",
-    "tooltip-format": "Firefox Personal",
-    "on-click": "firefox -P personal"
-  },
-  "custom/vlc" : {
-    "format": "󰕼",
-    "tooltip-format": "VLC",
-    "on-click": "vlc"
-  },
-"network": {
-    "interval": 60,
-    "format-wifi": "{icon}",
-    "format-ethernet": "{ipaddr}",
-    "format-disconnected": "󰲜",
-    "format-disabled": "󰱟",
-    "format-icons": [
-        "󰤟",
-        "󰤢",
-        "󰤥",
-        "󰤨"
-    ],
-    "tooltip-format": "{essid}"
-},
-  "clock": {
-    "timezone": "Europe/Budapest",
-    "format": "{:%Y-%m-%d %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-
-  "custom/exit": {
-    "format": "",
-    "tooltip-format": "Exit Hyprland",
-    "on-click": "hyprctl dispatch exit"
-  }
+    "custom/exit": {
+        "format": "",
+        "tooltip-format": "Exit Hyprland",
+        "on-click": "hyprctl dispatch exit",
+    },
 }
