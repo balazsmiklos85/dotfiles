@@ -5,7 +5,7 @@
   "margin": "5 5 0 5",
 
   "modules-left": [
-      "custom/opensuse-logo",
+    "custom/opensuse-logo",
     "custom/firefox-private",
     "custom/firefox-personal",
     "custom/keepass",
@@ -16,7 +16,8 @@
       "hyprland/workspaces",
       "pulseaudio",
       "network",
-    "clock",
+      "clock",
+      "custom/exit",
   ],
 
   "hyprland/workspaces": {
@@ -89,4 +90,10 @@
     "format": "{:%Y-%m-%d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+
+  "custom/exit": {
+    "format": "",
+    "tooltip-format": "Exit Hyprland",
+    "on-click": "hyprctl dispatch exit"
+  }
 }

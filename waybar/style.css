@@ -46,35 +46,48 @@ tooltip {
 #custom-opensuse-logo {
     color: #a6e3a1;
     font-size: 16px;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
     border-radius: 5px;
 }
 
 #custom-firefox-private {
     color: #b4befe;
     font-size: 16px;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
     border-radius: 5px;
 }
 
 #custom-firefox-personal {
     color: #fab387;
     font-size: 16px;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
     border-radius: 5px;
 }
 
 #custom-vlc {
     color: #fab387;
     font-size: 16px;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
     border-radius: 5px;
 }
 
 #custom-keepass {
     color: #94e2d5;
     font-size: 16px;
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+#custom-exit {
+    color: #f38ba8;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 15px;
     border-radius: 5px;
 }
 
