@@ -14,6 +14,7 @@
     "modules-center": [],
     "modules-right": [
         "hyprland/workspaces",
+        "custom/updates",
         "pulseaudio",
         "network",
         "clock",
@@ -70,6 +71,10 @@
         "tooltip-format": "VLC",
         "on-click": "vlc",
     },
+    "custom/updates": {
+        "exec": "zypper lu | rg \"Current\" | awk '{print \"{\\\"text\\\":\\\"󰚰\\\", \\\"alert\\\":true, \\\"tooltip\\\":\\\"System updates available\\\"}\"}'",
+        "interval": 1800
+    }
     "network": {
         "interval": 60,
         "format-wifi": "{icon}",
