@@ -14,6 +14,7 @@
     "modules-center": [],
     "modules-right": [
         "hyprland/workspaces",
+        "custom/updates",
         "pulseaudio",
         "network",
         "clock",
@@ -69,6 +70,10 @@
         "format": "󰕼",
         "tooltip-format": "VLC",
         "on-click": "vlc",
+    },
+    "custom/updates": {
+        "exec": "zypper lu | rg '^v \\|' | wc -l | awk '{print \"󰚰 \" $1}'",
+        "interval": 1800
     },
     "network": {
         "interval": 60,
