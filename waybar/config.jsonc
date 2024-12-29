@@ -72,9 +72,9 @@
         "on-click": "vlc",
     },
     "custom/updates": {
-        "exec": "zypper lu | rg \"Current\" | awk '{print \"{\\\"text\\\":\\\"󰚰\\\", \\\"alert\\\":true, \\\"tooltip\\\":\\\"System updates available\\\"}\"}'",
+        "exec": "zypper lu | rg '^v \\|' | wc -l | awk '{print \"󰚰 \" $1}'",
         "interval": 1800
-    }
+    },
     "network": {
         "interval": 60,
         "format-wifi": "{icon}",
