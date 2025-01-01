@@ -8,6 +8,7 @@
         "custom/opensuse-logo",
         "custom/firefox-private",
         "custom/firefox-personal",
+        "custom/thunderbird",
         "custom/keepass",
         "custom/vlc",
     ],
@@ -66,6 +67,11 @@
         "tooltip-format": "Firefox Personal",
         "on-click": "firefox -P personal",
     },
+    "custom/thunderbird": {
+        "format": "",
+        "tooltip-format": "Thunderbird",
+        "on-click": "thunderbird",
+    },
     "custom/vlc": {
         "format": "󰕼",
         "tooltip-format": "VLC",
@@ -73,7 +79,7 @@
     },
     "custom/updates": {
         "exec": "zypper lu | rg '^v \\|' | wc -l | awk '{print \"󰚰 \" $1}'",
-        "interval": 1800
+        "interval": 1800,
     },
     "network": {
         "interval": 60,

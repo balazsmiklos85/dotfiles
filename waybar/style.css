@@ -67,6 +67,14 @@ tooltip {
     border-radius: 5px;
 }
 
+#custom-thunderbird {
+    color: #89b4fa;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
 #custom-vlc {
     color: #fab387;
     font-size: 16px;
