@@ -20,22 +20,36 @@ tooltip {
 
 #workspaces button {
     padding: 5px;
-    color: #313244;
+    color: #585b70;
     margin-right: 5px;
 }
 
 #workspaces button.active {
     color: #a6adc8;
+    background: rgba(30, 30, 46, 0.8);
 }
 
 #workspaces button.focused {
     color: #a6adc8;
-    background: #010409;
+    background: rgba(30, 30, 46, 0.8);
 }
 
 #workspaces button.urgent {
     color: #11111b;
-    background: #010409;
+
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 *:hover {
