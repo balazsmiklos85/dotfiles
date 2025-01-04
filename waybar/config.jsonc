@@ -78,7 +78,7 @@
         "on-click": "vlc",
     },
     "custom/updates": {
-        "exec": "zypper lu | rg '^v \\|' | wc -l | awk '{print \"󰚰 \" $1}'",
+        "exec": "zypper lu | rg '^v\\s+\\|' | wc -l | awk '{print \"󰚰 \" $1}'",
         "interval": 1800,
     },
     "network": {
