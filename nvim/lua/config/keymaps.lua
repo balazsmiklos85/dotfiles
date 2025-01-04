@@ -11,12 +11,14 @@ if package.loaded["obsidian"] then
 	vim.keymap.set("n", "<localleader>od", ":ObsidianDailies<CR>")
 	vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
 	vim.keymap.set("n", "<localleader>on", ":ObsidianNew<CR>")
+	vim.keymap.set("n", "<localleader>ot", ":ObsidianTemplate<CR>")
 
 	wk.add({
 		{ "<leader>o", group = "Notes" },
 		{ "<leader>od", desc = "Dailies", mode = "n" },
 		{ "<leader>of", desc = "Follow", mode = "n" },
 		{ "<leader>on", desc = "New", mode = "n" },
+		{ "<leader>ot", desc = "Template", mode = "n" },
 	})
 end
 
