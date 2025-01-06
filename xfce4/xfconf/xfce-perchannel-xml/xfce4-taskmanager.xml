@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xfce4-taskmanager" version="1.0">
   <property name="columns" type="empty">
     <property name="sort-type" type="uint" value="1"/>
-    <property name="sort-id" type="uint" value="5"/>
+    <property name="sort-id" type="uint" value="6"/>
     <property name="column-uid" type="bool" value="true"/>
   </property>
   <property name="interface" type="empty">
     <property name="show-all-processes" type="bool" value="true"/>
     <property name="more-precision" type="bool" value="true"/>
   </property>
-  <property name="window-maximized" type="bool" value="false"/>
+  <property name="window-maximized" type="bool" value="true"/>
   <property name="window-width" type="int" value="1278"/>
   <property name="window-height" type="int" value="1390"/>
 </channel>
