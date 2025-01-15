@@ -11,9 +11,6 @@ function system-update
     if ! command -v dust >/dev/null
         set packages_to_install $packages_to_install dust
     end
-    if ! command -v encfs >/dev/null
-        set packages_to_install $packages_to_install encfs
-    end
     if ! command -v fd >/dev/null
         set packages_to_install $packages_to_install fd
     end
@@ -29,7 +26,7 @@ function system-update
     if ! command -v delta >/dev/null
         set packages_to_install $packages_to_install git-delta
     end
-    if ! command -v go >/dev/null
+    if ! command -v go >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install go
     end
     if ! command -v dot >/dev/null
@@ -41,13 +38,13 @@ function system-update
     if ! command -v lsd >/dev/null
         set packages_to_install $packages_to_install lsd
     end
-    if ! command -v lynx >/dev/null
+    if ! command -v lynx >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install lynx
     end
     if ! command -v mc >/dev/null
         set packages_to_install $packages_to_install mc
     end
-    if ! command -v neomutt >/dev/null
+    if ! command -v neomutt >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install neomutt
     end
     if ! command -v nvim >/dev/null
@@ -56,25 +53,18 @@ function system-update
     if ! command -v pass >/dev/null
         set packages_to_install $packages_to_install password-store
     end
-    if ! command -v podman >/dev/null
+    if ! command -v podman >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install podman
     end
-    if ! fc-list | grep Powerline >/dev/null
-        set packages_to_install $packages_to_install powerline-fonts
-    end
-    if ! test -f /usr/sbin/powertop >/dev/null
-        set packages_to_install $packages_to_install powertop
+    if ! is_wsl
+        if ! test -f /usr/sbin/powertop >/dev/null
+            set packages_to_install $packages_to_install powertop
+        end
     end
     if ! command -v rg >/dev/null
         set packages_to_install $packages_to_install ripgrep
     end
-    if ! command -v cargo >/dev/null
-        set packages_to_install $packages_to_install cargo rust
-    end
-    if ! fc-list | grep Powerline >/dev/null
-        set packages_to_install $packages_to_install symbols-only-nerd-fonts
-    end
-    if ! command -v syncthing >/dev/null
+    if ! command -v syncthing >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install syncthing
     end
     if ! command -v thefuck >/dev/null
@@ -86,7 +76,7 @@ function system-update
     if ! command -v w3m >/dev/null
         set packages_to_install $packages_to_install w3m
     end
-    if ! command -v youtube-dl >/dev/null
+    if ! command -v youtube-dl >/dev/null and ! is_wsl
         set packages_to_install $packages_to_install youtube-dl
     end
     if ! command -v zellij >/dev/null
@@ -96,18 +86,31 @@ function system-update
         set packages_to_install $packages_to_install zoxide
     end
 
-    if [ -n "$DISPLAY" ]
-        if ! command -v hyprctl >/dev/null
-            set packages_to_install $packages_to_install hyprland waybar hyprshot alacritty
+    if is_wsl
+        echo "Running in WSL..."
+    else
+        if ! command -v encfs >/dev/null
+            set packages_to_install $packages_to_install encfs
         end
-        if ! command -v firefox >/dev/null
-            set packages_to_install $packages_to_install MozillaFirefox
+        if ! command -v cargo >/dev/null
+            set packages_to_install $packages_to_install cargo rust
         end
-        if ! zypper search --installed-only evince-plugin-djvudocument >/dev/null
-            set packages_to_install $packages_to_install evince-plugin-djvudocument
+        if ! fc-list | grep Powerline >/dev/null
+            set packages_to_install $packages_to_install powerline-fonts symbols-only-nerd-fonts
         end
-        if ! command -v thunderbird >/dev/null
-            set packages_to_install $packages_to_install MozillaThunderbird
+        if test -n "$DISPLAY"
+            if ! command -v hyprctl >/dev/null
+                set packages_to_install $packages_to_install hyprland waybar hyprshot alacritty
+            end
+            if ! command -v firefox >/dev/null
+                set packages_to_install $packages_to_install MozillaFirefox
+            end
+            if ! zypper search --installed-only evince-plugin-djvudocument >/dev/null
+                set packages_to_install $packages_to_install evince-plugin-djvudocument
+            end
+            if ! command -v thunderbird >/dev/null
+                set packages_to_install $packages_to_install MozillaThunderbird
+            end
         end
     end
 
