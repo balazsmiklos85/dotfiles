@@ -1,3 +1,9 @@
+local util = require("util.functions")
+
+if util.is_macos() or util.is_wsl() then
+	return {}
+end
+
 return {
 	"Exafunction/codeium.vim",
 	event = "BufEnter",

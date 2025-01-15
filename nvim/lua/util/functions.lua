@@ -25,4 +25,8 @@ util.is_wifi_ssid = function (ssid)
 	return string.match(util.get_wifi_ssid(), ssid)
 end
 
+util.is_wsl = function ()
+	return os.getenv("WSL_DISTRO_NAME") ~= nil
+end
+
 return util

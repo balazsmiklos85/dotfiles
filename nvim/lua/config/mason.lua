@@ -17,8 +17,8 @@ local tools_to_install = {
 	"stylua",
 }
 
-if util.is_macos() then
-	table.insert(lsps_to_install, "kotlin_language_server")
+if util.is_macos() or util.is_wsl() then
+	-- table.insert(lsps_to_install, "kotlin_language_server")
 else
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
