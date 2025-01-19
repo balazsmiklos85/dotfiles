@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xfce4-panel" version="1.0">
   <property name="configver" type="empty"/>
@@ -67,22 +67,15 @@
       <property name="square-icons" type="empty"/>
       <property name="icon-size" type="empty"/>
       <property name="symbolic-icons" type="empty"/>
+      <property name="menu-is-primary" type="empty"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (73%)"/>
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
         <value type="string" value="blueman"/>
         <value type="string" value="vlc"/>
         <value type="string" value="steam"/>
-      </property>
-    </property>
-    <property name="plugin-15" type="string" value="launcher">
-      <property name="menu-is-primary" type="empty"/>
-      <property name="square-icons" type="empty"/>
-      <property name="icon-size" type="empty"/>
-      <property name="symbolic-icons" type="empty"/>
-      <property name="items" type="array">
-        <value type="string" value="17337310062.desktop"/>
       </property>
     </property>
     <property name="plugin-8" type="empty"/>
@@ -99,6 +92,15 @@
     </property>
     <property name="plugin-11" type="empty">
       <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-15" type="string" value="launcher">
+      <property name="menu-is-primary" type="empty"/>
+      <property name="square-icons" type="empty"/>
+      <property name="icon-size" type="empty"/>
+      <property name="symbolic-icons" type="empty"/>
+      <property name="items" type="array">
+        <value type="string" value="17337310062.desktop"/>
+      </property>
     </property>
   </property>
 </channel>
