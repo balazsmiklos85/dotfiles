@@ -26,26 +26,14 @@ function system-update
     if ! command -v delta >/dev/null
         set packages_to_install $packages_to_install git-delta
     end
-    if ! command -v go >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install go
-    end
-    if ! command -v dot >/dev/null
-        set packages_to_install $packages_to_install graphviz
-    end
     if ! command -v jq >/dev/null
         set packages_to_install $packages_to_install jq
     end
     if ! command -v lsd >/dev/null
         set packages_to_install $packages_to_install lsd
     end
-    if ! command -v lynx >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install lynx
-    end
     if ! command -v mc >/dev/null
         set packages_to_install $packages_to_install mc
-    end
-    if ! command -v neomutt >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install neomutt
     end
     if ! command -v nvim >/dev/null
         set packages_to_install $packages_to_install neovim
@@ -53,31 +41,14 @@ function system-update
     if ! command -v pass >/dev/null
         set packages_to_install $packages_to_install password-store
     end
-    if ! command -v podman >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install podman
-    end
-    if ! is_wsl
-        if ! test -f /usr/sbin/powertop >/dev/null
-            set packages_to_install $packages_to_install powertop
-        end
-    end
     if ! command -v rg >/dev/null
         set packages_to_install $packages_to_install ripgrep
-    end
-    if ! command -v syncthing >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install syncthing
     end
     if ! command -v thefuck >/dev/null
         set packages_to_install $packages_to_install thefuck
     end
     if ! test -f /usr/sbin/traceroute >/dev/null
         set packages_to_install $packages_to_install traceroute
-    end
-    if ! command -v w3m >/dev/null
-        set packages_to_install $packages_to_install w3m
-    end
-    if ! command -v youtube-dl >/dev/null and ! is_wsl
-        set packages_to_install $packages_to_install youtube-dl
     end
     if ! command -v zellij >/dev/null
         set packages_to_install $packages_to_install zellij
@@ -95,8 +66,39 @@ function system-update
         if ! command -v cargo >/dev/null
             set packages_to_install $packages_to_install cargo rust
         end
+        if ! command -v go >/dev/null
+            set packages_to_install $packages_to_install go
+        end
+        if ! command -v dot >/dev/null
+            set packages_to_install $packages_to_install graphviz
+        end
+
+        if ! command -v lynx >/dev/null and ! is_wsl
+            set packages_to_install $packages_to_install lynx
+        end
+
+        if ! command -v neomutt >/dev/null
+            set packages_to_install $packages_to_install neomutt
+        end
+
+        if ! command -v podman >/dev/null
+            set packages_to_install $packages_to_install podman
+        end
+
         if ! fc-list | grep Powerline >/dev/null
             set packages_to_install $packages_to_install powerline-fonts symbols-only-nerd-fonts
+        end
+        if ! test -f /usr/sbin/powertop >/dev/null
+            set packages_to_install $packages_to_install powertop
+        end
+        if ! command -v syncthing >/dev/null
+            set packages_to_install $packages_to_install syncthing
+        end
+        if ! command -v youtube-dl >/dev/null
+            set packages_to_install $packages_to_install youtube-dl
+        end
+        if ! command -v w3m >/dev/null
+            set packages_to_install $packages_to_install w3m
         end
         if test -n "$DISPLAY"
             if ! command -v hyprctl >/dev/null
