@@ -26,6 +26,9 @@ function system-update
     if ! command -v delta >/dev/null
         set packages_to_install $packages_to_install git-delta
     end
+    if ! command -v htop >/dev/null
+        set packages_to_install $packages_to_install htop
+    end
     if ! command -v jq >/dev/null
         set packages_to_install $packages_to_install jq
     end
