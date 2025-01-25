@@ -20,6 +20,8 @@ local tools_to_install = {
 if util.is_macos() or util.is_wsl() then
 	-- table.insert(lsps_to_install, "kotlin_language_server")
 else
+	-- Go
+	table.insert(lsps_to_install, "gopls")
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
 	table.insert(lsps_to_install, "ruby_lsp")
