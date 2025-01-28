@@ -125,10 +125,10 @@ function system-update
         set packages_to_remove $packages_to_remove icewm
     end
     if command -v remmina >/dev/null
-        set packages_to_install $packages_to_install remmina
+        set packages_to_remove $packages_to_remove remmina
     end
     if command -v samba >/dev/null
-        set packages_to_install $packages_to_install \
+        set packages_to_remove $packages_to_remove \
             gvfs-backend-samba \
             samba \
             samba-ad-dc-libs \
@@ -138,7 +138,7 @@ function system-update
             samba-libs-python3
     end
     if command -v vim >/dev/null
-        set packages_to_install $packages_to_install \
+        set packages_to_remove $packages_to_remove \
             vim \
             vim-data \
             vim-data-common
