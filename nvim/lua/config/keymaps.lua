@@ -7,6 +7,15 @@ wk.add({
 	{ "<leader>f", group = "Find with Telescope" },
 })
 
+vim.keymap.set("n", "<localleader>do", ":DiffviewOpen<CR>")
+vim.keymap.set("n", "<localleader>dc", ":DiffviewClose<CR>")
+
+wk.add({
+	{ "<localleader>d", group = "Diffview" },
+	{ "<localleader>do", desc = "Open diff view", mode = "n" },
+	{ "<localleader>dc", desc = "Close diff view", mode = "n" },
+})
+
 if package.loaded["obsidian"] then
 	vim.keymap.set("n", "<localleader>od", ":ObsidianDailies<CR>")
 	vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
