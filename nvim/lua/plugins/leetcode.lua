@@ -6,5 +6,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"MunifTanjim/nui.nvim",
 	},
-	opts = {},
+	opts = {
+		lang = 'rust',
+	},
 }
