@@ -62,6 +62,8 @@ function system-update
 
     if is_wsl
         echo "Running in WSL..."
+    else if is_vm
+        echo "Running in a VM..."
     else
         if ! command -v encfs >/dev/null
             set packages_to_install $packages_to_install encfs

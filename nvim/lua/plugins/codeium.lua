@@ -1,6 +1,6 @@
 local util = require("util.functions")
 
-if util.is_macos() or util.is_wsl() then
+if util.is_macos() or util.is_wsl() or util.is_vm() then
 	return {}
 end
 

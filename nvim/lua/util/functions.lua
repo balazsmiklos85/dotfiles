@@ -21,6 +21,18 @@ util.is_ssh = function()
 	return os.getenv("SSH_CLIENT") or os.getenv("SSH_TTY")
 end
 
+util.is_vm = function ()
+	local process_handle = io.popen("lsmod | rg vbox")
+
+	if process_handle == nil then
+		return false
+	end
+
+	local vbox = process_handle:read("*l")
+	process_handle:close()
+	return vbox:find("vbox") ~= nil
+end
+
 util.is_wifi_ssid = function (ssid)
 	return string.match(util.get_wifi_ssid(), ssid)
 end
