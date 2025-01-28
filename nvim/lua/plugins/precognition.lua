@@ -2,6 +2,18 @@ return {
 	"tris203/precognition.nvim",
 	event = "VeryLazy",
 	opts = {
+		cond = function()
+			local current_directory = vim.fn.getcwd()
+			for _, directory in ipairs({
+				"leetcode",
+			}) do
+				if current_directory:find(directory, 1, true) then
+					return false
+				end
+			end
+			return true
+		end,
+
 		startVisible = true,
 		showBlankVirtLine = true,
 		highlightColor = { link = "Comment" },
