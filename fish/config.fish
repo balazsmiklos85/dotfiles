@@ -42,4 +42,4 @@ alias tree='lsd --tree'
 alias cat='bat --style plain'
 
 source ~/.config/fish/secrets.fish
-start_ssh_agent
+
