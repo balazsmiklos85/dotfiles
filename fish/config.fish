@@ -16,6 +16,8 @@ else
     set -gx PATH $HOME/.rvm/gems/ruby-3.3.0/bin $PATH
 end
 
+set -gx XDG_DATA_DIRS /var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+
 set -gx MAILCAPS $HOME/.config/mailcap
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
