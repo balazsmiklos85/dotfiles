@@ -22,7 +22,7 @@ util.is_ssh = function()
 end
 
 util.is_vm = function ()
-	local process_handle = io.popen("lsmod | rg vbox")
+	local process_handle = io.popen("lsmod | rg vboxguest")
 
 	if process_handle == nil then
 		return false
