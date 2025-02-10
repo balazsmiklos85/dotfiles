@@ -8,6 +8,7 @@
         "custom/opensuse-logo",
         "custom/firefox-private",
         "custom/firefox-personal",
+        "custom/tor",
         "custom/thunderbird",
         "custom/keepass",
         "custom/vlc",
@@ -66,6 +67,11 @@
         "format": "󰈹",
         "tooltip-format": "Firefox Personal",
         "on-click": "firefox -P personal",
+    },
+    "custom/tor": {
+        "format": "",
+        "tooltip-format": "Tor Browser",
+        "on-click": "torbrowser-launcher",
     },
     "custom/thunderbird": {
         "format": "",
