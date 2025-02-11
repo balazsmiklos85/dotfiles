@@ -19,4 +19,5 @@
   <property name="font-name" type="string" value="Monospace 10"/>
   <property name="scrolling-unlimited" type="bool" value="true"/>
   <property name="misc-show-unsafe-paste-dialog" type="bool" value="false"/>
+  <property name="shortcuts-no-menukey" type="bool" value="true"/>
 </channel>
