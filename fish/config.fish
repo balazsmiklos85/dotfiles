@@ -40,5 +40,9 @@ if command -v thefuck >/dev/null
     thefuck --alias | source
 end
 
+if command -v bat >/dev/null
+    alias cat="bat --style plain"
+end
+
 source ~/.config/fish/secrets.fish
 
