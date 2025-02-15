@@ -20,4 +20,5 @@
   <property name="scrolling-unlimited" type="bool" value="true"/>
   <property name="misc-show-unsafe-paste-dialog" type="bool" value="false"/>
   <property name="shortcuts-no-menukey" type="bool" value="true"/>
+  <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
 </channel>
