@@ -21,6 +21,7 @@ return {
 			jsonc = { "prettier" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
+			typescript = { "prettier" },
 			yaml = { "prettier" },
 		},
 		default_format_opts = {
