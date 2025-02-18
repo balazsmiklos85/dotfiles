@@ -14,6 +14,8 @@ return {
 			"lua",
 			"ruby",
 			"rust",
+			"terraform",
+			"typescript",
 			"vim",
 			"xml",
 		},
