@@ -18,12 +18,9 @@ local tools_to_install = {
 }
 
 if util.is_macos() or util.is_wsl() or util.is_vm() then
-	-- table.insert(lsps_to_install, "kotlin_language_server")
 	table.insert(lsps_to_install, "angularls")
 	table.insert(lsps_to_install, "terraformls")
 else
-	-- Go
-	table.insert(lsps_to_install, "gopls")
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
 	table.insert(lsps_to_install, "ruby_lsp")
