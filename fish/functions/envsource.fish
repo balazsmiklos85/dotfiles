@@ -13,6 +13,7 @@ function envsource
             set -l key (string trim (string split -m1 "=" $line)[1])
             set -l value (string trim (string split -m1 "=" $line)[2..])
             if test -n "$key"
+                echo "Setting $key from $file..."
                 set -xg $key (string join "=" $value | string trim)
             end
         end
