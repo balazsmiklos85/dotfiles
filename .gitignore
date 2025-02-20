@@ -31,6 +31,8 @@ kitty/current-theme.conf
 !nvim/**
 nvim/lazy-lock.json
 
+nvm/
+
 !omf/**
 
 !thefuck/**
