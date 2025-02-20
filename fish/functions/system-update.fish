@@ -127,6 +127,9 @@ function system-update
     if command -v parole >/dev/null
         set packages_to_remove $packages_to_remove parole
     end
+    if command -v pragha >/dev/null
+        set packages_to_remove $packages_to_remove pragha
+    end
     if command -v remmina >/dev/null
         set packages_to_remove $packages_to_remove remmina
     end
