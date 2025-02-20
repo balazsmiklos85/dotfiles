@@ -69,6 +69,7 @@
       <property name="symbolic-icons" type="empty"/>
       <property name="menu-is-primary" type="empty"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="gigolo"/>
         <value type="string" value="wi-fi network connection “1. upcd1244ce” active: upcd1244ce (73%)"/>
         <value type="string" value="networkmanager applet"/>
       </property>
