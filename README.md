@@ -11,6 +11,6 @@ My very own configuration files. Organized to set up a Linux (openSUSE) environm
 5. Create SSH keys.
 6. Add the keys to https://github.com/settings/keys
 7. Clone the repository with `git clone git@github.com:balazsmiklos85/dotfiles.git`
-8. Move everything from `./dotfiles/` to `~/.config`, including the `.git` directory.
+8. Move everything from `./dotfiles/` to `~/.config`, including the `.git` directory with `rsync -av ./dotfiles/ ~/.config/`
 9. Log out and log in, or restart the whole system.
 10. Run `system-update`
