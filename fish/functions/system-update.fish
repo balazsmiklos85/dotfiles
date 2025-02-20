@@ -124,6 +124,9 @@ function system-update
     if command -v icewm >/dev/null
         set packages_to_remove $packages_to_remove icewm
     end
+    if command -v parole >/dev/null
+        set packages_to_remove $packages_to_remove parole
+    end
     if command -v remmina >/dev/null
         set packages_to_remove $packages_to_remove remmina
     end
