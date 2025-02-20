@@ -53,9 +53,6 @@ function system-update
     if ! test -f /usr/sbin/traceroute >/dev/null
         set packages_to_install $packages_to_install traceroute
     end
-    if ! command -v zellij >/dev/null
-        set packages_to_install $packages_to_install zellij
-    end
     if ! command -v zoxide >/dev/null
         set packages_to_install $packages_to_install zoxide
     end
