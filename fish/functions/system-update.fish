@@ -44,9 +44,9 @@ function system-update
     if ! command -v pass >/dev/null
         set packages_to_install $packages_to_install password-store
     end
-        if ! fc-list | grep Powerline >/dev/null
-            set packages_to_install $packages_to_install powerline-fonts symbols-only-nerd-fonts
-        end
+    if ! fc-list | grep Powerline >/dev/null
+        set packages_to_install $packages_to_install powerline-fonts symbols-only-nerd-fonts
+    end
     if ! command -v rg >/dev/null
         set packages_to_install $packages_to_install ripgrep
     end
