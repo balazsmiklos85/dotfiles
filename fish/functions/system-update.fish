@@ -149,6 +149,9 @@ function system-update
             vim-data \
             vim-data-common
     end
+    if command -v xfce4-dict >/dev/null
+        set packages_to_remove $packages_to_remove xfce4-dict
+    end
 
     if test (count $packages_to_install) -gt 0
         sudo zypper install --no-recommends $packages_to_install
