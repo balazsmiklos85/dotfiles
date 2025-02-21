@@ -123,8 +123,20 @@ function system-update
         end
     end
 
+    if command -v catfish >/dev/null
+        set packages_to_remove $packages_to_remove catfish
+    end
+    if command -v galculator >/dev/null
+        set packages_to_remove $packages_to_remove galculator
+    end
+    if command -v gigolo >/dev/null
+        set packages_to_remove $packages_to_remove gigolo
+    end
     if command -v icewm >/dev/null
         set packages_to_remove $packages_to_remove icewm
+    end
+    if command -v mousepad >/dev/null
+        set packages_to_remove $packages_to_remove mousepad
     end
     if command -v parole >/dev/null
         set packages_to_remove $packages_to_remove parole
@@ -144,6 +156,9 @@ function system-update
             samba-client-libs \
             samba-libs \
             samba-libs-python3
+    end
+    if command -v simple-scan >/dev/null
+        set packages_to_remove $packages_to_remove simple-scan
     end
     if command -v vim >/dev/null
         set packages_to_remove $packages_to_remove \
