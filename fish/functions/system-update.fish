@@ -69,6 +69,9 @@ function system-update
         if command -v thunderbird >/dev/null
             set packages_to_remove $packages_to_remove MozillaThunderbird
         end
+        if ! command -v xhost >/dev/null
+            set packages_to_install $packages_to_install xhost
+        end
     else
         if ! command -v encfs >/dev/null
             set packages_to_install $packages_to_install encfs
