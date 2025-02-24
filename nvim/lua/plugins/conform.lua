@@ -21,6 +21,7 @@ return {
 			jsonc = { "prettier" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
+			python = { "ruff" },
 			typescript = { "prettier" },
 			yaml = { "prettier" },
 		},

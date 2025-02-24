@@ -20,6 +20,11 @@ if vim.fn.executable("npm") == 1 then
 	table.insert(tools_to_install, "prettier")
 end
 
+if vim.fn.executable("pylsp") == 1 then
+	-- Python
+	table.insert(tools_to_install, "ruff")
+end
+
 if vim.fn.executable("rvm") == 1 then
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
