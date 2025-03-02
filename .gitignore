@@ -17,10 +17,6 @@
 
 !iterm2/settings/**
 
-!kitty/**
-kitty/*.bak
-kitty/current-theme.conf
-
 !lsd/**
 
 # $MAILCAPS
