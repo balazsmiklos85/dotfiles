@@ -112,7 +112,7 @@ function system-update
         end
         if test -n "$DISPLAY"
             if ! command -v hyprctl >/dev/null
-                set packages_to_install $packages_to_install hyprland waybar hyprshot alacritty
+                set packages_to_install $packages_to_install hyprland waybar hyprshot alacritty hyprpaper fuzzel
             end
             if ! command -v firefox >/dev/null
                 set packages_to_install $packages_to_install MozillaFirefox
