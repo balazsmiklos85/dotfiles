@@ -26,7 +26,7 @@ return {
 		},
 		notes_subdir = "új",
 		daily_notes = {
-			folder = "napló/" .. os.date("%Y/%m"),
+			folder = "personal/health and well-being/mental and emotional health/journaling/" .. os.date("%Y/%m"),
 			date_format = "%Y-%m-%d",
 			alias_format = "%B %-d, %Y",
 			template = nil,
