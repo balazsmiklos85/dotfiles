@@ -22,6 +22,8 @@ set -gx MAILCAPS $HOME/.config/mailcap
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 
+set -gx ZED_ALLOW_EMULATED_GPU 1
+
 set -g theme_date_format +'%Y-%m-%d %H:%M:%S %Z'
 
 if command -v dig >/dev/null
@@ -45,4 +47,3 @@ if command -v bat >/dev/null
 end
 
 source ~/.config/fish/secrets.fish
-
