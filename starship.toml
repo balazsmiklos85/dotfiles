@@ -87,7 +87,7 @@ symbol = " "
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "bg:surface2 fg:lavender"
 format = '[ $symbol $branch ]($style)'
 
