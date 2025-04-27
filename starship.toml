@@ -12,12 +12,12 @@ $git_status\
 $gradle\
 $java\
 $nodejs\
+$ruby\
 $rust\
-[](fg:surface0 bg:surface1)\
-$docker_context\
-[ ](fg:surface1 bg:base)\
+[ ](fg:surface0 bg:base)\
 """
 
+command_timeout = 5000
 palette = "catppuccin_mocha"
 
 # Disable the blank line at the start of the prompt
@@ -70,23 +70,6 @@ truncation_symbol = "…/"
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important 󰈙 " = " 󰈙 "
 
-[c]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:surface1 fg:blue"
-format = '[ $symbol $context ]($style)'
-
-[elixir]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
 style = "bg:surface2 fg:lavender"
@@ -96,49 +79,31 @@ format = '[ $symbol $branch ]($style)'
 style = "bg:surface2 fg:lavender"
 format = '[$all_status$ahead_behind ]($style)'
 
-[golang]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
-
 [gradle]
 symbol = " "
 style = "bg:surface0 fg:blue"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol($version) ]($style)'
 
 [java]
 symbol = " "
 style = "bg:surface0 fg:red"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
+format = '[ $symbol($version) ]($style)'
 
 [nodejs]
 symbol = ""
+style = "bg:surface0 fg:green"
 format = '[ $symbol ($version) ]($style)'
 
-[nim]
-symbol = "󰆥 "
+[ruby]
+detect_variables = []
+symbol = ""
+style = "bg:surface0 fg:red"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
+style = "bg:surface0 fg:peach"
 format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:overlay0 fg:base"
-format = '[ $time ]($style)'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
