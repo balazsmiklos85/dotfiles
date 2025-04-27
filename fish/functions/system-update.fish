@@ -50,6 +50,9 @@ function system-update
     if ! command -v rg >/dev/null
         set packages_to_install $packages_to_install ripgrep
     end
+    if ! command -v starship >/dev/null
+        set packages_to_install $packages_to_install starship
+    end
     if ! command -v thefuck >/dev/null
         set packages_to_install $packages_to_install thefuck
     end
