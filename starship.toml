@@ -61,6 +61,7 @@ truncation_symbol = "…/"
 "Képek" = " "
 "Videos" = "󰈰"
 "Videók" = "󰈰"
+"notes" = "󱞁 "
 
 [git_branch]
 symbol = ""
