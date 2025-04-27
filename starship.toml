@@ -40,7 +40,7 @@ format = '[ $symbol ]($style)'
 disabled = false
 
 [os.symbols]
-Macos = " "
+Macos = ""
 openSUSE = " "
 Windows = "󰍲 "
 
@@ -51,10 +51,16 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
+"Documents" = "󰈙"
+"Dokumentumok" = "󰈙"
 "Downloads" = " "
-"Music" = " "
+"Letöltések" = " "
+"Music" = " "
+"Zenék" = " "
 "Pictures" = " "
+"Képek" = " "
+"Videos" = "󰈰"
+"Videók" = "󰈰"
 
 [git_branch]
 symbol = ""
