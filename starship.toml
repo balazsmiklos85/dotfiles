@@ -43,6 +43,7 @@ disabled = false
 # represents the current operating system
 [os]
 style = 'bold fg:text bg:base'
+format = '[ $symbol ]($style)'
 disabled = false # Disabled by default
 
 [os.symbols]
