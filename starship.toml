@@ -29,7 +29,7 @@ palette = "catppuccin_mocha"
 show_always = true
 style_root = 'bold bg:surface0 fg:sky'
 style_user = 'bold bg:surface0 fg:blue'
-format = '[$user]($style)'
+format = '[ $user]($style)'
 disabled = false
 
 [hostname]
