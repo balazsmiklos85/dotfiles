@@ -3,6 +3,8 @@ $os\
 [](fg:base bg:surface0)\
 $username\
 $hostname\
+[ ](fg:surface1 bg:surface0)\
+
 [](fg:surface0 bg:surface1)\
 $directory\
 [](fg:surface1 bg:surface2)\
@@ -28,7 +30,7 @@ format = '[ $user]($style)'
 disabled = false
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = '[@$hostname ]($style)'
 trim_at = ""
 style = 'bold fg:blue bg:surface0'
