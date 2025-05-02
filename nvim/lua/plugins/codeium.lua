@@ -5,7 +5,7 @@ if util.is_macos() or util.is_wsl() or util.is_vm() then
 end
 
 return {
-	"Exafunction/codeium.vim",
+    "Exafunction/windsurf.vim",
 	event = "BufEnter",
 	cond = function()
 		local current_directory = vim.fn.getcwd()
