@@ -41,7 +41,7 @@ command = 'print_os_symbol'
 style = 'bold fg:text bg:base'
 format = '[ $output ]($style)'
 disabled = false
-when = 'true'
+when = true
 
 [directory]
 style = 'fg:pink bg:surface1'
