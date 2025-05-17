@@ -19,7 +19,7 @@ $rust\
 [ ](fg:surface0 bg:base)\
 """
 
-command_timeout = 5000
+command_timeout = 30000
 palette = "catppuccin_mocha"
 
 [username]
