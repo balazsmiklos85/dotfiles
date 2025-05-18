@@ -13,6 +13,6 @@ function print_os_symbol
         else
             set -gx OS_SYMBOL "?"
         end
-        echo $OS_SYMBOL
     end
+    echo $OS_SYMBOL
 end
