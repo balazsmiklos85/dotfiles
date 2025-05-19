@@ -37,7 +37,7 @@ style = 'bold fg:blue bg:surface0'
 disabled = false
 
 [custom.os]
-command = 'print_os_symbol'
+command = 'echo $OS_SYMBOL'
 style = 'bold fg:text bg:base'
 format = '[ $output ]($style)'
 disabled = false
