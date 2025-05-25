@@ -3,50 +3,50 @@
   become: true
 
   vars:
-    repositories:
-      - name: editors
-        baseurl: "https://download.opensuse.org/repositories/editors/"
-      - name: utilities
-        baseurl: "https://download.opensuse.org/repositories/utilities/"
-      - name: mozilla
-        baseurl: "https://download.opensuse.org/repositories/mozilla/"
-      - name: filesharing
-        baseurl: "https://download.opensuse.org/repositories/filesharing/"
-      - name: packman
-        baseurl: "https://ftp.gwdg.de/pub/linux/misc/packman/suse/"
-        packman: true
+      repositories:
+          - name: editors
+            baseurl: "https://download.opensuse.org/repositories/editors/"
+          - name: utilities
+            baseurl: "https://download.opensuse.org/repositories/utilities/"
+          - name: mozilla
+            baseurl: "https://download.opensuse.org/repositories/mozilla/"
+          - name: filesharing
+            baseurl: "https://download.opensuse.org/repositories/filesharing/"
+          - name: packman
+            baseurl: "https://ftp.gwdg.de/pub/linux/misc/packman/suse/"
+            packman: true
   tasks:
-    - name: Define repository URL
-      set_fact:
-        repo_url: >-
-          {% set base = item.baseurl %}
-          {% if item.packman is defined %}
-            {% if ansible_distribution_version is version_compare('15.6', '==') %}
-              {{ base }}openSUSE_Leap_15.6
-            {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
-              {{ base }}openSUSE_Tumbleweed
-            {% else %}
-              {{ base }}openSUSE_Leap_15.5 # Default for older/unrecognized Leap
-            {% endif %}
-          {% else %}
-            {% if ansible_distribution_version is version_compare('15.6', '==') %}
-              {{ base }}openSUSE_Leap_15.6/
-            {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
-              {{ base }}openSUSE_Tumbleweed/
-            {% else %}
-              {{ base }}openSUSE_Factory/ # Assuming Factory is generally the latest for others
-            {% endif %}
-          {% endif %}
-        repo_name: "{{ item.name }}"
+      - name: Define repository URL
+        set_fact:
+            repo_url: >-
+                {% set base = item.baseurl %}
+                {% if item.packman is defined %}
+                  {% if ansible_distribution_version is version_compare('15.6', '==') %}
+                    {{ base }}openSUSE_Leap_15.6
+                  {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
+                    {{ base }}openSUSE_Tumbleweed
+                  {% else %}
+                    {{ base }}openSUSE_Leap_15.5 # Default for older/unrecognized Leap
+                  {% endif %}
+                {% else %}
+                  {% if ansible_distribution_version is version_compare('15.6', '==') %}
+                    {{ base }}openSUSE_Leap_15.6/
+                  {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
+                    {{ base }}openSUSE_Tumbleweed/
+                  {% else %}
+                    {{ base }}openSUSE_Factory/ # Assuming Factory is generally the latest for others
+                  {% endif %}
+                {% endif %}
+            repo_name: "{{ item.name }}"
 
-      loop: "{{ repositories }}"
+        loop: "{{ repositories }}"
 
-    - name: Add the repository
-      zypper_repository:
-        name: "{{ repo_name }}"
-        repo: "{{ repo_url | trim }}"
-        state: present
-        disable_gpg_check: false
-        auto_import_keys: true
-      when: ansible_os_family == "Suse"
-      loop: "{{ repositories }}"
+      - name: Add the repository
+        zypper_repository:
+            name: "{{ repo_name }}"
+            repo: "{{ repo_url | trim }}"
+            state: present
+            disable_gpg_check: false
+            auto_import_keys: true
+        when: ansible_os_family == "Suse"
+        loop: "{{ repositories }}"
