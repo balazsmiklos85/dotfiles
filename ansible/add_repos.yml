@@ -1,26 +1,52 @@
-- name: Ensure 'editors' repository is added
+- name: Ensure essential repositories are added
   hosts: localhost
   become: true
 
+  vars:
+    repositories:
+      - name: editors
+        baseurl: "https://download.opensuse.org/repositories/editors/"
+      - name: utilities
+        baseurl: "https://download.opensuse.org/repositories/utilities/"
+      - name: mozilla
+        baseurl: "https://download.opensuse.org/repositories/mozilla/"
+      - name: filesharing
+        baseurl: "https://download.opensuse.org/repositories/filesharing/"
+      - name: packman
+        baseurl: "https://ftp.gwdg.de/pub/linux/misc/packman/suse/"
+        packman: true
   tasks:
-    - name: Define repository URL based on openSUSE version
+    - name: Define repository URL
       set_fact:
-        editors_repo_url: >-
-          {% if ansible_distribution_version is version_compare('15.6', '==') %}
-            https://download.opensuse.org/repositories/editors/openSUSE_Leap_15.6/
-          {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
-            https://download.opensuse.org/repositories/editors/openSUSE_Tumbleweed/
+        repo_url: >-
+          {% set base = item.baseurl %}
+          {% if item.packman is defined %}
+            {% if ansible_distribution_version is version_compare('15.6', '==') %}
+              {{ base }}openSUSE_Leap_15.6
+            {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
+              {{ base }}openSUSE_Tumbleweed
+            {% else %}
+              {{ base }}openSUSE_Leap_15.5 # Default for older/unrecognized Leap
+            {% endif %}
           {% else %}
-            # Default URL or handle unsupported versions
-            https://download.opensuse.org/repositories/editors/openSUSE_Factory
+            {% if ansible_distribution_version is version_compare('15.6', '==') %}
+              {{ base }}openSUSE_Leap_15.6/
+            {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
+              {{ base }}openSUSE_Tumbleweed/
+            {% else %}
+              {{ base }}openSUSE_Factory/ # Assuming Factory is generally the latest for others
+            {% endif %}
           {% endif %}
-        editors_repo_name: editors
+        repo_name: "{{ item.name }}"
 
-    - name: Add the 'editors' repository
+      loop: "{{ repositories }}"
+
+    - name: Add the repository
       zypper_repository:
-        name: "{{ editors_repo_name }}"
-        repo: "{{ editors_repo_url | trim }}"
+        name: "{{ repo_name }}"
+        repo: "{{ repo_url | trim }}"
         state: present
         disable_gpg_check: false
         auto_import_keys: true
       when: ansible_os_family == "Suse"
+      loop: "{{ repositories }}"
