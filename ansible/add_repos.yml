@@ -1,0 +1,26 @@
+- name: Ensure 'editors' repository is added
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: Define repository URL based on openSUSE version
+      set_fact:
+        editors_repo_url: >-
+          {% if ansible_distribution_version is version_compare('15.6', '==') %}
+            https://download.opensuse.org/repositories/editors/openSUSE_Leap_15.6/
+          {% elif ansible_distribution == 'openSUSE Tumbleweed' %}
+            https://download.opensuse.org/repositories/editors/openSUSE_Tumbleweed/
+          {% else %}
+            # Default URL or handle unsupported versions
+            https://download.opensuse.org/repositories/editors/openSUSE_Factory
+          {% endif %}
+        editors_repo_name: editors
+
+    - name: Add the 'editors' repository
+      zypper_repository:
+        name: "{{ editors_repo_name }}"
+        repo: "{{ editors_repo_url | trim }}"
+        state: present
+        disable_gpg_check: false
+        auto_import_keys: true
+      when: ansible_os_family == "Suse"
