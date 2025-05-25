@@ -1,6 +1,7 @@
 #!/usr/bin/fish
 
 function system-update
+    ansible-playbook --ask-become-pass ~/.config/ansible/add_repos.yml
     sudo zypper refresh
     set packages_to_install
     set packages_to_remove
