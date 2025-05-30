@@ -9,6 +9,7 @@
             baseurl: "https://download.opensuse.org/repositories/editors/"
           - name: utilities
             baseurl: "https://download.opensuse.org/repositories/utilities/"
+            use_factory: true
           - name: mozilla
             baseurl: "https://download.opensuse.org/repositories/mozilla/"
           - name: filesharing
@@ -27,7 +28,7 @@
       - name: Add repositories
         zypper_repository:
             name: "{{ item.name }}"
-            repo: "{% set base = item.baseurl %}{% if item.packman is defined %}{% if ansible_distribution_version is version_compare('15.6', '==') %}{{ base }}openSUSE_Leap_15.6{% elif ansible_distribution == 'openSUSE Tumbleweed' %}{{ base }}openSUSE_Tumbleweed{% else %}{{ base }}openSUSE_Leap_15.5{% endif %}{% else %}{% if ansible_distribution_version is version_compare('15.6', '==') %}{{ base }}openSUSE_Leap_15.6/{% elif ansible_distribution == 'openSUSE Tumbleweed' %}{{ base }}openSUSE_Tumbleweed/{% else %}{{ base }}openSUSE_Tumbleweed/{% endif %}{% endif %}"
+            repo: "{% set base = item.baseurl %}{% if item.packman is defined %}{% if ansible_distribution_version is version_compare('15.6', '==') %}{{ base }}openSUSE_Leap_15.6{% elif ansible_distribution == 'openSUSE Tumbleweed' %}{{ base }}openSUSE_Tumbleweed{% else %}{{ base }}openSUSE_Leap_15.5{% endif %}{% else %}{% if ansible_distribution_version is version_compare('15.6', '==') %}{{ base }}openSUSE_Leap_15.6/{% elif ansible_distribution == 'openSUSE Tumbleweed' %}{% if item.use_factory is defined and item.use_factory %}{% if ansible_architecture in ['aarch64', 'arm64', 'armv7l'] %}{{ base }}openSUSE_Factory_ARM/{% else %}{{ base }}openSUSE_Factory/{% endif %}{% else %}{{ base }}openSUSE_Tumbleweed/{% endif %}{% else %}{{ base }}openSUSE_Leap_15.5/{% endif %}{% endif %}"
             state: present
             disable_gpg_check: false
             auto_import_keys: true
