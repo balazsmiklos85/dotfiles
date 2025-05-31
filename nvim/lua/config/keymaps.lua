@@ -21,7 +21,7 @@ if package.loaded["obsidian"] then
 	vim.keymap.set("n", "<localleader>of", ":ObsidianFollow<CR>")
 	vim.keymap.set("n", "<localleader>on", ":ObsidianNew<CR>")
 	vim.keymap.set("n", "<localleader>ot", ":ObsidianTemplate<CR>")
-	vim.keymap.set("n", "<localleader>ot", ":ObsidianBacklinks<CR>")
+	vim.keymap.set("n", "<localleader>ob", ":ObsidianBacklinks<CR>")
 
 	wk.add({
 		{ "<localleader>o", group = "Notes" },
