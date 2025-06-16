@@ -20,7 +20,8 @@ if [ -d $HOME/.nvm ]
 end
 if [ -d $HOME/.rvm ]
     set -gx PATH $HOME/.rvm/bin $PATH
-    set -gx PATH $HOME/.rvm/gems/ruby-3.3.0/bin $PATH
+    set -gx PATH $HOME/.rvm/rubies/default/bin $PATH
+    set -gx PATH $HOME/.rvm/gems/default/bin $PATH
 end
 
 set -gx XDG_DATA_DIRS /var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
