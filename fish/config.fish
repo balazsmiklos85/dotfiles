@@ -6,14 +6,19 @@ set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -gx FZF_ALT_C_COMMAND "fd -t d . $HOME"
 
 set -gx PATH $HOME/.local/bin $PATH
-set -gx PATH $HOME/.sdkman $PATH
-set -gx PATH $HOME/.cargo/bin $PATH
-
+if [ -d $HOME/.sdkman ]
+    set -gx PATH $HOME/.sdkman $PATH
+end
+if [ -d $HOME/.cargo/bin ]
+    set -gx PATH $HOME/.cargo/bin $PATH
+end
 if [ (uname) = Darwin ]
     set -gx PATH /opt/homebrew/bin $PATH
     set -gx PATH $HOME/DEV/projects/hybris/core-customize/hybris/bin/platform/apache-ant/bin $PATH
     set -gx PATH $HOME/.nvm $PATH
-else
+end
+if [ -d $HOME/.rvm ]
+    set -gx PATH $HOME/.rvm/bin $PATH
     set -gx PATH $HOME/.rvm/gems/ruby-3.3.0/bin $PATH
 end
 
