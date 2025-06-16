@@ -14,6 +14,8 @@ if [ -d $HOME/.cargo/bin ]
 end
 if [ (uname) = Darwin ]
     set -gx PATH /opt/homebrew/bin $PATH
+end
+if [ -d $HOME/.nvm ]
     set -gx PATH $HOME/.nvm $PATH
 end
 if [ -d $HOME/.rvm ]
