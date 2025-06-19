@@ -20,6 +20,7 @@
                 - onefetch
                 - password-store
                 - powerline-fonts
+                - python311-pyte # for thefuck
                 - ripgrep
                 - starship
                 - symbols-only-nerd-fonts
