@@ -35,3 +35,7 @@
             overwrite_multiple: true
         loop: "{{ repositories }}"
         when: ansible_os_family == "Suse"
+
+      - name: Refresh repositories
+        command: zypper refresh
+        when: ansible_os_family == "Suse"
