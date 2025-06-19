@@ -2,9 +2,81 @@
   become: yes
   hosts: localhost
   tasks:
-    - name: Install basic command line tools
-      ansible.builtin.package:
-        name:
-          - bat
-          - fd
-        state: present
+      - name: Install basic command line tools
+        ansible.builtin.package:
+            name:
+                - bat
+                - dust
+                - fd
+                - fish
+                - fzf
+                - git
+                - git-delta
+                - htop
+                - jq
+                - lsd
+                - mc
+                - neovim
+                - password-store
+                - powerline-fonts
+                - ripgrep
+                - starship
+                - symbols-only-nerd-fonts
+                - thefuck
+                - traceroute
+                - zoxide
+            state: present
+      - name: Install packages to non-work environments
+        ansible.builtin.package:
+            name:
+                - MozillaFirefox
+                - MozillaThunderbird
+                - encfs
+                - evince-plugin-djvudocument
+                - graphviz
+                - lynx
+                - neomutt
+                - syncthing
+                - youtube-dl
+                - w3m
+            state: present
+        when:
+            - ansible_virtualization_role != 'guest'
+            - not ('microsoft' in ansible_kernel | lower or 'wsl' in ansible_kernel | lower)
+            - ansible_env.DISPLAY is defined and ansible_env.DISPLAY
+
+      - name: Remove packages from VMs, WSL, or headless systems
+        ansible.builtin.package:
+            name:
+                - MozillaFirefox
+                - MozillaThunderbird
+            state: absent
+        when:
+            - ansible_virtualization_role == 'guest' or
+              ('microsoft' in ansible_kernel | lower or 'wsl' in ansible_kernel | lower) or
+              (ansible_env.DISPLAY is not defined or not ansible_env.DISPLAY)
+
+      - name: Remove packages
+        ansible.builtin.package:
+            name:
+                - catfish
+                - galculator
+                - gigolo
+                - icewm
+                - mousepad
+                - parole
+                - pragha
+                - remmina
+                - gvfs-backend-samba
+                - samba
+                - samba-ad-dc-libs
+                - samba-client
+                - samba-client-libs
+                - samba-libs
+                - samba-libs-python3
+                - simple-scan
+                - vim
+                - vim-data
+                - vim-data-common
+                - xfce4-dict
+            state: absent
