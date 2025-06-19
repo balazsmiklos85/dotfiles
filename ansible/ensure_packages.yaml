@@ -1,0 +1,10 @@
+- name: Ensure the right packages are installed
+  become: yes
+  hosts: localhost
+  tasks:
+    - name: Install basic command line tools
+      ansible.builtin.package:
+        name:
+          - bat
+          - fd
+        state: present
