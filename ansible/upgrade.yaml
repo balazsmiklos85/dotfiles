@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
       - name: Update openSUSE
-        command: "zypper {% if ansible_distribution == 'openSUSE Tumbleweed' %}dist-upgrade{% else %}update{% endif %} --no-recommends"
+        command: "zypper --non-interactive {% if ansible_distribution == 'openSUSE Tumbleweed' %}dist-upgrade{% else %}update{% endif %} --no-recommends"
         when: ansible_os_family == "Suse"
       - name: Is restart needed?
         command: "zypper ps -s"
