@@ -21,6 +21,7 @@
                 - password-store
                 - powerline-fonts
                 - python311-pyte # for thefuck
+                - python313-setuptools # for thefuck
                 - ripgrep
                 - starship
                 - symbols-only-nerd-fonts
