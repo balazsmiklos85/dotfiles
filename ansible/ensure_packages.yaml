@@ -45,8 +45,7 @@
         when:
             - ansible_virtualization_role != 'guest'
             - not ('microsoft' in ansible_kernel | lower or 'wsl' in ansible_kernel | lower)
-            - ansible_env.DISPLAY is defined and ansible_env.DISPLAY
-
+            - ansible_architecture != 'aarch64'
       - name: Remove packages from VMs, WSL, or headless systems
         ansible.builtin.package:
             name:
@@ -56,7 +55,7 @@
         when:
             - ansible_virtualization_role == 'guest' or
               ('microsoft' in ansible_kernel | lower or 'wsl' in ansible_kernel | lower) or
-              (ansible_env.DISPLAY is not defined or not ansible_env.DISPLAY)
+              (ansible_architecture == 'aarch64')
 
       - name: Remove packages
         ansible.builtin.package:
