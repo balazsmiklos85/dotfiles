@@ -33,6 +33,8 @@ nvm/
 
 !omf/**
 
+!sway/**
+
 !thefuck/**
 
 !waybar/**
