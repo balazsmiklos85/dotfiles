@@ -60,8 +60,4 @@ if command -v bat >/dev/null
     alias cat="bat --style plain"
 end
 
-if command -v ansible-playbook >/dev/null
-    alias system-update="ansible-playbook --ask-become-pass ~/.config/ansible/main.yaml"
-end
-
 source ~/.config/fish/secrets.fish
