@@ -40,8 +40,9 @@
                 - lynx
                 - neomutt
                 - syncthing
-                - youtube-dl
+                - vlc
                 - w3m
+                - youtube-dl
             state: present
         when:
             - ansible_virtualization_role != 'guest'
