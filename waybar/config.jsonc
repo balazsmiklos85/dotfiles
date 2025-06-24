@@ -58,11 +58,6 @@
         "on-click": "keepassxc",
     },
 
-    "custom/firefox-private": {
-        "format": "󰈹",
-        "tooltip-format": "Firefox Private",
-        "on-click": "firefox -P private",
-    },
     "custom/firefox-personal": {
         "format": "󰈹",
         "tooltip-format": "Firefox Personal",
