@@ -41,7 +41,7 @@ if command -v dig >/dev/null
 end
 
 if command -v fzf >/dev/null
-    fzf --fish | source
+    fzf --fish 2>/dev/null | source
 end
 
 if command -v zoxide >/dev/null
