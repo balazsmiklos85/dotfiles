@@ -4,31 +4,33 @@
   tasks:
       - name: Install basic command line tools
         ansible.builtin.package:
-            name:
-                - bat
-                - dust
-                - fd
-                - fish
-                - fzf
-                - git
-                - git-delta
-                - htop
-                - jq
-                - lsd
-                - mc
-                - neovim
-                - onefetch
-                - password-store
-                - powerline-fonts
-                - python311-pyte # for thefuck
-                - python313-setuptools # for thefuck
-                - ripgrep
-                - starship
-                - symbols-only-nerd-fonts
-                - thefuck
-                - traceroute
-                - zoxide
+            name: "{{ item }}"
             state: present
+        loop:
+            - bat
+            - dust
+            - fd
+            - fish
+            - fzf
+            - git
+            - git-delta
+            - htop
+            - jq
+            - lsd
+            - mc
+            - neovim
+            - onefetch
+            - password-store
+            - powerline-fonts
+            - python311-pyte # for thefuck
+            - python313-setuptools # for thefuck
+            - ripgrep
+            - starship
+            - symbols-only-nerd-fonts
+            - thefuck
+            - traceroute
+            - zoxide
+        ignore_errors: true
       - name: Install packages to non-work environments
         ansible.builtin.package:
             name:
