@@ -81,5 +81,6 @@
                 - vim
                 - vim-data
                 - vim-data-common
+                - vim-small
                 - xfce4-dict
             state: absent
