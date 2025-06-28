@@ -25,7 +25,7 @@ set $menu fuzzel
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/bmiklos/.local/share/wallpaper fill
+output * bg $HOME/.local/share/wallpaper fill
 #
 # Example configuration:
 #
