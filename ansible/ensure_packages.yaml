@@ -31,6 +31,15 @@
             - traceroute
             - zoxide
         ignore_errors: true
+      - name: Install P2P daemons on RPi
+        ansible.builtin.package:
+            name: "{{ item }}"
+            state: present
+        loop:
+            - syncthing
+            - transmission-daemon
+        ignore_errors: true
+        when: ansible_architecture == 'aarch64'
       - name: Install packages to non-work environments
         ansible.builtin.package:
             name:
