@@ -37,6 +37,7 @@
             state: present
         loop:
             - syncthing
+            - transmission-common
             - transmission-daemon
         ignore_errors: true
         when: ansible_architecture == 'aarch64'
