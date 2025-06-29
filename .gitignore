@@ -37,6 +37,9 @@ nvm/
 
 !thefuck/**
 
+!transmission-daemon/bandwidth-groups.json
+!transmission-daemon/settings.json
+
 !waybar/**
 
 !xfce4/**
