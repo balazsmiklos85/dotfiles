@@ -43,7 +43,10 @@
         when: ansible_architecture == 'aarch64'
       - name: Install packages to non-work environments
         ansible.builtin.package:
-            name:
+        ansible.builtin.package:
+            name: "{{ item }}"
+            state: present
+        loop:
                 - MozillaFirefox
                 - MozillaThunderbird
                 - encfs
@@ -55,7 +58,7 @@
                 - vlc
                 - w3m
                 - youtube-dl
-            state: present
+        ignore_errors: true
         when:
             - ansible_virtualization_role != 'guest'
             - not ('microsoft' in ansible_kernel | lower or 'wsl' in ansible_kernel | lower)
