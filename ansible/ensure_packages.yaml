@@ -31,11 +31,12 @@
             - traceroute
             - zoxide
         ignore_errors: true
-      - name: Install P2P daemons on RPi
+      - name: Install packages on RPi
         ansible.builtin.package:
             name: "{{ item }}"
             state: present
         loop:
+            - neomutt
             - syncthing
             - transmission-common
             - transmission-daemon
