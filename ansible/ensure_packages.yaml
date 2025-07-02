@@ -44,7 +44,6 @@
         when: ansible_architecture == 'aarch64'
       - name: Install packages to non-work environments
         ansible.builtin.package:
-        ansible.builtin.package:
             name: "{{ item }}"
             state: present
         loop:
@@ -56,6 +55,7 @@
                 - lynx
                 - neomutt
                 - syncthing
+                - torbrowser-launcher
                 - vlc
                 - w3m
                 - youtube-dl
