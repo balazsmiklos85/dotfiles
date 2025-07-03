@@ -1,10 +1,6 @@
 switch_light
 detect_os
 
-set -gx FZF_DEFAULT_COMMAND "fd . $HOME"
-set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-set -gx FZF_ALT_C_COMMAND "fd -t d . $HOME"
-
 set -gx PATH $HOME/.local/bin $PATH
 if [ -d $HOME/.sdkman ]
     set -gx PATH $HOME/.sdkman $PATH
@@ -40,10 +36,6 @@ if command -v dig >/dev/null
     set -gx PUBLIC_IP $(dig +short myip.opendns.com @resolver1.opendns.com)
 end
 
-if command -v fzf >/dev/null
-    fzf --fish 2>/dev/null | source
-end
-
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end
@@ -60,4 +52,5 @@ if command -v bat >/dev/null
     alias cat="bat --style plain"
 end
 
+source ~/.config/fish/fzf.fish
 source ~/.config/fish/secrets.fish
