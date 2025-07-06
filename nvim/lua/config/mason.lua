@@ -31,7 +31,7 @@ if vim.fn.executable("rvm") == 1 then
 	table.insert(lsps_to_install, "ruby_lsp")
 end
 
-if vim.fn.executable("sdk") == 1 then
+if vim.fn.executable("javac") == 1 then
 	-- Java
 	table.insert(lsps_to_install, "jdtls")
 	table.insert(tools_to_install, "google-java-format")
