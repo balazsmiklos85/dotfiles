@@ -18,6 +18,7 @@ $ruby\
 $rust\
 [ ](fg:surface0 bg:none)\
 """
+right_format = "$cmd_duration $time"
 
 command_timeout = 30000
 palette = "catppuccin_mocha"
@@ -100,6 +101,16 @@ format = '[ $symbol ($version) ]($style)'
 symbol = ""
 style = "bg:surface0 fg:peach"
 format = '[ $symbol ($version) ]($style)'
+
+[cmd_duration]
+style = "bg:none fg:surface1"
+format = "[$duration]($style)"
+
+[time]
+disabled = false
+style = "bg:none fg:surface1"
+format = "[$time]($style)"
+time_format = "%Y-%m-%d %H:%M:%S"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
