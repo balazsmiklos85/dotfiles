@@ -16,7 +16,7 @@ $java\
 $nodejs\
 $ruby\
 $rust\
-[ ](fg:surface0 bg:base)\
+[ ](fg:surface0 bg:none)\
 """
 
 command_timeout = 30000
