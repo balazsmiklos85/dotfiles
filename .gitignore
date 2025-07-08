@@ -12,6 +12,8 @@
 
 !fish/**
 
+!fuzzel/**
+
 !.gitignore
 !git/**
 
