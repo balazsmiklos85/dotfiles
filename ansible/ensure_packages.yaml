@@ -22,6 +22,7 @@
             - onefetch
             - password-store
             - powerline-fonts
+            - python311-colorama # for thefuck
             - python311-pyte # for thefuck
             - python313-setuptools # for thefuck
             - ripgrep
