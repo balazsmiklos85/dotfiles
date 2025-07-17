@@ -12,6 +12,7 @@ $git_branch\
 $git_status\
 [](fg:surface2 bg:surface0)\
 $gradle\
+${custom.maven}\
 $java\
 $nodejs\
 $ruby\
@@ -80,6 +81,15 @@ format = '[$all_status$ahead_behind ]($style)'
 symbol = " "
 style = "bg:surface0 fg:blue"
 format = '[ $symbol($version) ]($style)'
+
+
+[custom.maven]
+description = "Show Maven version"
+command = "mvn --version | head -n 1 | cut -d' ' -f3"
+detect_files = ["pom.xml"]
+symbol = " "
+style = "bg:surface0 fg:peach"
+format = "[ $symbol($output) ]($style)"
 
 [java]
 symbol = " "
