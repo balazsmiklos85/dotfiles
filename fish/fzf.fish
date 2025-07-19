@@ -6,6 +6,7 @@ if command -v fzf >/dev/null
 
     fzf --fish 2>/dev/null | source
     alias fuzzy_add="git status -s | fzf -m --preview 'fzf_smart_preview {2}' | awk '{print \$2}' | xargs git add"
+    alias fuzzy_cat="fd --type f . | fzf --preview 'fzf_smart_preview {}' | xargs -ro bat --style plain --color always"
     alias fuzzy_checkout="git checkout (git branch | fzf)"
     alias fuzzy_cherry_pick="git log --oneline | fzf --preview 'git show {1}' | awk 'print \$1}' | xargs git cherry-pick"
     alias fuzzy_config="nvim (fd --hidden --no-ignore --type f . ~/.config | fzf)"
