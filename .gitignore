@@ -49,7 +49,7 @@ xfce4/desktop/**
 xfce4/xfconf/xfce-perchannel-xml/ristretto.xml
 xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
-xfce4/xfce4-screenshootera
+xfce4/xfce4-screenshooter
 
 !zed/**
 
