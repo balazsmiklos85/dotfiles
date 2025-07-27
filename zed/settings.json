@@ -1,7 +1,7 @@
 {
   "icon_theme": "Catppuccin Mocha",
   "agent": {
-    "always_allow_tool_actions": true,
+    "always_allow_tool_actions": false,
     "default_model": {
       "provider": "google",
       "model": "gemini-2.5-flash"
