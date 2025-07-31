@@ -53,6 +53,7 @@ xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 xfce4/xfce4-screenshooter
 
 !zed/**
+zed/.tmp*
 
 !zellij/**
 zellij/config.kdl.bak
