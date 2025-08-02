@@ -15,7 +15,7 @@
     ],
     "modules-center": [],
     "modules-right": [
-        "hyprland/workspaces",
+        "sway/workspaces",
         "custom/updates",
         "custom/flatpak-updates",
         "pulseaudio",
@@ -23,8 +23,7 @@
         "clock",
         "custom/exit",
     ],
-
-    "hyprland/workspaces": {
+    "sway/workspaces": {
         "format": "{icon}",
         "format-icons": {
             "1": "󰎦",
@@ -37,8 +36,8 @@
             "8": "󰎻",
             "9": "󰎾",
             "10": "󰎣",
+            "urgent": "",
         },
-        "active-only": false,
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

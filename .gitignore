@@ -18,8 +18,6 @@ fish/fish_variables
 !.gitignore
 !git/**
 
-!hypr/**
-
 !iterm2/settings/**
 
 !lsd/**
