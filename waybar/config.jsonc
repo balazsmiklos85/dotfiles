@@ -17,6 +17,7 @@
     "modules-right": [
         "hyprland/workspaces",
         "custom/updates",
+        "custom/flatpak-updates",
         "pulseaudio",
         "network",
         "clock",
@@ -80,6 +81,10 @@
     },
     "custom/updates": {
         "exec": "zypper lu | rg '^v\\s+\\|' | wc -l | awk '{print \"󰚰 \" $1}'",
+        "interval": 1800,
+    },
+    "custom/flatpak-updates": {
+        "exec": "flatpak remote-ls --updates | rg --count-matches '$' | awk '{print \" 󰚰 \" $1}'",
         "interval": 1800,
     },
     "network": {
