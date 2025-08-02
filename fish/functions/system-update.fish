@@ -11,5 +11,8 @@ function system-update
         echo "Unsupported distribution: $distro"
     end
     zypper ps -s
+    if command -v flatpak >/dev/null 2>&1
+        flatpak update
+    end
 end
 
