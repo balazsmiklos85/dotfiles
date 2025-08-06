@@ -53,6 +53,7 @@
                 - MozillaThunderbird
                 - encfs
                 - evince-plugin-djvudocument
+                - evince-plugin-comicsdocument
                 - graphviz
                 - lynx
                 - neomutt
