@@ -57,6 +57,6 @@ source ~/.config/fish/secrets.fish
 
 if is_wsl; and not test -S "$SSH_AUTH_SOCK"
     eval (ssh-agent -c)
-    set -U SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    set -gx SSH_AUTH_SOCK $SSH_AUTH_SOCK
     ssh-add (fd --type f --exclude '*.pub' --exclude 'config' --exclude 'authorized_keys' --exclude 'known_hosts*' . ~/.ssh)
 end
