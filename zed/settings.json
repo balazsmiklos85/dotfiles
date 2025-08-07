@@ -15,6 +15,9 @@
     "metrics": false
   },
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always"
+  },
   "ui_font_size": 16,
   "buffer_font_size": 11,
   "theme": {
