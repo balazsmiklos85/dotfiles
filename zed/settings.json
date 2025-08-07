@@ -21,5 +21,6 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Catppuccin Mocha - No Italics"
-  }
+  },
+  "soft_wrap": "editor_width"
 }
