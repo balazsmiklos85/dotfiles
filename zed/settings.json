@@ -11,8 +11,8 @@
     "edit_prediction_provider": "zed"
   },
   "telemetry": {
-    "diagnostics": false,
-    "metrics": false
+    "diagnostics": true,
+    "metrics": true
   },
   "vim_mode": true,
   "vim": {
