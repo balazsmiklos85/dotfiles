@@ -6,7 +6,8 @@
       "provider": "google"
     }
   },
-  "buffer_font_size": 11,
+  "buffer_font_family": "DejaVu Sans Mono",
+  "buffer_font_size": 12,
   "features": {
     "edit_prediction_provider": "zed"
   },
