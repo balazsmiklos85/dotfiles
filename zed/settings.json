@@ -22,8 +22,8 @@
     "metrics": true
   },
   "theme": {
-    "dark": "Catppuccin Mocha - No Italics",
-    "light": "One Light",
+    "dark": "Catppuccin Mocha",
+    "light": "Catppuccin Latte",
     "mode": "system"
   },
   "ui_font_size": 16,
