@@ -204,6 +204,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Screenshots
+bindsym Print exec grim -g "$(slurp)" ~/$(date +%Y-%m-%d_%H-%M-%S).png
+
 #
 # Status Bar:
 #
