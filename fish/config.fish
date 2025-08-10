@@ -52,6 +52,9 @@ if command -v bat >/dev/null
     alias cat="bat --style plain"
 end
 
+alias :w 'echo "Dammit Jim, I\'m a fish, not a vi!"; test 0 -eq 1'
+alias :wq 'echo "Dammit Jim, I\'m a fish, not a vi!"; test 0 -eq 1'
+
 source ~/.config/fish/fzf.fish
 source ~/.config/fish/secrets.fish
 
