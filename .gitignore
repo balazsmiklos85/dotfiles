@@ -34,6 +34,8 @@ nvm/
 
 !omf/**
 
+!opencode/**
+
 !sway/**
 
 !thefuck/**
