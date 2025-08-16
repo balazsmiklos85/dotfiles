@@ -3,5 +3,6 @@
   "permission": {
     "edit": "ask",
     "bash": "ask"
-  }
+  },
+  "theme": "catppuccin"
 }
