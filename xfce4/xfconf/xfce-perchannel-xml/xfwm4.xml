@@ -9,7 +9,7 @@
     <property name="show_dock_shadow" type="empty"/>
     <property name="show_frame_shadow" type="empty"/>
     <property name="show_popup_shadow" type="empty"/>
-    <property name="workspace_count" type="int" value="1"/>
+    <property name="workspace_count" type="int" value="4"/>
     <property name="wrap_windows" type="empty"/>
     <property name="tile_on_move" type="empty"/>
     <property name="activate_action" type="string" value="bring"/>
@@ -82,8 +82,10 @@
     <property name="zoom_desktop" type="bool" value="true"/>
     <property name="zoom_pointer" type="bool" value="true"/>
     <property name="workspace_names" type="array">
-      <value type="string" value="1. munkaterület"/>
-      <value type="string" value="2. munkaterület"/>
+      <value type="string" value="I"/>
+      <value type="string" value="II"/>
+      <value type="string" value="III"/>
+      <value type="string" value="IV"/>
     </property>
   </property>
 </channel>
