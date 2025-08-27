@@ -10,7 +10,7 @@
     <property name="show-all-processes" type="bool" value="true"/>
     <property name="more-precision" type="bool" value="true"/>
   </property>
-  <property name="window-maximized" type="bool" value="true"/>
-  <property name="window-width" type="int" value="1278"/>
-  <property name="window-height" type="int" value="1390"/>
+  <property name="window-maximized" type="bool" value="false"/>
+  <property name="window-width" type="int" value="681"/>
+  <property name="window-height" type="int" value="718"/>
 </channel>
