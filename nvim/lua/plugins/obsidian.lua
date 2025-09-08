@@ -8,7 +8,7 @@ if current_dir:sub(-#ending) == ending then
 end
 
 return {
-	"obsidian-nvim/obsidian.nvim",
+	"epwalsh/obsidian.nvim",
 	name = "obsidian",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
