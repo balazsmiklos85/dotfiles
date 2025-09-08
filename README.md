@@ -5,7 +5,7 @@ My very own configuration files. Organized to set up a Linux (openSUSE) environm
 ## Usage
 
 1. Install a new system.
-2. Install `ansible`, `fish`, `git`. For example as `sudo zypper install --no-recommends ansible fish git`
+2. Install `ansible`, `fish`, `git`, `hostname`, `rsync`. For example as `sudo zypper install --no-recommends ansible fish git hostname rsync`
 3. Change the default shell to `fish` with `chsh -s $(which fish) $USER`
 4. Create SSH keys: `ssh-keygen -t ed25519 -C "bmiklos@$(hostname)"`
 5. Add the keys to https://github.com/settings/keys
