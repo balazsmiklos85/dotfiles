@@ -12,4 +12,5 @@ My very own configuration files. Organized to set up a Linux (openSUSE) environm
 6. Clone the repository with `git clone git@github.com:balazsmiklos85/dotfiles.git`
 7. Move everything from `./dotfiles/` to `~/.config`, including the `.git` directory with `rsync -av ./dotfiles/ ~/.config/`
 8. Log out and log in
-9. Run `system-update`
+9. Set the theme, e.g. `fish_config theme save "Catppuccin Mocha"`
+10. Run `system-update`
