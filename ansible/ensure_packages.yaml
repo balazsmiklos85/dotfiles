@@ -28,6 +28,7 @@
             - ripgrep
             - starship
             - symbols-only-nerd-fonts
+            - tar
             - thefuck
             - traceroute
             - zoxide
