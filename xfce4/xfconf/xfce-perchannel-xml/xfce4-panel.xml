@@ -76,6 +76,8 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="org.guido-berhoerster.code.package-update-indicator"/>
+        <value type="string" value="nm-applet"/>
         <value type="string" value="blueman"/>
         <value type="string" value="vlc"/>
         <value type="string" value="steam"/>
