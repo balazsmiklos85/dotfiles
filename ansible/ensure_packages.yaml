@@ -23,16 +23,11 @@
             - onefetch
             - password-store
             - powerline-fonts
-            - python311-colorama # for thefuck
-            - python311-decorator # for thefuck
-            - python311-pyte # for thefuck
-            - python313-setuptools # for thefuck
             - ripgrep
             - rsync
             - starship
             - symbols-only-nerd-fonts
             - tar
-            - thefuck
             - traceroute
             - zoxide
         ignore_errors: true

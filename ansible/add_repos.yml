@@ -7,9 +7,6 @@
       repositories:
           - name: editors
             baseurl: "https://download.opensuse.org/repositories/editors/"
-          - name: utilities
-            baseurl: "https://download.opensuse.org/repositories/utilities/"
-            use_factory: true
           - name: mozilla
             baseurl: "https://download.opensuse.org/repositories/mozilla/"
           - name: filesharing
