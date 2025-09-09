@@ -69,8 +69,17 @@
       - name: Remove packages from VMs, WSL, or headless systems
         ansible.builtin.package:
             name:
+                - evince
+                - gimp
+                - libreoffice
                 - MozillaFirefox
                 - MozillaThunderbird
+                - pidgin
+                - ristretto
+                - shotwell
+                - tigervnc
+                - transmission-common
+                - transmission-gtk
             state: absent
         when:
             - ansible_virtualization_role == 'guest' or
