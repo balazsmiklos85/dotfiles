@@ -1,6 +1,5 @@
 function is_wsl
-    set microsoft_kernel (uname -r | grep -i microsoft)
-    if test -n "$microsoft_kernel"
+    if test -d /mnt/c
         return 0
     end
     return 1
