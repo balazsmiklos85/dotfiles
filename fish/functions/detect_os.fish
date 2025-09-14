@@ -2,6 +2,8 @@ function detect_os
     if not set -q OS_SYMBOL
         if is_wsl
             set -gx OS_SYMBOL "󰍲"
+        else if set -q container
+            set -gx OS_SYMBOL ""
         else if test (uname) = Darwin
             set -gx OS_SYMBOL ""
         else if test -f /etc/os-release; and rg -q openSUSE /etc/os-release
