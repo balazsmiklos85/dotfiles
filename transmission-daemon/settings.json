@@ -25,7 +25,7 @@
     "incomplete-dir": "/home/bmiklos/Downloads",
     "incomplete-dir-enabled": false,
     "lpd-enabled": true,
-    "message-level": 4,
+    "message-level": 2,
     "peer-congestion-algorithm": "",
     "peer-limit-global": 128,
     "peer-limit-per-torrent": 32,
