@@ -8,7 +8,7 @@ if current_dir:sub(-#ending) == ending then
 end
 
 return {
-	"epwalsh/obsidian.nvim",
+	"obsidian-nvim/obsidian.nvim",
 	name = "obsidian",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -31,6 +31,7 @@ return {
 			alias_format = "%B %-d, %Y",
 			template = nil,
 		},
+		log_level = vim.log.levels.INFO,
 
 		completion = {
 			nvim_cmp = true,
