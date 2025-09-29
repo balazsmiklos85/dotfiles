@@ -38,6 +38,10 @@ return {
 			min_chars = 2,
 		},
 
+		footer = {
+			enabled = false,
+		},
+
 		new_notes_location = "notes_subdir",
 
 		note_id_func = function(title)
