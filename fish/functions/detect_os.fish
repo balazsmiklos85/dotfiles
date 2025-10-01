@@ -6,7 +6,7 @@ function detect_os
             set -gx OS_SYMBOL ""
         else if test (uname) = Darwin
             set -gx OS_SYMBOL ""
-        else if test -f /etc/os-release; and rg -q openSUSE /etc/os-release
+        else if test -f /etc/os-release; and grep openSUSE /etc/os-release
             set -gx OS_SYMBOL ""
         else if test (uname) = Linux
             set -gx OS_SYMBOL ""
