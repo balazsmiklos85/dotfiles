@@ -18,7 +18,7 @@ wk.add({
 
 if package.loaded["obsidian"] then
 	vim.keymap.set("n", "<localleader>od", ":Obsidian dailies<CR>")
-	vim.keymap.set("n", "<localleader>of", ":Obsidian follow<CR>")
+	vim.keymap.set("n", "<localleader>of", ":Obsidian follow_link<CR>")
 	vim.keymap.set("n", "<localleader>on", ":Obsidian new<CR>")
 	vim.keymap.set("n", "<localleader>ot", ":Obsidian template<CR>")
 	vim.keymap.set("n", "<localleader>ob", ":Obsidian backlinks<CR>")
