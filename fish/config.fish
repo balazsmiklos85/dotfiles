@@ -55,3 +55,4 @@ if is_wsl; and not test -S "$SSH_AUTH_SOCK"
 end
 
 fish_add_path $HOME/.opencode/bin
+
