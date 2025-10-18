@@ -1,5 +1,6 @@
 {
     "alt-speed-down": 3750,
+    "alt-speed-enabled": false,
     "alt-speed-time-begin": 480,
     "alt-speed-time-day": 62,
     "alt-speed-time-enabled": true,
