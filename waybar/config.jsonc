@@ -6,12 +6,6 @@
 
     "modules-left": [
         "custom/opensuse-logo",
-        "custom/firefox-private",
-        "custom/firefox-personal",
-        "custom/tor",
-        "custom/thunderbird",
-        "custom/keepass",
-        "custom/vlc",
     ],
     "modules-center": [],
     "modules-right": [
@@ -51,32 +45,6 @@
     "custom/opensuse-logo": {
         "format": "",
         "tooltip-format": "openSUSE",
-    },
-    "custom/keepass": {
-        "format": "",
-        "tooltip-format": "KeepassXC",
-        "on-click": "keepassxc",
-    },
-
-    "custom/firefox-personal": {
-        "format": "󰈹",
-        "tooltip-format": "Firefox Personal",
-        "on-click": "firefox -P personal",
-    },
-    "custom/tor": {
-        "format": "",
-        "tooltip-format": "Tor Browser",
-        "on-click": "torbrowser-launcher",
-    },
-    "custom/thunderbird": {
-        "format": "",
-        "tooltip-format": "Thunderbird",
-        "on-click": "thunderbird",
-    },
-    "custom/vlc": {
-        "format": "󰕼",
-        "tooltip-format": "VLC",
-        "on-click": "vlc",
     },
     "custom/updates": {
         "exec": "zypper lu | rg '^v\\s+\\|' | wc -l | awk '{print \"󰚰 \" $1}'",
