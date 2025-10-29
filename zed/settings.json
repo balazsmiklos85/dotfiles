@@ -1,9 +1,10 @@
 {
   "agent": {
+    "default_profile": "ask",
     "always_allow_tool_actions": false,
     "default_model": {
-      "model": "gemini-2.5-flash",
-      "provider": "google"
+      "model": "qwen/qwen3-coder-30b",
+      "provider": "lmstudio"
     }
   },
   "buffer_font_family": "DejaVu Sans Mono",
