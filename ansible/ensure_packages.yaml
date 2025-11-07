@@ -22,6 +22,7 @@
             - neovim
             - onefetch
             - password-store
+            - patch
             - powerline-fonts
             - ripgrep
             - rsync
