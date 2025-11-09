@@ -1,5 +1,4 @@
 switch_light
-detect_os
 
 set -gx PATH $HOME/.local/bin $PATH
 if [ -d $HOME/.sdkman ]

@@ -1,5 +1,5 @@
 format = """
-${custom.os}\
+$os\
 [](fg:base bg:surface0)\
 $username\
 $hostname\
@@ -38,12 +38,15 @@ trim_at = ""
 style = 'bold fg:blue bg:surface0'
 disabled = false
 
-[custom.os]
-command = 'echo $OS_SYMBOL'
+[os]
 style = 'bold fg:text bg:base'
-format = '[ $output ]($style)'
+format = '[ $symbol ]($style)'
 disabled = false
-when = true
+
+[os.symbols]
+Windows = ""
+Macos = ""
+openSUSE = ""
 
 [directory]
 style = 'fg:pink bg:surface1'
