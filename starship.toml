@@ -1,6 +1,7 @@
 format = """
 $os\
 [](fg:base bg:surface0)\
+$sudo\
 $username\
 $hostname\
 [ ](fg:surface1 bg:surface0)\
@@ -23,6 +24,12 @@ right_format = "$cmd_duration $time"
 
 command_timeout = 30000
 palette = "catppuccin_mocha"
+
+[sudo]
+format = '[$symbol]($style)'
+style = 'bold bg:surface0 fg:peach'
+symbol = ' 󱦚'
+disabled = false
 
 [username]
 show_always = true
