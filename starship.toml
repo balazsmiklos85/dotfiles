@@ -5,7 +5,6 @@ $sudo\
 $username\
 $hostname\
 [ ](fg:surface1 bg:surface0)\
-
 [](fg:surface0 bg:surface1)\
 $directory\
 [](fg:surface1 bg:surface2)\
@@ -18,7 +17,9 @@ $java\
 $nodejs\
 $ruby\
 $rust\
-[ ](fg:surface0 bg:none)\
+[](fg:surface0 bg:surface1)\
+$character\
+[ ](fg:surface1 bg:none)\
 """
 right_format = "$cmd_duration $time"
 
@@ -92,7 +93,6 @@ symbol = " "
 style = "bg:surface0 fg:blue"
 format = '[ $symbol($version) ]($style)'
 
-
 [custom.maven]
 description = "Show Maven version"
 command = "mvn --version | head -n 1 | cut -d' ' -f3"
@@ -121,6 +121,11 @@ format = '[ $symbol ($version) ]($style)'
 symbol = ""
 style = "bg:surface0 fg:peach"
 format = '[ $symbol ($version) ]($style)'
+
+[character]
+format = '$symbol'
+success_symbol = '[](bold bg:surface1 fg:green)'
+error_symbol = '[](bold bg:surface1 fg:red)'
 
 [cmd_duration]
 style = "bg:none fg:surface1"
