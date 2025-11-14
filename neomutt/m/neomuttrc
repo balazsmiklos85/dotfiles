@@ -13,6 +13,9 @@ set trash = "+[Gmail]/Kuka"
 
 mailboxes =INBOX =[Gmail]/Elküldött\ levelek =[Gmail]/Piszkozatok =[Gmail]/Spam =[Gmail]/Kuka =[Gmail]/Összes\ levél
 
+bind editor <space> noop
+macro index A '<save-message>=[Gmail]/Összes levél<enter>' 'Archive'
+
 # SMTP settings
 set smtp_url = "smtp://`pass mail/m/gmail/user`@smtp.gmail.com:587/"
 set smtp_pass = "`pass mail/m/gmail/password`"
