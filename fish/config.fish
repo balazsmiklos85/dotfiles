@@ -31,10 +31,6 @@ set -gx ZED_ALLOW_EMULATED_GPU 1
 
 set -g theme_date_format +'%Y-%m-%d %H:%M:%S %Z'
 
-if command -v dig >/dev/null
-    set -gx PUBLIC_IP $(dig +short myip.opendns.com @resolver1.opendns.com)
-end
-
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end
