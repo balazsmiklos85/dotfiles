@@ -60,7 +60,7 @@ zellij/config.kdl.bak
 
 !Brewfile
 
-!starship.toml
+!starship*.toml
 
 **/__pycache__/
 

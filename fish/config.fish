@@ -40,6 +40,9 @@ if command -v zoxide >/dev/null
 end
 
 if command -v starship >/dev/null
+    if am_i_at_work
+        set -gx STARSHIP_CONFIG ~/.config/starship_mac.toml
+    end
     starship init fish | source
 end
 

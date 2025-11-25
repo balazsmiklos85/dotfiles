@@ -1,0 +1,166 @@
+format = """
+$os\
+[](fg:base bg:surface0)\
+$sudo\
+$username\
+$hostname\
+[ ](fg:surface1 bg:surface0)\
+[](fg:surface0 bg:surface1)\
+$directory\
+[](fg:surface1 bg:surface2)\
+$git_branch\
+$git_status\
+[](fg:surface2 bg:surface0)\
+$gradle\
+${custom.maven}\
+$java\
+$nodejs\
+$ruby\
+$rust\
+[](fg:surface0 bg:surface1)\
+$character\
+[ ](fg:surface1 bg:none)\
+"""
+right_format = "$cmd_duration $time"
+
+command_timeout = 30000
+palette = "catppuccin_latte"
+
+[sudo]
+format = '[$symbol]($style)'
+style = 'bold bg:surface0 fg:peach'
+symbol = ' 󱦚'
+disabled = false
+
+[username]
+show_always = true
+style_root = 'bold bg:surface0 fg:sky'
+style_user = 'bold bg:surface0 fg:blue'
+format = '[ $user]($style)'
+disabled = false
+
+[hostname]
+ssh_only = true
+format = '[@$hostname ]($style)'
+trim_at = ""
+style = 'bold fg:blue bg:surface0'
+disabled = false
+
+[os]
+style = 'bold fg:text bg:base'
+format = '[ $symbol ]($style)'
+disabled = false
+
+[os.symbols]
+Windows = ""
+Macos = ""
+openSUSE = ""
+
+[directory]
+style = 'fg:pink bg:surface1'
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+".config" = " "
+".git" = " "
+".github" = " "
+".syncthing" = "󰴋 "
+"Documents" = "󱧶 "
+"Dokumentumok" = "󱧶 "
+"Downloads" = "󰉍 "
+"Letöltések" = "󰉍 "
+"Music" = "󱍙 "
+"Zenék" = "󱍙 "
+"Pictures" = "󰉏 "
+"Képek" = "󰉏 "
+"Videos" = "󱧺 "
+"Videók" = "󱧺 "
+"notes" = "󱞁 "
+
+[git_branch]
+symbol = ""
+style = "bg:surface2 fg:lavender"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:surface2 fg:lavender"
+format = '[$all_status$ahead_behind ]($style)'
+
+[gradle]
+symbol = " "
+style = "bg:surface0 fg:blue"
+format = '[ $symbol($version) ]($style)'
+
+[custom.maven]
+description = "Show Maven version"
+command = "mvn --version | head -n 1 | cut -d' ' -f3"
+detect_files = ["pom.xml"]
+symbol = " "
+style = "bg:surface0 fg:peach"
+format = "[ $symbol($output) ]($style)"
+
+[java]
+symbol = " "
+style = "bg:surface0 fg:red"
+format = '[ $symbol($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:surface0 fg:green"
+format = '[ $symbol ($version) ]($style)'
+
+[ruby]
+detect_variables = []
+symbol = ""
+style = "bg:surface0 fg:red"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:surface0 fg:peach"
+format = '[ $symbol ($version) ]($style)'
+
+[character]
+format = '$symbol'
+success_symbol = '[](bold bg:surface1 fg:green)'
+error_symbol = '[](bold bg:surface1 fg:red)'
+
+[cmd_duration]
+style = "bg:none fg:surface1"
+format = "[$duration]($style)"
+
+[time]
+disabled = false
+style = "bg:none fg:surface1"
+format = "[$time]($style)"
+time_format = "%Y-%m-%d %H:%M:%S"
+
+[palettes.catppuccin_latte]
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#ccd0da"
+base = "#eff1f5"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
