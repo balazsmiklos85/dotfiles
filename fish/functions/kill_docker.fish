@@ -1,7 +1,6 @@
 #!/usr/bin/fish
 
 function kill_docker
-	echo '> docker kill $(docker ps -q)'
-	docker kill $(docker ps -q)
+    echo '> docker ps -q | xargs -n 1 -r docker kill && docker container prune -f'
+    docker ps -q | xargs -n 1 -r docker kill && docker container prune -f
 end
-
