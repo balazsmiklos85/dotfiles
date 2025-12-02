@@ -15,8 +15,6 @@ $gradle\
 ${custom.maven}\
 $java\
 $nodejs\
-$ruby\
-$rust\
 [](fg:surface0 bg:surface1)\
 $character\
 [ ](fg:surface1 bg:none)\
@@ -109,17 +107,6 @@ format = '[ $symbol($version) ]($style)'
 [nodejs]
 symbol = ""
 style = "bg:surface0 fg:green"
-format = '[ $symbol ($version) ]($style)'
-
-[ruby]
-detect_variables = []
-symbol = ""
-style = "bg:surface0 fg:red"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:surface0 fg:peach"
 format = '[ $symbol ($version) ]($style)'
 
 [character]
