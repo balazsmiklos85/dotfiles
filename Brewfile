@@ -1,6 +1,9 @@
 cask "font-hack-nerd-font"
 
 brew "bat"
+brew "colima"
+brew "docker"
+brew "docker-compose"
 brew "dust"
 brew "fish"
 brew "fzf"
