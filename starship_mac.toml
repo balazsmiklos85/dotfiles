@@ -14,9 +14,7 @@ $git_status\
 $gradle\
 ${custom.maven}\
 $java\
-[](fg:surface0 bg:surface1)\
-$character\
-[ ](fg:surface1 bg:none)\
+[ ](fg:surface0 bg:none)\
 """
 right_format = "$cmd_duration $time"
 
@@ -102,11 +100,6 @@ format = "[ $symbol($output) ]($style)"
 symbol = " "
 style = "bg:surface0 fg:red"
 format = '[ $symbol($version) ]($style)'
-
-[character]
-format = '$symbol'
-success_symbol = '[](bold bg:surface1 fg:green)'
-error_symbol = '[](bold bg:surface1 fg:red)'
 
 [cmd_duration]
 style = "bg:none fg:surface1"

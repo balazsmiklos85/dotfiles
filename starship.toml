@@ -17,9 +17,7 @@ $java\
 $nodejs\
 $ruby\
 $rust\
-[](fg:surface0 bg:surface1)\
-$character\
-[ ](fg:surface1 bg:none)\
+[ ](fg:surface0 bg:none)\
 """
 right_format = "$cmd_duration $time"
 
