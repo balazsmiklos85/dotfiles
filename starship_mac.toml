@@ -14,7 +14,6 @@ $git_status\
 $gradle\
 ${custom.maven}\
 $java\
-$nodejs\
 [](fg:surface0 bg:surface1)\
 $character\
 [ ](fg:surface1 bg:none)\
@@ -103,11 +102,6 @@ format = "[ $symbol($output) ]($style)"
 symbol = " "
 style = "bg:surface0 fg:red"
 format = '[ $symbol($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:surface0 fg:green"
-format = '[ $symbol ($version) ]($style)'
 
 [character]
 format = '$symbol'
