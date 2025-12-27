@@ -102,7 +102,6 @@
                 - samba
                 - samba-ad-dc-libs
                 - samba-client
-                - samba-libs
                 - samba-libs-python3
                 - simple-scan
                 - vim
