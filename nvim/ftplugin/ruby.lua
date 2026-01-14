@@ -1,6 +1,4 @@
-local lspconfig = require("lspconfig")
-
-lspconfig.ruby_lsp.setup({
+local lsp_opts = {
 	on_attach = function(client)
 		client.notify({ method = "textDocument/didOpen" })
 	end,
@@ -19,7 +17,14 @@ lspconfig.ruby_lsp.setup({
 			},
 		},
 	},
-})
+}
+
+if vim.fn.has("nvim-0.11") == 1 then
+	vim.lsp.config("ruby_lsp", lsp_opts)
+	vim.lsp.enable("ruby_lsp")
+else
+	require("lspconfig").ruby_lsp.setup(lsp_opts)
+end
 
 require("dap-ruby").setup()
 
