@@ -13,5 +13,5 @@ require("config.keymaps")
 require("config.relative_numbers")
 require("config.lsp_start")
 
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme zenburn]])
 
