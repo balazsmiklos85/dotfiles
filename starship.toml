@@ -1,39 +1,39 @@
 format = """
 $os\
-[](fg:base bg:surface0)\
+[](fg:zenburn_bg bg:zenburn_bg_1)\
 $sudo\
 $username\
 $hostname\
-[ ](fg:surface1 bg:surface0)\
-[](fg:surface0 bg:surface1)\
+[ ](fg:zenburn_bg_2 bg:zenburn_bg_1)\
+[](fg:zenburn_bg_1 bg:zenburn_bg_2)\
 $directory\
-[](fg:surface1 bg:surface2)\
+[](fg:zenburn_bg_2 bg:zenburn_bg_3)\
 $git_branch\
 $git_status\
-[](fg:surface2 bg:surface0)\
+[](fg:zenburn_bg_3 bg:zenburn_bg_1)\
 $gradle\
 ${custom.maven}\
 $java\
 $nodejs\
 $ruby\
 $rust\
-[ ](fg:surface0 bg:none)\
+[ ](fg:zenburn_bg_1 bg:none)\
 """
 right_format = "$cmd_duration $time"
 
 command_timeout = 30000
-palette = "catppuccin_mocha"
+palette = "zenburn"
 
 [sudo]
 format = '[$symbol]($style)'
-style = 'bold bg:surface0 fg:peach'
+style = 'bold bg:zenburn_bg_1 fg:zenburn_orange'
 symbol = ' 󱦚'
 disabled = false
 
 [username]
 show_always = true
-style_root = 'bold bg:surface0 fg:sky'
-style_user = 'bold bg:surface0 fg:blue'
+style_root = 'bold bg:zenburn_bg_1 fg:zenburn_cyan'
+style_user = 'bold bg:zenburn_bg_1 fg:zenburn_blue'
 format = '[ $user]($style)'
 disabled = false
 
@@ -41,11 +41,11 @@ disabled = false
 ssh_only = true
 format = '[@$hostname ]($style)'
 trim_at = ""
-style = 'bold fg:blue bg:surface0'
+style = 'bold fg:zenburn_blue bg:zenburn_bg_1'
 disabled = false
 
 [os]
-style = 'bold fg:text bg:base'
+style = 'bold fg:zenburn_fg bg:zenburn_bg'
 format = '[ $symbol ]($style)'
 disabled = false
 
@@ -55,7 +55,7 @@ Macos = ""
 openSUSE = ""
 
 [directory]
-style = 'fg:pink bg:surface1'
+style = 'fg:zenburn_fg bg:zenburn_bg_2'
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -79,16 +79,16 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:surface2 fg:lavender"
+style = "bg:zenburn_bg_3 fg:zenburn_blue_3"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:surface2 fg:lavender"
+style = "bg:zenburn_bg_3 fg:zenburn_blue_3"
 format = '[$all_status$ahead_behind ]($style)'
 
 [gradle]
 symbol = " "
-style = "bg:surface0 fg:blue"
+style = "bg:zenburn_bg_1 fg:zenburn_blue"
 format = '[ $symbol($version) ]($style)'
 
 [custom.maven]
@@ -96,69 +96,56 @@ description = "Show Maven version"
 command = "mvn --version | head -n 1 | cut -d' ' -f3"
 detect_files = ["pom.xml"]
 symbol = " "
-style = "bg:surface0 fg:peach"
+style = "bg:zenburn_bg_1 fg:zenburn_orange"
 format = "[ $symbol($output) ]($style)"
 
 [java]
 symbol = " "
-style = "bg:surface0 fg:red"
+style = "bg:zenburn_bg_1 fg:zenburn_red"
 format = '[ $symbol($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:surface0 fg:green"
+style = "bg:zenburn_bg_1 fg:zenburn_green"
 format = '[ $symbol ($version) ]($style)'
 
 [ruby]
 detect_variables = []
 symbol = ""
-style = "bg:surface0 fg:red"
+style = "bg:zenburn_bg_1 fg:zenburn_red"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:surface0 fg:peach"
+style = "bg:zenburn_bg_1 fg:zenburn_orange"
 format = '[ $symbol ($version) ]($style)'
 
 [character]
 format = '$symbol'
-success_symbol = '[](bold bg:surface1 fg:green)'
-error_symbol = '[](bold bg:surface1 fg:red)'
+success_symbol = '[](bold bg:zenburn_bg_2 fg:zenburn_green)'
+error_symbol = '[](bold bg:zenburn_bg_2 fg:zenburn_red)'
 
 [cmd_duration]
-style = "bg:none fg:surface1"
+style = "bg:none fg:zenburn_bg_2"
 format = "[$duration]($style)"
 
 [time]
 disabled = false
-style = "bg:none fg:surface1"
+style = "bg:none fg:zenburn_bg_2"
 format = "[$time]($style)"
 time_format = "%Y-%m-%d %H:%M:%S"
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[palettes.zenburn]
+zenburn_fg     = "#DCDCCC"
+zenburn_bg     = "#3F3F3F"
+zenburn_bg_1   = "#4F4F4F"
+zenburn_bg_2   = "#5F5F5F"
+zenburn_bg_3   = "#6F6F6F"
+
+zenburn_red    = "#CC9393"
+zenburn_green  = "#7F9F7F"
+zenburn_blue   = "#8CD0D3"
+zenburn_blue_3 = "#BDE0F3"
+zenburn_cyan   = "#93E0E3"
+zenburn_magenta= "#DC8CC3"
+zenburn_orange = "#DFAF8F"
