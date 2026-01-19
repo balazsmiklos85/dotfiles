@@ -38,6 +38,7 @@ if command -v starship >/dev/null
     starship init fish | source
 end
 
+source ~/.config/fish/theme.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/fzf.fish
 source ~/.config/fish/secrets.fish
