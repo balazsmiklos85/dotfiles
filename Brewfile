@@ -19,5 +19,6 @@ brew "starship"
 brew "thefuck"
 brew "w3m"
 brew "wget"
+brew "zellij"
 brew "zoxide"
 
