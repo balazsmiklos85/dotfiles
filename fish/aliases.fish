@@ -10,6 +10,11 @@ if command -v flatpak >/dev/null
     alias zed 'flatpak run dev.zed.Zed'
 end
 
+if command -v gh >/dev/null
+    alias request_review 'gh pr comment --body "/request-review"'
+    alias watch_checks 'gh pr checks --watch'
+end
+
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
