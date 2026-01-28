@@ -16,3 +16,5 @@ set -g fish_color_cwd 8ACCCF
 set -g fish_color_autosuggestion 5C5C5C
 set -g fish_color_user 8ACCCF
 set -g fish_color_host 93C79F
+
+set -gx BAT_THEME "Zenburn"
