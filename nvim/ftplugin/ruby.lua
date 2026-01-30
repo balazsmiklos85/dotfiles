@@ -1,25 +1,3 @@
-vim.lsp.config("ruby_lsp", {
-	on_attach = function(client)
-		client.notify({ method = "textDocument/didOpen" })
-	end,
-	settings = {
-		ruby = {
-			workspace = {
-				root_patterns = {
-					".git",
-					"Gemfile",
-					"Rakefile",
-					"Guardfile",
-					"Capfile",
-					"config.ru",
-					"Dockerfile",
-				},
-			},
-		},
-	},
-})
-vim.lsp.enable("ruby_lsp")
-
 require("dap-ruby").setup()
 
 vim.diagnostic.config({
