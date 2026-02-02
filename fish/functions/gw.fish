@@ -16,6 +16,6 @@ function gw
         echo "Using the Gradle wrapper."
         ./gradlew $argv
     else
-        echo "No Gradle installation or wrapper not found."
+        echo "No Gradle installation or wrapper found."
     end
 end
