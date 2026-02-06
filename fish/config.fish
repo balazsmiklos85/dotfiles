@@ -1,4 +1,5 @@
 set -gx PATH $HOME/.local/bin $PATH
+set -gx PATH $HOME/.config/scripts $PATH
 if [ -d $HOME/.sdkman ]
     set -gx PATH $HOME/.sdkman $PATH
 end
