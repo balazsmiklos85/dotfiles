@@ -52,3 +52,5 @@ end
 
 fish_add_path $HOME/.opencode/bin
 
+mkdir -p ~/.cache/neomutt/header/
+mkdir -p ~/.cache/neomutt/body/

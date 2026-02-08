@@ -16,6 +16,9 @@ mailboxes =INBOX =[Gmail]/Elküldött\ levelek =[Gmail]/Piszkozatok =[Gmail]/Spa
 bind editor <space> noop
 macro index A '<save-message>=[Gmail]/Összes levél<enter>' 'Archive'
 
+set header_cache = ~/.cache/neomutt/header/
+set message_cache_dir = ~/.cache/neomutt/body
+
 # SMTP settings
 set smtp_url = "smtp://`pass mail/m/gmail/user`@smtp.gmail.com:587/"
 set smtp_pass = "`pass mail/m/gmail/password`"

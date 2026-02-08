@@ -13,6 +13,9 @@ set trash = "+[Gmail]/Kuka"
 
 mailboxes =INBOX =[Gmail]/Elküldött\ levelek =[Gmail]/Piszkozatok =[Gmail]/Spam =[Gmail]/Kuka =[Gmail]/Összes\ levél
 
+set header_cache = ~/.cache/neomutt/header/
+set message_cache_dir = ~/.cache/neomutt/body
+
 # SMTP settings
 set smtp_url = "smtp://`pass mail/private/gmail/user`@smtp.gmail.com:587/"
 set smtp_pass = "`pass mail/private/gmail/password`"
