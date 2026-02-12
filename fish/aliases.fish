@@ -15,6 +15,7 @@ if command -v gh >/dev/null
     alias watch_checks 'gh pr checks --watch'
 end
 
+alias gw_build 'gw build 2>&1 | rg \'> Task .* FAILED\''
 alias gw_compile 'gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 -B 1 \'java:\d+: error\''
 alias gw_test 'gw clean test --console=plain 2>&1 | rg -v \'> Task|BUILD FAILED\' | rg \'FAILED|See the report at\''
 alias gw_it 'gw test --console=plain 2>&1 | rg -v \'( at |failure threshold)\' | rg -v \'^$\' | rg -A 5 \'ApplicationContext\''
