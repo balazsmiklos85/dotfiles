@@ -5,16 +5,16 @@ require 'English'
 require 'json'
 require 'open3'
 
-def fetch_json(cmd)
-  stdout, stderr, status = Open3.capture3 cmd
-  abort "Error running command: #{cmd}\n#{stderr}" unless status.success?
-  JSON.parse stdout
-end
-
 def current_branch
   `git rev-parse --abbrev-ref HEAD`.strip.tap do
     abort 'Could not detect branch name. Are you in a git repository?' unless $CHILD_STATUS.success?
   end
+end
+
+def fetch_json(cmd)
+  stdout, stderr, status = Open3.capture3 cmd
+  abort "Error running command: #{cmd}\n#{stderr}" unless status.success?
+  JSON.parse stdout
 end
 
 branch = current_branch
