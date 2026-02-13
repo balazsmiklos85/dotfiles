@@ -81,6 +81,8 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:zenburn_bg_3 fg:zenburn_blue_3"
 format = '[ $symbol $branch ]($style)'
+truncation_length = 8
+truncation_symbol = "…"
 
 [git_status]
 style = "bg:zenburn_bg_3 fg:zenburn_blue_3"
