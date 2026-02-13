@@ -1,0 +1,88 @@
+#!/usr/bin/env ruby
+
+require 'date'
+
+# Prune remote tracking branches
+puts "Fetching and pruning remote branches..."
+`git fetch --prune 2>&1`
+unless $?.success?
+  puts "Error during git fetch --prune"
+  exit 1
+end
+
+# Get all local branches
+local_branches = `git branch`.split("\n").map { |line| line.gsub(/^\*?\s+/, '') }
+
+puts "\nAnalyzing #{local_branches.length} local branches...\n\n"
+
+branches_to_remove = []
+thirty_days_ago = Date.today - 30
+
+local_branches.each do |branch|
+  # Check if the branch has a remote tracking branch
+  `git rev-parse --abbrev-ref #{branch}@{upstream} 2>&1`
+  has_upstream = $?.success?
+
+  if has_upstream
+    puts "Skipping '#{branch}' - has upstream tracking branch"
+    next
+  end
+
+  # Get the last commit date for this branch
+  last_commit_output = `git log -1 --format=%ci #{branch} 2>&1`.strip
+  unless $?.success?
+    puts "Warning: Could not get commit date for '#{branch}'"
+    next
+  end
+
+  last_commit_date = DateTime.parse(last_commit_output).to_date
+
+  if last_commit_date < thirty_days_ago
+    branches_to_remove << {
+      name: branch,
+      last_commit: last_commit_date,
+      days_old: (Date.today - last_commit_date).to_i
+    }
+  else
+    puts "Skipping '#{branch}' - last commit was #{(Date.today - last_commit_date).to_i} days ago"
+  end
+end
+
+puts "\n" + "=" * 60
+puts "BRANCHES TO REMOVE"
+puts "=" * 60
+
+if branches_to_remove.empty?
+  puts "\nNo stale branches found!"
+else
+  puts "\nThe following branches have no upstream tracking and haven't been"
+  puts "committed to in the last 30 days:\n\n"
+
+  branches_to_remove.sort_by { |b| b[:days_old] }.reverse.each do |branch|
+    puts "  #{branch[:name]}"
+    puts "    Last commit: #{branch[:last_commit]} (#{branch[:days_old]} days ago)"
+    puts
+  end
+
+  puts "=" * 60
+  puts "Deleting #{branches_to_remove.length} branches...\n\n"
+
+  deleted_count = 0
+  failed_count = 0
+
+  branches_to_remove.each do |branch|
+    `git branch -D #{branch[:name]} 2>&1`
+    if $?.success?
+      puts "✓ Deleted: #{branch[:name]}"
+      deleted_count += 1
+    else
+      puts "✗ Failed to delete: #{branch[:name]}"
+      failed_count += 1
+    end
+  end
+
+  puts "\n" + "=" * 60
+  puts "Summary: #{deleted_count} deleted, #{failed_count} failed"
+end
+
+puts "=" * 60
