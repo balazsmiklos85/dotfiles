@@ -1,3 +1,7 @@
+if require("util.functions").is_macos()
+  return {}
+end
+
 return {
   "BlinkResearchLabs/blink-edit.nvim",
   config = function()
