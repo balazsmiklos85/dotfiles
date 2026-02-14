@@ -4,12 +4,14 @@
     "edit": "ask",
     "bash": "ask"
   },
-  "model": "lmstudio/openai/gpt-oss-120b",
+  "model": "lmstudio/qwen3-coder-30b",
   "provider": {
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://127.0.0.1:1234/v1"
+        "baseURL": "http://127.0.0.1:1234/v1",
+        "maxTokens": 4096,
+        "contextWindow": 20480
       },
       "models": {
         "qwen3-coder-30b": {
