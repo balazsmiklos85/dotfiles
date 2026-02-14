@@ -1,65 +1,29 @@
+# Colors (Zenburn)
+# Orginally designed by jnurmine for vim.
+
+# Default colors
 [colors.primary]
-background = "#3f3f3f"
-foreground = "#dcdccc"
-dim_foreground = "#808080"
-bright_foreground = "#ffffff"
+background = '#3A3A3A'
+foreground = '#DCDCCC'
 
-[colors.cursor]
-text = "#3f3f3f"
-cursor = "#dcdccc"
-
-[colors.vi_mode_cursor]
-text = "#3f3f3f"
-cursor = "#dcbcbc"
-
-[colors.search.matches]
-foreground = "#3f3f3f"
-background = "#dca3a3"
-
-[colors.search.focused_match]
-foreground = "#3f3f3f"
-background = "#5f7f5f"
-
-[colors.footer_bar]
-foreground = "#3f3f3f"
-background = "#dca3a3"
-
-[colors.hints.start]
-foreground = "#3f3f3f"
-background = "#dfaf8f"
-
-[colors.hints.end]
-foreground = "#3f3f3f"
-background = "#dca3a3"
-
-[colors.selection]
-text = "#3f3f3f"
-background = "#dcdccc"
-
+# Normal colors
 [colors.normal]
-black = "#4d4d4d"
-red = "#dfaf8f"
-green = "#5f7f5f"
-yellow = "#e3ceab"
-blue = "#96cbfe"
-magenta = "#dca3a3"
-cyan = "#93e0e3"
-white = "#dcdccc"
+black   = '#1E2320'
+red     = '#D78787'
+green   = '#60B48A'
+yellow  = '#DFAF8F'
+blue    = '#506070'
+magenta = '#DC8CC3'
+cyan    = '#8CD0D3'
+white   = '#DCDCCC'
 
+# Bright colors
 [colors.bright]
-black = "#709080"
-red = "#dfaf8f"
-green = "#5f7f5f"
-yellow = "#e3ceab"
-blue = "#96cbfe"
-magenta = "#dca3a3"
-cyan = "#93e0e3"
-white = "#dcdccc"
-
-[[colors.indexed_colors]]
-index = 16
-color = "#efcfbc"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#e3ceab"
+black   = '#709080'
+red     = '#DCA3A3'
+green   = '#C3BF9F'
+yellow  = '#F0DFAF'
+blue    = '#94BFF3'
+magenta = '#EC93D3'
+cyan    = '#93E0E3'
+white   = '#FFFFFF'
