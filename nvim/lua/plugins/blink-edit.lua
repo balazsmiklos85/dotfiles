@@ -1,4 +1,4 @@
-if require("util.functions").is_macos()
+if require("util.functions").is_macos() then
   return {}
 end
 
