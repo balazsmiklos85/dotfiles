@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'English'
+require 'open3'
+require 'fileutils'
+
+def project_name
+  File.basename(Dir.pwd)
+end
+
+def run_command(cmd, description:)
+  puts description
+  stdout, stderr, status = Open3.capture3(cmd)
+  abort "Error: #{stderr}" unless status.success?
+
+  stdout
+end
+
+target = ARGV[0] || 'x86_64-unknown-linux-musl'
+run_command('rm -rf target/', description: 'Cleaning up target...')
+
+dependencies = %w[musl gcc libc-dev pkgconfig openssl-dev openssl-libs-static]
+build_cmd = <<~CMD
+  podman run --rm -v $(pwd):/lambda:Z rust:1.84-alpine \
+  sh -c "apk add --no-cache #{dependencies.join(' ')} && cd /lambda && cargo build --release --target #{target}"
+CMD
+run_command(build_cmd, description: 'Compilation...')
+
+old_path = "target/#{target}/release/#{project_name}"
+new_path = "target/#{target}/release/bootstrap"
+if File.exist? old_path
+  FileUtils.mv old_path, new_path
+  puts "Renamed #{project_name} to bootstrap"
+else
+  puts "Warning: Expected executable not found at #{old_path}"
+end
+run_command("zip -j target/bootstrap.zip #{new_path}", description: 'Creating zip file...')
+
+puts 'Done!'
