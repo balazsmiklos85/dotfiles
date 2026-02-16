@@ -1,3 +1,10 @@
+vim.lsp.config('groovyls', {
+  cmd = { "groovy-language-server" },
+  filetypes = { "gradle", "groovy" },
+})
+
+vim.lsp.enable('groovyls')
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
