@@ -8,6 +8,8 @@
 
 !bat/**
 
+!claude/**
+
 !.editorconfig
 
 !fish/**
