@@ -10,9 +10,10 @@
 
 1. Take the first TODO from the list
 2. Complete the task and only that task
-3. Invoke the `/check-build` skill
-4. Update `plan.md`
-6. Commit your changes with the prefix returned by `git rev-parse --abbrev-ref HEAD | sd '^(\w+)[-_](\d+).*' '$1-$2'`
+3. Invoke the `/check-compile` skill
+4. Invoke the `/check-tests` skill
+5. Update `plan.md`
+6. Invoke the `/commit` skill
 
 ## Tasks
 

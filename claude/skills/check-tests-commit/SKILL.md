@@ -1,6 +1,6 @@
 ---
-name: check-tests
-description: Checks that the tests are green and fixes them if necessary
+name: check-tests-commit
+description: Checks that the tests are green and fixes them if necessary. + commits fixes one by one.
 allowed-tools: Bash(*)
 ---
 
@@ -12,5 +12,5 @@ allowed-tools: Bash(*)
         - Find the specific failure's report with e.g. `fd 'ClassName' service/build/reports/tests/test/`
         - Parse the specific faiure with e.g `w3m service/build/reports/tests/test/classes/com.wise.service.mitigation.requirements.more.package.names.ClassName.html | awk '/^Failed tests/,/Tests/' | rg -v '(Failed tests|Tests)'`
     b) Fix the test
-    c) GOTO a)
-
+    c) Invoke the `/commit` skill
+    d) GOTO a)
