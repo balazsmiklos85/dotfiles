@@ -15,8 +15,6 @@ if command -v gh >/dev/null
     alias watch_checks 'gh pr checks --watch'
 end
 
-alias gw_build 'gw build 2>&1 | rg \'> Task .* FAILED\''
-
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
