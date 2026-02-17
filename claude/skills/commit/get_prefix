@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
-git rev-parse --abbrev-ref HEAD | sd '^(\w+)[-_](\d+).*' '[$1-$2]
+puts `git rev-parse --abbrev-ref HEAD`.strip
+                                      .gsub(/^(\w+)[-_](\d+).*/, '[$1-$2]')
