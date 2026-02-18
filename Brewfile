@@ -1,3 +1,4 @@
+cask "alacritty", args: { appdir: "~/Applications" }
 cask "font-hack-nerd-font"
 
 brew "bat"
