@@ -25,13 +25,11 @@ def find_existing_failure_class(path)
 end
 
 def run_gradle_tests_and_get_output
-  full_output = `./gradlew clean test --console=plain 2>&1`
-  filtered_lines = full_output.split("\n").select do |line|
-    next false if line.match?(/> Task|BUILD FAILED/)
-
-    line.match?(/FAILED|See the report at/)
-  end
-  filtered_lines.join("\n")
+  `./gradlew clean test --console=plain 2>&1`.split("\n")
+                                             .reject { |line| line.include?('> Task') }
+                                             .reject { |line| line.include?('BUILD FAILED') }
+                                             .select { |line| line.include?('FAILED') }
+                                             .join("\n")
 end
 
 def parse_class_name_from_gradle(output)
