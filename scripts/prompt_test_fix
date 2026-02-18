@@ -42,21 +42,17 @@ def locate_html_report(path, class_name)
 end
 
 def extract_failure_details(html_path)
+  # TODO: instead of the w3m call, this method should use Nokogiri
+  # ...once I can tell which parts of the HTML do I need
   lines = `w3m -dump #{html_path}`.strip.split("\n")
-
   failure_lines = []
   inside_block = false
-
   lines.each do |line|
-    if line =~ /^Failed tests/
-      inside_block = true
-      next
-    end
+    failure_lines << line if inside_block
     break if line =~ /^Tests/ && inside_block
 
-    failure_lines << line if inside_block
+    inside_block |= line =~ /^Failed tests/
   end
-
   failure_text = failure_lines.join("\n").strip
   abort 'Failure text empty.' if failure_text.empty?
   failure_text
