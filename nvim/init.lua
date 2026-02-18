@@ -16,4 +16,7 @@ require("config.relative_numbers")
 require("config.lsp_start")
 
 vim.cmd([[colorscheme zenburn]])
+-- keeping the colors of the terminal, preserving opacity:
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
