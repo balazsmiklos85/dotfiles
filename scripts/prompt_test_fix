@@ -8,8 +8,20 @@ def run_command(cmd)
 end
 
 def find_existing_failure_class(path)
-  result = run_command("rg -l 'Failed tests' #{path} 2>/dev/null | rg '[A-Z].*html'").split("\n").first
-  File.basename(result, '.html').split('.').last if result
+  return nil unless Dir.exist?(path)
+
+  html_files = Dir.glob(File.join(path, '**', '*.html'))
+
+  html_files.each do |file|
+    content = File.read(file)
+    next unless content.include?('Failed tests')
+
+    basename = File.basename(file, '.html')
+    parts = basename.split('.')
+    return parts.last if parts.last =~ /^[A-Z]/
+  end
+
+  nil
 end
 
 def run_gradle_tests_and_get_output
