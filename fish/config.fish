@@ -10,6 +10,9 @@ if [ (uname) = Darwin ]
     set -gx PATH /opt/homebrew/bin $PATH
     set -gx PATH /opt/homebrew/sbin $PATH
 end
+if [ -d $HOME/.local/share/nvim/mason/bin ]
+    fish_add_path $HOME/.local/share/nvim/mason/bin
+end
 if [ -d $HOME/.nvm ]
     set -gx PATH $HOME/.nvm $PATH
 end
