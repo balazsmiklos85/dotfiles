@@ -6,18 +6,13 @@ require 'fileutils'
 def find_existing_failure_class(path)
   return nil unless Dir.exist? path
 
-  html_files = Dir.glob File.join(path, '**', '*.html')
-
-  html_files.each do |file|
-    content = File.read(file)
-    next unless content.include? 'Failed tests'
-
-    basename = File.basename file, '.html'
-    parts = basename.split '.'
-    return parts.last if parts.last =~ /^[A-Z]/
-  end
-
-  nil
+  Dir.glob(File.join(path, '**', '*.html'))
+     .lazy
+     .map { |file| [File.basename(file, '.html'), File.read(file)] }
+     .select { |_, content| content.include? 'Failed tests' }
+     .map { |basename, _| basename.split('.').last }
+     .select { |class_name| class_name.start_with? 'A'..'Z' }
+     .first
 end
 
 def run_gradle_tests
