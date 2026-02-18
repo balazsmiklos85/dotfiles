@@ -3,10 +3,6 @@
 
 require 'fileutils'
 
-def run_command(cmd)
-  `#{cmd}`.strip
-end
-
 def find_existing_failure_class(path)
   return nil unless Dir.exist?(path)
 
@@ -40,13 +36,13 @@ def parse_class_name_from_gradle(output)
 end
 
 def locate_html_report(path, class_name)
-  files = run_command("find #{path}/classes -name \"*#{class_name}.html\"").split("\n")
+  files = `find #{path}/classes -name "*#{class_name}.html"`.strip.split("\n")
   abort "Report not found for: #{class_name}" if files.empty?
   files.first
 end
 
 def extract_failure_details(html_path)
-  lines = run_command("w3m -dump #{html_path}").split("\n")
+  lines = `w3m -dump #{html_path}`.strip.split("\n")
 
   failure_lines = []
   inside_block = false
