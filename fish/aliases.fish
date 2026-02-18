@@ -15,6 +15,10 @@ if command -v gh >/dev/null
     alias watch_checks 'gh pr checks --watch'
 end
 
+if command -v lsd >/dev/null
+    alias tree 'lsd --tree'
+end
+
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
