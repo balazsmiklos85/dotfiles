@@ -4,16 +4,16 @@
 require 'fileutils'
 
 def find_existing_failure_class(path)
-  return nil unless Dir.exist?(path)
+  return nil unless Dir.exist? path
 
-  html_files = Dir.glob(File.join(path, '**', '*.html'))
+  html_files = Dir.glob File.join(path, '**', '*.html')
 
   html_files.each do |file|
     content = File.read(file)
-    next unless content.include?('Failed tests')
+    next unless content.include? 'Failed tests'
 
-    basename = File.basename(file, '.html')
-    parts = basename.split('.')
+    basename = File.basename file, '.html'
+    parts = basename.split '.'
     return parts.last if parts.last =~ /^[A-Z]/
   end
 
@@ -22,16 +22,16 @@ end
 
 def run_gradle_tests
   `./gradlew clean test --console=plain 2>&1`.split("\n")
-                                             .reject { |line| line.include?('> Task') }
-                                             .reject { |line| line.include?('BUILD FAILED') }
-                                             .select { |line| line.include?('FAILED') }
+                                             .reject { |line| line.include? '> Task' }
+                                             .reject { |line| line.include? 'BUILD FAILED' }
+                                             .select { |line| line.include? 'FAILED' }
                                              .join("\n")
 end
 
 def parse_class_name_from_gradle(output)
   abort 'No failing tests found.' if output.empty?
   first_line = output.split("\n").first
-  abort "Could not parse class name from: #{first_line}" unless first_line&.include?('>')
+  abort "Could not parse class name from: #{first_line}" unless first_line&.include? '>'
   first_line.split('>').first.strip
 end
 
@@ -73,6 +73,6 @@ end
 reports_path = 'service/build/reports/tests/test'
 
 class_name = find_existing_failure_class(reports_path) || parse_class_name_from_gradle(run_gradle_tests)
-report_file = locate_html_report(reports_path, class_name)
-failure_content = extract_failure_details(report_file)
+report_file = locate_html_report reports_path, class_name
+failure_content = extract_failure_details report_file
 puts format_report(class_name, failure_content)
