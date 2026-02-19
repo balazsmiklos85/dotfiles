@@ -11,7 +11,7 @@ def find_existing_failure_class(path)
      .map { |file| [File.basename(file, '.html'), File.read(file)] }
      .select { |_, content| content.include? 'Failed tests' }
      .map { |basename, _| basename.split('.').last }
-     .select { |class_name| class_name.start_with? 'A'..'Z' }
+     .select { |class_name| class_name.start_with? /[A-Z]/ }
      .first
 end
 
