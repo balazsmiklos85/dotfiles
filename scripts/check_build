@@ -1,10 +1,33 @@
-#!/bin/sh
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
-echo "Clean..."
-./gradlew clean 1>/dev/null 2>/dev/null
-echo "Ensure Spotbugs exclusion..."
-mkdir -p client-starter/build/tmp/spotbugs/
-touch client-starter/build/tmp/spotbugs/wise_spotbugs_exclusions.xml
-echo "Build..."
-./gradlew build 2>&1 | rg -U '> Task .* FAILED|\* What went wrong:\n(.+\n)+|BUILD SUCCESSFUL'
+require 'fileutils'
 
+def run(cmd)
+  system cmd
+end
+
+def capture(cmd)
+  `#{cmd}`
+end
+
+def clean
+  puts 'Clean...'
+  run './gradlew clean > /dev/null 2>&1'
+end
+
+def ensure_file
+  puts 'Ensure file...'
+  FileUtils.mkdir_p 'client-starter/build/tmp/spotbugs'
+  FileUtils.touch 'client-starter/build/tmp/spotbugs/wise_spotbugs_exclusions.xml'
+end
+
+def build
+  puts 'Build...'
+  output = capture './gradlew build 2>&1'
+  puts output.scan(/> Task .* FAILED|\* What went wrong:\n(?:.+\n)+|BUILD SUCCESSFUL/).join
+end
+
+clean
+ensure_file
+build
