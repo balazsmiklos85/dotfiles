@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Clean..."
+./gradlew clean 1>/dev/null 2>/dev/null
+echo "Ensure Spotbugs exclusion..."
+mkdir -p client-starter/build/tmp/spotbugs/
+touch client-starter/build/tmp/spotbugs/wise_spotbugs_exclusions.xml
+echo "Build..."
+./gradlew build 2>&1 | rg -U '> Task .* FAILED|\* What went wrong:\n(.+\n)+|BUILD SUCCESSFUL'
+
