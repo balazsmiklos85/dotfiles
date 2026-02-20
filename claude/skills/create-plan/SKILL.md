@@ -13,7 +13,7 @@ description: Creates a plan for a task
 
 1. Understand the problem of the user!
 2. Formulate a plan to reach the desired state from the current state!
-3. Write a @plan.md file using the [./template.md](template)!
+3. Write a @plan.md file strictly by filling the [./template.md](template)!
 
 ## Contraints
 

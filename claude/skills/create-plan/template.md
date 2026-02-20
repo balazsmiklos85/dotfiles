@@ -8,12 +8,12 @@
 
 ## Process
 
-1. Take the first task from the list
-2. Complete the task and only that task
-3. Invoke the `/check-compile` skill
-4. Invoke the `/check-tests` skill
-5. Update `plan.md`
-6. Invoke the `/commit` skill
+1. Take the first task from the list!
+2. Complete the task and only that task!
+3. Ask the user check compilation errors, wait for the result!
+4. Ask the user to check tests, wait for the result!
+5. Update `plan.md`!
+6. Ask the user to commit the changes! Provide a one liner commit message!
 
 ## Tasks
 
