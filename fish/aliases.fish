@@ -16,7 +16,10 @@ if command -v gh >/dev/null
 end
 
 if command -v lsd >/dev/null
+    alias ll 'lsd -ll'
     alias tree 'lsd --tree'
+else
+    alias ll 'ls -ll'
 end
 
 if command -v timew >/dev/null
