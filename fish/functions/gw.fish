@@ -2,14 +2,14 @@
 
 function gw
     if command -v gradle >/dev/null
-        envsource .env
+        env2sh | source
         if command -v nvm >/dev/null
             nvm use
         end
         echo "Using the installed Gradle."
         gradle $argv
     else if test -x "./gradlew"
-        envsource .env
+        env2sh | source
         if command -v nvm >/dev/null
             nvm use
         end

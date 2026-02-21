@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Export printer for shells
+class Shell
+  def self.create
+    case ENV['SHELL']
+    when /fish$/
+      Fish.new
+    else
+      Shell.new
+    end
+  end
+
+  def print(key, value)
+    puts "export #{key.strip}=#{value}"
+  end
+end
+
+# Export printer specifically for Fish
+class Fish < Shell
+  def print(key, value)
+    puts "set -xg #{key.strip} #{value}"
+  end
+end
+
+def comment?(line)
+  line.start_with? '#'
+end
+
+def missing_key?(key_and_value)
+  key = key_and_value[0]
+  key.nil? || key.strip.empty?
+end
+
+def remove_bash_syntax(line)
+  line.sub(/\Aexport\s+/, '')
+end
+
+def quoted(value)
+  "'#{(value || '').strip.gsub("'", "'\\''")}'"
+end
+
+file = (ARGV[0] || '.env').strip
+exit unless File.exist? file
+
+shell = Shell.create
+
+File.readlines(file)
+    .map(&:strip)
+    .reject(&:empty?)
+    .reject { |line| comment? line }
+    .map { |line| remove_bash_syntax line }
+    .map { |line| line.split('=', 2) }
+    .reject { |parts| missing_key? parts }
+    .map { |key, value| [key, quoted(value)] }
+    .each { |key, value| shell.print key, value }
