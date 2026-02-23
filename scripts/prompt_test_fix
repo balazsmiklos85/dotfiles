@@ -48,7 +48,7 @@ def extract_failure_details(html_path)
 
     inside_block |= line =~ /^Failed tests/
   end
-  failure_text = failure_lines.join("\n").strip
+  failure_text = failure_lines.reject {|l| irrelevant_stacktrace? l }.join("\n").strip
   abort 'Failure text empty.' if failure_text.empty?
   failure_text
 end
@@ -63,6 +63,10 @@ def format_report(class_name, failure_text)
     - Check what changed!
     - Fix the test!
   PROMPT
+end
+
+def irrelevant_stacktrace?(line)
+    line =~ /at java\./
 end
 
 reports_path = 'service/build/reports/tests/test'
