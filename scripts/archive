@@ -1,26 +1,22 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 require 'fileutils'
 require 'pathname'
 
-def archive(file_path, destination_dir)
-  return puts "Error: File '#{file_path}' not found." unless File.exist?(file_path)
+abort 'Usage: archive <filename> <destination_path>' unless ARGV.length == 2
+file_path = ARGV[0]
+destination_dir = ARGV[1]
+abort "Error: File '#{file_path}' not found." unless File.exist? file_path
 
-  path = Pathname.new(file_path)
-  basename = path.basename(path.extname).to_s
-  extension = path.extname
-  timestamp = Time.now.strftime("%Y%m%d%H%M")
+path = Pathname.new file_path
+basename = path.basename(path.extname).to_s
+extension = path.extname
+timestamp = Time.now.strftime '%Y%m%d%H%M'
+new_filename = "#{basename}_#{timestamp}#{extension}"
+dest_path = File.join destination_dir, new_filename
 
-  new_filename = "#{basename}_#{timestamp}#{extension}"
-  dest_path = File.join(destination_dir, new_filename)
+FileUtils.mkdir_p destination_dir
+FileUtils.cp file_path, dest_path
 
-  FileUtils.mkdir_p(destination_dir)
-  FileUtils.cp(file_path, dest_path)
-
-  puts "Archived: #{file_path} -> #{dest_path}"
-end
-
-if ARGV.length == 2
-  archive(ARGV[0], ARGV[1])
-else
-  puts "Usage: archive <filename> <destination_path>"
-end
+puts "Archived: #{file_path} -> #{dest_path}"
