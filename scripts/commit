@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+message = ARGV[0]
+prefix = `git rev-parse --abbrev-ref HEAD`.strip
+                                          .gsub(/^(\w+)[-_](\d+).*/, '[$1-$2]')
+`git commit -m '#{prefix} #{message}'`
