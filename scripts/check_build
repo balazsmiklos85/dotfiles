@@ -16,12 +16,6 @@ def clean
   run './gradlew clean > /dev/null 2>&1'
 end
 
-def ensure_file
-  puts 'Ensure file...'
-  FileUtils.mkdir_p 'client-starter/build/tmp/spotbugs'
-  FileUtils.touch 'client-starter/build/tmp/spotbugs/wise_spotbugs_exclusions.xml'
-end
-
 def build
   puts 'Build...'
   output = capture './gradlew build 2>&1'
@@ -29,5 +23,4 @@ def build
 end
 
 clean
-ensure_file
 build
