@@ -16,7 +16,11 @@ end
 if [ -d $HOME/.nvm ]
     set -gx PATH $HOME/.nvm $PATH
 end
-if [ -d $HOME/.rvm ]
+if [ -d /opt/homebrew/opt/ruby/bin ]
+  fish_add_path /opt/homebrew/opt/ruby/bin
+  set -gx LDFLAGS "-L/opt/homebrew/opt/ruby/lib"
+  set -gx CPPFLAGS "-I/opt/homebrew/opt/ruby/include"
+else if [ -d $HOME/.rvm ]
     set -gx PATH $HOME/.rvm/bin $PATH
     set -gx PATH $HOME/.rvm/rubies/default/bin $PATH
     set -gx PATH $HOME/.rvm/gems/default/bin $PATH
