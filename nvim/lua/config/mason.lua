@@ -25,7 +25,7 @@ if vim.fn.executable("pylsp") == 1 then
 	table.insert(tools_to_install, "ruff")
 end
 
-if vim.fn.executable("rvm") == 1 then
+if vim.fn.executable("rvm") == 1 or vim.fn.isdirectory("/opt/homebrew/opt/ruby") then
 	-- Ruby
 	table.insert(lsps_to_install, "rubocop")
 	table.insert(lsps_to_install, "ruby_lsp")
