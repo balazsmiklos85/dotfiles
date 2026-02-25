@@ -19,7 +19,14 @@ end
 def build
   puts 'Build...'
   output = capture './gradlew build 2>&1'
-  puts output.scan(/> Task .* FAILED|\* What went wrong:\n(?:.+\n)+|BUILD SUCCESSFUL/).join
+  filter = if output.match?(/>Task compile(Test)?Java FAILED/)
+             ->(o) { o.scan(/(?:.{0,120}\n)?java:\d+: error.*?(?:\n|$)(?:.{0,120}\n){0,4}/).join }
+           elsif output.include?('BUILD SUCCESSFUL')
+             ->(o) { o[/BUILD SUCCESSFUL/] }
+           else
+             ->(o) { o.scan(/> Task .* FAILED|\* What went wrong:\n(?:.+\n)+/).join }
+           end
+  puts filter.call(output)
 end
 
 clean
