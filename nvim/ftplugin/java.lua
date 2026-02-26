@@ -2,9 +2,14 @@ local util = require("util.functions")
 
 local home = os.getenv("HOME")
 local mason_packages = home .. "/.local/share/nvim/mason/packages/"
+local root_markers = {'gradlew', '.git', 'mvnw'}
+local root_dir = vim.fs.dirname(vim.fs.find(root_markers, { upward = true })[1])
+local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_dir = home .. "/.cache/jdtls/" .. project_name
 local jdtls_command =
 {
-	  mason_packages .. "jdtls/bin/jdtls"
+	  mason_packages .. "jdtls/bin/jdtls",
+	  "-data", workspace_dir,
 }
 local lombok_jar = home .. "/.local/bin/lombok.jar"
 if util.is_file(lombok_jar) then
@@ -13,7 +18,7 @@ end
 
 local config = {
   cmd = jdtls_command,
-  root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+  root_dir = root_dir,
 }
 
 local bundles = {
