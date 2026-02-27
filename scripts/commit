@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+status = `gh pr view --json mergeStateStatus -q ".mergeStateStatus"`
+if status == 'BEHIND'
+  `gh pr update-branch`
+  `git pull`
+end
+
 message = ARGV[0]
 prefix = `git rev-parse --abbrev-ref HEAD`.strip
                                           .gsub(/^(\w+)[-_](\d+).*/, "[\\1-\\2]")
