@@ -3,8 +3,17 @@
 
 require 'fileutils'
 
-def run(cmd)
-  system cmd
+def build
+  puts 'Build...'
+  output = capture './gradlew build 2>&1'
+  result = if output.match?(/>Task compile(Test)?Java FAILED/)
+             extract_java_errors output
+           elsif output.include? 'BUILD SUCCESSFUL'
+             'BUILD SUCCESSFUL'
+           else
+             extract_build_failure output
+           end
+  puts result
 end
 
 def capture(cmd)
@@ -16,17 +25,16 @@ def clean
   run './gradlew clean > /dev/null 2>&1'
 end
 
-def build
-  puts 'Build...'
-  output = capture './gradlew build 2>&1'
-  filter = if output.match?(/>Task compile(Test)?Java FAILED/)
-             ->(o) { o.scan(/(?:.{0,120}\n)?java:\d+: error.*?(?:\n|$)(?:.{0,120}\n){0,4}/).join }
-           elsif output.include?('BUILD SUCCESSFUL')
-             ->(o) { o[/BUILD SUCCESSFUL/] }
-           else
-             ->(o) { o.scan(/> Task .* FAILED|\* What went wrong:\n(?:.+\n)+/).join }
-           end
-  puts filter.call(output)
+def extract_build_failure(output)
+  output.scan(/> Task .* FAILED|\* What went wrong:\n(?:.+\n)+/).join
+end
+
+def extract_java_errors(output)
+  output.scan(/(?:.{0,120}\n)?java:\d+: error.*?(?:\n|$)(?:.{0,120}\n){0,4}/).join "\n"
+end
+
+def run(cmd)
+  system cmd
 end
 
 clean
