@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
+git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml
