@@ -6,8 +6,10 @@ require 'fileutils'
 def build
   puts 'Build...'
   output = capture './gradlew build 2>&1'
-  result = if output.match?(/>Task compile(Test)?Java FAILED/)
+  result = if output.match?(/> Task compile(Test)?Java FAILED/)
              extract_java_errors output
+           elsif output.match?(/> Task.*[tT]est.*FAILED/)
+             handle_test_failures output
            elsif output.include? 'BUILD SUCCESSFUL'
              'BUILD SUCCESSFUL'
            else
@@ -31,6 +33,40 @@ end
 
 def extract_java_errors(output)
   output.scan(/(?:.{0,120}\n)?java:\d+: error.*?(?:\n|$)(?:.{0,120}\n){0,4}/).join "\n"
+end
+
+def find_html_path(class_name)
+  `find . -name "*#{class_name}.html"`.strip
+end
+
+def handle_test_failures(output)
+  output.split("\n")
+        .reject { |line| line.include? '> Task' }
+        .reject { |line| line.include? 'BUILD FAILED' }
+        .select { |line| line.include? 'FAILED' }
+        .map { |line| line.split '>' }
+        .map(&:first)
+        .map(&:strip)
+        .map { |class_name| find_html_path(class_name) }
+        .map { |html_path| parse_failure_html(html_path) }
+        .join "\n"
+end
+
+def irrelevant_stacktrace?(line)
+  line =~ /at java\./
+end
+
+def parse_failure_html(html_path)
+  lines = `w3m -dump #{html_path}`.strip.split("\n")
+  failure_lines = []
+  inside_block = false
+  lines.each do |line|
+    failure_lines << line if inside_block
+    break if line =~ /^Tests/ && inside_block
+
+    inside_block ||= line =~ /^Failed tests/
+  end
+  failure_lines.reject { |l| irrelevant_stacktrace? l }.join("\n").strip
 end
 
 def run(cmd)
