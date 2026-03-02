@@ -6,6 +6,7 @@ require 'fileutils'
 def build
   puts 'Build...'
   output = capture './gradlew build 2>&1'
+  # TODO: when `checkstyleMain` fails, parse the checkstyle/main.html file
   result = if output.match?(/> Task compile(Test)?Java FAILED/)
              extract_java_errors output
            elsif output.match?(/> Task.*[tT]est.*FAILED/)
