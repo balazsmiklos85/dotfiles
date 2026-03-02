@@ -1,4 +1,17 @@
 #!/bin/sh
 
-git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
-git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml 2>&1 | rg 'scanned|formatted'
+JAVA_FILES=$(git diff --name-only --diff-filter=ACM | grep "\.java$")
+
+if [ -n "$JAVA_FILES" ]; then
+    if command -v google-java-format >/dev/null 2>&1; then
+        echo "$JAVA_FILES" | xargs google-java-format -i --fix-imports-only
+    else
+        echo "Warning: google-java-format not found. Install it by running 'brew install google-java-format'."
+    fi
+
+    if ! pgrep -f "IntelliJ IDEA" >/dev/null 2>&1; then
+        echo "$JAVA_FILES" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml 2>&1 | grep -E 'scanned|formatted'
+    else
+        echo "Skipping IntelliJ formatter: IntelliJ IDEA is currently running."
+    fi
+fi
