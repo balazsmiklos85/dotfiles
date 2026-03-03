@@ -3,7 +3,7 @@
 
 message = ARGV[0]
 branch_name = `git rev-parse --abbrev-ref HEAD`.strip
-prefix = branch_name.gsub(/^(\w+)[-_](\d+).*/, "[\\1-\\2]")
+prefix = branch_name.gsub(/^(\w+)[-_](\d+).*/, '[\\1-\\2]')
 `git commit -m '#{prefix} #{message}'`
 
 status = `gh pr view --json mergeStateStatus -q ".mergeStateStatus"`
