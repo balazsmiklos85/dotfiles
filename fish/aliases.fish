@@ -12,7 +12,7 @@ end
 
 if command -v gh >/dev/null
     alias request_review 'gh pr comment --body "/request-review"'
-    alias watch_checks 'gh pr checks --watch'
+    alias watch_checks 'gh pr checks --json "name,state" | jq \'.[] | select(.name == "Build And Test")| .state\''
 end
 
 if command -v lsd >/dev/null
