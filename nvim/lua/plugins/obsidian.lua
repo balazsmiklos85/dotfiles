@@ -7,6 +7,18 @@ if current_dir:sub(-#ending) == ending then
 	documents = current_dir
 end
 
+local daily_notes = {
+	folder = "personal/health_and_well-being/mental_and_emotional_health/journaling/" .. os.date("%Y/%m"),
+	date_format = "%Y-%m-%d",
+	alias_format = "%B %-d, %Y",
+	template = nil,
+}
+local notes_subdir = "fleeting_notes"
+
+if vim.uv.os_uname().sysname == "Darwin" then
+	daily_notes = nil
+end
+
 return {
 	"obsidian-nvim/obsidian.nvim",
 	name = "obsidian",
@@ -14,7 +26,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"hrsh7th/nvim-cmp",
 	},
-	cond = function ()
+	cond = function()
 		return current_dir == documents
 	end,
 	opts = {
@@ -24,13 +36,8 @@ return {
 				name = "notes",
 			},
 		},
-		notes_subdir = "új",
-		daily_notes = {
-			folder = "personal/health_and_well-being/mental_and_emotional_health/journaling/" .. os.date("%Y/%m"),
-			date_format = "%Y-%m-%d",
-			alias_format = "%B %-d, %Y",
-			template = nil,
-		},
+		notes_subdir = notes_subdir,
+		daily_notes = daily_notes,
 		log_level = vim.log.levels.INFO,
 
 		completion = {
