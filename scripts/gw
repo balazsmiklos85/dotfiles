@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+def comment?(line)
+  line.start_with?('#')
+end
+
+def missing_key?(key_and_value)
+  key = key_and_value[0]
+  key.nil? || key.strip.empty?
+end
+
+def remove_bash_syntax(line)
+  line.sub(/\Aexport\s+/, '')
+end
+
+file = '.env'
+if File.exist? file
+  File.readlines(file)
+      .map(&:strip)
+      .reject(&:empty?)
+      .reject { |line| comment? line }
+      .map { |line| remove_bash_syntax line }
+      .map { |line| line.split '=', 2 }
+      .reject { |parts| missing_key? parts }
+      .each { |key, value| ENV[key.strip] = value.strip }
+end
+
+if `command -v gradle`.strip.nonempty?
+  puts 'Using the installed Gradle.'
+  system 'gradle', *ARGV
+  exit 0
+end
+
+abort 'No Gradle installation or wrapper found.' unless File.executable? './gradlew'
+
+puts 'Using the Gradle wrapper.'
+system './gradlew', *ARGV
