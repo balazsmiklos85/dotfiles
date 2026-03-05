@@ -1,3 +1,4 @@
 #!/bin/sh
 
-{ git diff --name-only --diff-filter=ACM ; git diff --cached --name-only --diff-filter=ACM } | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
+git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
+git diff --cached --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
