@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'time'
+
+ENV['TZ'] = 'Europe/Budapest'
+puts Time.strptime(ARGV[0], '%Y-%m-%d %H:%M:%S').to_i
