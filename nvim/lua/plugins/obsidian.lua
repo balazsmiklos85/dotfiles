@@ -14,9 +14,12 @@ local daily_notes = {
 	template = nil,
 }
 local notes_subdir = "fleeting_notes"
+local templates = "templates"
 
 if vim.uv.os_uname().sysname == "Darwin" then
 	daily_notes = nil
+	notes_subdir = "0_inbox"
+	templates = "4_resources/templates"
 end
 
 return {
@@ -70,7 +73,7 @@ return {
 		preferred_link_style = "wiki",
 
 		templates = {
-			subdir = "sablonok",
+			subdir = templates,
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
 			substitutions = {},
