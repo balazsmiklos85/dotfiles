@@ -14,13 +14,14 @@ return {
 			"lua",
 			"ruby",
 			"rust",
+			"sql",
 			"terraform",
 			"typescript",
 			"vim",
 			"xml",
 		},
 		sync_install = false,
-		auto_install = false,
+		auto_install = true,
 
 		highlight = {
 			enable = true,
