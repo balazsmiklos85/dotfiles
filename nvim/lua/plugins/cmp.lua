@@ -45,11 +45,10 @@ return {
 				end,
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "path" },
-				{ name = 'vim-dadbod-completion' },
-			}, {
-				{ name = "buffer" },
+				{ name = "nvim_lsp", priority = 1000 },
+				{ name = "path", priority = 250 },
+				{ name = "vim-dadbod-completion", priority = 750 },
+				{ name = "buffer", priority = 500 },
 			}),
 			experimental = {
 				ghost_text = {
