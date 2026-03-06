@@ -26,7 +26,7 @@ if File.exist? file
       .each { |key, value| ENV[key.strip] = value.strip }
 end
 
-if `command -v gradle`.strip.nonempty?
+unless `command -v gradle`.strip.empty?
   puts 'Using the installed Gradle.'
   system 'gradle', *ARGV
   exit 0
