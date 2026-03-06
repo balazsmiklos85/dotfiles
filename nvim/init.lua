@@ -14,6 +14,7 @@ require("config.mason")
 require("config.keymaps")
 require("config.relative_numbers")
 require("config.lsp_start")
+require("config.db")
 
 vim.cmd([[colorscheme zenburn]])
 -- keeping the colors of the terminal, preserving opacity:

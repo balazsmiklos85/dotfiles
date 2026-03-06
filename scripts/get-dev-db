@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "mariadb://$(pass show db/staging_user):$(pass show db/staging_password)@localhost:$(pass show db/staging_port)/$(pass show db/staging_db)"
