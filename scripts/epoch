@@ -3,4 +3,6 @@
 require 'time'
 
 ENV['TZ'] = 'Europe/Budapest'
-puts Time.strptime(ARGV[0], '%Y-%m-%d %H:%M:%S').to_i
+input = ARGV[0]
+input += ':00' unless input.match?(/\d{2}:\d{2}:\d{2}$/)
+puts Time.strptime(input, '%Y-%m-%d %H:%M:%S').to_i
