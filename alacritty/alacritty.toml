@@ -1,5 +1,5 @@
 general.import = [
-  "~/.config/alacritty/zenburn.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
 [font]
