@@ -14,17 +14,18 @@ def remove_bash_syntax(line)
   line.sub(/\Aexport\s+/, '')
 end
 
-file = '.env'
-if File.exist? file
-  File.readlines(file)
-      .map(&:strip)
-      .reject(&:empty?)
-      .reject { |line| comment? line }
-      .map { |line| remove_bash_syntax line }
-      .map { |line| line.split '=', 2 }
-      .reject { |parts| missing_key? parts }
-      .each { |key, value| ENV[key.strip] = value.strip }
-end
+Dir.glob('.env*')
+   .select { |f| File.exist? f }
+   .select { |f| File.file? f }
+   .map { |f| File.readlines f }
+   .flatten
+   .map(&:strip)
+   .reject(&:empty?)
+   .reject { |line| comment? line }
+   .map { |line| remove_bash_syntax line }
+   .map { |line| line.split '=', 2 }
+   .reject { |parts| missing_key? parts }
+   .each { |key, value| ENV[key.strip] = value.strip }
 
 unless `which gradle`.strip.empty?
   puts 'Using the installed Gradle.'
