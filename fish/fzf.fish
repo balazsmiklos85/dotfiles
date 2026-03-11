@@ -18,7 +18,7 @@ if command -v fzf >/dev/null
     alias fzf_kill="ps -ef | fzf -m | awk '{print \$2}' | xargs kill -9"
     alias fzf_restart="systemctl list-units --type=service | fzf |  awk '{print \$1}' | xargs -r sudo systemctl restart"
     alias fzf_show_commit="git log --oneline | fzf --preview 'git show {1}' | awk '{print \$1}' | xargs git show"
-    alias fzf_ssh="rg 'Hostname ' ~/.ssh/config | awk '{print \$2}' | fzf | xargs ssh"
+    alias fzf_ssh="rg . ~/.ssh/known_hosts | awk '{print \$1}' | uniq | fzf | xargs ssh"
     alias fzf_stop_docker="docker ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'docker logs {1}' | awk '{print \$1}' | xargs -r docker stop"
     alias fzf_stop_podman="podman ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'podman logs {1}' | awk '{print \$1}' | xargs -r podman stop"
     alias fzf_test="rg '^\\s*(public){0,1} void \\w+' | rg '(Test|IT)\\.java' | sd '.*/([^/]+)\\.java:\\s+(public)?\\s+void\\s+([\\w]+).*' '\$1.\$3' | fzf | xargs gw :service:test --tests"
