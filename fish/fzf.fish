@@ -10,7 +10,11 @@ if command -v fzf >/dev/null
     alias fzf_checkout="git checkout (git branch | fzf)"
     alias fzf_cherry_pick="git log --oneline | fzf --preview 'git show {1}' | awk 'print \$1}' | xargs git cherry-pick"
     alias fzf_config="nvim (fd --hidden --no-ignore --type f . ~/.config | fzf)"
-    alias fzf_install="zypper search | rg -v -i '^i' | rg -v 'srcpackage' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper install --no-recommends"
+    if command -v zypper >/dev/null
+        alias fzf_install="zypper search | rg -v -i '^i' | rg -v 'srcpackage' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper install --no-recommends"
+    else
+        alias fzf_install="brew search '/./' | rg -v '(deprecated|disabled)' | fzf | xargs brew install"
+    end
     alias fzf_kill="ps -ef | fzf -m | awk '{print \$2}' | xargs kill -9"
     alias fzf_restart="systemctl list-units --type=service | fzf |  awk '{print \$1}' | xargs -r sudo systemctl restart"
     alias fzf_show_commit="git log --oneline | fzf --preview 'git show {1}' | awk '{print \$1}' | xargs git show"
