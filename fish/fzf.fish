@@ -17,5 +17,6 @@ if command -v fzf >/dev/null
     alias fuzzy_ssh="rg 'Hostname ' ~/.ssh/config | awk '{print \$2}' | fzf | xargs ssh"
     alias fuzzy_stop_docker="docker ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'docker logs {1}' | awk '{print \$1}' | xargs -r docker stop"
     alias fuzzy_stop_podman="podman ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'podman logs {1}' | awk '{print \$1}' | xargs -r podman stop"
+    alias fuzzy_test="rg '^\\s*(public){0,1} void \\w+' | rg '(Test|IT)\\.java' | sd '.*/([^/]+)\\.java:\\s+(public)?\\s+void\\s+([\\w]+).*' '\$1.\$3' | fzf | xargs gw :service:test --tests"
     alias fuzzy_uninstall="zypper search | rg -i '^i' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper remove -u"
 end
