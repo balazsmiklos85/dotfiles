@@ -1,5 +1,5 @@
 vim.g.dbs = {
-	-- { name = 'dev', url =  vim.fn.system('get-dev-db'):gsub("%s+", "") },
+	{ name = 'dev', url =  vim.fn.system('get-dev-db'):gsub("%s+", "") },
 	{ name = "staging", url = vim.fn.system("get-staging-db"):gsub("%s+", "") },
 }
 

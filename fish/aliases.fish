@@ -22,6 +22,13 @@ else
     alias ll 'ls -ll'
 end
 
+if command -v mariadb >/dev/null
+    alias connect_stage_db 'mariadb -h (pass show db/staging_url) -P (pass show db/staging_port) -u (pass show db/staging_user) -p(pass show db/staging_password) (pass show db/staging_db)'
+    alias query_stage 'connect_stage_db -e'
+    alias connect_local_db 'mariadb -h 127.0.0.1 -P (docker ps | rg "\\->3306" | sd ".*:(\\d+)\\->3306/.*" "\$1") -u (pass show db/local_user) -p(pass show db/local_password) --skip-ssl (pass show db/local_db)'
+    alias query_local 'connect_local_db -e'
+end
+
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
