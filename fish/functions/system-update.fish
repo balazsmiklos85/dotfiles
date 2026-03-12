@@ -11,6 +11,9 @@ function system-update
         echo "Unsupported distribution: $distro"
     end
     zypper ps -s
+    if command -v brew >/dev/null 2>&1
+        brew upgrade
+    end
     if command -v flatpak >/dev/null 2>&1
         flatpak update
     end
