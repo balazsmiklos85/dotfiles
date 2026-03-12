@@ -12,8 +12,10 @@ if command -v fzf >/dev/null
     alias fzf_config="nvim (fd --hidden --no-ignore --type f . ~/.config | fzf)"
     if command -v zypper >/dev/null
         alias fzf_install="zypper search | rg -v -i '^i' | rg -v 'srcpackage' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper install --no-recommends"
+        alias fzf_uninstall="zypper search | rg -i '^i' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper remove -u"
     else
         alias fzf_install="brew search '/./' | rg -v '(deprecated|disabled)' | fzf | xargs brew install"
+        alias fzf_uninstall="brew list | fzf | xargs brew uninstall"
     end
     alias fzf_kill="ps -ef | fzf -m | awk '{print \$2}' | xargs kill -9"
     alias fzf_restart="systemctl list-units --type=service | fzf |  awk '{print \$1}' | xargs -r sudo systemctl restart"
@@ -22,5 +24,4 @@ if command -v fzf >/dev/null
     alias fzf_stop_docker="docker ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'docker logs {1}' | awk '{print \$1}' | xargs -r docker stop"
     alias fzf_stop_podman="podman ps --format '{{.ID}}\\t{{.Names}}\\t{{.Image}}' | fzf -m --preview 'podman logs {1}' | awk '{print \$1}' | xargs -r podman stop"
     alias fzf_test="rg '^\\s*(public){0,1} void \\w+' | rg '(Test|IT)\\.java' | sd '.*/([^/]+)\\.java:\\s+(public)?\\s+void\\s+([\\w]+).*' '\$1.\$3' | fzf | xargs gw :service:test --tests"
-    alias fzf_uninstall="zypper search | rg -i '^i' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper remove -u"
 end
