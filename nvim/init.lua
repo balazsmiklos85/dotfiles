@@ -16,8 +16,13 @@ require("config.relative_numbers")
 require("config.lsp_start")
 require("config.db")
 
-vim.cmd([[colorscheme catppuccin]])
+vim.fn.system("fish -c 'am_i_at_work'")
+local exit_code = vim.v.shell_error
+if exit_code == 0 then
+	vim.cmd([[colorscheme catppuccin-latte]])
+else
+	vim.cmd([[colorscheme catppuccin-mocha]])
+end
 -- keeping the colors of the terminal, preserving opacity:
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
