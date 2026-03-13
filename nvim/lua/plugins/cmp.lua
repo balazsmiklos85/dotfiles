@@ -6,7 +6,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"kristijanhusak/vim-dadbod-completion",
 	},
 	-- Not all LSP servers add brackets when completing a function.
 	-- To better deal with this, LazyVim adds a custom option to cmp,
@@ -47,7 +46,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp", priority = 1000 },
 				{ name = "path", priority = 250 },
-				{ name = "vim-dadbod-completion", priority = 750 },
 				{ name = "buffer", priority = 500 },
 			}),
 			experimental = {

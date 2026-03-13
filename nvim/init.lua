@@ -14,7 +14,6 @@ require("config.mason")
 require("config.keymaps")
 require("config.relative_numbers")
 require("config.lsp_start")
-require("config.db")
 
 vim.fn.system("fish -c 'am_i_at_work'")
 local exit_code = vim.v.shell_error
