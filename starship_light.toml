@@ -78,6 +78,8 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:surface2 fg:lavender"
 format = '[ $symbol $branch ]($style)'
+truncation_length = 16
+truncation_symbol = "…"
 
 [git_status]
 style = "bg:surface2 fg:lavender"
