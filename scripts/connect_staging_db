@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+environment = 'staging'
+host = `pass show db/#{environment}_url 2>/dev/null`.strip
+port = `pass show db/#{environment}_port 2>/dev/null`.strip
+user = `pass show db/#{environment}_user 2>/dev/null`.strip
+password = `pass show db/#{environment}_password 2>/dev/null`.strip
+db = `pass show db/#{environment}_db 2>/dev/null`.strip
+
+system "mariadb -h #{host} -P #{port} -u #{user} -p#{password} #{db}", *ARGV

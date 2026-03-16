@@ -22,11 +22,6 @@ else
     alias ll 'ls -ll'
 end
 
-if command -v mariadb >/dev/null
-    alias connect_stage_db 'mariadb -h (pass show db/staging_url) -P (pass show db/staging_port) -u (pass show db/staging_user) -p(pass show db/staging_password) (pass show db/staging_db)'
-    alias query_stage 'connect_stage_db -e'
-end
-
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
