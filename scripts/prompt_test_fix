@@ -11,7 +11,7 @@ def find_existing_failure_class(path)
      .map { |file| [File.basename(file, '.html'), File.read(file)] }
      .select { |_, content| content.include? 'Failed tests' }
      .map { |basename, _| basename.split('.').last }
-     .select { |class_name| class_name.start_with? /[A-Z]/ }
+     .select { |class_name| class_name.start_with?(/[A-Z]/) }
      .first
 end
 
@@ -48,7 +48,7 @@ def extract_failure_details(html_path)
 
     inside_block |= line =~ /^Failed tests/
   end
-  failure_text = failure_lines.reject {|l| irrelevant_stacktrace? l }.join("\n").strip
+  failure_text = failure_lines.reject { |l| irrelevant_stacktrace? l }.join("\n").strip
   abort 'Failure text empty.' if failure_text.empty?
   failure_text
 end
@@ -66,7 +66,7 @@ def format_report(class_name, failure_text)
 end
 
 def irrelevant_stacktrace?(line)
-    line =~ /at java\./
+  line =~ /at java\./
 end
 
 reports_path = 'service/build/reports/tests/test'

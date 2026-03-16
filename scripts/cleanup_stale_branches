@@ -1,12 +1,14 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
+require 'English'
 require 'date'
 
 # Prune remote tracking branches
-puts "Fetching and pruning remote branches..."
+puts 'Fetching and pruning remote branches...'
 `git fetch --prune 2>&1`
-unless $?.success?
-  puts "Error during git fetch --prune"
+unless $CHILD_STATUS.success?
+  puts 'Error during git fetch --prune'
   exit 1
 end
 
@@ -21,7 +23,7 @@ thirty_days_ago = Date.today - 30
 local_branches.each do |branch|
   # Check if the branch has a remote tracking branch
   `git rev-parse --abbrev-ref #{branch}@{upstream} 2>&1`
-  has_upstream = $?.success?
+  has_upstream = $CHILD_STATUS.success?
 
   if has_upstream
     puts "Skipping '#{branch}' - has upstream tracking branch"
@@ -30,7 +32,7 @@ local_branches.each do |branch|
 
   # Get the last commit date for this branch
   last_commit_output = `git log -1 --format=%ci #{branch} 2>&1`.strip
-  unless $?.success?
+  unless $CHILD_STATUS.success?
     puts "Warning: Could not get commit date for '#{branch}'"
     next
   end
@@ -48,9 +50,9 @@ local_branches.each do |branch|
   end
 end
 
-puts "\n" + "=" * 60
-puts "BRANCHES TO REMOVE"
-puts "=" * 60
+puts "\n#{'=' * 60}"
+puts 'BRANCHES TO REMOVE'
+puts '=' * 60
 
 if branches_to_remove.empty?
   puts "\nNo stale branches found!"
@@ -64,7 +66,7 @@ else
     puts
   end
 
-  puts "=" * 60
+  puts '=' * 60
   puts "Deleting #{branches_to_remove.length} branches...\n\n"
 
   deleted_count = 0
@@ -72,7 +74,7 @@ else
 
   branches_to_remove.each do |branch|
     `git branch -D #{branch[:name]} 2>&1`
-    if $?.success?
+    if $CHILD_STATUS.success?
       puts "✓ Deleted: #{branch[:name]}"
       deleted_count += 1
     else
@@ -81,8 +83,8 @@ else
     end
   end
 
-  puts "\n" + "=" * 60
+  puts "\n#{'=' * 60}"
   puts "Summary: #{deleted_count} deleted, #{failed_count} failed"
 end
 
-puts "=" * 60
+puts '=' * 60
