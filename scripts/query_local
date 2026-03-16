@@ -1,0 +1,3 @@
+#!/bin/sh
+
+connect_local_db -e "$@"

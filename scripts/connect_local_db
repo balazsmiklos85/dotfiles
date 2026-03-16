@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mariadb -h 127.0.0.1 -P $(docker ps | rg "\\->3306" | sd ".*:(\\d+)\\->3306/.*" "\$1") -u $(pass show db/local_user) -p$(pass show db/local_password) --skip-ssl $(pass show db/local_db) "$@"
