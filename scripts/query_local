@@ -1,3 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 
-connect_local_db -e "$@"
+environment = 'local'
+port = `docker ps`.scan(/:(\d+)->3306/)
+                  .flatten
+                  .first
+user = `pass show db/#{environment}_user 2>/dev/null`.strip
+password = `pass show db/#{environment}_password 2>/dev/null`.strip
+db = `pass show db/#{environment}_db 2>/dev/null`.strip
+
+puts `mariadb -h 127.0.0.1 -P #{port} -u #{user} -p#{password} --skip-ssl #{db} --table -e \"#{ARGV.first}\"`
