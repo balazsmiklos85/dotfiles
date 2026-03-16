@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo "mariadb://$(pass show db/local_user):$(pass show db/local_password)@127.0.0.1:$(docker ps | rg "\->3306" | sd ".*:(\d+)\->3306/.*" "\$1")/$(pass show db/local_db)?ssl=false"
