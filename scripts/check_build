@@ -5,7 +5,7 @@ puts 'Clean...'
 `gw clean`
 
 puts 'Build...'
-build_output = `gw build 2>&1 | rg -U '^> Task|ApplicationContext' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
+build_output = `gw build 2>&1 | rg -U '^> Task|Failed to load ApplicationContext' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
 
 case build_output
 when /> Task :\w+:compile\w+ FAILED/
@@ -16,7 +16,7 @@ when /ApplicationContext/
   puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg 'NoSuchBeanDefinitionException' {} | uniq`
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
-  puts ` fd -u '(Test|IT)\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
+  puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
 else
   puts build_output
 end
