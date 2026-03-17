@@ -7,7 +7,8 @@ if command -v fzf >/dev/null
     fzf --fish 2>/dev/null | source
     alias fzf_add="git status -s | fzf -m --preview 'fzf_smart_preview {2}' | awk '{print \$2}' | xargs git add"
     alias fzf_cat="fd --type f . | fzf --preview 'fzf_smart_preview {}' | xargs -ro bat --style plain --color always"
-    alias fzf_checkout="git checkout (git branch | rg -v '\\*' | sd '^\\s|\\s+\$' '' | fzf | sd '^\\s|\\s+\$' '')"
+    alias fzf_checkout_branch="git checkout (git branch | rg -v '\\*' | sd '^\\s|\\s+\$' '' | fzf | sd '^\\s|\\s+\$' '')"
+    alias fzf_checkout_file="fd --type f . | fzf --preview 'fzf_smart_preview {}' | xargs -I {}  git checkout main -- {}"
     alias fzf_cherry_pick="git log --oneline | fzf --preview 'git show {1}' | awk 'print \$1}' | xargs git cherry-pick"
     alias fzf_config="nvim (fd --hidden --no-ignore --type f . ~/.config | fzf)"
     if command -v zypper >/dev/null
