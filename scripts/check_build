@@ -11,6 +11,12 @@ case build_output
 when /> Task :\w+:compile\w+ FAILED/
   puts 'Compile...'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
+when /checkstyleMain FAILED/
+  puts 'checkstyle...'
+  puts `w3m service/build/reports/checkstyle/main.html | awk '/Violations/,/Back/' | rg -v 'Back to top'`
+when /checkstyleTest FAILED/
+  puts 'checkstyle...'
+  puts `w3m service/build/reports/checkstyle/test.html | awk '/Violations/,/Back/' | rg -v 'Back to top'`
 when /spotbugs.*FAILED/
   puts `w3m service/build/reports/spotbugs/*.html | awk '/Code[[:space:]]+Warning/,/Details/' | rg -v 'Details'`
 when /ApplicationContext/
