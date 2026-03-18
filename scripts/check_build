@@ -11,6 +11,8 @@ case build_output
 when /> Task :\w+:compile\w+ FAILED/
   puts 'Compile...'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
+when /spotbugs.*FAILED/
+  puts `w3m service/build/reports/spotbugs/*.html | awk '/Code[[:space:]]+Warning/,/Details/' | rg -v 'Details'`
 when /ApplicationContext/
   puts 'Spring context issues:'
   puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg 'NoSuchBeanDefinitionException' {} | uniq`
