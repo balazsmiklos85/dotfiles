@@ -19,6 +19,7 @@ if command -v fzf >/dev/null
         alias fzf_uninstall="brew list | fzf | xargs brew uninstall"
     end
     alias fzf_kill="ps -ef | fzf -m | awk '{print \$2}' | xargs kill -9"
+    alias fzf_mail="neomutt -F (fd '.*rc' ~/.config/neomutt/ | fzf)"
     alias fzf_restart="systemctl list-units --type=service | fzf |  awk '{print \$1}' | xargs -r sudo systemctl restart"
     alias fzf_show_commit="git log --oneline | fzf --preview 'git show {1}' | awk '{print \$1}' | xargs git show"
     alias fzf_ssh="rg . ~/.ssh/known_hosts | awk '{print \$1}' | uniq | fzf | xargs ssh"
