@@ -7,10 +7,8 @@ util.is_at_work = function()
 	local addresses = vim.uv.interface_addresses()
 	for _, info in pairs(addresses) do
 		for _, addr in ipairs(info) do
-			if not addr.internal and addr.family == "inet" then
-				if addr.ip:match("^192%.168%.0%.") then
-					return false
-				end
+			if addr.ip:match("^192%.168%.0%.") then
+				return false
 			end
 		end
 	end
