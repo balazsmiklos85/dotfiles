@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+main = `git branch -l | rg 'main|master'`.strip
+`git log #{main}.. --pretty=oneline`
