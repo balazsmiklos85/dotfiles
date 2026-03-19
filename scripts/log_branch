@@ -2,4 +2,5 @@
 # frozen_string_literal: true
 
 main = `git branch -l | rg 'main|master'`.strip
-`git log #{main}.. --pretty=oneline`
+puts "> git log #{main}.. --pretty=oneline"
+puts `git log #{main}.. --pretty=oneline`
