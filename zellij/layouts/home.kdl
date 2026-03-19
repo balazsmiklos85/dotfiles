@@ -9,7 +9,7 @@ layout {
         pane
     }
 
-    tab name="config" cwd="~/config" {
+    tab name="config" cwd="~/.config" {
         pane
     }
 
