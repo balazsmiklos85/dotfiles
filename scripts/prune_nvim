@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+`ps aux`.split("\n")
+        .filter { |p| p.match?(/^[\w.]+\s+(\d+)\s+.*/) }
+        .filter { |p| p.match?(/nvim/) }
+        .reject { |p| p.match?(/ruby/) }
+        .map { |p| p.match(/^[\w.]+\s+(\d+)\s+.*/)[1] }
+        .each { |id| puts "kill -9 #{id}" }
+        .each { |id| `kill -9 #{id}` }
