@@ -15,9 +15,7 @@ require("config.keymaps")
 require("config.relative_numbers")
 require("config.lsp_start")
 
-vim.fn.system("fish -c 'am_i_at_work'")
-local exit_code = vim.v.shell_error
-if exit_code == 0 then
+if require("util.functions").is_at_work() then
 	vim.cmd([[colorscheme catppuccin-latte]])
 else
 	vim.cmd([[colorscheme catppuccin-mocha]])
