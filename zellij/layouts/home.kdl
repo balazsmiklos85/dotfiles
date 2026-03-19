@@ -26,4 +26,8 @@ layout {
             }
         }
     }
+
+    tab name="mail" cwd="~" {
+        pane
+    }
 }
