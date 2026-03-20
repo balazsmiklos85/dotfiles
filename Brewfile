@@ -18,8 +18,10 @@ brew "lsd"
 brew "lynx"
 brew "midnight-commander"
 brew "neovim"
+brew "node" # for prettier
 brew "pass"
 brew "ripgrep"
+brew "ruby" # for my scripts
 brew "sd"
 brew "starship"
 brew "thefuck"
