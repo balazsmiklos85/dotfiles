@@ -13,10 +13,7 @@ layout {
     tab name="mitigation-requirements" cwd="~/projects/mitigation-requirements" {
         pane split_direction="vertical" {
             pane
-            pane split_direction="horizontal" {
-                pane
-                pane
-            }
+            pane
         }
     }
 
