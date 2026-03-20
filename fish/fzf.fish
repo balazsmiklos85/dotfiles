@@ -11,6 +11,7 @@ if command -v fzf >/dev/null
     alias fzf_checkout_file="fd --type f . | fzf --preview 'fzf_smart_preview {}' | xargs -I {}  git checkout main -- {}"
     alias fzf_cherry_pick="git log --oneline | fzf --preview 'git show {1}' | awk 'print \$1}' | xargs git cherry-pick"
     alias fzf_config="nvim (fd --hidden --no-ignore --type f . ~/.config | fzf)"
+    alias fzf_edit="fd --type f . | fzf --preview 'fzf_smart_preview {}' | xargs nvim"
     if command -v zypper >/dev/null
         alias fzf_install="zypper search | rg -v -i '^i' | rg -v 'srcpackage' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper install --no-recommends"
         alias fzf_uninstall="zypper search | rg -i '^i' | sed -n '/^---/,\$p' |  awk '{print \$2}' | fzf -m --preview 'zypper info {1} | sed -n \'/^---/,\$p\'' | xargs sudo zypper remove -u"

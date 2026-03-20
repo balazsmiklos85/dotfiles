@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-`fix_imports`
-`format_java`
 puts 'Clean...'
 `gw clean`
 
