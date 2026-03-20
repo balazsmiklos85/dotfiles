@@ -1,6 +1,6 @@
 ---
 name: create-plan
-description: Creates a plan for a task
+description: "Creates a plan for a task"
 ---
 
 ## Toolbox
