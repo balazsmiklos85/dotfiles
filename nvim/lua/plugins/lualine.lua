@@ -1,3 +1,8 @@
+local theme = "catppuccin-mocha";
+if require("util.functions").is_at_work() then
+	theme = "catppuccin-latte";
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
@@ -6,7 +11,7 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = theme,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
