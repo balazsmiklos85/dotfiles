@@ -70,7 +70,9 @@ return {
 			return suffix
 		end,
 
-		preferred_link_style = "wiki",
+		link = {
+			style = "wiki",
+		},
 
 		templates = {
 			subdir = templates,
