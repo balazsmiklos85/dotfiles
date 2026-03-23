@@ -57,6 +57,8 @@ if is_wsl; and not test -S "$SSH_AUTH_SOCK"
     ssh-add (fd --type f --exclude '*.pub' --exclude 'config' --exclude 'authorized_keys' --exclude 'known_hosts*' . ~/.ssh)
 end
 
+set -gx GPG_TTY (tty)
+
 fish_add_path $HOME/.opencode/bin
 
 mkdir -p ~/.cache/neomutt/header/

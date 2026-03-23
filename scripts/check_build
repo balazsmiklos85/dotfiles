@@ -5,7 +5,7 @@ puts 'Clean...'
 `gw clean`
 
 puts 'Build...'
-build_output = `gw build 2>&1 | rg -U '^> Task|Failed to load ApplicationContext' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
+build_output = `gw build 2>&1 | rg -U '^> Task|Failed to load ApplicationContext|SQLSyntaxErrorException|Flyway.*Exception' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
 
 case build_output
 when /> Task :\w+:compile\w+ FAILED/
@@ -19,6 +19,8 @@ when /checkstyleTest FAILED/
   puts `w3m service/build/reports/checkstyle/test.html | awk '/Violations/,/Back/' | rg -v 'Back to top'`
 when /spotbugs.*FAILED/
   puts `w3m service/build/reports/spotbugs/*.html | awk '/Code[[:space:]]+Warning/,/Details/' | rg -v 'Details'`
+when /Flyway/
+  puts build_output
 when /ApplicationContext/
   puts 'Spring context issues:'
   puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg 'NoSuchBeanDefinitionException' {} | uniq`
