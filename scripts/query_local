@@ -9,4 +9,8 @@ user = `pass show db/#{environment}_user 2>/dev/null`.strip
 password = `pass show db/#{environment}_password 2>/dev/null`.strip
 db = `pass show db/#{environment}_db 2>/dev/null`.strip
 
-puts `mariadb -h 127.0.0.1 -P #{port} -u #{user} -p#{password} --skip-ssl #{db} --table -e \"#{ARGV.first}\"`
+if File.file? ARGV.first
+  puts `mariadb -h 127.0.0.1 -P #{port} -u #{user} -p#{password} --skip-ssl #{db} --table -e \"$(cat #{ARGV.first})"`
+else
+  puts `mariadb -h 127.0.0.1 -P #{port} -u #{user} -p#{password} --skip-ssl #{db} --table -e \"#{ARGV.first}\"`
+end
