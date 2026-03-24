@@ -2,3 +2,4 @@
 
 git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
 git diff --cached --name-only --diff-filter=ACM | rg "\.java\$" | xargs google-java-format -i --fix-imports-only
+git ls-files --others --exclude-standard "*.java" | xargs google-java-format -i --fix-imports-only

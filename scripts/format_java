@@ -2,3 +2,4 @@
 
 git diff --name-only --diff-filter=ACM | rg "\.java\$" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml 2>&1 | rg 'scanned|formatted'
 git diff --cached --name-only --diff-filter=ACM | rg "\.java\$" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml 2>&1 | rg 'scanned|formatted'
+git ls-files --others --exclude-standard "*.java" | xargs /Applications/IntelliJ\ IDEA.app/Contents/bin/format.sh -s ~/Documents/LatAm_code_style.xml 2>&1 | rg 'scanned|formatted'
