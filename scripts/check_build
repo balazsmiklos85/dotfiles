@@ -27,6 +27,9 @@ when /ApplicationContext/
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
   puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
+when /composeUp FAILED/
+  puts '> Task :service:composeUp FAILED'
+  puts 'Is Docker running?'
 else
   puts build_output
 end
