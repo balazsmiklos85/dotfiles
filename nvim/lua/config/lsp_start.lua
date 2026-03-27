@@ -1,6 +1,6 @@
 vim.lsp.config("groovyls", {
 	cmd = { "groovy-language-server" },
-	filetypes = { "gradle", "groovy" },
+	filetypes = { "groovy" },
 })
 
 vim.lsp.enable("groovyls")
