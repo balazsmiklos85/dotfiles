@@ -2,7 +2,6 @@ format = """
 $os\
 [](fg:base bg:surface0)\
 $sudo\
-$username\
 $hostname\
 [ ](fg:surface1 bg:surface0)\
 [](fg:surface0 bg:surface1)\
@@ -24,13 +23,6 @@ palette = "catppuccin_latte"
 format = '[$symbol]($style)'
 style = 'bold bg:surface0 fg:peach'
 symbol = ' 󱦚'
-disabled = false
-
-[username]
-show_always = true
-style_root = 'bold bg:surface0 fg:sky'
-style_user = 'bold bg:surface0 fg:blue'
-format = '[ $user]($style)'
 disabled = false
 
 [hostname]
