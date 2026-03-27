@@ -11,9 +11,8 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:surface2 bg:surface0)\
-$gradle\
-${custom.maven}\
 $java\
+$gradle\
 $ruby\
 $rust\
 [ ](fg:surface0 bg:none)\
@@ -88,22 +87,14 @@ style = "bg:surface2 fg:lavender"
 format = '[$all_status$ahead_behind ]($style)'
 
 [gradle]
-symbol = " "
+symbol = ""
 style = "bg:surface0 fg:blue"
-format = '[ $symbol($version) ]($style)'
-
-[custom.maven]
-description = "Show Maven version"
-command = "mvn --version | head -n 1 | cut -d' ' -f3"
-detect_files = ["pom.xml"]
-symbol = " "
-style = "bg:surface0 fg:peach"
-format = "[ $symbol($output) ]($style)"
+format = '[ $symbol ]($style)'
 
 [java]
-symbol = " "
+symbol = ""
 style = "bg:surface0 fg:red"
-format = '[ $symbol($version) ]($style)'
+format = '[ $symbol ]($style)'
 
 [ruby]
 detect_variables = []
