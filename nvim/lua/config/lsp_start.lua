@@ -1,9 +1,16 @@
-vim.lsp.config('groovyls', {
-  cmd = { "groovy-language-server" },
-  filetypes = { "gradle", "groovy" },
+vim.lsp.config("groovyls", {
+	cmd = { "groovy-language-server" },
+	filetypes = { "gradle", "groovy" },
 })
 
-vim.lsp.enable('groovyls')
+vim.lsp.enable("groovyls")
+
+vim.lsp.config("kotlin_language_server", {
+	cmd = { "kotlin-language-server" },
+	filetypes = { "kotlin" },
+})
+
+vim.lsp.enable("kotlin_language_server")
 
 vim.lsp.config("lua_ls", {
 	settings = {
