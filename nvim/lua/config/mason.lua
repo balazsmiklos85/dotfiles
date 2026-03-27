@@ -14,8 +14,6 @@ if vim.fn.executable("cargo") == 1 then
 end
 
 if vim.fn.executable("npm") == 1 then
-	-- Angular
-	table.insert(lsps_to_install, "angularls")
 	-- HTML, JavaScript, CSS, GraphQL, JSON, YAML, Markdown
 	table.insert(tools_to_install, "prettier")
 end
