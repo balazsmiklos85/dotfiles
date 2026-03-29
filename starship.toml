@@ -29,7 +29,7 @@ disabled = false
 
 [hostname]
 ssh_only = true
-format = '[@$hostname ]($style)'
+format = '[ $hostname ]($style)'
 trim_at = ""
 style = 'bold fg:blue bg:surface0'
 disabled = false
