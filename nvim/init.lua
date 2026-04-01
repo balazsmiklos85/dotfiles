@@ -23,3 +23,17 @@ end
 -- keeping the colors of the terminal, preserving opacity:
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+vim.diagnostic.config({
+	float = true,
+	jump = {
+		float = false,
+		wrap = true,
+	},
+	severity_sort = false,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	virtual_lines = false,
+	virtual_text = true,
+})
