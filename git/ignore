@@ -1,4 +1,4 @@
 **/.claude/settings.local.json
-.env*local
+.env*
 kls_database.db
 plan.md
