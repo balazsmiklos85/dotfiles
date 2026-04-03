@@ -3,7 +3,7 @@ function switch_light
 
     if test $status -eq 0
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
-        if command -v alacritty >/dev/null
+        if pgrep -x alacritty >/dev/null
             alacritty msg config "$(cat ~/.config/alacritty/catppuccin-latte.toml)"
         end
         alias delta "delta --light"
@@ -15,7 +15,7 @@ function switch_light
         if [ (uname) = Darwin ]
             osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
         end
-        if command -v alacritty >/dev/null
+        if pgrep -x alacritty >/dev/null
             alacritty msg config "$(cat ~/.config/alacritty/catppuccin-mocha.toml)"
         end
         alias delta "delta --dark"
