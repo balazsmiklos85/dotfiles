@@ -19,7 +19,7 @@ function switch_light
             alacritty msg config "$(cat ~/.config/alacritty/catppuccin-mocha.toml)"
         end
         alias delta "delta --dark"
-        fish_config theme choose "Catppuccin Mocha" --color-theme=dark
+        fish_config theme choose "Catppuccin Mocha"
         set -gx BAT_THEME "Catppuccin Mocha"
         set -gx STARSHIP_CONFIG "$HOME/.config/starship.toml"
         alias zellij "zellij options --theme catppuccin-mocha"
