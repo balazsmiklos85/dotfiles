@@ -32,6 +32,7 @@ The orchestrator determines which agent and skill combination to use based on:
 @startuml
 start
 :Read plan.md;
+:Explore the project if the plan even makes sense
 :Detect project context;
 repeat
   repeat
