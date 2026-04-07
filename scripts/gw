@@ -25,7 +25,10 @@ Dir.glob('.env*')
    .map { |line| remove_bash_syntax line }
    .map { |line| line.split '=', 2 }
    .reject { |parts| missing_key? parts }
-   .each { |key, value| ENV[key.strip] = value.strip }
+   .each do |key, value|
+     puts "Setting environment variable #{key}..."
+     ENV[key.strip] = value.strip
+   end
 
 unless `which gradle`.strip.empty?
   puts 'Using the installed Gradle.'
