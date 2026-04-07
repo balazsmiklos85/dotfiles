@@ -5,13 +5,6 @@ vim.lsp.config("groovyls", {
 
 vim.lsp.enable("groovyls")
 
-vim.lsp.config("kotlin_language_server", {
-	cmd = { "kotlin-language-server" },
-	filetypes = { "kotlin" },
-})
-
-vim.lsp.enable("kotlin_language_server")
-
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {

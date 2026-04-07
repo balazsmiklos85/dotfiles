@@ -35,7 +35,7 @@ if vim.fn.executable("javac") == 1 then
 	-- Java
 	table.insert(lsps_to_install, "jdtls")
 	-- Kotlin
-	table.insert(lsps_to_install, "kotlin_language_server")
+	table.insert(lsps_to_install, "kotlin_lsp")
 	table.insert(tools_to_install, "sonarlint-language-server")
 	table.insert(tools_to_install, "google-java-format")
 	table.insert(tools_to_install, "java-debug-adapter")
