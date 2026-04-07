@@ -11,7 +11,6 @@ if command -v flatpak >/dev/null
 end
 
 if command -v gh >/dev/null
-    alias read_comments="gh api \"repos/:owner/:repo/pulls/\$(gh pr view --json number --template '{{.number}}')/comments\" --jq '.[] | \"---\n\(.path): \(.body)\"'"
     alias request_review 'gh pr comment --body "/request-review"'
     alias watch_checks 'gh pr checks --json "name,state" | jq \'.[] | select(.name == "Build And Test")| .state\''
 end
