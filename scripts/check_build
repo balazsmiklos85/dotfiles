@@ -8,9 +8,12 @@ puts 'Build...'
 build_output = `gw build 2>&1 | rg -U '^> Task|Failed to load ApplicationContext|SQLSyntaxErrorException|Flyway.*Exception' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
 
 case build_output
-when /> Task :\w+:compile\w+ FAILED/
+when /> Task.*compile(Test)?Java FAILED/
   puts 'Compile...'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
+when /> Task.*compile(Test)?Kotlin FAILED/
+  puts 'Compile...'
+  puts `gw compileKotlin compileTestKotlin --console=plain 2>&1 | rg -A 4 '^e:.*'`
 when /checkstyleMain FAILED/
   puts 'checkstyle...'
   puts `w3m service/build/reports/checkstyle/main.html | awk '/Violations/,/Back/' | rg -v 'Back to top'`
