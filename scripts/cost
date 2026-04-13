@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+# --- Configuration: Pricing per 1M tokens (USD) ---
+# Note: Adjust these based on the actual 2026 pricing for these models
+PRICING = {
+  "claude-opus-4-5"   => { input: 15.0, output: 75.0, cache_read: 1.50, cache_creat: 18.75 },
+  "claude-opus-4-6"   => { input: 15.0, output: 75.0, cache_read: 1.50, cache_creat: 18.75 },
+  "claude-sonnet-4-5" => { input: 3.0,  output: 15.0, cache_read: 0.30, cache_creat: 3.75 },
+  "claude-haiku-4-5"  => { input: 0.25, output: 1.25, cache_read: 0.03, cache_creat: 0.30 }
+}
+
+def normalize_model_name(full_name)
+  # Matches "claude-modelname-version" and strips trailing dates like -20250929
+  if full_name =~ /(claude-(?:opus|sonnet|haiku)-\d+-\d+)/
+    $1
+  else
+    full_name
+  end
+end
+
+file_path = File.expand_path("~/.claude/stats-cache.json")
+
+unless File.exist?(file_path)
+  puts "Error: File not found at #{file_path}"
+  exit 1
+end
+
+data = JSON.parse(File.read(file_path))
+usage_stats = data["modelUsage"]
+
+# Aggregate data by normalized name
+totals = Hash.new { |h, k| h[k] = Hash.new(0) }
+
+usage_stats.each do |full_name, stats|
+  name = normalize_model_name(full_name)
+
+  totals[name][:input] += stats["inputTokens"]
+  totals[name][:output] += stats["outputTokens"]
+  totals[name][:cache_read] += stats["cacheReadInputTokens"]
+  totals[name][:cache_creat] += stats["cacheCreationInputTokens"]
+end
+
+puts "----------------------------------------------------------------------"
+puts "%-20s | %-10s | %-10s | %-10s" % ["Model Family", "Input (M)", "Output (M)", "Cost (USD)"]
+puts "----------------------------------------------------------------------"
+
+grand_total = 0.0
+
+totals.each do |model, s|
+  rates = PRICING[model] || { input: 0, output: 0, cache_read: 0, cache_creat: 0 }
+
+  # Calculate costs (Dividing tokens by 1,000,000)
+  input_cost = (s[:input] / 1_000_000.0) * rates[:input]
+  output_cost = (s[:output] / 1_000_000.0) * rates[:output]
+  read_cost  = (s[:cache_read] / 1_000_000.0) * rates[:cache_read]
+  creat_cost = (s[:cache_creat] / 1_000_000.0) * rates[:cache_creat]
+
+  model_cost = input_cost + output_cost + read_cost + creat_cost
+  grand_total += model_cost
+
+  puts "%-20s | %-10.4f | %-10.4f | $%-9.2f" % [
+    model,
+    s[:input] / 1_000_000.0,
+    s[:output] / 1_000_000.0,
+    model_cost
+  ]
+end
+
+puts "----------------------------------------------------------------------"
+puts "GRAND TOTAL COST: $#{'%.2f' % grand_total}"
