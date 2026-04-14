@@ -3,7 +3,7 @@ function switch_light
 
     if test $status -eq 0
         osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
-        $HOME/Applications/Alacritty.app/Contents/MacOS/alacritty msg config "$(cat ~/.config/alacritty/catppuccin-latte.toml)"
+        alacritty msg config "$(cat ~/.config/alacritty/catppuccin-latte.toml)"
         alias delta "delta --light"
         fish_config theme choose "Catppuccin Mocha" --color-theme=light
         set -gx BAT_THEME "Catppuccin Latte"
@@ -12,7 +12,7 @@ function switch_light
     else
         if [ (uname) = Darwin ]
             osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
-            $HOME/Applications/Alacritty.app/Contents/MacOS/alacritty msg config "$(cat ~/.config/alacritty/catppuccin-latte.toml)"
+            alacritty msg config "$(cat ~/.config/alacritty/catppuccin-mocha.toml)"
         else if pgrep -x alacritty >/dev/null
             alacritty msg config "$(cat ~/.config/alacritty/catppuccin-mocha.toml)"
         end
