@@ -14,7 +14,7 @@ def remove_bash_syntax(line)
   line.sub(/\Aexport\s+/, '')
 end
 
-Dir.glob('.env*')
+Dir.glob('.env')
    .select { |f| File.exist? f }
    .select { |f| File.file? f }
    .map { |f| File.readlines f }
