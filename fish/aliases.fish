@@ -25,7 +25,6 @@ end
 if command -v timew >/dev/null
     alias start_work 'timew start work'
     alias stop_work 'timew stop work'
-    alias balance 'timew balance :year'
 end
 
 alias :w 'echo "Dammit Jim, I\'m a fish, not a vi!"; test 0 -eq 1'
