@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+# TODO get worked times from TimeWarrior
+# which are in the form [{"id":13,"start":"20260410T054804Z","end":"20260410T095500Z","tags":["work"]}, {...]}
+# TODO count days: every unique day when work started and is not a Saturday or a Sunday
+# TODO sum the time differences of the work items (=total hours)
+# TODO counted days * expected daily work (=expected hours)
+# TODO substract the expected hours from total hours (=balance)
+# TODO add balance to the current time (=work at least until)
+
