@@ -1,10 +1,26 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-# TODO get worked times from TimeWarrior
-# which are in the form [{"id":13,"start":"20260410T054804Z","end":"20260410T095500Z","tags":["work"]}, {...]}
-# TODO count days: every unique day when work started and is not a Saturday or a Sunday
-# TODO sum the time differences of the work items (=total hours)
-# TODO counted days * expected daily work (=expected hours)
-# TODO substract the expected hours from total hours (=balance)
-# TODO add balance to the current time (=work at least until)
+require 'json'
+require 'date'
 
+EXPECTED_DAILY_HOURS = 7.5
+
+json_data = `timew export :year`.chomp
+data = JSON.parse json_data
+
+work_days = data.map { |entry| entry['start'][0..7] }
+                .uniq
+                .select { |date| Date.parse(date).wday != 0 && Date.parse(date).wday != 6 }
+                .count
+total_hours = data.sum do |entry|
+  start_time = Time.parse(entry['start'])
+  end_time = entry['end'] ? Time.parse(entry['end']) : Time.now.utc
+  (end_time - start_time).to_f / 3600
+end
+expected_hours = work_days * EXPECTED_DAILY_HOURS
+balance = total_hours - expected_hours
+work_until = Time.now + (balance * 3600)
+
+puts "Balance: #{balance.round(2)} hours"
+puts "Work until: #{work_until.strftime('%Y-%m-%d %H:%M')}"
