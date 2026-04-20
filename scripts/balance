@@ -3,6 +3,7 @@
 
 require 'json'
 require 'date'
+require 'time'
 
 EXPECTED_DAILY_HOURS = 7.5
 
