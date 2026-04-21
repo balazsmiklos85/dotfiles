@@ -21,7 +21,7 @@ total_hours = data.sum do |entry|
 end
 expected_hours = work_days * EXPECTED_DAILY_HOURS
 balance = total_hours - expected_hours
-work_until = Time.now + (balance * 3600)
+work_until = Time.now - (balance * 3600)
 
 puts "Balance: #{balance.round(2)} hours"
 puts "Work until: #{work_until.strftime('%Y-%m-%d %H:%M')}"
