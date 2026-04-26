@@ -24,8 +24,6 @@ else if [ -d $HOME/.rvm ]
     set -gx PATH $HOME/.rvm/bin $PATH
     set -gx PATH $HOME/.rvm/rubies/default/bin $PATH
     set -gx PATH $HOME/.rvm/gems/default/bin $PATH
-    set -gx GEM_HOME $HOME/.rvm/gems/default
-    set -gx GEM_PATH $HOME/.rvm/gems/default
     rvm default
 end
 
