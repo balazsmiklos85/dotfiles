@@ -1,3 +1,7 @@
+if vim.version().minor > 11 then
+	return {}
+end
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	config = function()
