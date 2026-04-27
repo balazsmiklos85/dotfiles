@@ -16,7 +16,8 @@ if command -v gh >/dev/null
 end
 
 if command -v lsd >/dev/null
-    alias ll 'lsd -ll'
+    alias ll 'lsd -Fl'
+    alias lt 'lsd -Ft'
     alias tree 'lsd --tree'
 else
     alias ll 'ls -ll'
