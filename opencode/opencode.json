@@ -4,7 +4,7 @@
         "edit": "ask",
         "bash": "ask"
     },
-    "model": "lmstudio/qwen/qwen3.5-35b-a3b",
+    "model": "lmstudio/qwen/qwen3.6-35b-a3b",
     "provider": {
         "lmstudio": {
             "npm": "@ai-sdk/openai-compatible",
