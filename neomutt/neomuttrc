@@ -13,6 +13,9 @@ set trash = "+[Gmail]/Kuka"
 
 mailboxes =INBOX =[Gmail]/Elküldött\ levelek =[Gmail]/Piszkozatok =[Gmail]/Spam =[Gmail]/Kuka =[Gmail]/Összes\ levél
 
+bind editor <space> noop
+macro index A '<save-message>=[Gmail]/Összes levél<enter>' 'Archive'
+
 set header_cache = ~/.cache/neomutt/header/
 set message_cache_dir = ~/.cache/neomutt/body
 
