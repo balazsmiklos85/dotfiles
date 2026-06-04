@@ -1,6 +1,6 @@
 ---
 name: write-test
-description: "Use this skill to write and update unit or integration tests"
+description: "Use this script to write and update unit or integration tests"
 ---
 
 ## Toolbox
