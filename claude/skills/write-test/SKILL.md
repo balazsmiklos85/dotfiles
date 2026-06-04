@@ -13,7 +13,7 @@ description: "Use this skill to write and update unit or integration tests"
 
 ### To write a new test
 
-1. Understand the functionality to be tested!
+1. Understand the functionality to be tested! Look at existing test patterns in the codebase to know how specific things are supposed to be tested!
 2. Consider what the interface promises!
     - What is always/never true about the inputs of the unit under test?
     - What is alway/never true about the outputs of the unit under test?
