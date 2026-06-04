@@ -44,7 +44,6 @@ return {
 		log_level = vim.log.levels.INFO,
 
 		completion = {
-			nvim_cmp = true,
 			min_chars = 2,
 		},
 
