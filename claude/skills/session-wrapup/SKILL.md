@@ -44,18 +44,19 @@ Act as a session auditor and configuration engineer. Review the just-completed c
 
 ### Phase 3 — Efficiency Retrospective
 
-1. Assess model-to-task fit:
+1. Ask the user which model(s) produced the session, since the wrapup agent cannot determine this from the transcript!
+2. Assess model-to-task fit:
     - Were heavyweight models used for trivial tasks (formatting, simple lookups, boilerplate)?
     - Were lightweight models stretched beyond their capability (complex reasoning, architecture design)?
     - Flag mismatches and propose a model-routing rule!
-2. Assess effort-to-value ratio:
+3. Assess effort-to-value ratio:
     - Were there long detours, redundant exploration, or repeated mistakes?
     - Did the LLM over-engineer solutions or under-deliver on scope?
-3. Assess context hygiene:
+4. Assess context hygiene:
     - Was excessive file content dumped into context when summaries or targeted reads would have sufficed?
     - Were large command outputs included when grepping or filtering would have been enough?
     - Were irrelevant files or paths loaded needlessly?
-4. Summarize findings as a scored report:
+5. Summarize findings as a scored report:
     - **Model fit**: good / partial / poor — with examples!
     - **Effort ratio**: proportional / over-invested / under-invested — with examples!
     - **Context usage**: lean / acceptable / bloated — with examples!
