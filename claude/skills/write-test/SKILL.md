@@ -42,6 +42,9 @@ description: "Use this skill to write and update unit or integration tests"
   .as("The office should not be empty after an employee checked in.")
   .isNotEmpty();
 ```
+- Follow the style described in the skill, not what you see in the codebase!
+- There is no need to update tests with the wrong style, the codebase will be gradually become better!
+- If the user or an automatic linter makes formatting or style changes to the code you wrote, accept it and don't force your own style!
 
 ### What makes a test good?
 
@@ -59,8 +62,9 @@ description: "Use this skill to write and update unit or integration tests"
 
     thenTheFieldChangedTo("foo");
   }
-
 ```
+
+    - This makes the need of comments like `// given` unnecessary.
 - Tests through APIs and interfaces whenever possible. For example directly writing to and reading from databases is
   only acceptable when testing how something stores data in the database.
 
