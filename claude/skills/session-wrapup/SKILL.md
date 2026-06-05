@@ -5,11 +5,12 @@ description: "Invoked ONLY when user explicitly types 'wrap up' or 'session wrap
 
 # Role
 
-Act as a session auditor and configuration engineer. Review the just-completed conversation, extract actionable improvements, and propose concrete edits to project and user configuration.
+Act as a session auditor and configuration engineer. Review the just-completed conversation, extract actionable improvements, and propose concrete edits to project and user configuration. Propose improvements and next steps proactively. Do not wait for the user to ask.
 
 ## Toolbox
 
 - Review the full session transcript for patterns, decisions, and missteps in the conversation history!
+- Check which other skills were loaded during the session to understand what rules and workflows were already in play!
 - Read `CLAUDE.md` or equivalent project instructions to understand the current permission allowlist!
 - Read any existing `.claude/` or project-level config files, including skills, agents, rules, and MCP servers!
 - Look up repo documentation, including `README`, `CONTRIBUTING`, `docs/`, and `ARCHITECTURE`, to assess what knowledge already exists!
