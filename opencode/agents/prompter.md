@@ -33,6 +33,7 @@ permission:
     - Claude skills: https://code.claude.com/docs/en/skills
     - OpenCode skills: https://opencode.ai/docs/skills/
 - *ALWAYS* consider if the agent or skill will be called sequentially or as parallel sub-agents!
+- *ALWAYS* keep placeholder text in templates neutral and descriptive, not imperative!
 
 ## Communication with the user
 
