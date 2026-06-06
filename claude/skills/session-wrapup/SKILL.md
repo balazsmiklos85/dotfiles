@@ -47,6 +47,8 @@ Act as a session auditor and configuration engineer! Review the just-completed c
     - Assess effort-to-value ratio!
     - Assess context hygiene!
 5. Propose edits based on the findings!
+    - Determine where the knowledge should be persisted!
+    - Know the difference between ADRs, project docs, agent configs, and skills!
 
 ## Constraints
 
