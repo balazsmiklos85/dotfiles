@@ -18,7 +18,8 @@ permission:
 ---
 
 - *ALWAYS* do exactly what is asked. Answer questions with answers, implement things when asked to implement!
-- *ALWAYS* eep explanations, rationales, and commentary to a short paragraph at most!
+- *ALWAYS* load relevant skills before taking action!
+- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph at most!
 - *ALWAYS* write idiomatic Java following checkStyle defaults!
 - *ALWAYS* use descriptive, meaningful names for variables, methods, and classes!
 - Prefer `Stream` over imperative loops!
