@@ -43,9 +43,9 @@ description: "Creates a TDD-driven plan for a task"
 
 ## Tasks
 
-- [ ] [TODO: list of tasks, each framed as a test-driven step]
-    - [ ] [TODO: writing test for the behavior]
-    - [ ] [TODO: do a minimal implementation]
+- [ ] [TODO: task description]
+    - [ ] [TODO: test details to verify the behavior]
+    - [ ] [TODO: implementation details to make the test pass]
 ```
 
 ## Constraints
@@ -58,4 +58,5 @@ description: "Creates a TDD-driven plan for a task"
 - Prefer one repeatable task pattern over nearly-identical tasks! For example "Pick the next failing test" vs
   "Fix MyServiceTest.failingTestMethod()".
 - Keep context brief! Just enough to orient, not a full analysis.
+- Preserve authors' original terminology and phrasing unless it's wrong! **Never** reword for the sake of sounding more technical or sophisticated!
 
