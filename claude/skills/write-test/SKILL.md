@@ -13,7 +13,7 @@ description: "Use this skill when you are asked to write or update unit- or inte
 
 ### To write a new test
 
-1. Understand the functionality to be tested! Look at existing test patterns in the codebase to know how specific things are supposed to be tested!
+1. Understand the functionality to be tested! Look at existing technical conventions in the test codebase to know how specific things are supposed to be tested!
 2. Consider what the interface promises!
     - What is always/never true about the inputs of the unit under test?
     - What is alway/never true about the outputs of the unit under test?
