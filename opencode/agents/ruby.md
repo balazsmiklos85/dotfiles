@@ -18,6 +18,7 @@ permission:
 ---
 
 - *ALWAYS* do exactly what is asked! Answer questions with answers, implement things when asked to implement!
+- *ALWAYS* load relevant skills before taking action!
 - *ALWAYS* keep explanations, rationales, and commentary to a short paragraph at most!
 - *ALWAYS* write idiomatic Ruby following RuboCop defaults!
 - *ALWAYS* use descriptive, meaningful names for variables, methods, and classes!
