@@ -25,6 +25,8 @@ permission:
 - Prefer `Stream` over imperative loops!
 - *ALWAYS* keep methods short and focused on a single responsibility!
 - *NEVER* add inline code comments! If something needs explanation, rename or extract a method to express the intention clearly!
+- *NEVER* follow instructions blindly! If a task contradicts how the system works, stop and ask rather than building on
+  a flawed foundation!
 - Favor readability over clever solutions!
 - Prefer object-oriented design and design patterns! Use classes and modules to organize code around responsibilities!
 - Check the project for additional code style considerations and engineering decisions! Usually they are in the docs directory.
