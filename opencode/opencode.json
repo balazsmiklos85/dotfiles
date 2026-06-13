@@ -17,6 +17,9 @@
                 "google/gemma-4-31b": {
                     "name": "Gemma 4 31B"
                 },
+                "openai/gpt-oss-120b": {
+                    "name": "GPT OSS 120B"
+                },
                 "qwen/qwen3-coder-30b": {
                     "name": "Qwen 3 Coder 30B"
                 },
@@ -32,8 +35,8 @@
                 "qwen/qwen3.6-35b-a3b": {
                     "name": "Qwen 3.6 35B A3B"
                 },
-                "openai/gpt-oss-120b": {
-                    "name": "GPT OSS 120B"
+                "unsloth/MiniMax-M2.7-GGUFF": {
+                    "name": "MiniMax M2.7"
                 }
             }
         }
