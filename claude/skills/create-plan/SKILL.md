@@ -59,4 +59,5 @@ description: "Creates a TDD-driven plan for a task"
   "Fix MyServiceTest.failingTestMethod()".
 - Keep context brief! Just enough to orient, not a full analysis.
 - Preserve authors' original terminology and phrasing unless it's wrong! **Never** reword for the sake of sounding more technical or sophisticated!
+- Preserve already completed work when changing plans!
 
