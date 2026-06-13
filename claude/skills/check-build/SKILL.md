@@ -1,6 +1,6 @@
 ---
 name: check-build
-description: "Use this skill to check the build state: compilation, tests, static code analysis."
+description: "Invoked whenever the agent runs any build, test, or static analysis command in a Gradle project. Follow this skill instead of running those commands directly!"
 ---
 
 ## Toolbox

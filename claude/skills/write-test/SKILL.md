@@ -1,6 +1,6 @@
 ---
 name: write-test
-description: "Use this skill when you are asked to write or update unit- or integration tests"
+description: "Invoked when the agent is required to write or update any unit- or integration test. Load and follow this skill before writing any test code!"
 ---
 
 ## Toolbox
