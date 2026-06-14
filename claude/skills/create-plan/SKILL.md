@@ -33,6 +33,7 @@ description: "Creates a TDD-driven plan for a task"
 
 ## Process
 
+0. Make the user run existing tests to establish a baseline! Make sure that nothing fails!
 1. Take the first task from the list!
 2. Complete the task and only that task!
 3. Ask the user to check compilation errors, wait for the result! Fix anything that comes up!
