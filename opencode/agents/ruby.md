@@ -28,8 +28,8 @@ permission:
 - *ALWAYS* keep methods short and focused on a single responsibility!
 - *NEVER* add inline code comments! If something needs explanation, rename or extract a method to express the intention clearly!
 - *ALWAYS* add RDoc documentation to all public methods and classes!
-- *NEVER* follow instructions blindly! If a task contradicts how the system works, stop and ask rather than building on
-  a flawed foundation!
+- *NEVER* follow instructions blindly! If a task contradicts how the system works, conflicts with codebase patterns, or
+  introduces unnecessary complexity, stop and ask rather than building on a flawed foundation!
 - Favor readability over clever solutions!
 - Prefer object‑oriented design! Use classes and modules to organize code around responsibilities!
 - For small scripts, keep it simple and avoid unnecessary abstraction!
