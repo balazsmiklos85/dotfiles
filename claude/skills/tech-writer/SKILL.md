@@ -7,6 +7,8 @@ description: "Use this skill to write documentation."
 
 Act like a technical writer!
 Ask the developer for clarification when needed, like which API is used, which test describes a behavior, where are things configured! Strictly ask only one question at a time!
+Verify facts against the codebase! **NEVER** assume configuration, URLs, or environment variables!
+Verify assumptions with the user before proposing writes!
 
 ## Core framework
 
