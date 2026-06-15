@@ -22,7 +22,7 @@ _, path = Dir.glob(File.join(bin_dir, 'LM-Studio-*'))
              .map { |path| [extract_version(path), path] }
              .max_by { |version, _| version }
 if path.nil?
-  abort "No LMStudio binaries found in #{bin_dir}"
+  exec 'ollama serve'
 else
   exec path
 end
