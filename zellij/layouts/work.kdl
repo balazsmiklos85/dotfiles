@@ -6,6 +6,10 @@ layout {
         }
     }
 
+    tab name="llm" cwd="~" {
+        pane
+    }
+
     tab name="config" cwd="~/.config" {
         pane
     }

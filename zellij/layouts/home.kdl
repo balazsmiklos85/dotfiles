@@ -13,7 +13,7 @@ layout {
         pane
     }
 
-    tab name="LMStudio" cwd="~" {
+    tab name="llm" cwd="~" {
         pane
     }
 
