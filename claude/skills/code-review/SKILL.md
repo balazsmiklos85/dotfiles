@@ -1,3 +1,8 @@
+---
+name: code-review
+description: "Analyzes code quality across logic, security, performance, architecture, compliance, maintainability, naming conventions, API compatibility, and type safety"
+---
+
 # Skill: Code Review
 
 ## Toolbox Section
