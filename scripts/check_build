@@ -30,7 +30,9 @@ when /Flyway/
   puts build_output
 when /ApplicationContext/
   puts 'Spring context issues:'
-  puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg 'NoSuchBeanDefinitionException|SQLSyntaxErrorException' {} | uniq`
+  application_context_exceptions = %w[NoSuchBeanDefinitionException SQLSyntaxErrorException
+                                      UnsatisfiedDependencyException BeanCreationException BeanInstantiationException]
+  puts `fd -u '(Test|IT)\\.html' | xargs -I {} rg '#{application_context_exceptions.join('|')}' {} | uniq`
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
   puts `fd -u '(Test|IT).*\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
