@@ -5,9 +5,14 @@ puts 'Clean...'
 `gw clean`
 
 puts 'Build...'
-build_output = `gw build 2>&1 | rg -U '^> Task|Failed to load ApplicationContext|SQLSyntaxErrorException|Flyway.*Exception' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
+to_capture = ['^> Task', 'Failed to load', 'ApplicationContext', 'SQLSyntaxErrorException', 'Flyway.*Exception',
+              'Could not (determine|find|resolve)']
+build_output = `gw build 2>&1 | rg -U '#{to_capture.join('|')}' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
 
 case build_output
+when /Could not (find|resolve)/
+  puts 'Dependency resolution failure:'
+  puts build_output.lines.select { |l| l.include? 'Could not' }.join
 when /> Task.*compile(Test)?Java FAILED/
   puts 'Compile...'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
