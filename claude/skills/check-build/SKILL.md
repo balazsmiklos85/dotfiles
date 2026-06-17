@@ -7,9 +7,9 @@ description: "Invoked whenever the agent runs any build, test, or static analysi
 
 `check_build` is a user specific script available on the global path. It runs `./gradlew` in the background, but it also
 filters its output so only the relevant parts get to the output. Therefore there is no need to `grep` or `tail` its
-output even more.
+output even more. The script takes no parameters, and does not write to stderr.
 
 ## How to call
 
-- Just call `check_build` from Bash.
+- Just call `check_build` from Bash as it is!
 - In case its output is not clear, ask the user how to investigate further.
