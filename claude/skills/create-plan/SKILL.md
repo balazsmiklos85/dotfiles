@@ -20,7 +20,7 @@ description: "Creates a TDD-driven plan for a task"
 2. Break the problem into small, testable vertical slices! Each slice should be small enough that its test can
    compile and run without days of implementation catching up!
 3. For each slice, formulate the testable behavior first, then the minimal implementation!
-4. Write a @plan.md file, **strictly** filling the template, replacing only the `[TODO: ...]` parts:
+4. Write a @plan.md file. *ALWAYS* follow the template **extremely strictly**, replacing only the `[TODO: ...]` parts, not removing anything, not adding extra information:
 
 ```
 # [TODO: Title]
