@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-puts 'Clean...'
+puts 'Clean…'
 `gw clean`
 
-puts 'Build...'
+puts 'Build…'
 to_capture = ['^> Task', 'Failed to load', 'ApplicationContext', 'SQLSyntaxErrorException', 'Flyway.*Exception',
               'Could not (determine|find|resolve)']
 build_output = `gw build 2>&1 | rg -U '#{to_capture.join('|')}' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
@@ -14,20 +14,20 @@ when /Could not (find|resolve)/
   puts 'Dependency resolution failure:'
   puts build_output.lines.select { |l| l.include? 'Could not' }.join
 when /> Task.*compile(Test)?Java FAILED/
-  puts 'Compile...'
+  puts 'Compile…'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
 when /> Task.*compile(Test)?Kotlin FAILED/
-  puts 'Compile...'
+  puts 'Compile…'
   puts `gw compileKotlin compileTestKotlin --console=plain 2>&1 | rg -A 4 '^e:.*'`
 when /checkstyleMain FAILED/
-  puts 'checkstyle...'
+  puts 'checkstyle…'
   ['service/build/reports/checkstyle/main.html',
    'interfaces/build/reports/checkstyle/main.html'].select { |report| File.file? report }
                                                    .each do |report|
     puts `w3m #{report} | awk '/Violations/,/Back/' | rg -v 'Back to top'`
   end
 when /checkstyleTest FAILED/
-  puts 'checkstyle...'
+  puts 'checkstyle…'
   puts `w3m service/build/reports/checkstyle/test.html | awk '/Violations/,/Back/' | rg -v 'Back to top'`
 when /spotbugs.*FAILED/
   puts `w3m service/build/reports/spotbugs/*.html | awk '/Code[[:space:]]+Warning/,/Details/' | rg -v 'Details'`
