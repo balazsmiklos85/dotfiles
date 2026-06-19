@@ -41,11 +41,14 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - Over-constrained rules that blocked efficient solutions
         - Under-constrained rules that left too much room for wrong assumptions
         - Conflicting instructions across multiple skills, agents, or prompts
+        - Scripts or tools that produced misleading output
 4. Efficiency retrospective
     - Ask the user which model produced the session!
     - Assess model-to-task fit!
     - Assess effort-to-value ratio!
     - Assess context hygiene!
+    - Identify used tools that could have been used more efficiently!
+    - Identify used tools that could be modified to provide better information!
 5. Propose edits based on the findings!
     - Determine where the knowledge should be persisted!
     - Know the difference between ADRs, project docs, agent configs, and skills!
