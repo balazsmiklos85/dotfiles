@@ -23,7 +23,7 @@
     },
   },
   "buffer_font_family": "DejaVu Sans Mono",
-  "buffer_font_size": 12,
+  "buffer_font_size": 14,
   "icon_theme": "Catppuccin Mocha",
   "languages": {
     "Ruby": {
@@ -38,7 +38,7 @@
   "theme": {
     "dark": "Catppuccin Mocha",
     "light": "Catppuccin Latte",
-    "mode": "system",
+    "mode": "dark",
   },
   "ui_font_size": 16,
   "vim": {
