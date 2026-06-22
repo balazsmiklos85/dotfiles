@@ -1,4 +1,10 @@
 **/.claude/settings.local.json
 .env*
+# jdtls files
+.classpath
+.factorypath
+.project
+.settings/
+# Kotlin language server
 kls_database.db
 plan.md
