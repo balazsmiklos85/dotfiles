@@ -16,6 +16,9 @@ when /Could not (find|resolve)/
 when /> Task.*compile(Test)?Java FAILED/
   puts 'Compile…'
   puts `gw compileJava compileTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
+when /> Task.*compile(IntegrationTest)?Java FAILED/
+  puts 'Compile…'
+  puts `gw compileIntegrationTestJava --console=plain 2>&1 | rg -A 4 '^/.*java:\\d+: error'`
 when /> Task.*compile(Test)?Kotlin FAILED/
   puts 'Compile…'
   puts `gw compileKotlin compileTestKotlin --console=plain 2>&1 | rg -A 4 '^e:.*'`
