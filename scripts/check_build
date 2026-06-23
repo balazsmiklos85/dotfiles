@@ -48,5 +48,7 @@ when /composeUp FAILED/
   puts '> Task :service:composeUp FAILED'
   puts 'Is Docker running? Restart with calling `kill_docker ; prune_docker ; colima restart`'
 else
-  puts build_output
+  puts build_output.lines
+                   .reject { |line| line =~ /(Abstract|ServletWebServer)ApplicationContext/ }
+                   .join
 end
