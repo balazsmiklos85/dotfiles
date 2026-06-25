@@ -3,6 +3,7 @@
 function system-update
     if [ (uname) = Darwin ]
         brew upgrade
+        brew bundle install
     else
         set distro (grep "^NAME" /etc/os-release | cut -d '=' -f 2)
         if test "$distro" = '"openSUSE Tumbleweed"'
