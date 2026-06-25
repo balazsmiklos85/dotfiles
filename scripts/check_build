@@ -36,7 +36,7 @@ when /spotbugs.*FAILED/
   puts `w3m service/build/reports/spotbugs/*.html | awk '/Code[[:space:]]+Warning/,/Details/' | rg -v 'Details'`
 when /Flyway/
   puts build_output
-when /(?<!Abstract|ServletWebServer)ApplicationContext\b/
+when /(?<!Abstract|ServletWebServer|DefaultUserCode)ApplicationContext\b/
   puts 'Spring context issues:'
   application_context_exceptions = %w[NoSuchBeanDefinitionException SQLSyntaxErrorException
                                       UnsatisfiedDependencyException BeanCreationException BeanInstantiationException]
