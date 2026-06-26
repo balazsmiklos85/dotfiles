@@ -81,12 +81,14 @@ format = '[$all_status$ahead_behind ]($style)'
 [gradle]
 symbol = ""
 style = "bg:surface0 fg:blue"
-format = '[ $symbol ]($style)'
+format = '[ $symbol ($version) ]($style)'
+version_format = 'v${major}.${minor}'
 
 [java]
 symbol = ""
 style = "bg:surface0 fg:red"
-format = '[ $symbol ]($style)'
+format = '[ $symbol ($version)]($style)'
+version_format = 'v${major}'
 
 [ruby]
 detect_variables = []
