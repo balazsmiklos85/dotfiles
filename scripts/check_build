@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+abort 'This script takes no arguments.' unless ARGV.empty?
+
 puts 'Clean…'
 `gw clean`
 
