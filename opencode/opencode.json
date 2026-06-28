@@ -24,16 +24,28 @@
                     "name": "Qwen 3 Coder 30B"
                 },
                 "qwen/qwen3-coder-next": {
-                    "name": "Qwen 3 Coder Next"
+                    "name": "Qwen 3 Coder Next",
+                    "limit": {
+                        "context": 262144,
+                        "output": 8192
+                    }
                 },
                 "qwen/qwen3.5-35b-a3b": {
                     "name": "Qwen 3.5 35B A3B"
                 },
                 "qwen/qwen3.6-27b": {
-                    "name": "Qwen 3.6 27B"
+                    "name": "Qwen 3.6 27B",
+                    "limit": {
+                        "context": 262144,
+                        "output": 8192
+                    }
                 },
                 "qwen/qwen3.6-35b-a3b": {
-                    "name": "Qwen 3.6 35B A3B"
+                    "name": "Qwen 3.6 35B A3B",
+                    "limit": {
+                        "context": 262144,
+                        "output": 8192
+                    }
                 },
                 "unsloth/MiniMax-M2.7-GGUFF": {
                     "name": "MiniMax M2.7"
