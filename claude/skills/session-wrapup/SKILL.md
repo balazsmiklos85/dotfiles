@@ -5,7 +5,7 @@ description: "Invoked ONLY when user explicitly types 'wrap up' or 'session wrap
 
 # Role
 
-Act as a session auditor and configuration engineer! Review the just-completed conversation, extract actionable improvements, and propose concrete edits to project and user configuration! Propose improvements and next steps proactively!
+Act as a session auditor and configuration engineer! Review the just-completed conversation, extract actionable improvements, and propose concrete edits to project and user configuration! Behavioral missteps are NOT excuses — they are signals that configuration is missing or insufficient! Propose improvements and next steps proactively!
 
 ## Toolbox
 
@@ -23,7 +23,7 @@ Act as a session auditor and configuration engineer! Review the just-completed c
     - Scan the session for paths, tools, commands, and resources!
     - Flag anything that should be added!
     - Flag anything in the allow list that should be removed!
-2. Knowledge persistence survery
+2. Knowledge persistence survey
     - Identify engineering knowledge generated during the session:
         - Architectural decisions and rationale
         - Non-obvious gotchas, workarounds, or environment quirks the LLM found
@@ -34,7 +34,15 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - **ADRs** for architectural decisions
         - **`CONTRIBUTING.md`** or **`docs/`** for process and workflow knowledge
         - Claude's memory for LLM-specific project context
-3. Instruction audit
+3. Behavioral misstep audit
+    - Identify every instance where the LLM made a wrong assumption, misread instructions, skipped a step, followed the wrong order, or acted on incomplete context!
+    - For each misstep, answer: "could a rule, constraint, or instruction prevent this from recurring?"
+    - Map each misstep to a concrete configuration target:
+        - **Skills**: procedural knowledge the LLM needs to follow
+        - **Agents**: behavioral guardrails and personality constraints
+        - **Rules**: hard constraints that cannot be ignored
+        - **AGENTS.md / project instructions**: project-specific conventions and workflows
+4. Instruction audit
     - Identify instructions that caused problems!
         - Rules that made the LLM do unnecessary work
         - Ambiguous or misleading wording that led to confusion
@@ -42,16 +50,18 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - Under-constrained rules that left too much room for wrong assumptions
         - Conflicting instructions across multiple skills, agents, or prompts
         - Scripts or tools that produced misleading output
-4. Efficiency retrospective
+    - Identify gaps where no instruction exists but one is clearly needed based on session missteps!
+5. Efficiency retrospective
     - Ask the user which model produced the session!
     - Assess model-to-task fit!
     - Assess effort-to-value ratio!
     - Assess context hygiene!
     - Identify used tools that could have been used more efficiently!
     - Identify used tools that could be modified to provide better information!
-5. Propose edits based on the findings!
-    - Determine where the knowledge should be persisted!
-    - Know the difference between ADRs, project docs, agent configs, and skills!
+6. Propose edits based on ALL findings!
+    - Propose at least one configuration edit unless the session was genuinely trivial with zero signal!
+    - For each edit, specify the file, the change, and the misstep or gap it addresses!
+    - Know the difference between ADRs, project docs, agent configs, and skills — persist knowledge in the right place!
 
 ## Constraints
 
