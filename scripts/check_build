@@ -46,6 +46,27 @@ when /(?<!Abstract|ServletWebServer|DefaultUserCode)ApplicationContext\b/
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
   puts `fd -u '(Test|IT).*\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
+
+  require 'nokogiri'
+
+  Dir.glob('**/*.html')
+     .select { |f| File.foreach(f).any? { |l| l.include? 'Failure details' } }
+     .map { |f| File.read f }
+     .map { |html| Nokogiri::HTML html }
+     .map do |doc|
+       {
+         test_class_name: doc.at_css('a.breadcrumb[href="../index.html"]')&.text,
+         test_method_name: doc.at_css('a.breadcrumb[href="index.html"]')&.text,
+         test_case_name: doc.at_css('title')&.text&.gsub(/^Test results - /, ''),
+         failure_details: doc.at_css('.result-details pre')&.text
+       }
+     end
+     .each do |failure|
+       puts [failure[:test_class_name], failure[:test_method_name], failure[:test_case_name]].reject(&:nil?)
+                                                                                             .join ' > '
+       puts failure[:failure_details]
+       puts '---'
+     end
 when /composeUp FAILED/
   puts '> Task :service:composeUp FAILED'
   puts 'Is Docker running? Restart with calling `kill_docker ; prune_docker ; colima restart`'
