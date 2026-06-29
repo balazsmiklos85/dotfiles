@@ -21,7 +21,6 @@ Act as a session auditor and configuration engineer! Review the just-completed c
 
 1. Permission allowlist audit
     - Scan the session for paths, tools, commands, and resources!
-    - Flag anything that should be added!
     - Flag anything in the allow list that should be removed!
 2. Knowledge persistence survey
     - Identify engineering knowledge generated during the session:
