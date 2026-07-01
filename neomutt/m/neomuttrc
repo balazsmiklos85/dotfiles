@@ -35,37 +35,37 @@ set ssl_verify_dates=yes
 set ssl_verify_host=yes
 
 color normal		  default default         # Text is "Text"
-color index		    color2 default ~N       # New Messages are Green
-color index		    color1 default ~F       # Flagged messages are Red
-color index		    color13 default ~T      # Tagged Messages are Red
-color index		    color1 default ~D       # Messages to delete are Red
-color attachment	color5 default          # Attachments are Pink
-color signature	  color8 default          # Signatures are Surface 2
-color search		  color4 default          # Highlighted results are Blue
+color index		    color178 default ~N     # New Messages are Dark Yellow
+color index		    color136 default ~F     # Flagged messages are Dark Golden
+color index		    color178 default ~T     # Tagged Messages are Dark Yellow
+color index		    color136 default ~D     # Messages to delete are Dark Golden
+color attachment	color220 default        # Attachments are Bright Yellow
+color signature	  color178 default        # Signatures are Dark Yellow
+color search		  color178 default        # Highlighted results are Dark Yellow
 
-color indicator		default color8          # currently highlighted message Surface 2=Background Text=Foreground
-color error		    color1 default          # error messages are Red
-color status		  color15 default         # status line "Subtext 0"
-color tree        color15 default         # thread tree arrows Subtext 0
-color tilde       color15 default         # blank line padding Subtext 0
+color indicator		color233 color220       # currently highlighted message Bright Yellow=Text Dark Gray=Background
+color error		    color136 default        # error messages are Dark Golden
+color status		  color220 default        # status line Bright Yellow
+color tree        color220 default        # thread tree arrows Bright Yellow
+color tilde       color220 default        # blank line padding Bright Yellow
 
-color hdrdefault  color13 default         # default headers Pink
-color header		  color13 default "^From:"
-color header	 	  color13 default "^Subject:"
+color hdrdefault  color178 default        # default headers Dark Yellow
+color header		  color178 default "^From:"
+color header	 	  color178 default "^Subject:"
 
-color quoted		  color15 default         # Subtext 0
-color quoted1		  color7 default          # Subtext 1
-color quoted2		  color8 default          # Surface 2
-color quoted3		  color0 default          # Surface 1
-color quoted4		  color0 default
-color quoted5		  color0 default
+color quoted		  color220 default        # Subtext 0
+color quoted1		  color136 default        # Subtext 1
+color quoted2		  color178 default        # Surface 2
+color quoted3		  color246 default        # Surface 1
+color quoted4		  color246 default
+color quoted5		  color246 default
 
-color body		color2 default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses Green
-color body	  color2 default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs Green
-color body		color4 default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text Blue
-color body		color4 default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text Blue
-color body		color4 default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text Blue
+color body		color178 default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses Dark Yellow
+color body	  color178 default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs Dark Yellow
+color body		color136 default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text Dark Golden
+color body		color136 default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text Dark Golden
+color body		color136 default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text Dark Golden
 
-color sidebar_flagged   color1 default    # Mailboxes with flagged mails are Red
-color sidebar_new       color10 default   # Mailboxes with new mail are Green
+color sidebar_flagged   color136 default    # Mailboxes with flagged mails are Dark Golden
+color sidebar_new       color178 default    # Mailboxes with new mail are Dark Yellow
 
