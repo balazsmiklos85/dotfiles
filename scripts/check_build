@@ -8,10 +8,13 @@ puts 'Clean…'
 
 puts 'Build…'
 to_capture = ['^> Task', 'Failed to load', 'ApplicationContext', 'SQLSyntaxErrorException', 'Flyway.*Exception',
-              'Could not (determine|find|resolve)']
+              'Could not (determine|find|resolve)', 'invalid source release']
 build_output = `gw build 2>&1 | rg -U '#{to_capture.join('|')}' | rg -v 'UP-TO-DATE|SKIPPED|NO-SOURCE'`
 
 case build_output
+when /invalid source release/
+  puts build_output[/invalid source release.*/]
+  puts 'Set the proper JDK version using SDKMan!'
 when /Could not (find|resolve)/
   puts 'Dependency resolution failure:'
   puts build_output.lines.select { |l| l.include? 'Could not' }.join
