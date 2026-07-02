@@ -2,12 +2,53 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'json'
+require 'time'
 
-author = `git config user.name`.strip
+GITHUB_URL_PATTERN = %r{https://github\.com/transferwise/(?<repo>[\w-]+)/pull/\d+}.freeze
+
+# Represents the metadata of a pull request
+class PullRequest
+  attr_reader :closed_at, :project, :title
+
+  def initialize(closed_at:, html_url:, title:)
+    @closed_at = parse_time(closed_at)
+    @project = parse_project(html_url)
+    @title = title&.strip
+  end
+
+  private
+
+  def parse_project(url)
+    url[GITHUB_URL_PATTERN, 1]
+  end
+
+  def parse_time(time_string)
+    return nil if time_string.nil?
+
+    return nil if time_string.empty?
+
+    Time.parse(time_string).utc
+  end
+end
 
 days_in_week = (Date.today.cwday - 1) % 7
 previous_monday = Date.today - (days_in_week.zero? ? 7 : days_in_week)
 
-commits = `git log main --author='#{author}' --since='#{previous_monday} 00:00:00' --pretty=format:%s`
+merged_prs = `gh api search/issues?q=is%3Apr+author%3Abalazsmiklos85+is%3Amerged --jq '.items[] | {closed_at, html_url, title}'`
+             .lines
+             .map { |l| JSON.parse(l, symbolize_names: true) }
+             .map { |j| PullRequest.new(**j) }
+             .select { |pr| pr.closed_at > previous_monday }
+             .sort_by(&:closed_at)
+             .group_by(&:project)
+             .transform_values { |g| g.map(&:title) }
 
-puts commits.empty? ? 'No commits found since last Monday.' : commits
+if merged_prs.empty?
+  puts 'No PRs found since last Monday.'
+else
+  merged_prs.each do |project, prs|
+    puts "Contributions to #{project}:"
+    prs.each { |t| puts "- #{t}" }
+  end
+end
