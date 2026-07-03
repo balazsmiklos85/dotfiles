@@ -21,6 +21,13 @@ layout {
         }
     }
 
+    tab name="collection" cwd="~/projects/collection" {
+        pane split_direction="vertical" {
+            pane
+            pane
+        }
+    }
+
     tab name="notes" cwd="~/Documents/notes" {
         pane
     }
