@@ -2,6 +2,7 @@ set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.config/scripts $PATH
 if [ -d $HOME/.sdkman ]
     set -gx PATH $HOME/.sdkman $PATH
+    set -gx PATH $HOME/.sdkman/candidates/java/current/bin $PATH
 end
 if [ -d $HOME/.cargo/bin ]
     set -gx PATH $HOME/.cargo/bin $PATH
