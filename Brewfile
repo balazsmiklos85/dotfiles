@@ -1,33 +1,34 @@
-cask "alacritty", args: { appdir: "~/Applications" }
-cask "font-hack-nerd-font"
+# frozen_string_literal: true
 
-brew "bat"
-brew "colima"
-brew "docker"
-brew "docker-compose"
-brew "dust"
-brew "fd"
-brew "fish"
-brew "fzf"
-brew "gh"
-brew "graphviz"
-brew "git-delta"
-brew "htop"
-brew "jq"
-brew "lsd"
-brew "lynx"
-brew "midnight-commander"
-brew "neovim"
-brew "node" # for prettier
-brew "pass"
-brew "ripgrep"
-brew "ruby" # for my scripts
-brew "sd"
-brew "starship"
-brew "thefuck"
-brew "timewarrior"
-brew "w3m"
-brew "wget"
-brew "zellij"
-brew "zoxide"
+cask 'alacritty', args: { appdir: '~/Applications' }
+cask 'font-hack-nerd-font'
 
+brew 'bat'
+brew 'colima'
+brew 'docker'
+brew 'docker-compose'
+brew 'dust'
+brew 'fd'
+brew 'fish'
+brew 'fzf'
+brew 'gh'
+brew 'graphviz'
+brew 'git-delta'
+brew 'htop'
+brew 'jq'
+brew 'lsd'
+brew 'lynx'
+brew 'midnight-commander'
+brew 'neovim'
+brew 'node' # for prettier
+brew 'pass'
+brew 'ripgrep'
+brew 'ruby' # for my scripts
+brew 'sd'
+brew 'starship'
+brew 'thefuck'
+brew 'timewarrior'
+brew 'w3m'
+brew 'wget'
+brew 'zellij'
+brew 'zoxide'
