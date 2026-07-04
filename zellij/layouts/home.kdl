@@ -32,7 +32,9 @@ layout {
     }
 
     tab name="rss" cwd="~" {
-        pane
+        pane {
+            command "eilmeldung"
+        }
     }
 
     tab name="rpi4" cwd="~" {
