@@ -34,4 +34,11 @@ layout {
     tab name="rss" cwd="~" {
         pane
     }
+
+    tab name="rpi4" cwd="~" {
+        pane {
+            command "ssh"
+            args "rpi4"
+        }
+    }
 }
