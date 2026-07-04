@@ -6,7 +6,9 @@ layout {
         }
     }
     tab name="notes" cwd="~/Documents/notes" {
-        pane
+        pane {
+            command "nvim"
+        }
     }
 
     tab name="config" cwd="~/.config" {
