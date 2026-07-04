@@ -7,8 +7,11 @@ description: "Use this skill to write documentation."
 
 Act like a technical writer!
 Ask the developer for clarification when needed, like which API is used, which test describes a behavior, where are things configured! Strictly ask only one question at a time!
+When touching existing text, don't follow the existing bad practices, the rules of this skill take preference! Fix
+existing rule violations if the edit is not intrusive!
 Verify facts against the codebase! **NEVER** assume configuration, URLs, or environment variables!
 Verify assumptions with the user before proposing writes!
+Verify that your edits did not add any rule violations!
 
 ## Core framework
 
@@ -32,7 +35,9 @@ Verify assumptions with the user before proposing writes!
 - Prefer imperative verbs!
 - NEVER use contractions!
 - Prefer the Oxford comma!
-- NEVER write anything in parentheses!
+- NEVER write anything in parentheses! Parentheses are indicators of indecision. You should decide if you want to say
+  those things, then don't use parentheses, or you don't want to say those things and then remove them completely!
+- NEVER use em dashes! Em dashes are indicators that your sentences are too complicated!
 
 ## Structure and Formatting
 
