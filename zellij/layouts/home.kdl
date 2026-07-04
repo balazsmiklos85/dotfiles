@@ -16,7 +16,9 @@ layout {
     }
 
     tab name="llm" cwd="~" {
-        pane
+        pane {
+            command "llm"
+        }
     }
 
     tab name="book_club" cwd="~/projects/book_club" {
