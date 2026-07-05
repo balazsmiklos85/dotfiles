@@ -27,6 +27,13 @@
   <property name="plugins" type="empty">
     <property name="plugin-1" type="empty">
       <property name="favorites" type="array">
+        <value type="string" value="org.alacritty.Alacritty.desktop"/>
+        <value type="string" value="md.obsidian.Obsidian.desktop"/>
+        <value type="string" value="firefox.desktop"/>
+        <value type="string" value="org.keepassxc.KeePassXC.desktop"/>
+        <value type="string" value="steam.desktop"/>
+        <value type="string" value="vlc.desktop"/>
+        <value type="string" value="calibre-gui.desktop"/>
       </property>
       <property name="recent" type="array">
       </property>
