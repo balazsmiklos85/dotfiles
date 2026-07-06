@@ -17,8 +17,8 @@ end
 
 # Fetch open PRs by the author
 open_prs = `gh api search/issues?q=is%3Apr+is%3Aopen+author%3A#{AUTHOR} --jq '.items[] | {html_url, title}'`
-            .lines
-            .map { |l| JSON.parse(l, symbolize_names: true) }
+           .lines
+           .map { |l| JSON.parse(l, symbolize_names: true) }
 
 if open_prs.empty?
   puts 'No open PRs found.'
@@ -34,11 +34,12 @@ approved = open_prs.filter_map do |pr|
   count = `gh api repos/#{repo}/pulls/#{num}/reviews --jq '[.[] | select(.state == "APPROVED")] | length'`
           .strip.to_i
 
-  pr if count > 0
+  pr if count.positive?
 end
 
 if approved.empty?
-  puts 'No approved PRs ready to merge.'
+  puts 'No approved PRs ready to merge. Open PRs:'
+  open_prs.each { |pr| puts "- #{pr[:title]} - #{pr[:html_url]}" }
 else
   puts "#{approved.size} approved PR(s) ready to merge:"
   approved.each { |pr| puts "- #{pr[:html_url]}" }
