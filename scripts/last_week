@@ -33,7 +33,7 @@ class PullRequest
 end
 
 days_in_week = (Date.today.cwday - 1) % 7
-previous_monday = Date.today - (days_in_week.zero? ? 7 : days_in_week)
+previous_monday = (Date.today - (days_in_week.zero? ? 7 : days_in_week)).to_time
 
 merged_prs = `gh api search/issues?q=is%3Apr+author%3Abalazsmiklos85+is%3Amerged --jq '.items[] | {closed_at, html_url, title}'`
              .lines
