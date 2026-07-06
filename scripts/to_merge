@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'json'
+
+AUTHOR = 'balazsmiklos85'
+
+def repo_owner_and_name(url)
+  match = url.match(%r{https://github\.com/([\w-]+/[\w-]+)/pull/})
+  match ? match[1] : nil
+end
+
+def pr_number(url)
+  match = url.match(%r{/pull/(\d+)})
+  match ? match[1] : nil
+end
+
+# Fetch open PRs by the author
+open_prs = `gh api search/issues?q=is%3Apr+is%3Aopen+author%3A#{AUTHOR} --jq '.items[] | {html_url, title}'`
+            .lines
+            .map { |l| JSON.parse(l, symbolize_names: true) }
+
+if open_prs.empty?
+  puts 'No open PRs found.'
+  exit
+end
+
+# For each open PR, check if it has an approving review
+approved = open_prs.filter_map do |pr|
+  repo = repo_owner_and_name(pr[:html_url])
+  num  = pr_number(pr[:html_url])
+  next unless repo && num
+
+  count = `gh api repos/#{repo}/pulls/#{num}/reviews --jq '[.[] | select(.state == "APPROVED")] | length'`
+          .strip.to_i
+
+  pr if count > 0
+end
+
+if approved.empty?
+  puts 'No approved PRs ready to merge.'
+else
+  puts "#{approved.size} approved PR(s) ready to merge:"
+  approved.each { |pr| puts "- #{pr[:html_url]}" }
+end
