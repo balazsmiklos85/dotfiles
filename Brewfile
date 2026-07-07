@@ -4,7 +4,6 @@ cask 'alacritty', args: { appdir: '~/Applications' }
 cask 'font-hack-nerd-font'
 
 brew 'bat'
-brew 'claude-code'
 brew 'colima'
 brew 'docker'
 brew 'docker-compose'
