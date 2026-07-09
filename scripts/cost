@@ -68,3 +68,15 @@ end
 
 puts '-' * 72
 puts "GRAND TOTAL COST: $#{'%.2f' % grand_total}"
+
+codex_stats = `sqlite3 /Users/miklos.balazs/.codex/state_5.sqlite "SELECT COALESCE(model, '(none)') as model, SUM(tokens_used) as total_tokens FROM threads GROUP BY model ORDER BY total_tokens DESC;"`
+codex_total = codex_stats.lines.sum(0) do |line|
+  model, tokens = line.split('|')
+  if model =~ /qwen|gemma/
+    tokens.to_i
+  else
+    0
+  end
+end
+
+puts "Saved: $#{codex_total / 1_000_000.0} ~ $#{codex_total / 200_000.0}"
