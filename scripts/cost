@@ -80,4 +80,4 @@ codex_total = codex_stats.lines.sum(0) do |line|
   end
 end
 
-puts "Saved: $#{codex_total / 1_000_000.0} ~ $#{codex_total / 200_000.0}"
+puts "Saved: $#{format('%.2f', codex_total / 1_000_000.0)} ~ $#{format('%.2f', codex_total / 200_000.0)}"
