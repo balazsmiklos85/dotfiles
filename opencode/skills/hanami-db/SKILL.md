@@ -345,7 +345,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Combines
 
-27. **Combine relations to load nested data**
+30. **Combine relations to load nested data**
     ```ruby
     # Load a user with their projects (lazy loading — no N+1)
     users.by_id(2).combine(:projects).one
@@ -356,7 +356,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     # => {:id=>2, :username=>"john"}  (no :projects key)
     ```
 
-28. **Nested combine**
+31. **Nested combine**
     ```ruby
     users.by_id(2).combine(projects: :project_tasks).one
 
@@ -366,7 +366,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     ).one
     ```
 
-29. **Adjust nested data with `node`**
+32. **Adjust nested data with `node`**
     ```ruby
     users.by_id(2)
       .combine(projects: :project_tasks)
@@ -380,7 +380,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Dataset and Scopes
 
-24. **Set default dataset**
+33. **Set default dataset**
     ```ruby
     class Books < Hanami::DB::Relation
       schema :books, infer: true
@@ -391,7 +391,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-25. **Simulate soft deletes with dataset**
+34. **Simulate soft deletes with dataset**
     ```ruby
     class Books < Hanami::DB::Relation
       schema :books, infer: true
@@ -402,7 +402,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     books.unfiltered.exclude(archived_at: nil)
     ```
 
-26. **Define custom scopes**
+35. **Define custom scopes**
     ```ruby
     class Books < Hanami::DB::Relation
       schema :books, infer: true
@@ -420,7 +420,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Migrations
 
-27. **Generate migrations via CLI**
+36. **Generate migrations via CLI**
     ```console
     hanami db new create_users
     hanami db new create_posts
@@ -429,7 +429,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     hanami db seed             # run seed files
     ```
 
-28. **Write a basic migration** (auto-inferable down)
+37. **Write a basic migration** (auto-inferable down)
     ```ruby
     ROM::SQL.migration do
       change do
@@ -445,7 +445,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-29. **Write migration with explicit up/down**
+38. **Write migration with explicit up/down**
     ```ruby
     ROM::SQL.migration do
       up do
@@ -462,7 +462,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-30. **Run migration outside a transaction**
+39. **Run migration outside a transaction**
     ```ruby
     ROM::SQL.migration do
       no_transaction
@@ -481,7 +481,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-31. **Use raw SQL as an escape hatch**
+40. **Use raw SQL as an escape hatch**
     ```ruby
     ROM::SQL.migration do
       up do
@@ -504,7 +504,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     ```
     - Raw SQL requires explicit up/down (cannot infer reverse)
 
-32. **Column type options in migrations**
+41. **Column type options in migrations**
     ```ruby
     create_table :users do
       # Explicit SQL type
@@ -521,7 +521,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-33. **Define constraints in migrations**
+42. **Define constraints in migrations**
     ```ruby
     create_table :users do
       primary_key :id
@@ -530,14 +530,14 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     end
     ```
 
-34. **Use structure.sql for database schema snapshots**
+43. **Use structure.sql for database schema snapshots**
     - Located at `config/db/structure.sql`
     - Reflects current DB structure state
     - Useful for blank-slate database setup
 
 ### Transactions
 
-35. **Wrap writes in a transaction**
+44. **Wrap writes in a transaction**
     ```ruby
     # Automatic rollback on error
     users.transaction do |txn|
@@ -557,7 +557,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Repositories
 
-36. **Define a repository**
+45. **Define a repository**
     ```ruby
     class UserRepo < Hanami::DB::Repo
       def find(email)
@@ -569,7 +569,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Relations are available as methods (e.g., `users`)
     - Encapsulates persistence layer details from business logic
 
-37. **Repository provides a stable API**
+46. **Repository provides a stable API**
     ```ruby
     # Before: emails as identity
     class UserRepo < Hanami::DB::Repo
@@ -588,7 +588,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Commands
 
-38. **Use commands for direct write operations**
+47. **Use commands for direct write operations**
     ```ruby
     # Create
     users.command(:create).call(name: "Jane", email: "jane@example.com")
@@ -610,7 +610,26 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Lower-level than changesets — faster for bulk operations (~1.5–2x)
     - `result: :many` enables batch inserts
 
-39. **Persist nested data with combined commands**
+48. **Insert into an associated relation**
+
+    When inserting into a `has_many` relation from a repository, the association method returns the relation itself and accepts **no arguments**. Pass the foreign key as an attribute:
+
+    ```ruby
+    class UserRepo < Hanami::DB::Repo
+      def create_password(user_id, password_hash)
+        user_passwords.insert(
+          user_id: user_id,
+          password_hash: password_hash,
+          salt: '',
+          hash_algorithm: 'bcrypt'
+        )
+      end
+    end
+    ```
+
+    This differs from Rails' `user.user_passwords.create(...)` pattern. In Hanami/ROM, relations are collections — the foreign key is just another attribute.
+
+49. **Persist nested data with combined commands**
     ```ruby
     # Persist a user with associated tasks in one call
     users.combine(:tasks).command(:create).call(
@@ -626,7 +645,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Limited to `:create` commands only
     - For `:update`/`:delete` on aggregates, use changesets
 
-40. **Define custom command types**
+50. **Define custom command types**
     ```ruby
     class CustomCreate < ROM::SQL::Commands::Create
       relation :users
@@ -643,7 +662,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Changeset (Validation & Mapping)
 
-41. **Use changesets for data validation and mapping**
+51. **Use changesets for data validation and mapping**
     ```ruby
     # Create a changeset with validation
     changeset = users.changeset(:create, name: "Jane", email: "jane@example.com")
@@ -666,7 +685,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Use `changeset.validate` before `commit` for explicit validation
     - `associate(other_struct)` auto-sets foreign keys based on schema associations
 
-42. **Pre-configured mapping in changesets**
+52. **Pre-configured mapping in changesets**
     ```ruby
     class NewUserChangeset < ROM::Changeset::Create
       map do
@@ -678,7 +697,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     users.changeset(NewUserChangeset, name: "Jane", address: { city: "NYC" })
     ```
 
-43. **On-demand mapping**
+53. **On-demand mapping**
     ```ruby
     users
       .changeset(:create, name: "Joe", email: "joe@example.com")
@@ -688,7 +707,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Built-in transformations: `:add_timestamps`, `:touch`, `unwrap`
     - Also supports all [transproc](https://github.com/solnic/transproc) functions
 
-44. **Custom mapping block**
+54. **Custom mapping block**
     ```ruby
     class NewUserChangeset < ROM::Changeset::Create
       map do |tuple|
@@ -699,7 +718,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 ### Structs
 
-45. **Define a custom struct**
+55. **Define a custom struct**
     ```ruby
     module Main
       module Structs
@@ -719,7 +738,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
     - Extensible for presentation logic
     - If not defined, structs are generated on-demand
 
-46. **Use structs as different projections**
+56. **Use structs as different projections**
     - Same data, different purposes
     - `User` for general display
     - `Credential` for authentication
