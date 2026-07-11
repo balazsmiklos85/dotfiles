@@ -250,8 +250,8 @@ When assisting with Hanami Logging tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami documentation:
 
-- https://guides.hanamirb.org/v2.3/logger/configuration/
-- https://guides.hanamirb.org/v2.3/logger/usage/
+- https://hanakai.org/learn/hanami/v3.0/logger/configuration/
+- https://hanakai.org/learn/hanami/v3.0/logger/usage/
 
 ## Constraints
 

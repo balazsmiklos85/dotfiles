@@ -351,11 +351,11 @@ When assisting with Hanami Helpers tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami Helpers documentation:
 
-- https://guides.hanamirb.org/v2.3/helpers/overview/
-- https://guides.hanamirb.org/v2.3/helpers/string-escaping/
-- https://guides.hanamirb.org/v2.3/helpers/html/
-- https://guides.hanamirb.org/v2.3/helpers/assets/
-- https://guides.hanamirb.org/v2.3/helpers/number-formatting/
+- https://hanakai.org/learn/hanami/v3.0/helpers/overview/
+- https://hanakai.org/learn/hanami/v3.0/helpers/string-escaping/
+- https://hanakai.org/learn/hanami/v3.0/helpers/html/
+- https://hanakai.org/learn/hanami/v3.0/helpers/assets/
+- https://hanakai.org/learn/hanami/v3.0/helpers/number-formatting/
 
 ## Constraints
 

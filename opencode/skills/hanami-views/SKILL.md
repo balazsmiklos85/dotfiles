@@ -606,18 +606,18 @@ When assisting with Hanami Views tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami Views documentation:
 
-- https://guides.hanamirb.org/v2.3/views/overview/
-- https://guides.hanamirb.org/v2.3/views/working-with-dependencies/
-- https://guides.hanamirb.org/v2.3/views/input-and-exposures/
-- https://guides.hanamirb.org/v2.3/views/rendering-from-actions/
-- https://guides.hanamirb.org/v2.3/views/templates-and-partials/
-- https://guides.hanamirb.org/v2.3/views/helpers/
-- https://guides.hanamirb.org/v2.3/views/context/
-- https://guides.hanamirb.org/v2.3/views/parts/
-- https://guides.hanamirb.org/v2.3/views/scopes/
-- https://guides.hanamirb.org/v2.3/views/rendering-errors/
-- https://guides.hanamirb.org/v2.3/views/configuration/
-- https://guides.hanamirb.org/v2.3/views/testing/
+- https://hanakai.org/learn/hanami/v3.0/views/overview/
+- https://hanakai.org/learn/hanami/v3.0/views/working-with-dependencies/
+- https://hanakai.org/learn/hanami/v3.0/views/input-and-exposures/
+- https://hanakai.org/learn/hanami/v3.0/views/rendering-from-actions/
+- https://hanakai.org/learn/hanami/v3.0/views/templates-and-partials/
+- https://hanakai.org/learn/hanami/v3.0/views/helpers/
+- https://hanakai.org/learn/hanami/v3.0/views/context/
+- https://hanakai.org/learn/hanami/v3.0/views/parts/
+- https://hanakai.org/learn/hanami/v3.0/views/scopes/
+- https://hanakai.org/learn/hanami/v3.0/views/rendering-errors/
+- https://hanakai.org/learn/hanami/v3.0/views/configuration/
+- https://hanakai.org/learn/hanami/v3.0/views/testing/
 
 ## Constraints
 

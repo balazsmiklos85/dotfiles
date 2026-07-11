@@ -297,20 +297,20 @@ When assisting with Hanami Actions tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami Actions documentation:
 
-- https://guides.hanamirb.org/v2.3/actions/overview/
-- https://guides.hanamirb.org/v2.3/actions/request-and-response/
-- https://guides.hanamirb.org/v2.3/actions/inheritance/
-- https://guides.hanamirb.org/v2.3/actions/parameters/
-- https://guides.hanamirb.org/v2.3/actions/formats-and-media-types/
-- https://guides.hanamirb.org/v2.3/actions/status-codes/
-- https://guides.hanamirb.org/v2.3/actions/cookies/
-- https://guides.hanamirb.org/v2.3/actions/sessions/
-- https://guides.hanamirb.org/v2.3/actions/content-security-policy/
-- https://guides.hanamirb.org/v2.3/actions/http-caching/
-- https://guides.hanamirb.org/v2.3/actions/control-flow/
-- https://guides.hanamirb.org/v2.3/actions/exception-handling/
-- https://guides.hanamirb.org/v2.3/actions/testing/
-- https://guides.hanamirb.org/v2.3/actions/rack-integration/
+- https://hanakai.org/learn/hanami/v3.0/actions/overview/
+- https://hanakai.org/learn/hanami/v3.0/actions/request-and-response/
+- https://hanakai.org/learn/hanami/v3.0/actions/inheritance/
+- https://hanakai.org/learn/hanami/v3.0/actions/parameters/
+- https://hanakai.org/learn/hanami/v3.0/actions/formats-and-media-types/
+- https://hanakai.org/learn/hanami/v3.0/actions/status-codes/
+- https://hanakai.org/learn/hanami/v3.0/actions/cookies/
+- https://hanakai.org/learn/hanami/v3.0/actions/sessions/
+- https://hanakai.org/learn/hanami/v3.0/actions/content-security-policy/
+- https://hanakai.org/learn/hanami/v3.0/actions/http-caching/
+- https://hanakai.org/learn/hanami/v3.0/actions/control-flow/
+- https://hanakai.org/learn/hanami/v3.0/actions/exception-handling/
+- https://hanakai.org/learn/hanami/v3.0/actions/testing/
+- https://hanakai.org/learn/hanami/v3.0/actions/rack-integration/
 
 ## Constraints
 

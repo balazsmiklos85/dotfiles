@@ -261,9 +261,9 @@ When assisting with Hanami Operations tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami Operations documentation:
 
-- https://guides.hanamirb.org/v2.3/operations/overview/
-- https://dry-rb.org/gems/dry-operation/1.0/
-- https://dry-rb.org/gems/dry-monads/1.6/result/
+- https://hanakai.org/learn/hanami/v3.0/operations/overview/
+- https://hanakai.org/learn/dry/dry-operation/
+- https://hanakai.org/learn/dry/dry-monads/result/
 
 ## Constraints
 

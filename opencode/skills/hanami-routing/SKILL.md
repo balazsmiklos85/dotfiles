@@ -312,8 +312,8 @@ When assisting with Hanami Routing tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami documentation:
 
-- https://guides.hanamirb.org/v2.3/routing/overview/
-- https://guides.hanamirb.org/v2.3/actions/parameters/
+- https://hanakai.org/learn/hanami/v3.0/routing/overview/
+- https://hanakai.org/learn/hanami/v3.0/actions/parameters/
 - https://github.com/hanami/router
 
 ## Constraints

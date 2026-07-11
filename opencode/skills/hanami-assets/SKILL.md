@@ -326,11 +326,11 @@ When assisting with Hanami Assets tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami documentation:
 
-- https://guides.hanamirb.org/v2.3/assets/overview/
-- https://guides.hanamirb.org/v2.3/assets/using-a-cdn/
-- https://guides.hanamirb.org/v2.3/assets/customization/
-- https://guides.hanamirb.org/v2.3/helpers/
-- https://guides.hanamirb.org/v2.3/commands/assets/
+- https://hanakai.org/learn/hanami/v3.0/assets/overview/
+- https://hanakai.org/learn/hanami/v3.0/assets/using-a-cdn/
+- https://hanakai.org/learn/hanami/v3.0/assets/customization/
+- https://hanakai.org/learn/hanami/v3.0/helpers/
+- https://hanakai.org/learn/hanami/v3.0/commands/assets/
 
 ## Constraints
 

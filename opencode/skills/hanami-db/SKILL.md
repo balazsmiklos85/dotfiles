@@ -806,21 +806,21 @@ When assisting with Hanami DB tasks, follow this workflow:
 
 When detailed information is needed about specific topics, consult the Hanami DB documentation:
 
-- https://guides.hanamirb.org/v2.3/database/overview/
-- https://guides.hanamirb.org/v2.3/database/configuration/
-- https://guides.hanamirb.org/v2.3/database/migrations/
-- https://guides.hanamirb.org/v2.3/database/relations/
+- https://hanakai.org/learn/hanami/v3.0/database/overview/
+- https://hanakai.org/learn/hanami/v3.0/database/configuration/
+- https://hanakai.org/learn/hanami/v3.0/database/migrations/
+- https://hanakai.org/learn/hanami/v3.0/database/relations/
 
 Additional ROM references:
-- https://rom-rb.org/learn/core/5.2/combines/
-- https://rom-rb.org/learn/core/5.2/mappers/
-- https://rom-rb.org/learn/core/5.2/commands/
-- https://rom-rb.org/learn/changeset/5.2/mapping/
-- https://rom-rb.org/learn/changeset/5.2/associations/
-- https://rom-rb.org/learn/sql/3.3/joins/
-- https://rom-rb.org/learn/sql/3.3/transactions/
-- https://rom-rb.org/learn/repository/5.2/
-- https://rom-rb.org/learn/sql/3.3/#connecting-to-a-database
+- https://hanakai.org/learn/rom/v5.0/core/5.2/combines/
+- https://hanakai.org/learn/rom/v5.0/core/5.2/mappers/
+- https://hanakai.org/learn/rom/v5.0/core/5.2/commands/
+- https://hanakai.org/learn/rom/v5.0/changeset/5.2/mapping/
+- https://hanakai.org/learn/rom/v5.0/changeset/5.2/associations/
+- https://hanakai.org/learn/rom/v5.0/sql/3.3/joins/
+- https://hanakai.org/learn/rom/v5.0/sql/3.3/transactions/
+- https://hanakai.org/learn/rom/v5.0/repository/5.2/
+- https://hanakai.org/learn/rom/v5.0/sql/3.3/#connecting-to-a-database
 
 ## Constraints
 
