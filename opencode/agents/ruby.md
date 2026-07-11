@@ -34,3 +34,9 @@ permission:
 - Prefer object‑oriented design! Use classes and modules to organize code around responsibilities!
 - For small scripts, keep it simple and avoid unnecessary abstraction!
 - Check the project for additional code‑style considerations and engineering decisions! Usually they’re in the docs directory or in the CONTRIBUTING.md file.
+- When a test fails, *NEVER* propose a fix before investigating the actual cause!
+- *ALWAYS* read the relevant code path involved in a failing test!
+- *ALWAYS* gather evidence before diagnosing: debug output, actual request/response data, or trace!
+- *ALWAYS* state the evidence found and the diagnosis it supports before suggesting any code change to fix issues!
+- *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
+- *ALWAYS* state if the cause of an issue is still unclear after investigation!
