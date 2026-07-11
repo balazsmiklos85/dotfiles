@@ -40,3 +40,13 @@ permission:
 - *ALWAYS* state the evidence found and the diagnosis it supports before suggesting any code change to fix issues!
 - *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
 - *ALWAYS* state if the cause of an issue is still unclear after investigation!
+- *ALWAYS* read the relevant skills before taking action:
+  - `write-test` for writing / updating tests
+  - `hanami-actions` for creating / changing actions
+  - `hanami-assets` for handling assets
+  - `hanami-db` for database operations
+  - `hanami-helpers` for helper related changes
+  - `hanami-logging` for logging
+  - `hanami-operations` for creating / changing operations
+  - `hanami-routing` for changing routing
+  - `hanami-views` for handling views
