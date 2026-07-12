@@ -148,21 +148,22 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 12. **Set default values in relation schemas**
 
-    When a column needs a default value (auto-generated IDs, timestamps, status flags), define it in the relation schema — not in operations or structs. ROM applies these defaults at insert time.
+When a column needs a default value, like auto-generated IDs, timestamps, or status flags, define it in the relation schema. ROM applies these defaults at insert time when called through the command API.
 
-    ```ruby
+```ruby
     class Orders < Hanami::DB::Relation
       schema :orders, infer: true do
         attribute :id, Types::String.default { SecureRandom.uuid }
         attribute :status, Types::String.default('pending')
       end
     end
-    ```
+```
 
-    - Callable defaults (`default { ... }`) are evaluated per-insert
-    - Static defaults are applied as-is
-    - Defaults are applied at the ROM relation layer, bypassing struct validation
-    - Omit the attribute from insert hashes to trigger the default
+  - Callable defaults (`default { ... }`) are evaluated per-insert.
+  - Static defaults are applied as-is,
+  - Defaults are applied at the ROM relation layer, bypassing struct validation.
+  - Omit the attribute from insert hashes to trigger the default!
+  - Use it with `relation.command(:create).call(hash)`!
 
 13. **Define one-to-many associations**
     ```ruby
@@ -630,9 +631,9 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
 
 46. **Insert into an associated relation**
 
-    When inserting into a `has_many` relation from a repository, the association method returns the relation itself and accepts **no arguments**. Pass the foreign key as an attribute:
+When inserting into a `has_many` relation from a repository, the association method returns the relation itself and accepts no arguments. Pass the foreign key as just another attribute:
 
-    ```ruby
+```ruby
     class UserRepo < Hanami::DB::Repo
       def create_password(user_id, password_hash)
         user_passwords.insert(
@@ -643,9 +644,7 @@ This skill provides expert guidance on Hanami's persistence layer built on ROM (
         )
       end
     end
-    ```
-
-    This differs from Rails' `user.user_passwords.create(...)` pattern. In Hanami/ROM, relations are collections — the foreign key is just another attribute.
+```
 
 47. **Persist nested data with combined commands**
     ```ruby
