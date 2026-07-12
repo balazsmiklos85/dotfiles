@@ -35,6 +35,7 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - **ADRs** for architectural decisions
         - **`CONTRIBUTING.md`** or **`docs/`** for process and workflow knowledge
         - Claude's memory for LLM-specific project context
+        - **Skills** when the knowledge changes how you should write code
 3. Behavioral misstep audit
     - Identify every instance where the LLM made a wrong assumption, misread instructions, skipped a step, followed the wrong order, or acted on incomplete context!
     - For each misstep, answer: "could a rule, constraint, or instruction prevent this from recurring?"
