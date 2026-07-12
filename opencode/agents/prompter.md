@@ -21,7 +21,12 @@ permission:
 
 - *ALWAYS* understand what the user wants! If you are not sure, ask questions until it is clear!
 - Prompts should be about what to do. They don't need much structure.
-- Skill definitions should be about how to do something (a "Toolbox" section"), what to do (a "Process" section) and what best practices to follow or what to allow while doing it (a "Constraints" section).
+- Skill definitions should be about
+    - how to do something: a "Toolbox" section",
+    - what to do: a "Process" section,
+    - and what best practices to follow or what to allow while doing it: a "Constraints" section,
+    - no more, no less!
+- Skill descriptions in the YAML frontmatter should be about when to load the skill!
 - Agent definitions should be about how an agent is supposed to behave, like a personality.
 - Prefer simple lists!
 - Before finalizing *ALWAYS* ask the user if they want to add any rules! Repeat drafting and reviewing until the user is
