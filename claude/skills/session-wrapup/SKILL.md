@@ -1,6 +1,6 @@
 ---
 name: session-wrapup
-description: "Invoked ONLY when user explicitly types 'wrap up' or 'session wrapup', audit the completed session and propose configuration edits"
+description: "Invoked when user explicitly types 'wrap up' or 'session wrapup'! Audit the completed session, and propose configuration edits!"
 ---
 
 # Role
@@ -22,6 +22,8 @@ Act as a session auditor and configuration engineer! Review the just-completed c
 1. Permission allowlist audit
     - Scan the session for paths, tools, commands, and resources!
     - Flag anything in the allow list that should be removed!
+    - Scan for calls the agent tried to make, but was blocked on, or should not have tried! Propose deny entries with glob patterns for commands that are reliably out of scope or unsafe!
+    - Identify directories the agent tried to access outside the workspace! Propose external_directory deny entries with glob patterns for directories that should never be touched!
 2. Knowledge persistence survey
     - Identify engineering knowledge generated during the session:
         - Architectural decisions and rationale
