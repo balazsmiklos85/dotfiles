@@ -1,6 +1,6 @@
 ---
 name: global-replace
-description: Use when a task requires changing the same thing across one or more files: a global find-and-replace. Use instead of walking through files, reading them into context, and applying the same edits one by one.
+description: Invoke before changing the same pattern multiple times across one or more files: a global find-and-replace. Use instead of walking through files, reading them into context, and applying the same edits one by one.
 ---
 
 # Global Replace
@@ -15,14 +15,18 @@ sd 'FIND' 'REPLACE' --glob='PATTERN'
 
 ## Key flags
 
-| Flag | Meaning |
-|------|---------|
-| `-F` | Treat FIND and REPLACE as **literal strings** (no regex). Use when the pattern contains no regex metacharacters. |
-| `--glob='PATTERN'` | Restrict the replacement to files matching a glob pattern (e.g. `*.ts`, `**/*.rb`). |
-| `-f mc` | Combined regex flags: **m**ulti-line, **c**ase-**s**ensitive. Other options: `i` (case-insensitive), `e` (disable multi-line), `s` (dot matches newlines), `w` (full words only). |
-| `-n <LIMIT>` | Cap the number of replacements per file. `0` means unlimited. |
-| `-p` | Preview changes in a human-readable format before applying. |
-| `-A` | Match across line boundaries (uses more memory, prevents streaming). |
+- `-F`: Treat `FIND` and `REPLACE` as literal strings, not regex. Use *ONLY* when the `FIND` pattern has no variable parts, or `REPLACE` has no match groups to preserve!
+- `--glob='PATTERN'`:  Restrict the replacement to files matching a glob `PATTERN`.
+-  `-f`: Combined regex flags
+    - `m` multi-line
+    - `c` case-sensitive
+    - `i` case-insensitive
+    - `e` disable multi-line
+    - `s` dot matches newlines
+    - `w` full words only
+- `-n <LIMIT>`: Cap the number of replacements per file. `0` means unlimited.
+- `-p`: Preview changes in a human-readable format before applying.
+- `-A`: Match across line boundaries. Uses more memory, prevents streaming.
 
 ## Examples
 
@@ -59,5 +63,5 @@ sd -p 'find' 'replace' --glob='**/*.js'
 
 ## When NOT to use
 
-- The replacement differs per file or depends on file-specific context.
+- The replacement pattern differs per file, or depends on file-specific context.
 - The change requires reading surrounding code to decide what to replace.
