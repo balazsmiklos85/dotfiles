@@ -32,10 +32,11 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - Debugging insights that took meaningful effort to uncover
     - If the knowledge is already documented, flag staleness or conflicts!
     - If the knowledge is new, classify it and recommend where to persist it:
-        - **ADRs** for architectural decisions
-        - **`CONTRIBUTING.md`** or **`docs/`** for process and workflow knowledge
-        - Claude's memory for LLM-specific project context
-        - **Skills** when the knowledge changes how you should write code
+        - *ADRs* for architectural decisions the user made
+        - `CONTRIBUTING.md` or `docs/` for process and workflow knowledge limited to this project
+        - Claude's *memory* for LLM-specific project context limited to this project
+        - *Skills* or *agent definitions* when the knowledge changes how you should write code or use tools
+        - `AGENTS.md` for project specific context references
 3. Behavioral misstep audit
     - Identify every instance where the LLM made a wrong assumption, misread instructions, skipped a step, followed the wrong order, or acted on incomplete context!
     - For each misstep, answer: "could a rule, constraint, or instruction prevent this from recurring?"
