@@ -36,7 +36,7 @@ description: "Creates a TDD-driven plan for a task"
 0. Make the user run existing tests to establish a baseline! Make sure that nothing fails!
 1. Take the first task from the list!
 2. Complete the task and only that task!
-3. Ask the user to check compilation errors, wait for the result! Fix anything that comes up!
+3. Ask the user to check compilation errors, wait for the result! Fix unexpected issues that come up! Do not fix issues that are to be fixed in later tasks!
 4. Ask the user to check tests, wait for the result! Fix anything that comes up!
 5. Look for non-extensive refactor opportunities! Offer any small improvements that you find!
 6. Update `plan.md`!
