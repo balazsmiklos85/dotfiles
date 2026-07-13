@@ -47,6 +47,8 @@ description: "Creates a TDD-driven plan for a task"
 - [ ] [TODO: task description]
     - [ ] [TODO: test details to verify the behavior]
     - [ ] [TODO: implementation details to make the test pass]
+- [ ] ...
+    - [ ] ...
 ```
 
 ## Constraints
@@ -61,4 +63,6 @@ description: "Creates a TDD-driven plan for a task"
 - Keep context brief! Just enough to orient, not a full analysis.
 - Preserve authors' original terminology and phrasing unless it's wrong! **Never** reword for the sake of sounding more technical or sophisticated!
 - Preserve already completed work when changing plans!
+- *ALWAYS* create plans that follow TDD! Write failing test -> write minimal implementation to fix test -> refactor if needed.
+- *NEVER* bloat the plan with unnecessary information, like labelling which subtask is a test
 
