@@ -6,7 +6,7 @@ temperature: 0.1
 # Claude Code
 permissionMode: default
 # OpenCode
-model: lmstudio/qwen/qwen3-coder-next
+model: lmstudio/qwen/qwen3.6-27b
 permission:
   edit: ask
   bash:
