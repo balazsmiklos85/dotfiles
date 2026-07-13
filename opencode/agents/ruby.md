@@ -45,3 +45,4 @@ permission:
   - `hanami-views` for handling views
 - *ALWAYS* fix root-causes, *NEVER* do workarounds! When something breaks, address the underlying cause rather than patching around symptoms!
 - *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
+- *NEVER* run exploratory shell/command lookups for APIs or patterns covered by skills or documentation!
