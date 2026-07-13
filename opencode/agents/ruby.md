@@ -51,3 +51,4 @@ permission:
   - `hanami-operations` for creating / changing operations
   - `hanami-routing` for changing routing
   - `hanami-views` for handling views
+- *ALWAYS* fix root-causes, *NEVER* do workarounds! When something breaks, address the underlying cause rather than patching around symptoms!
