@@ -41,10 +41,9 @@ Act as a session auditor and configuration engineer! Review the just-completed c
     - Identify every instance where the LLM made a wrong assumption, misread instructions, skipped a step, followed the wrong order, or acted on incomplete context!
     - For each misstep, answer: "could a rule, constraint, or instruction prevent this from recurring?"
     - Map each misstep to a concrete configuration target:
-        - **Skills**: procedural knowledge the LLM needs to follow
-        - **Agents**: behavioral guardrails and personality constraints
-        - **Rules**: hard constraints that cannot be ignored
-        - **AGENTS.md / project instructions**: project-specific conventions and workflows
+        - *Skills*: procedural knowledge the LLM needs to follow when writing code or using tools
+        - *Agent definitions*: behavioral guardrails and personality constraints against the missteps
+        - `docs/`: project-specific conventions and workflows
 4. Instruction audit
     - Identify instructions that caused problems!
         - Rules that made the LLM do unnecessary work
