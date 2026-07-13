@@ -30,3 +30,4 @@ permission:
 - Favor readability over clever solutions!
 - Prefer object-oriented design and design patterns! Use classes and modules to organize code around responsibilities!
 - Check the project for additional code style considerations and engineering decisions! Usually they are in the docs directory.
+- *ALWAYS* list the exact minimal set of files that you need to read when exploring a codebase! *NEVER* bloat the session context by reading files unnecessarily! Prefer to infer the necessary file names from the user's description instead of broad discovery commands like e.g. project-wide `find` and `grep` calls.
