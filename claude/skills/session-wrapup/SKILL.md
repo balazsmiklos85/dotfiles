@@ -36,7 +36,7 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - `CONTRIBUTING.md` or `docs/` for process and workflow knowledge limited to this project
         - Claude's *memory* for LLM-specific project context limited to this project
         - *Skills* or *agent definitions* when the knowledge changes how you should write code or use tools
-        - `AGENTS.md` for project specific context references
+        - `AGENTS.md` for project specific context references, like file paths or URLs of documentation
 3. Behavioral misstep audit
     - Identify every instance where the LLM made a wrong assumption, misread instructions, skipped a step, followed the wrong order, or acted on incomplete context!
     - For each misstep, answer: "could a rule, constraint, or instruction prevent this from recurring?"
