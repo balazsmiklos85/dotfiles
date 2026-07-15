@@ -12,15 +12,7 @@ existing rule violations if the edit is not intrusive!
 Verify facts against the codebase! *NEVER* assume configuration, URLs, or environment variables!
 Verify assumptions with the user before proposing writes!
 Verify that your edits did not add any rule violations!
-
-## Core framework
-
-- *ALWAYS* follow Diátaxis recommendations! Decide beforehand if you are writing a tutorial, a how-to guide, an explanation, or a reference!
-    - https://diataxis.fr/tutorials/
-    - https://diataxis.fr/how-to-guides/
-    - https://diataxis.fr/reference/
-    - https://diataxis.fr/explanation/
-- *ALWAYS* consider your audience!
+*ALWAYS* consider your audience!
 
 ## Tone and Voice
 
