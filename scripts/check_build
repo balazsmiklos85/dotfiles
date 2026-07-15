@@ -11,6 +11,7 @@ to_capture = ['^> Task', 'Failed to load', 'ApplicationContext', 'SQLSyntaxError
               'Could not (determine|find|resolve)', 'invalid source release']
 to_reject = ['UP-TO-DATE', 'SKIPPED', 'NO-SOURCE', 'failure threshold.*exceeded']
 build_output = `gw build 2>&1 | rg -U '#{to_capture.join('|')}' | rg -v '#{to_reject.join('|')}'`
+`gw generateOpenApiDocs`
 
 case build_output
 when /invalid source release/
