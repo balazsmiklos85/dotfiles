@@ -10,14 +10,14 @@ When a task requires changing the same pattern across files, **use `sd`** instea
 ## Basic usage
 
 ```
-sd 'FIND' 'REPLACE' --glob='PATTERN'
+sd 'FIND' 'REPLACE' path/to/file(s)
+sd -F 'LITERAL' 'REPLACEMENT' path/to/file(s)
 ```
 
 ## Key flags
 
 - `-F`: Treat `FIND` and `REPLACE` as literal strings, not regex. Use *ONLY* when the `FIND` pattern has no variable parts, or `REPLACE` has no match groups to preserve!
-- `--glob='PATTERN'`:  Restrict the replacement to files matching a glob `PATTERN`.
--  `-f`: Combined regex flags
+- `-f`: Combined regex flags
     - `m` multi-line
     - `c` case-sensitive
     - `i` case-insensitive
@@ -30,29 +30,34 @@ sd 'FIND' 'REPLACE' --glob='PATTERN'
 
 ## Examples
 
-**Literal string replacement in all Rust files:**
+**Literal string replacement in a single file:**
 ```
-sd -F 'old_literal' 'new_literal' --glob='*.rs'
+sd -F 'old_literal' 'new_literal' src/foo.rs
+```
+
+**Literal string replacement across multiple files (shell glob):**
+```
+sd -F 'old_literal' 'new_literal' src/**/*.rs
 ```
 
 **Case-insensitive regex replacement in TypeScript files:**
 ```
-sd -f ci 'old\w+' 'newPattern' --glob='*.ts'
+sd -f ci 'oldPattern' 'newPattern' src/**/*.ts
 ```
 
 **Full-word match only:**
 ```
-sd -f w 'oldWord' 'newWord' --glob='*.rb'
+sd -f w 'oldWord' 'newWord' src/**/*.rb
 ```
 
 **Capture group, preserve part of the match:**
 ```
-sd 'foo(\w+)' 'bar-$1' --glob='*.ts'
+sd 'foo(\w+)' 'bar-$1' src/**/*.ts
 ```
 
 **Preview before applying:**
 ```
-sd -p 'find' 'replace' --glob='**/*.js'
+sd -p 'find' 'replace' path/to/file
 ```
 
 ## When to use
