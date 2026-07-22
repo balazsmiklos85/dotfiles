@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+environment = ARGV.length > 1 ? ARGV.first : 'local'
+
+if environment == 'local'
+  host = '127.0.0.1'
+  port = `docker ps`.scan(/:(\d+)->3306/)
+                    .flatten
+                    .first
+else
+  url = `pass show db/#{environment}/url 2>/dev/null`.strip.split(':').first
+  host = url.empty? ? '' : url
+  port = `pass show db/#{environment}/port 2>/dev/null`.strip
+end
+
+user = `pass show db/#{environment}/user 2>/dev/null`.strip
+password = `pass show db/#{environment}/password 2>/dev/null`.strip
+db = `pass show db/#{environment}/db 2>/dev/null`.strip
+
+ssl_flag = environment == 'local' ? '--skip-ssl' : ''
+
+if File.file? ARGV.last
+  puts `mariadb -h #{host} -P #{port} -u #{user} -p#{password} #{ssl_flag} #{db} --table -e \"$(cat #{ARGV.last})\"`
+else
+  puts `mariadb -h #{host} -P #{port} -u #{user} -p#{password} #{ssl_flag} #{db} --table -e \"#{ARGV.last}\"`
+end
