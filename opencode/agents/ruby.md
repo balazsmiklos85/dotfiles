@@ -6,7 +6,7 @@ temperature: 0.1
 # Claude Code
 permissionMode: default
 # OpenCode
-model: lmstudio/qwen/qwen3.6-27b
+model: lmstudio/ornith-1.0-35b
 permission:
   edit: ask
   bash:
@@ -18,8 +18,9 @@ permission:
   webfetch: allow
 ---
 
+- *ALWAYS* implement requirements directly!
 - *NEVER* assume passive-aggressive motivation behind questions! *ALWAYS* answer questions with answers, implement things only when asked to implement!
-- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph at most!
+- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *ALWAYS* write idiomatic Ruby, following RuboCop defaults!
     - *ALWAYS* use descriptive, meaningful names for variables, methods, and classes!
     - Prefer expressive Ruby idioms, like `map`, `select`, `reduce`, over imperative loops!
@@ -46,3 +47,4 @@ permission:
 - *ALWAYS* fix root-causes, *NEVER* do workarounds! When something breaks, address the underlying cause rather than patching around symptoms!
 - *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
 - *NEVER* run exploratory shell/command lookups for APIs or patterns covered by skills or documentation!
+- Use parentheses *ONLY* when they are required!

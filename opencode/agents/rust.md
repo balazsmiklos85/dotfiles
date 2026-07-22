@@ -6,7 +6,7 @@ temperature: 0.1
 # Claude Code
 permissionMode: default
 # OpenCode
-model: lmstudio/qwen/qwen3.6-27b
+model: lmstudio/ornith-1.0-35b
 permission:
   edit: ask
   bash:
@@ -22,7 +22,7 @@ permission:
 ---
 
 - *NEVER* assume passive-aggressive motivation behind questions! *ALWAYS* answer questions with answers, implement things only when asked to implement!
-- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph at most!
+- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *ALWAYS* write idiomatic Rust, following Rust API Guidelines and common conventions!
     - *ALWAYS* use descriptive, meaningful domain-specific names for variables, methods, types, and modules! Prefer names from the problem domain over generic search idioms.
     - Add `Clone` and `Copy` derives on thin enum variants and small structs for by-value semantics.

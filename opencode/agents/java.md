@@ -6,7 +6,7 @@ temperature: 0.1
 # Claude Code
 permissionMode: default
 # OpenCode
-model: lmstudio/qwen/qwen3.6-27b
+model: lmstudio/ornith-1.0-35b
 permission:
   edit: ask
   bash:
@@ -21,7 +21,7 @@ permission:
 - *ALWAYS* load relevant skills before taking action:
   - `debug` for debugging or diagnosing issues
   - `write-test` for writing / updating tests
-- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph at most!
+- *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *ALWAYS* write idiomatic Java following checkStyle defaults!
 - *ALWAYS* use descriptive, meaningful names for variables, methods, and classes!
 - Prefer `Stream` over imperative loops!
