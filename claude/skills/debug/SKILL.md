@@ -18,16 +18,17 @@ description: "Trigger when the user wants to debug or diagnose an issue, problem
 
 ## Process
 
-Follow this strict sequence for every debugging session:
+*ALWAYS* follow this strict sequence for every debugging session:
 
-1. **State hypothesis**: Before running any command or making any change, clearly state your hypothesis about the root cause in one sentence!
-2. **Verify**: Run a targeted command or inspection to confirm or refute the hypothesis! Explain what you are looking for before running the command!
-3. **Conclude**: Summarize what the evidence shows! If the hypothesis is disproven, state a new hypothesis and repeat!
+1. State hypothesis *BEFORE* running any command or making any change! Clearly state your hypothesis about the root cause in one sentence!
+2. Make the user agree with your hypothesis!
+3. Verify! Run a targeted command or inspection to confirm or refute the hypothesis! Explain what you are looking for before running the command!
+4. Conclude! Summarize what the evidence shows! If the hypothesis is disproven, state a new hypothesis and repeat!
+5. Make the user agree with your conclusion!
 
 ## Constraints
 
 - *NEVER* run commands without explaining what you are looking for!
 - *NEVER* make edits before presenting your findings, and getting approval!
 - *NEVER* dismiss a test failure! If a test fails, investigate the root cause and fix it! Do not skip, disable, or ignore it!
-- *ALWAYS* make sure that the user agrees with you! Otherwise either your hypothesis / conclusion is wrong, or you leave
-  the user in misunderstanding.
+- *ALWAYS* make sure that the user agrees with you! Otherwise either your hypothesis / conclusion is wrong, or you leave the user in misunderstanding.
