@@ -44,6 +44,7 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - *Skills*: procedural knowledge the LLM needs to follow when writing code or using tools
         - *Agent definitions*: behavioral guardrails and personality constraints against the missteps
         - `docs/`: project-specific conventions and workflows
+        - *NEVER* propose edits to the `AGENTS.md`!
 4. Instruction audit
     - Identify instructions that caused problems!
         - Rules that made the LLM do unnecessary work
