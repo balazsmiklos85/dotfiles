@@ -2,8 +2,10 @@ vim.lsp.config("groovyls", {
 	cmd = { "groovy-language-server" },
 	filetypes = { "groovy" },
 })
-
 vim.lsp.enable("groovyls")
+
+vim.lsp.config("harper_ls", {})
+vim.lsp.enable("harper_ls")
 
 vim.lsp.config("lua_ls", {
 	settings = {
@@ -37,4 +39,3 @@ vim.lsp.config("ruby_lsp", {
 	},
 })
 vim.lsp.enable("ruby_lsp")
-

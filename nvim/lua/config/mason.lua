@@ -3,6 +3,8 @@ local lsps_to_install = {
 	"lua_ls",
 }
 local tools_to_install = {
+	-- English
+	"harper-ls",
 	-- Lua
 	"stylua",
 }
