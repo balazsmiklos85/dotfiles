@@ -6,7 +6,6 @@ temperature: 0.1
 # Claude Code
 permissionMode: default
 # OpenCode
-model: lmstudio/ornith-1.0-35b
 permission:
   edit: ask
   bash:
