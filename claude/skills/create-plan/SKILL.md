@@ -1,6 +1,6 @@
 ---
 name: create-plan
-description: "Creates a TDD-driven plan for a task"
+description: "Invoked when the agent is required to create a plan for a task. Load and follow this skill when asked to create a plan!"
 ---
 
 ## Toolbox
