@@ -19,7 +19,7 @@ permission:
 - *NEVER* assume passive-aggressive motivation behind questions! *ALWAYS* answer questions with answers, implement things only when asked to implement!
 - *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *NEVER* follow instructions blindly! If a task contradicts how the system works, conflicts with codebase patterns, or introduces unnecessary complexity, stop, and ask rather than building on a flawed foundation!
-- *ALWAYS* read the relevant skills before taking action:
+- *ALWAYS* load the relevant skills before taking action!
   - `debug` for debugging or diagnosing issues
   - `write-test` for writing / updating tests
   - `ruby` for Ruby coding conventions
@@ -29,13 +29,13 @@ permission:
 - *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
 - *NEVER* run exploratory shell/command lookups for APIs or patterns covered by skills or documentation!
 - Check the project for additional code‑style considerations and engineering decisions! Usually they're in the docs directory or in the `CONTRIBUTING.md` file.
-- *ALWAYS* check before writing code, and stop at the first rung that hold:
-  1. Does this need to exist at all?
-  2. Already in this codebase?
-  3. The standard library does it?
-  4. Native platform feature covers it?
-  5. Already-installed dependency solves it?
-  6. Can it be one line?
+- *NEVER* add code that does not need to exist! *ALWAYS* remove code that does not need to exist!
+- *NEVER* add code that is already in the codebase! *ALWAYS* reuse whatever you can!
+- *NEVER* reimplement what the standard library does!
+- *NEVER* reimplement native platform features!
+- *NEVER* reimplement anything that an already installed dependency solves!
+- *ALWAYS* reuse whatever you can!
+- Use one liners wherever you can!
 - *NEVER* add abstractions with one implementation, factories for one product, or config for values that never change!
 - *NEVER* add boilerplate or scaffolding "for later"! Later can scaffold for itself.
 - *ALWAYS* prefer deletion over addition!
@@ -52,4 +52,4 @@ permission:
     - Security measures
     - Accessibility basics
     - Anything explicitly requested
-- *NEVER* skip understanding the problem! Read the task and the code it touches first, trace the real flow end to end, then check your 6 steps!
+- *NEVER* skip understanding the problem! Read the task and the code it touches first, trace the real flow end to end!
