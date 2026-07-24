@@ -7,7 +7,7 @@ description: "Invoked when the agent is required to write or update any Rust cod
 - *ALWAYS* use descriptive, meaningful domain-specific names for variables, methods, types, and modules! Prefer names from the problem domain over generic search idioms.
 - Add `Clone` and `Copy` derives on thin enum variants and small structs for by-value semantics.
 - Prefer borrowing (`&T`) over `.clone()`. Restructure lifetimes/ownership first, and only clone when ownership is genuinely required.
-- *NEVER* add inline comments explaining *what* code does! If something needs explanation, rename or extract a method to capture intent in the name. Exception: `unsafe` blocks *ALWAYS* get a `// SAFETY:` comment justifying the invariant being upheld.
+- *NEVER* add inline comments explaining *what* code does! If something needs explanation, rename, or extract a method to capture intent in the name. Exception: `unsafe` blocks *ALWAYS* get a `// SAFETY:` comment justifying the invariant being upheld.
 - *ALWAYS* add `///` documentation comments to all public items (types, fields, methods, functions).
 - Keep visibility minimal: `fn` (private) by default, `pub` only when a caller outside the module needs it.
 - Group related functionality under `impl` blocks on a struct rather than free functions scattered across the module.
