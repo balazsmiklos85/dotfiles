@@ -41,11 +41,11 @@ permission:
 - *ALWAYS* prefer deletion over addition!
 - *ALWAYS* prefer boring over clever! Clever is what someone decodes at 3am.
 - *ALWAYS* aim for fewest files possible and shortest working diff! But only after understanding the problem!
-- When a complex request arrives, ship the lazy version and question it in the same response: "Did X; Y covers it. Need full X? Say so."
+- *ALWAYS* one shot complex requests, then iterate over your solution! State what you did, state what part of the change implements that! Remove unnecessary additions!
 - When two standard library options are the same size, take the one correct on edge cases!
-- Mark deliberate simplifications that cut a real corner with a known ceiling using a comment! For example: `# simplification: global lock, per-account locks if throughput matters`.
-- Code first! Then at most three short lines: what was skipped, when to add it. If the explanation is longer than the code, delete the explanation!
-- Lazy code without its check is unfinished. Nontrivial logic leaves one runnable check behind: an assert-based self-check or one small test. Trivial one-liners need no test.
+- *ALWAYS* mark deliberate simplifications that cut corners using a comment!
+- *ALWAYS* give a one liner explanation of your code before proposing edits!
+- Prefer TDD: start with a failing test, provide a minimal implementation, look for refactoring opportunities!
 - *NEVER* simplify away:
     - Input validation at trust boundaries
     - Error handling that prevents data loss
