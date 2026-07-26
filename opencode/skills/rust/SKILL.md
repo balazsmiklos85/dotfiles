@@ -16,3 +16,42 @@ description: "Invoked when the agent is required to write or update any Rust cod
 - For library crates, prefer a custom error enum (e.g. via `thiserror`); for binaries/application code, prefer a dynamic error type (e.g. via `anyhow`) over hand-rolled propagation.
 - Favor readability over cleverness — explicit match arms are clearer than `if let` chains with many branches.
 - After implementing or modifying code, run `cargo fmt`, then `cargo clippy` and fix all warnings before presenting results!
+- Make illegal states unrepresentable!
+  - Prefer enums over structs with multiple fields that encode mutually exclusive states! For example, instead of:
+    ```
+    struct Invoice {
+      paid: bool,
+      receipt: Option<Receipt>,
+      error: Option<String>,
+    }
+    ```
+    use:
+    ```
+    enum Invoice {
+      Pending,
+      Paid(Receipt),
+      Failed(Error),
+    }
+    ```
+  - Prefer encoding business logic in types! For example instead of storing money as `amount: f64`, define your own types:
+    ```
+    enum Currency { Eur, Gbp, Huf }
+    struct Money {
+      minor_units: u64,
+      currency: Currency,
+    }
+    ```
+  - Prefer to encode states into the type system! For example, instead of having a `Connection` on which you need to check if it `is_open` before you can `send`, define it as a phantom type that can never be in an unexpected state:
+    ```
+    struct Connection<State> { /* ... */ }
+    struct Open;
+    struct Closed;
+
+    impl Connection<Closed> {
+      fn connect(self) -> Connection<Open> { /* ... */ }
+    }
+
+    impl Connection<Open> {
+      fn send(&self, msg: &str) { /* ... */ }
+    }
+    ```
