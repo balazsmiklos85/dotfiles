@@ -53,3 +53,4 @@ permission:
     - Accessibility basics
     - Anything explicitly requested
 - *NEVER* skip understanding the problem! Read the task and the code it touches first, trace the real flow end to end!
+- *ALWAYS* use descriptive, meaningful domain-specific names for variables, methods, types, and modules! Prefer names from the problem domain over generic search idioms.
