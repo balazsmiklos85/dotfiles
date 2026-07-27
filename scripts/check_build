@@ -11,7 +11,19 @@ to_capture = ['^> Task', 'Failed to load', 'ApplicationContext', 'SQLSyntaxError
               'Could not (determine|find|resolve)', 'invalid source release']
 to_reject = ['UP-TO-DATE', 'SKIPPED', 'NO-SOURCE', 'failure threshold.*exceeded']
 build_output = `gw build 2>&1 | rg -U '#{to_capture.join('|')}' | rg -v '#{to_reject.join('|')}'`
-`gw generateOpenApiDocs >/dev/null 2>/dev/null`
+
+interface_paths = %w[client-starter interfaces]
+interface_changes = Dir.glob('**/*')
+                       .select { |path| File.directory? path }
+                       .select { |path| interface_paths.map { |ip| path.end_with? ip }.any? }
+                       .map { |path| `git status --porcelain -uno -- "#{path}"` }
+                       .map(&:empty?)
+                       .all?
+                       .!
+if interface_changes
+  puts 'Generate OpenAPI docs...'
+  `gw generateOpenApiDocs >/dev/null 2>/dev/null`
+end
 
 case build_output
 when /invalid source release/
