@@ -6,6 +6,12 @@ if command -v bat >/dev/null
     alias cat="bat --style plain"
 end
 
+if command -v claude >/dev/null
+    alias haiku="claude --model claude-4-5-haiku --agent developer"
+    alias sonnet="claude --model claude-5-sonnet --agent developer"
+    alias opus="claude --model claude-5-opus --agent developer"
+end
+
 if command -v flatpak >/dev/null
     alias zed 'flatpak run dev.zed.Zed'
 end
