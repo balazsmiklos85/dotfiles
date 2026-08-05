@@ -58,7 +58,8 @@ when /Flyway/
 when /(?<!Abstract|ServletWebServer|DefaultUserCode)ApplicationContext\b/
   puts 'Spring context issues:'
   application_context_exceptions = %w[NoSuchBeanDefinitionException SQLSyntaxErrorException
-                                      UnsatisfiedDependencyException BeanCreationException BeanInstantiationException]
+                                      UnsatisfiedDependencyException BeanCreationException BeanInstantiationException
+                                      mariaFlywayInitializer]
   puts `fd -u '\\.html' | rg 'Test|IT' | xargs -I {} rg '#{application_context_exceptions.join('|')}' {} | uniq`
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
