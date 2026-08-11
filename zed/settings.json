@@ -1,4 +1,7 @@
 {
+  "edit_predictions": {
+    "allow_data_collection": "no"
+  },
   "status_bar": {
     "active_language_button": true,
   },
@@ -15,10 +18,12 @@
     "dock": "left",
   },
   "agent": {
+    "show_turn_stats": true,
+    "sidebar_side": "right",
     "dock": "left",
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "model": "qwen/qwen3.5-35b-a3b",
+      "model": "ornith-1.0-35b",
       "provider": "lmstudio",
     },
   },
