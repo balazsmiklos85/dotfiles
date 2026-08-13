@@ -20,10 +20,10 @@
   "agent": {
     "show_turn_stats": true,
     "sidebar_side": "right",
-    "dock": "left",
+    "dock": "right",
     "default_profile": "ask",
     "default_model": {
-      "model": "ornith-1.0-35b",
+      "model": "qwen/qwen3.6-27b",
       "provider": "lmstudio",
     },
   },
