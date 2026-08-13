@@ -26,6 +26,9 @@ return {
 			completion = {
 				completeopt = "menuone,noselect,preview",
 			},
+			performance = {
+				fetching_timeout = 5000,
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 				["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -45,6 +48,7 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp", priority = 1000 },
+				{ name = "minuet", priority = 750 },
 				{ name = "path", priority = 250 },
 				{ name = "buffer", priority = 500 },
 			}),
