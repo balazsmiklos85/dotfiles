@@ -10,9 +10,11 @@ permission:
   edit: ask
   bash:
     "*": ask
+    "fd*": allow
     "git diff*": allow
     "git log*": allow
     "git status*": allow
+    "rg*": allow
   webfetch: allow
 ---
 
