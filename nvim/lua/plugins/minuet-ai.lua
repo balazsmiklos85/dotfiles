@@ -1,5 +1,27 @@
-if require("util.functions").is_macos() then
+local functions = require("util.functions")
+
+if functions.is_macos() then
 	return {}
+end
+
+local openai_compatible = {
+	end_point = "http://localhost:1234/v1/chat/completions",
+	name = "LMStudio",
+	model = "zeta",
+	api_key = function ()
+		return "dummy-key"
+	end,
+	stream = true,
+	optional = {
+		temperature = 0.1,
+		max_tokens = 4096,
+	},
+}
+
+if functions.is_macos() then
+	openai_compatible.end_point = "http://localhost:11434/v1/chat/completions"
+	openai_compatible.name = "Ollama"
+	openai_compatible.model = "DiamondGotCat/Zeta-4.5"
 end
 
 return {
@@ -17,19 +39,7 @@ return {
 				enable_auto_complete = true,
 			},
 			provider_options = {
-				openai_compatible = {
-					end_point = "http://localhost:1234/v1/chat/completions",
-					name = "LMStudio",
-					model = "zeta",
-					api_key = function ()
-						return "dummy-key"
-					end,
-					stream = true,
-					optional = {
-						temperature = 0.1,
-						max_tokens = 4096,
-					},
-				},
+				openai_compatible = openai_compatible,
 			},
 		})
 	end,
