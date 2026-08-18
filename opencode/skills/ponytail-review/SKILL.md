@@ -23,12 +23,12 @@ Tags:
 - `delete:` dead code, unused flexibility, speculative feature. Replacement: nothing.
 - `stdlib:` hand-rolled thing the standard library ships. Name the function.
 - `native:` dependency or code doing what the platform already does. Name the feature.
-- `yagni:` abstraction with one implementation, config nobody sets, layer with one caller.
+- `yagni:` abstraction with one implementation, configuration nobody sets, layer with one caller.
 - `shrink:` same logic, fewer lines. Show the shorter form.
 
 ## Examples
 
-❌ "This EmailValidator class might be more complex than necessary, have you
+❌ "This `EmailValidator` class might be more complex than necessary, have you
 considered whether all these validation rules are needed at this stage?"
 
 ✅ `L12-38: stdlib: 27-line validator class. "@" in email, 1 line, real validation is the confirmation mail.`
@@ -49,7 +49,7 @@ If there is nothing to cut, say `Lean already. Ship.` and stop.
 
 ## Boundaries
 
-Scope: over-engineering and complexity only. Correctness bugs, security holes,
+Scope: overengineering and complexity only. Correctness bugs, security holes,
 and performance are explicitly out of scope. Route them to a normal review
 pass, not this one. A single smoke test or `assert`-based
 self-check is the ponytail minimum, not bloat, never flag it for deletion.
