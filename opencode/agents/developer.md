@@ -37,7 +37,20 @@ permission:
 - *NEVER* reimplement native platform features!
 - *NEVER* reimplement anything that an already installed dependency solves!
 - *ALWAYS* reuse whatever you can!
-- Use one liners wherever you can!
+- Use one liners wherever you can! For example:
+```rust
+let departure_utc = start - tz_from;
+let arrival_utc = departure_utc + duration;
+let arrival_local = arrival_utc + tz_to;
+arrival_local < 0
+```
+Can become
+```rust
+pub fn was_package_received_yesterday(tz_from: i32, tz_to: i32, start: i32, duration: i32) -> bool {
+    start - tz_from + duration + tz_to < 0
+}
+```
+if the function/method is named correctly, keeping the intentions clear.
 - *NEVER* add abstractions with one implementation, factories for one product, or config for values that never change!
 - *NEVER* add boilerplate or scaffolding "for later"! Later can scaffold for itself.
 - *ALWAYS* prefer deletion over addition!
