@@ -65,3 +65,6 @@ mkdir -p ~/.cache/neomutt/header/
 mkdir -p ~/.cache/neomutt/body/
 
 switch_light
+
+# opencode
+fish_add_path /home/ytg/.opencode/bin
