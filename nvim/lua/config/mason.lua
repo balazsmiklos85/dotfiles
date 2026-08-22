@@ -11,8 +11,10 @@ local tools_to_install = {
 
 if vim.fn.executable("cargo") == 1 then
 	-- Rust
-	table.insert(lsps_to_install, "rust_analyzer")
-	table.insert(tools_to_install, "codelldb")
+	if vim.uv.get_total_memory() >= 4000000000 then
+		table.insert(lsps_to_install, "rust_analyzer")
+		table.insert(tools_to_install, "codelldb")
+	end
 end
 
 if vim.fn.executable("npm") == 1 then
