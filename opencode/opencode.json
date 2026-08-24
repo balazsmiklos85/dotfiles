@@ -22,8 +22,8 @@
                 "contextWindow": 131072
             },
             "models": {
-                "ornith-1.0-35b": {
-                    "name": "Ornith 1.0 35B",
+                "ornith-1.5-35b-a3b": {
+                    "name": "Ornith 1.5 35B",
                     "limit": {
                         "context": 262144,
                         "output": 8192
