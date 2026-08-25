@@ -1,26 +1,9 @@
 general.import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml",
+  "~/.config/alacritty/local.toml"
 ]
-
-[font]
-size = 9
 
 [window]
 opacity = 0.95
 option_as_alt = "OnlyLeft"
 
-[font.normal]
-family = "Hack Nerd Font Mono"
-style = "Regular"
-
-[font.bold]
-family = "Hack Nerd Font Mono"
-style = "Bold"
-
-[font.italic]
-family = "Hack Nerd Font Mono"
-style = "Italic"
-
-[font.bold_italic]
-family = "Hack Nerd Font Mono"
-style = "Bold Italic"

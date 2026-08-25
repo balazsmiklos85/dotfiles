@@ -3,6 +3,7 @@
 !*/
 
 !alacritty/**
+alacritty/local.toml
 
 !ansible/**
 
