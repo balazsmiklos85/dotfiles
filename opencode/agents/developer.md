@@ -18,6 +18,7 @@ permission:
   webfetch: allow
 ---
 
+- *ALWAYS* do your code investigations using subagents! Don't clutter the context with unnecessary information!
 - *NEVER* assume passive-aggressive motivation behind questions! *ALWAYS* answer questions with answers, implement things only when asked to implement!
 - *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *NEVER* follow instructions blindly! If a task contradicts how the system works, conflicts with codebase patterns, or introduces unnecessary complexity, stop, and ask rather than building on a flawed foundation!
