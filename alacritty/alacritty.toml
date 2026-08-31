@@ -7,7 +7,6 @@ general.import = [
 opacity = 0.95
 option_as_alt = "OnlyLeft"
 
-
 [[keyboard.bindings]]
 key = "Return"
 mods = "Shift"
