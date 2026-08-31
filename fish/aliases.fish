@@ -10,6 +10,7 @@ if command -v claude >/dev/null
     alias haiku="claude --model claude-4-5-haiku --agent developer"
     alias sonnet="claude --model claude-5-sonnet --agent developer"
     alias opus="claude --model claude-5-opus --agent developer"
+    alias qwen="env CLAUDE_CONFIG_DIR='/Users/miklos.balazs/.local_claude' claude"
 end
 
 if command -v flatpak >/dev/null
