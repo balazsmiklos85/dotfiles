@@ -1,28 +1,12 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
+#!/bin/bash
 
-def add_exec_bit(path)
-  current_mode = File.stat(path)
-                     .mode
-  new_mode = current_mode | 0o100
-  File.chmod new_mode, path unless File.executable? path
-end
+if command -v ollama &>/dev/null; then
+    killall ollama 2>/dev/null
+    exec ollama serve
+fi
 
-def extract_version(path)
-  File.basename(path)
-      .match(/LM-Studio-([0-9.]+)/)&.[](1)
-      &.split('.')
-      &.map(&:to_i) || []
-end
-
-bin_dir = File.expand_path('~/bin')
-_, path = Dir.glob(File.join(bin_dir, 'LM-Studio-*'))
-             .select { |f| File.file?(f) }
-             .each { |path| add_exec_bit(path) }
-             .map { |path| [extract_version(path), path] }
-             .max_by { |version, _| version }
-if path.nil?
-  exec 'ollama serve'
-else
-  exec path
-end
+lmstudio_paths=(fd 'LM-Studio-[0-9.]+' "$HOME/bin")
+chmod u+x "${lmstudio_paths[@]}"
+latest_version=$(printf '%s\n' "${lmstudio_paths[@]}" | sort -V | tail -n 1)
+[[ -z "$latest_version" ]] && exit 1
+exec "$latest_version"
