@@ -1,6 +1,23 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "agent": {
+        "developer": {
+            "permission": {
+                "cargo loco routes": "allow",
+                "cat *": "allow",
+                "echo *": "allow",
+                "find *": "allow",
+                "git diff *": "allow",
+                "git log *": "allow",
+                "git status": "allow",
+                "grep *": "allow",
+                "head *": "allow",
+                "ls *": "allow",
+                "tail *": "allow",
+                "sed *": "allow",
+                "xargs grep *": "allow"
+            }
+        },
         "explore": {
             "model": "lmstudio/qwen/qwen3.6-35b-a3b",
             "permission": {
@@ -18,7 +35,7 @@
                     "tail *": "allow",
                     "sed *": "allow"
                 }
-      }
+            }
         },
         "scout": {
             "model": "lmstudio/qwen/qwen3.6-35b-a3b"
