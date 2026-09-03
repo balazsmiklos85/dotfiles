@@ -24,10 +24,7 @@ layout {
     tab name="book_club" cwd="~/projects/book_club" {
         pane split_direction="vertical" {
             pane
-            pane split_direction="horizontal" {
-                pane
-                pane
-            }
+            pane
         }
     }
 
