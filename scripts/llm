@@ -5,7 +5,7 @@ if command -v ollama &>/dev/null; then
     exec ollama serve
 fi
 
-lmstudio_paths=(fd 'LM-Studio-[0-9.]+' "$HOME/bin")
+lmstudio_paths=($(fd 'LM-Studio-[0-9.]+' "$HOME/bin"))
 chmod u+x "${lmstudio_paths[@]}"
 latest_version=$(printf '%s\n' "${lmstudio_paths[@]}" | sort -V | tail -n 1)
 [[ -z "$latest_version" ]] && exit 1
