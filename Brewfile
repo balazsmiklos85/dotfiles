@@ -5,6 +5,7 @@ cask 'font-hack-nerd-font'
 
 brew 'bat'
 brew 'colima'
+brew 'direnv'
 brew 'docker'
 brew 'docker-compose'
 brew 'dust'

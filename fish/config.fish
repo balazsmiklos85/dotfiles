@@ -40,6 +40,10 @@ set -gx ZED_ALLOW_EMULATED_GPU 1
 
 set -g theme_date_format +'%Y-%m-%d %H:%M:%S %Z'
 
+if command -v direnv >/dev/null
+    direnv hook fish | source
+end
+
 if command -v zoxide >/dev/null
     zoxide init fish | source
 end

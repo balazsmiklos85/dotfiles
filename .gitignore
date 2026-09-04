@@ -11,6 +11,8 @@ alacritty/local.toml
 
 !claude/**
 
+!direnv/**
+
 !.editorconfig
 
 !fish/**
