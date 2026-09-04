@@ -1,9 +1,12 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
+#!/usr/bin/env bash
 
-require 'time'
-
-ENV['TZ'] = 'Europe/Budapest'
-input = ARGV[0]
-input += ':00' unless input.match?(/\d{2}:\d{2}:\d{2}$/)
-puts Time.strptime(input, '%Y-%m-%d %H:%M:%S').to_i
+export TZ='Europe/Budapest'
+input="$1"
+if date --version >/dev/null 2>&1; then
+    date -d "$input" +%s
+else
+    if [[ ! "$input" =~ [0-9]{2}:[0-9]{2}:[0-9]{2}$ ]]; then
+        input="${input}:00"
+    fi
+    date -j -f "%Y-%m-%d %H:%M:%S" "$input" +%s
+fi
