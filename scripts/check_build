@@ -63,7 +63,7 @@ when /(?<!Abstract|ServletWebServer|DefaultUserCode)ApplicationContext\b/
   puts `fd -u '\\.html' | rg 'Test|IT' | xargs -I {} rg '#{application_context_exceptions.join('|')}' {} | uniq`
 when /([tT]est|IT).*FAILED/
   puts 'Test failures:'
-  puts `fd -u '(Test|IT).*\\.html' | xargs -I {} rg -l 'Failed tests' {} | xargs w3m | awk '/^Failed tests/,/Test/' | rg -v '(Failed tests|Test)'`
+  puts `fd -u '(Test|IT).*\\.html' | xargs -I {} rg -l 'Failed tests|Failure details' {} | xargs w3m | awk '/^(Failed tests|Failure details)/,/Test/' | rg -v '(Failed tests|Test)'`
 
   require 'nokogiri'
 
