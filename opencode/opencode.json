@@ -22,6 +22,7 @@
             "model": "lmstudio/qwen/qwen3.6-35b-a3b",
             "permission": {
                 "bash": {
+                    "awk": "allow",
                     "cargo loco routes": "allow",
                     "cat *": "allow",
                     "echo *": "allow",
@@ -38,7 +39,24 @@
             }
         },
         "scout": {
-            "model": "lmstudio/qwen/qwen3.6-35b-a3b"
+            "model": "lmstudio/qwen/qwen3.6-35b-a3b",
+            "permission": {
+                "bash": {
+                    "awk": "allow",
+                    "cargo loco routes": "allow",
+                    "cat *": "allow",
+                    "echo *": "allow",
+                    "find *": "allow",
+                    "git diff *": "allow",
+                    "git log *": "allow",
+                    "git status": "allow",
+                    "grep *": "allow",
+                    "head *": "allow",
+                    "ls *": "allow",
+                    "tail *": "allow",
+                    "sed *": "allow"
+                }
+            }
         }
     },
     "permission": {
