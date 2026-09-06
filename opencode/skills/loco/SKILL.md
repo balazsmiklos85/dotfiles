@@ -111,6 +111,62 @@ This skill provides expert guidance on Loco ("the one-person framework for Rust"
 
 11. **Seed data**: fixtures are YAML lists under `src/fixtures/*.yaml`; wire `db::seed::<users::ActiveModel>(&ctx.db, &base.join("users.yaml")...)` into `Hooks::seed`; run `cargo loco db seed` (`--reset` to clear first, `--dump` / `--dump-tables users,posts` to export live tables back to YAML).
 
+12. **Join multiple tables and project into a custom struct** (sea-orm 2.0.2 / sea-query 1.0.2). Two tools: a typed shortcut when a relation exists, and an inline `RelationDef` when it doesn't.
+    - **Relation exists on the starting entity** — use the typed shortcut:
+      ```rust
+      .inner_join(books::Entity)   // books relation is predefined
+      .left_join(Other::Entity)    // any other predefined relation
+      ```
+    - **No relation (dangling ID, no FK, or undeclared) — the common real-world case.** The typed `.inner_join(Entity)` / `.left_join(Entity)` methods will fail (the `Related` trait isn't implemented). Build a `RelationDef` inline with `Entity::belongs_to(Other).from(Col).to(Col)` and pass it to the generic `.join(JoinType, RelationDef)`:
+      ```rust
+      use sea_orm::JoinType;
+
+      .join(
+          JoinType::LeftJoin,
+          events::Entity::belongs_to(users::Entity)
+              .from(events::Column::HostId)
+              .to(users::Column::Id)
+              .into(),
+      )
+      ```
+      This is the idiomatic escape hatch — no need to modify the entity to add a relation, and no need to drop to the raw `SelectStatement`. The long-term fix is to add the relation in `src/models/_entities/<entity>.rs` so the typed shortcut works; the inline `RelationDef` is the right tool until then.
+    - **Full example — mixing both, projecting into a custom struct:**
+      ```rust
+      use sea_orm::{FromQueryResult, JoinType, QuerySelect};
+
+      #[derive(Debug, FromQueryResult)]
+      pub struct EventRow {
+          pub title: String,
+          pub author: Option<String>,
+          pub event_date: DateTime,
+          pub name: String,
+      }
+
+      let rows = events::Entity::find()
+          .inner_join(books::Entity)                          // relation exists
+          .join(                                              // dangling host_id — inline RelationDef
+              JoinType::LeftJoin,
+              events::Entity::belongs_to(users::Entity)
+                  .from(events::Column::HostId)
+                  .to(users::Column::Id)
+                  .into(),
+          )
+          .select_only()
+          .column(events::Column::EventDate)
+          .column_as(books::Column::Title, "title")
+          .column_as(books::Column::Author, "author")
+          .column_as(users::Column::Name, "name")
+          .into_model::<EventRow>()
+          .all(&ctx.db)
+          .await?;
+      ```
+    Gotchas (all versions):
+    - `select_only`, `column`, `column_as`, and `into_model` come from the `QuerySelect` trait — `use sea_orm::QuerySelect;` or you get "method not found".
+    - `JoinType` variants in sea-query 1.0.2: `Join`, `CrossJoin`, `InnerJoin`, `LeftJoin`, `RightJoin`, `FullOuterJoin`, `StraightJoin`. The older `Inner` / `LeftOuter` / `RightOuter` / `FullOuter` do **not** exist in this version.
+    - There is **no** `find_from([entity1, entity2, ...])` form that takes a heterogeneous array — Rust arrays must be homogeneous. Start from one entity and chain joins.
+    - `.all(&db)` is async — needs `.await` (and `?` for the `Result`).
+    - Last resort: the raw `SelectStatement` is reachable via `q.query()`, and `SelectStatement::join(JoinType, table_ref, on_clause)` exists for exotic on-clauses. The on-clause is built with `Expr::col((table, col)).equals((table, col))` (requires `use sea_query::Expr;`). Reach for this only when the inline `RelationDef` is insufficient.
+
 ### Controllers and routing
 
 12. **Handler shape**

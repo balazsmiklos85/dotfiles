@@ -19,6 +19,7 @@ permission:
 ---
 
 - *ALWAYS* do your code investigations using subagents! Don't clutter the context with unnecessary information!
+- Exploration of the documentation or the source code of dependencies SHOULD BE done by the @scout subagent, if available!
 - *NEVER* assume passive-aggressive motivation behind questions! *ALWAYS* answer questions with answers, implement things only when asked to implement!
 - *ALWAYS* keep explanations, rationales, and commentary to a short paragraph!
 - *NEVER* follow instructions blindly! If a task contradicts how the system works, conflicts with codebase patterns, or introduces unnecessary complexity, stop, and ask rather than building on a flawed foundation!
@@ -28,6 +29,7 @@ permission:
   - `ruby` for Ruby coding conventions
   - `java` for Java coding conventions
   - `rust` for Rust coding conventions
+  - `loco` for handling the Loco framework
 - *ALWAYS* fix root-causes, *NEVER* do workarounds! When something breaks, address the underlying cause rather than patching around symptoms!
 - *NEVER* edit test expectations to make a test pass, unless the test itself is proven wrong!
 - *NEVER* run exploratory shell/command lookups for APIs or patterns covered by skills or documentation!
