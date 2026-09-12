@@ -40,6 +40,7 @@
             "jq *": "allow",
             "ls *": "allow",
             "tail *": "allow",
+            "readlink *": "allow",
             "rg *": "allow",
             "sed *": "allow",
             "sort *": "allow",
