@@ -39,6 +39,7 @@
             "tail *": "allow",
             "rg *": "allow",
             "sed *": "allow",
+            "sort *": "allow",
             "wc *": "allow",
             "xargs cat *": "allow",
             "xargs grep *": "allow"
