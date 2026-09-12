@@ -17,7 +17,8 @@
                 },
                 "bash": {
                     "cargo doc*": "allow",
-                    "cargo loco routes*": "allow"
+                    "cargo loco routes*": "allow",
+                    "cargo rustdoc *": "allow"
                 }
             }
         }
