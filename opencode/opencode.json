@@ -18,6 +18,7 @@
                 "bash": {
                     "cargo doc*": "allow",
                     "cargo loco routes*": "allow",
+                    "cargo metadata *": "allow",
                     "cargo rustdoc *": "allow"
                 }
             }
@@ -36,6 +37,7 @@
             "git status*": "allow",
             "grep *": "allow",
             "head *": "allow",
+            "jq *": "allow",
             "ls *": "allow",
             "tail *": "allow",
             "rg *": "allow",
