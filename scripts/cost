@@ -37,8 +37,6 @@ while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   TOTAL_CACHE_CREAT[$name]=$(( ${TOTAL_CACHE_CREAT[$name]:-0} + cc_tok ))
 done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
-grand_total="0.0"
-
 {
   for model in "${!TOTAL_INPUT[@]}"; do
     read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
@@ -48,7 +46,7 @@ grand_total="0.0"
       "${TOTAL_OUTPUT[$model]}" \
       "${TOTAL_CACHE_READ[$model]}" \
       "${TOTAL_CACHE_CREAT[$model]}" \
-      "$r_in" "$r_out" "$r_cr" "$r_cc" \
+      "$r_in" "$r_out" "$r_cr" "$r_cc"
   done
 } | awk '
     BEGIN {
