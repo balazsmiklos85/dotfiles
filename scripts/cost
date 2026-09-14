@@ -21,31 +21,32 @@ declare -A PRICING=(
   [claude-haiku-4-5]="1.0 5.0 0.10 1.25"
 )
 
-# --- Aggregated token totals per normalized model ---
-declare -A TOTAL_INPUT=()
-declare -A TOTAL_OUTPUT=()
-declare -A TOTAL_CACHE_READ=()
-declare -A TOTAL_CACHE_CREAT=()
+# --- Aggregated token totals: single compound-key array ---
+declare -A TOTAL=()
 
 file_path="$HOME/.claude/stats-cache.json"
 while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   name="$(echo "$full_name" | sed -E 's/^.*claude-/claude-/; s/^(claude-(opus|sonnet|haiku)-[0-9]+-[0-9]+).*/\1/')"
 
-  TOTAL_INPUT[$name]=$(( ${TOTAL_INPUT[$name]:-0} + in_tok ))
-  TOTAL_OUTPUT[$name]=$(( ${TOTAL_OUTPUT[$name]:-0} + out_tok ))
-  TOTAL_CACHE_READ[$name]=$(( ${TOTAL_CACHE_READ[$name]:-0} + cr_tok ))
-  TOTAL_CACHE_CREAT[$name]=$(( ${TOTAL_CACHE_CREAT[$name]:-0} + cc_tok ))
+  TOTAL[$name,input]=$(( ${TOTAL[$name,input]:-0} + in_tok ))
+  TOTAL[$name,output]=$(( ${TOTAL[$name,output]:-0} + out_tok ))
+  TOTAL[$name,cache_read]=$(( ${TOTAL[$name,cache_read]:-0} + cr_tok ))
+  TOTAL[$name,cache_creat]=$(( ${TOTAL[$name,cache_creat]:-0} + cc_tok ))
 done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
 {
-  for model in "${!TOTAL_INPUT[@]}"; do
+  for key in "${!TOTAL[@]}"; do
+    model="${key%,*}"
     read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
+
+    case "$key" in *,input) ;; *) continue ;; esac
+
     printf '%s %d %d %d %d %s %s %s %s\n' \
       "$model" \
-      "${TOTAL_INPUT[$model]}" \
-      "${TOTAL_OUTPUT[$model]}" \
-      "${TOTAL_CACHE_READ[$model]}" \
-      "${TOTAL_CACHE_CREAT[$model]}" \
+      "${TOTAL[$model,input]}" \
+      "${TOTAL[$model,output]}" \
+      "${TOTAL[$model,cache_read]}" \
+      "${TOTAL[$model,cache_creat]}" \
       "$r_in" "$r_out" "$r_cr" "$r_cc"
   done
 } | awk '
