@@ -92,15 +92,5 @@ printf '%-72s\n' '--------------------------------------------------------------
 printf 'GRAND TOTAL COST: $%s\n' "$grand_total"
 
 # --- Codex saved estimation (sqlite3) ---
-codex_stats=$(sqlite3 "$HOME/.codex/state_5.sqlite" \
-  "SELECT COALESCE(model, '(none)') as model, SUM(tokens_used) as total_tokens FROM threads GROUP BY model ORDER BY total_tokens DESC;")
-
-saved=$(echo "$codex_stats" | awk -F'|' '
-  /qwen|gemma/ { total += $2 }
-  END {
-    if (total == "") total = 0;
-    cost = total / 1000000.0 + total * 0.09362934 / 200000.0;
-    printf "%.2f", cost;
-  }')
-
+saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) / 1000000.0 + COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) * 0.09362934 / 200000.0) FROM threads;")
 printf 'Saved: ~$%s\n' "$saved"
