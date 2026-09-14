@@ -39,10 +39,8 @@ done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.i
 
 grand_total="0.0"
 
-tmpstream=$(mktemp)
-trap "rm -f $tmpstream" EXIT
-
-for model in "${!TOTAL_INPUT[@]}"; do
+{
+  for model in "${!TOTAL_INPUT[@]}"; do
     read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
     printf '%s %d %d %d %d %s %s %s %s\n' \
       "$model" \
@@ -51,9 +49,8 @@ for model in "${!TOTAL_INPUT[@]}"; do
       "${TOTAL_CACHE_READ[$model]}" \
       "${TOTAL_CACHE_CREAT[$model]}" \
       "$r_in" "$r_out" "$r_cr" "$r_cc" \
-      >> "$tmpstream"
   done
-  awk '
+} | awk '
     BEGIN {
       printf "%-72s\n", "------------------------------------------------------------------------"
       printf "%-20s | %-10s | %-10s | %-10s\n", "Model Family", "Input (M)", "Output (M)", "Cost (USD)"
@@ -71,7 +68,7 @@ for model in "${!TOTAL_INPUT[@]}"; do
       printf "%-72s\n", "------------------------------------------------------------------------"
       printf "GRAND TOTAL COST: $%.2f\n", grand
     }
-  ' "$tmpstream"
+    '
 
 saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) / 1000000.0 + COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) * 0.09362934 / 200000.0) FROM threads;")
 printf 'Saved: ~$%s\n' "$saved"
