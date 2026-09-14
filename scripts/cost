@@ -66,5 +66,5 @@ done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.i
     }
     '
 
-saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) / 1000000.0 + COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) * 0.09362934 / 200000.0) FROM threads;")
+saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', t/1000000.0 + t*0.09362934/200000.0) FROM (SELECT COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) AS t FROM threads)")
 printf 'Saved: ~$%s\n' "$saved"
