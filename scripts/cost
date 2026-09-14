@@ -64,33 +64,43 @@ grand_total="0.0"
 # Sort model names for deterministic output
 mapfile -t sorted_models < <(printf '%s\n' "${!TOTAL_INPUT[@]}" | sort)
 
+tmpstream=$(mktemp)
+trap "rm -f $tmpstream" EXIT
+
 for model in "${sorted_models[@]}"; do
-  if [[ -v PRICING[$model] ]]; then
-    read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]}"
-  else
-    r_in=0; r_out=0; r_cr=0; r_cc=0
-  fi
+    if [[ -v PRICING[$model] ]]; then
+        read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]}"
+    else
+        r_in=0; r_out=0; r_cr=0; r_cc=0
+    fi
+    printf '%s %d %d %d %d %s %s %s %s\n' \
+      "$model" \
+      "${TOTAL_INPUT[$model]}" \
+      "${TOTAL_OUTPUT[$model]}" \
+      "${TOTAL_CACHE_READ[$model]}" \
+      "${TOTAL_CACHE_CREAT[$model]}" \
+      "$r_in" "$r_out" "$r_cr" "$r_cc" \
+      >> "$tmpstream"
+  done
+  awk '
+    BEGIN {
+      printf "%-72s\n", "------------------------------------------------------------------------"
+      printf "%-20s | %-10s | %-10s | %-10s\n", "Model Family", "Input (M)", "Output (M)", "Cost (USD)"
+      printf "%-72s\n", "------------------------------------------------------------------------"
+      grand = 0
+    }
+    {
+      im = $2 / 1000000.0
+      om = $3 / 1000000.0
+      cost = ($2*$6 + $3*$7 + $4*$8 + $5*$9) / 1000000.0
+      printf "%-20s | %-10.4f | %-10.4f | $%-9.2f\n", $1, im, om, cost
+      grand += cost
+    }
+    END {
+      printf "%-72s\n", "------------------------------------------------------------------------"
+      printf "GRAND TOTAL COST: $%.2f\n", grand
+    }
+  ' "$tmpstream"
 
-  result=$(awk -v i="${TOTAL_INPUT[$model]}" -v o="${TOTAL_OUTPUT[$model]}" \
-               -v cr="${TOTAL_CACHE_READ[$model]}" -v cc="${TOTAL_CACHE_CREAT[$model]}" \
-               -v ri="$r_in" -v ro="$r_out" -v rcr="$r_cr" -v rcc="$r_cc" \
-    'BEGIN {
-        im = i / 1000000.0;
-        om = o / 1000000.0;
-        cost = (i/1000000.0)*ri + (o/1000000.0)*ro + (cr/1000000.0)*rcr + (cc/1000000.0)*rcc;
-        printf "%.4f %.4f %.2f", im, om, cost;
-      }')
-
-  read -r input_m output_m model_cost <<< "$result"
-
-  printf '%-20s | %-10s | %-10s | $%-9s\n' "$model" "$input_m" "$output_m" "$model_cost"
-
-  grand_total=$(awk "BEGIN { printf \"%.2f\", $grand_total + $model_cost }")
-done
-
-printf '%-72s\n' '------------------------------------------------------------------------'
-printf 'GRAND TOTAL COST: $%s\n' "$grand_total"
-
-# --- Codex saved estimation (sqlite3) ---
 saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) / 1000000.0 + COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) * 0.09362934 / 200000.0) FROM threads;")
 printf 'Saved: ~$%s\n' "$saved"
