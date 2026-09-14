@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# --- Configuration: Pricing per 1M tokens (USD) ---
-# Format: input output cache_read cache_creat
 declare -A PRICING=(
   [claude-fable-5]="10.0 50.0 1.00 12.50"
   [claude-opus-4]="15.0 75.0 1.50 18.75"
@@ -21,7 +19,6 @@ declare -A PRICING=(
   [claude-haiku-4-5]="1.0 5.0 0.10 1.25"
 )
 
-# --- Aggregated token totals: single compound-key array ---
 declare -A TOTAL=()
 
 file_path="$HOME/.claude/stats-cache.json"
