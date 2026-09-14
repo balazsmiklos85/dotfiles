@@ -35,17 +35,14 @@ while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   TOTAL_OUTPUT[$name]=$(( ${TOTAL_OUTPUT[$name]:-0} + out_tok ))
   TOTAL_CACHE_READ[$name]=$(( ${TOTAL_CACHE_READ[$name]:-0} + cr_tok ))
   TOTAL_CACHE_CREAT[$name]=$(( ${TOTAL_CACHE_CREAT[$name]:-0} + cc_tok ))
-done < <(jq -r '.modelUsage | to_entries[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
+done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
 grand_total="0.0"
-
-# Sort model names for deterministic output
-mapfile -t sorted_models < <(printf '%s\n' "${!TOTAL_INPUT[@]}" | sort)
 
 tmpstream=$(mktemp)
 trap "rm -f $tmpstream" EXIT
 
-for model in "${sorted_models[@]}"; do
+for model in "${!TOTAL_INPUT[@]}"; do
     if [[ -v PRICING[$model] ]]; then
         read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]}"
     else
