@@ -32,20 +32,13 @@ while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
 done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
 {
-  for key in "${!TOTAL[@]}"; do
-    model="${key%,*}"
-    read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
-
-    case "$key" in *,input) ;; *) continue ;; esac
-
-    printf '%s %d %d %d %d %s %s %s %s\n' \
-      "$model" \
-      "${TOTAL[$model,input]}" \
-      "${TOTAL[$model,output]}" \
-      "${TOTAL[$model,cache_read]}" \
-      "${TOTAL[$model,cache_creat]}" \
-      "$r_in" "$r_out" "$r_cr" "$r_cc"
-  done
+    for model in $(printf '%s\n' "${!TOTAL[@]}" | cut -d, -f1 | sort -u); do
+        read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
+        printf '%s %d %d %d %d %s %s %s %s\n' "$model" \
+            "${TOTAL[$model,input]}" "${TOTAL[$model,output]}" \
+            "${TOTAL[$model,cache_read]}" "${TOTAL[$model,cache_creat]}" \
+            "$r_in" "$r_out" "$r_cr" "$r_cc"
+    done
 } | awk '
     BEGIN {
       printf "%-72s\n", "------------------------------------------------------------------------"
