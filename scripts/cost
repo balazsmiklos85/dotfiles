@@ -38,13 +38,6 @@ normalize_model_name() {
 }
 
 file_path="$HOME/.claude/stats-cache.json"
-
-if [[ ! -f "$file_path" ]]; then
-  echo "Error: File not found at $file_path"
-  exit 1
-fi
-
-# Use jq to extract model usage as TSV
 while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   name="$(normalize_model_name "$full_name")"
 
