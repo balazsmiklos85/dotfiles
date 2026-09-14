@@ -37,11 +37,6 @@ while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   TOTAL_CACHE_CREAT[$name]=$(( ${TOTAL_CACHE_CREAT[$name]:-0} + cc_tok ))
 done < <(jq -r '.modelUsage | to_entries[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
-# --- Print the table (sorted by model name) ---
-printf '%-72s\n' '------------------------------------------------------------------------'
-printf '%-20s | %-10s | %-10s | %-10s\n' 'Model Family' 'Input (M)' 'Output (M)' 'Cost (USD)'
-printf '%-72s\n' '------------------------------------------------------------------------'
-
 grand_total="0.0"
 
 # Sort model names for deterministic output
