@@ -43,11 +43,7 @@ tmpstream=$(mktemp)
 trap "rm -f $tmpstream" EXIT
 
 for model in "${!TOTAL_INPUT[@]}"; do
-    if [[ -v PRICING[$model] ]]; then
-        read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]}"
-    else
-        r_in=0; r_out=0; r_cr=0; r_cc=0
-    fi
+    read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
     printf '%s %d %d %d %d %s %s %s %s\n' \
       "$model" \
       "${TOTAL_INPUT[$model]}" \
