@@ -1,87 +1,106 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
-
-require 'json'
+#!/usr/bin/env bash
+set -euo pipefail
 
 # --- Configuration: Pricing per 1M tokens (USD) ---
-PRICING = {
-  'claude-fable-5' => { input: 10.0, output: 50.0, cache_read: 1.00, cache_creat: 12.50 },
-  'claude-opus-4' => { input: 15.0, output: 75.0, cache_read: 1.50, cache_creat: 18.75 },
-  'claude-opus-4-1' => { input: 15.0, output: 75.0, cache_read: 1.50, cache_creat: 18.75 },
-  'claude-opus-4-5' => { input: 5.0, output: 25.0, cache_read: 0.50, cache_creat: 6.25 },
-  'claude-opus-4-6' => { input: 5.0, output: 25.0, cache_read: 0.50, cache_creat: 6.25 },
-  'claude-opus-4-7' => { input: 5.0, output: 25.0, cache_read: 0.50, cache_creat: 6.25 },
-  'claude-opus-4-8' => { input: 5.0, output: 25.0, cache_read: 0.50, cache_creat: 6.25 },
-  'claude-opus-5' => { input: 5.0, output: 25.0, cache_read: 0.50, cache_creat: 6.25 },
-  'claude-sonnet-4' => { input: 3.0, output: 15.0, cache_read: 0.30, cache_creat: 3.75 },
-  'claude-sonnet-4-5' => { input: 3.0, output: 15.0, cache_read: 0.30, cache_creat: 3.75 },
-  'claude-sonnet-4-6' => { input: 3.0, output: 15.0, cache_read: 0.30, cache_creat: 3.75 },
-  'claude-sonnet-5' => { input: 3.0, output: 15.0, cache_read: 0.30, cache_creat: 3.75 },
-  'claude-haiku-3' => { input: 0.25, output: 1.25, cache_read: 0.03, cache_creat: 0.30 },
-  'claude-haiku-3-5' => { input: 0.80, output: 4.0, cache_read: 0.08, cache_creat: 1.0 },
-  'claude-haiku-4-5' => { input: 1.0, output: 5.0, cache_read: 0.10, cache_creat: 1.25 },
-}.freeze
+# Format: input output cache_read cache_creat
+declare -A PRICING=(
+  [claude-fable-5]="10.0 50.0 1.00 12.50"
+  [claude-opus-4]="15.0 75.0 1.50 18.75"
+  [claude-opus-4-1]="15.0 75.0 1.50 18.75"
+  [claude-opus-4-5]="5.0 25.0 0.50 6.25"
+  [claude-opus-4-6]="5.0 25.0 0.50 6.25"
+  [claude-opus-4-7]="5.0 25.0 0.50 6.25"
+  [claude-opus-4-8]="5.0 25.0 0.50 6.25"
+  [claude-opus-5]="5.0 25.0 0.50 6.25"
+  [claude-sonnet-4]="3.0 15.0 0.30 3.75"
+  [claude-sonnet-4-5]="3.0 15.0 0.30 3.75"
+  [claude-sonnet-4-6]="3.0 15.0 0.30 3.75"
+  [claude-sonnet-5]="3.0 15.0 0.30 3.75"
+  [claude-haiku-3]="0.25 1.25 0.03 0.30"
+  [claude-haiku-3-5]="0.80 4.0 0.08 1.0"
+  [claude-haiku-4-5]="1.0 5.0 0.10 1.25"
+)
 
-def normalize_model_name(full_name)
-  if full_name =~ /(claude-(?:opus|sonnet|haiku)-\d+-\d+)/
-    Regexp.last_match(1)
+# --- Aggregated token totals per normalized model ---
+declare -A TOTAL_INPUT=()
+declare -A TOTAL_OUTPUT=()
+declare -A TOTAL_CACHE_READ=()
+declare -A TOTAL_CACHE_CREAT=()
+
+# normalize_model_name: strip trailing patch version to family
+normalize_model_name() {
+  local full_name="$1"
+  if [[ "$full_name" =~ (claude-(opus|sonnet|haiku)-[0-9]+-[0-9]+) ]]; then
+    echo "${BASH_REMATCH[1]}"
   else
-    full_name
-  end
-end
+    echo "$full_name"
+  fi
+}
 
-file_path = File.expand_path('~/.claude/stats-cache.json')
+file_path="$HOME/.claude/stats-cache.json"
 
-unless File.exist?(file_path)
-  puts "Error: File not found at #{file_path}"
+if [[ ! -f "$file_path" ]]; then
+  echo "Error: File not found at $file_path"
   exit 1
-end
+fi
 
-data = JSON.parse(File.read(file_path))
-usage_stats = data['modelUsage']
+# Use jq to extract model usage as TSV
+while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
+  name="$(normalize_model_name "$full_name")"
 
-totals = Hash.new { |h, k| h[k] = Hash.new(0) }
+  TOTAL_INPUT[$name]=$(( ${TOTAL_INPUT[$name]:-0} + in_tok ))
+  TOTAL_OUTPUT[$name]=$(( ${TOTAL_OUTPUT[$name]:-0} + out_tok ))
+  TOTAL_CACHE_READ[$name]=$(( ${TOTAL_CACHE_READ[$name]:-0} + cr_tok ))
+  TOTAL_CACHE_CREAT[$name]=$(( ${TOTAL_CACHE_CREAT[$name]:-0} + cc_tok ))
+done < <(jq -r '.modelUsage | to_entries[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
-usage_stats.each do |full_name, stats|
-  name = normalize_model_name(full_name)
-  totals[name][:input] += stats['inputTokens']
-  totals[name][:output] += stats['outputTokens']
-  totals[name][:cache_read] += stats['cacheReadInputTokens']
-  totals[name][:cache_creat] += stats['cacheCreationInputTokens']
-end
+# --- Print the table (sorted by model name) ---
+printf '%-72s\n' '------------------------------------------------------------------------'
+printf '%-20s | %-10s | %-10s | %-10s\n' 'Model Family' 'Input (M)' 'Output (M)' 'Cost (USD)'
+printf '%-72s\n' '------------------------------------------------------------------------'
 
-puts '-' * 72
-puts format('%-20s | %-10s | %-10s | %-10s', 'Model Family', 'Input (M)', 'Output (M)', 'Cost (USD)')
-puts '-' * 72
+grand_total="0.0"
 
-grand_total = 0.0
+# Sort model names for deterministic output
+mapfile -t sorted_models < <(printf '%s\n' "${!TOTAL_INPUT[@]}" | sort)
 
-totals.each do |model, s|
-  rates = PRICING[model] || { input: 0, output: 0, cache_read: 0, cache_creat: 0 }
-
-  input_cost = (s[:input] / 1_000_000.0) * rates[:input]
-  output_cost = (s[:output] / 1_000_000.0) * rates[:output]
-  read_cost  = (s[:cache_read] / 1_000_000.0) * rates[:cache_read]
-  creat_cost = (s[:cache_creat] / 1_000_000.0) * rates[:cache_creat]
-
-  model_cost = input_cost + output_cost + read_cost + creat_cost
-  grand_total += model_cost
-
-  puts format('%-20s | %-10.4f | %-10.4f | $%-9.2f', model, s[:input] / 1_000_000.0, s[:output] / 1_000_000.0,
-              model_cost)
-end
-
-puts '-' * 72
-puts "GRAND TOTAL COST: $#{'%.2f' % grand_total}"
-
-codex_stats = `sqlite3 /Users/miklos.balazs/.codex/state_5.sqlite "SELECT COALESCE(model, '(none)') as model, SUM(tokens_used) as total_tokens FROM threads GROUP BY model ORDER BY total_tokens DESC;"`
-codex_total = codex_stats.lines.sum(0) do |line|
-  model, tokens = line.split('|')
-  if model =~ /qwen|gemma/
-    tokens.to_i
+for model in "${sorted_models[@]}"; do
+  if [[ -v PRICING[$model] ]]; then
+    read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]}"
   else
-    0
-  end
-end
+    r_in=0; r_out=0; r_cr=0; r_cc=0
+  fi
 
-puts "Saved: ~$#{format('%.2f', codex_total / 1_000_000.0 + codex_total * 0.09362934 / 200_000.0)}"
+  result=$(awk -v i="${TOTAL_INPUT[$model]}" -v o="${TOTAL_OUTPUT[$model]}" \
+               -v cr="${TOTAL_CACHE_READ[$model]}" -v cc="${TOTAL_CACHE_CREAT[$model]}" \
+               -v ri="$r_in" -v ro="$r_out" -v rcr="$r_cr" -v rcc="$r_cc" \
+    'BEGIN {
+        im = i / 1000000.0;
+        om = o / 1000000.0;
+        cost = (i/1000000.0)*ri + (o/1000000.0)*ro + (cr/1000000.0)*rcr + (cc/1000000.0)*rcc;
+        printf "%.4f %.4f %.2f", im, om, cost;
+      }')
+
+  read -r input_m output_m model_cost <<< "$result"
+
+  printf '%-20s | %-10s | %-10s | $%-9s\n' "$model" "$input_m" "$output_m" "$model_cost"
+
+  grand_total=$(awk "BEGIN { printf \"%.2f\", $grand_total + $model_cost }")
+done
+
+printf '%-72s\n' '------------------------------------------------------------------------'
+printf 'GRAND TOTAL COST: $%s\n' "$grand_total"
+
+# --- Codex saved estimation (sqlite3) ---
+codex_stats=$(sqlite3 "$HOME/.codex/state_5.sqlite" \
+  "SELECT COALESCE(model, '(none)') as model, SUM(tokens_used) as total_tokens FROM threads GROUP BY model ORDER BY total_tokens DESC;")
+
+saved=$(echo "$codex_stats" | awk -F'|' '
+  /qwen|gemma/ { total += $2 }
+  END {
+    if (total == "") total = 0;
+    cost = total / 1000000.0 + total * 0.09362934 / 200000.0;
+    printf "%.2f", cost;
+  }')
+
+printf 'Saved: ~$%s\n' "$saved"
