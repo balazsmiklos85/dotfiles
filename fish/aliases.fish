@@ -35,5 +35,6 @@ if command -v timew >/dev/null
     alias stop_work 'timew stop work'
 end
 
+alias failing_test "rg -l 'Failed tests|Failure details' -g '*.html' service/build/reports | fzf | xargs w3m"
 alias :w 'echo "Dammit Jim, I\'m a fish, not a vi!"; test 0 -eq 1'
 alias :wq 'echo "Dammit Jim, I\'m a fish, not a vi!"; test 0 -eq 1'
