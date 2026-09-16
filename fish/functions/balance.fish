@@ -24,6 +24,6 @@ function balance --description 'Show yearly TimeWarrior balance vs expected hour
 
     set -l work_until (date -r (math -s0 "$now_epoch - $balance_raw * 3600") '+%Y-%m-%d %H:%M')
 
-    echo "Balance: (printf '%.2f' $balance_raw) hours" # TODO use `printf "Balance: %.2f hours\n" $balance_raw` maybe?
+    printf "Balance: %.2f hours\n" $balance_raw
     echo "Work until: $work_until"
 end
