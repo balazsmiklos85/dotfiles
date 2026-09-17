@@ -34,10 +34,10 @@ set -gx MAILCAPS $HOME/.config/mailcap
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 
-set -gx OLLAMA_KEEP_ALIVE -1
-
 if [ (uname) = Darwin ]
     set -gx OPENCODE_CONFIG ~/.config/opencode/opencode.work.json
+    set -gx OLLAMA_CONTEXT_LENGTH 131072
+    set -gx OLLAMA_KEEP_ALIVE -1
     set -gx PNPM_HOME $HOME/Library/pnpm
     fish_add_path $PNPM_HOME/bin
 end
