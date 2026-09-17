@@ -6,11 +6,11 @@ if command -v bat >/dev/null
     alias cat="bat --style plain"
 end
 
-if command -v claude >/dev/null
-    alias haiku="claude --model claude-4-5-haiku --agent developer"
-    alias sonnet="claude --model claude-5-sonnet --agent developer"
-    alias opus="claude --model claude-5-opus --agent developer"
-    alias qwen="env CLAUDE_CONFIG_DIR='/Users/miklos.balazs/.local_claude' claude"
+if [ (uname) = Darwin ]
+    alias haiku="opencode --agent developer --model wise-llm-gateway/claude-4-5-haiku"
+    alias sonnet="opencode --agent developer --model wise-llm-gateway/claude-5-sonnet"
+    alias opus="opencode --agent developer --model wise-llm-gateway/claude-opus-5"
+    alias qwen="opencode --agent developer"
 end
 
 if command -v flatpak >/dev/null
