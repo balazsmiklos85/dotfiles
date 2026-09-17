@@ -36,6 +36,7 @@
             "git diff*": "allow",
             "git log *": "allow",
             "git status*": "allow",
+            "git show *": "allow",
             "grep *": "allow",
             "head *": "allow",
             "jq *": "allow",
