@@ -38,6 +38,8 @@ set -gx OLLAMA_KEEP_ALIVE -1
 
 if [ (uname) = Darwin ]
     set -gx OPENCODE_CONFIG ~/.config/opencode/opencode.work.json
+    set -gx PNPM_HOME $HOME/Library/pnpm
+    fish_add_path $PNPM_HOME/bin
 end
 
 set -gx ZED_ALLOW_EMULATED_GPU 1
@@ -75,13 +77,3 @@ mkdir -p ~/.cache/neomutt/header/
 mkdir -p ~/.cache/neomutt/body/
 
 switch_light
-
-# opencode
-fish_add_path /home/ytg/.opencode/bin
-
-# pnpm
-set -gx PNPM_HOME '/Users/miklos.balazs/Library/pnpm'
-if not string match -q -- "$PNPM_HOME/bin" $PATH
-  set -gx PATH "$PNPM_HOME/bin" $PATH
-end
-# pnpm end
