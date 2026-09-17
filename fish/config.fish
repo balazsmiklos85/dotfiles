@@ -74,3 +74,10 @@ switch_light
 
 # opencode
 fish_add_path /home/ytg/.opencode/bin
+
+# pnpm
+set -gx PNPM_HOME '/Users/miklos.balazs/Library/pnpm'
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
