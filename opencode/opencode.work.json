@@ -1,0 +1,84 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "agent": {
+        "explore": {
+            "model": "ollama/qwen3.6:35b",
+            "permission": {
+                "external_directory": {
+                    "~/projects/**": "allow"
+                }
+            }
+        },
+        "scout": {
+            "model": "ollama/qwen3.6:35b",
+            "permission": {
+                "external_directory": {
+                    "~/.gradle/**": "allow",
+                    "~/projects/**": "allow",
+                    "/tmp": "allow"
+                },
+                "bash": {
+                    "cargo doc*": "allow",
+                    "cargo loco routes*": "allow",
+                    "cargo metadata *": "allow",
+                    "cargo rustdoc *": "allow"
+                }
+            }
+        }
+    },
+    "permission": {
+        "edit": "ask",
+        "bash": {
+            "*": "ask",
+            "cat *": "allow",
+            "echo *": "allow",
+            "fd *": "allow",
+            "find *": "allow",
+            "git diff*": "allow",
+            "git log *": "allow",
+            "git status*": "allow",
+            "grep *": "allow",
+            "head *": "allow",
+            "jq *": "allow",
+            "ls *": "allow",
+            "tail *": "allow",
+            "readlink *": "allow",
+            "rg *": "allow",
+            "sed *": "allow",
+            "sort *": "allow",
+            "wc *": "allow",
+            "xargs cat *": "allow",
+            "xargs grep *": "allow"
+        },
+        "external_directory": {
+            "*": "deny"
+        }
+    },
+    "model": "ollama/qwen3.8:27b",
+    "provider": {
+        "ollama": {
+            "npm": "@ai-sdk/openai-compatible",
+            "options": {
+                "baseURL": "http://127.0.0.1:11434/v1",
+                "maxTokens": 4096,
+                "contextWindow": 131072
+            },
+            "models": {
+                "qwen3.8:27b": {
+                    "name": "Qwen 3.8 27B",
+                    "limit": {
+                        "context": 131072,
+                        "output": 8192
+                    }
+                },
+                "qwen3.6:35b": {
+                    "name": "Qwen 3.6 35B",
+                    "limit": {
+                        "context": 131072,
+                        "output": 8192
+                    }
+                }
+            }
+        }
+    }
+}
