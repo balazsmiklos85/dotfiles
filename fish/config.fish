@@ -36,6 +36,10 @@ set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 
 set -gx OLLAMA_KEEP_ALIVE -1
 
+if [ (uname) = Darwin ]
+    set -gx OPENCODE_CONFIG ~/.config/opencode/opencode.work.json
+end
+
 set -gx ZED_ALLOW_EMULATED_GPU 1
 
 set -g theme_date_format +'%Y-%m-%d %H:%M:%S %Z'
