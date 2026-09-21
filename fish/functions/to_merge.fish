@@ -9,7 +9,7 @@ function to_merge
         return
     end
 
-    set approved_list ""
+    set -l approved_list
 
     for line in $pr_lines
         set url (echo "$line" | awk '{print $1}')
@@ -30,7 +30,7 @@ function to_merge
         end
     end
 
-    if test -z "$approved_list"
+    if test (count $approved_list) -eq 0
         echo 'No approved PRs ready to merge. Open PRs:'
         for line in $pr_lines
             set url (echo "$line" | awk '{print $1}')
@@ -38,7 +38,7 @@ function to_merge
             echo "- $title - $url"
         end
     else
-        echo "(count $approved_list) approved PR(s) ready to merge:"
+        echo "$(count $approved_list) approved PR(s) ready to merge:"
         for url in $approved_list
             echo "- $url"
         end
