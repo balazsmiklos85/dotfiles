@@ -5,6 +5,7 @@
 .classpath
 .factorypath
 .project
+.sdkmanrc
 .settings/
 # Kotlin language server
 kls_database.db
