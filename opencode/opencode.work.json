@@ -9,6 +9,9 @@
                 }
             }
         },
+        "general": {
+            "model": "ollama/qwen3.6:35b"
+        },
         "scout": {
             "model": "ollama/qwen3.6:35b",
             "permission": {
