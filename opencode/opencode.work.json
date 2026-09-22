@@ -55,6 +55,12 @@
         }
     },
     "model": "ollama/qwen3.8:27b",
+    "mcp": {
+        "lightdash": {
+            "type": "remote",
+            "url": "https://agentic-gateway-analytics.tw.ee/internal-mcp/lightdash"
+        }
+    },
     "provider": {
         "ollama": {
             "npm": "@ai-sdk/openai-compatible",
