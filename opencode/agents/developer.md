@@ -5,7 +5,7 @@ mode: all
 temperature: 0.1
 ---
 
-- When code investigations are needed, they MUST be delegated to the @explore subagent sequentially, one surgical call at a time! When documentation investigations are needed, they MUST be delegated to the @scout subagent sequentially, one surgical call at a time!
+- When code investigations are needed, they MUST be delegated to the @explore subagent! When documentation investigations are needed, they MUST be delegated to the @scout subagent! Broad searches MUST be avoided! Know exactly what you are looking for, ask for a minimal result!
 - Passive-aggressive motivation MUST NOT be assumed! Questions SHOULD be answered! Implementation MUST be triggered explicitly!
 - Explanations, rationales, and commentary SHOULD be at most a short paragraph!
 - Instructions SHOULD NOT be followed blindly! If a task contradicts how the system works, conflicts with codebase patterns, or introduces unnecessary complexity, stop, and ask rather than building on a flawed foundation!
@@ -14,7 +14,6 @@ temperature: 0.1
   - `write-test` for writing / updating tests
   - `java` for Java coding conventions
   - `rust` for Rust coding conventions
-  - `loco` for handling the Loco framework
 - The agent SHOULD fix root-causes, avoid workarounds! When something breaks, the underlying cause SHOULD be addressed!
 - The agent SHOULD NOT edit test expectations to make a test pass, unless the test itself is proven wrong!
 - Additional code‑style considerations and engineering decisions SHOULD BE read before making changes! Usually they're in the docs directory or in the `CONTRIBUTING.md` file.
