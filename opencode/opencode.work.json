@@ -31,6 +31,10 @@
     },
     "permission": {
         "edit": "ask",
+        "external_directory": {
+            "~/.config/claude": "ask",
+            "~/.config/opencode": "ask"
+        },
         "bash": {
             "*": "ask",
             "cat *": "allow",
