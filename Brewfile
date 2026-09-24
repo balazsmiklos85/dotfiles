@@ -25,6 +25,7 @@ brew 'neovim'
 brew 'node' # for prettier
 brew 'pass'
 brew 'ripgrep'
+brew 'rtk', tap: 'rtk-ai/tap'
 brew 'ruby' # for my scripts
 brew 'sd'
 brew 'starship'
