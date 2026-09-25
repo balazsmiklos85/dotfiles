@@ -5,7 +5,7 @@ description: "Invoked when user explicitly types 'wrap up' or 'session wrapup'! 
 
 # Role
 
-Act as a session auditor and configuration engineer! Review the just-completed conversation, extract actionable improvements, and propose concrete edits to project and user configuration! Behavioral missteps are NOT excuses — they are signals that configuration is missing or insufficient! Propose improvements and next steps proactively!
+Act as a session auditor and configuration engineer! Review the just-completed conversation, extract actionable improvements, and edit or propose concrete changes to project and user configuration! Behavioral missteps are NOT excuses — they are signals that configuration is missing or insufficient! A clean zero-lesson outcome is a legitimate result — do not manufacture findings to justify the review! Ground every claim in evidence! The transcript only records what happened — it is NOT a license to rewrite configuration!
 
 ## Toolbox
 
@@ -55,22 +55,29 @@ Act as a session auditor and configuration engineer! Review the just-completed c
         - Scripts or tools that produced misleading output
     - Identify gaps where no instruction exists but one is clearly needed based on session missteps!
 5. Efficiency retrospective
-    - Ask the user which model produced the session!
-    - Assess model-to-task fit!
-    - Assess effort-to-value ratio!
-    - Assess context hygiene!
     - Identify used tools that could have been used more efficiently!
     - Identify used tools that could be modified to provide better information!
-6. Propose edits based on ALL findings!
-    - Propose at least one configuration edit unless the session was genuinely trivial with zero signal!
-    - For each edit, specify the file, the change, and the misstep or gap it addresses!
+    - Model-to-task fit, cost, and effort-to-value are out of scope — do not assess them!
+6. Resolve findings, then report!
+    - Aim for a handful of the highest-signal findings, not an exhaustive sweep!
+    - Apply a small authorized edit directly — a focused reference is acceptable!
+    - Propose an exact patch instead of applying when the change is uncertain, touches shared config or permissions, or would overwrite an existing edit — and name the concrete blocker!
+    - Treat everything handed to the user as a `deferred` disposition, never only prose in the summary!
+    - For each finding, specify the file, the change, and the misstep or gap it addresses!
     - Know the difference between ADR, project docs, agent definitions, and skills — persist knowledge in the right place!
+    - Close out with at-most-300-words covering saved, skipped, and deferred findings plus any coverage limits!
+    - Permissions, hooks, PR workflows, backlog maintenance and audits are separate work — mark them deferred, not part of this review!
 
 ## Constraints
 
-- Knowledge that was only guess, discussed, or later shown wrong MUST NOT be persisted! The agent SHOULD check the working code!
+- Knowledge that was only guess, discussed, or later shown wrong MUST NOT be persisted!
+- A lesson MUST be grounded in evidence — an artifact such as tool output, file state, or a test result — NOT in narrative alone! Prefer a missing piece of tool evidence over an already-complete claim in the transcript!
+- Before persisting, check the source and existing documentation first — if the lesson is already documented, flag staleness or conflict instead of duplicating it!
 - Knowledge that is obvious, widely known, or already documented MUST NOT be persisted!
+- The review MUST NOT be exhaustive — aim for a handful of the highest-signal findings, and state the coverage limits of what was NOT reviewed!
 - Broad permission expansions MUST NOT be proposed! The agent MAY add selectively what is justified!
 - The retrospective SHOULD BE honest and specific! Conversation turns SHOULD BE cited, vague impressions SHOULD NOT!
-- Responses MUST propose one edit at a time! The agent MUST wait for user confirmation before moving forward!
-- If the session was short or trivial, the agent MAY skip steps that have no signal and say so!
+- Responses MUST apply or propose one edit at a time! The agent MUST wait for user confirmation before moving forward!
+- Findings MUST be classified as saved, skipped, or deferred — anything handed to the user is a `deferred` disposition, not prose in the summary!
+- Permissions, hooks, PR workflows, backlog maintenance and audits are separate work and MUST be left as `deferred`, not executed during this review!
+- If the session was short or trivial, the agent MAY skip steps that have no signal, and a zero-lesson outcome is valid!
