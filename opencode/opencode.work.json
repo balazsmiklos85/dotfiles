@@ -19,12 +19,6 @@
                     "~/.gradle/**": "allow",
                     "~/projects/**": "allow",
                     "/tmp": "allow"
-                },
-                "bash": {
-                    "cargo doc*": "allow",
-                    "cargo loco routes*": "allow",
-                    "cargo metadata *": "allow",
-                    "cargo rustdoc *": "allow"
                 }
             }
         }
@@ -35,28 +29,6 @@
             "~/.config/claude": "ask",
             "~/.config/opencode": "ask"
         },
-        "bash": {
-            "*": "ask",
-            "cat *": "allow",
-            "echo *": "allow",
-            "fd *": "allow",
-            "find *": "allow",
-            "git diff*": "allow",
-            "git log *": "allow",
-            "git status*": "allow",
-            "grep *": "allow",
-            "head *": "allow",
-            "jq *": "allow",
-            "ls *": "allow",
-            "tail *": "allow",
-            "readlink *": "allow",
-            "rg *": "allow",
-            "sed *": "allow",
-            "sort *": "allow",
-            "wc *": "allow",
-            "xargs cat *": "allow",
-            "xargs grep *": "allow"
-        },
         "external_directory": {
             "*": "deny"
         }
@@ -64,6 +36,7 @@
     "model": "ollama/qwen3.8:27b",
     "mcp": {
         "lightdash": {
+            "enabled": false,
             "type": "remote",
             "url": "https://agentic-gateway-analytics.tw.ee/internal-mcp/lightdash"
         }
