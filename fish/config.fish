@@ -34,6 +34,10 @@ set -gx MAILCAPS $HOME/.config/mailcap
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 
+if command -v claude >/dev/null
+    set -gx CLAUDE_CODE_SUBAGENT_MODEL haiku
+end
+
 if [ (uname) = Darwin ]
     set -gx OPENCODE_CONFIG ~/.config/opencode/opencode.work.json
     set -gx OLLAMA_CONTEXT_LENGTH 131072
