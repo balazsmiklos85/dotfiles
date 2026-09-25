@@ -31,6 +31,34 @@ while IFS=$'\t' read -r full_name in_tok out_tok cr_tok cc_tok; do
   TOTAL[$name,cache_creat]=$(( ${TOTAL[$name,cache_creat]:-0} + cc_tok ))
 done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.inputTokens, .value.outputTokens, .value.cacheReadInputTokens, .value.cacheCreationInputTokens] | @tsv' "$file_path")
 
+opencode_db="$HOME/.local/share/opencode/opencode.db"
+if [[ -f "$opencode_db" ]]; then
+  while IFS=$'\t' read -r oc_id in_tok out_tok re_tok cr_tok cc_tok; do
+    case "$oc_id" in
+      claude-4-5-haiku) name="claude-haiku-4-5" ;;
+      claude-5-sonnet)  name="claude-sonnet-5" ;;
+      claude-opus-5)    name="claude-opus-5" ;;
+      *)                name="$oc_id" ;;
+    esac
+    TOTAL[$name,input]=$(( ${TOTAL[$name,input]:-0} + in_tok ))
+    TOTAL[$name,output]=$(( ${TOTAL[$name,output]:-0} + out_tok + re_tok ))
+    TOTAL[$name,cache_read]=$(( ${TOTAL[$name,cache_read]:-0} + cr_tok ))
+    TOTAL[$name,cache_creat]=$(( ${TOTAL[$name,cache_creat]:-0} + cc_tok ))
+  done < <(
+    sqlite3 -separator $'\t' "$opencode_db" "
+      SELECT JSON_EXTRACT(model,'\$.id'),
+             COALESCE(SUM(tokens_input),0),
+             COALESCE(SUM(tokens_output),0),
+             COALESCE(SUM(tokens_reasoning),0),
+             COALESCE(SUM(tokens_cache_read),0),
+             COALESCE(SUM(tokens_cache_write),0)
+      FROM session
+      WHERE JSON_EXTRACT(model,'\$.id') LIKE 'claude-%'
+      GROUP BY JSON_EXTRACT(model,'\$.id');
+    "
+  )
+fi
+
 {
     for model in $(printf '%s\n' "${!TOTAL[@]}" | cut -d, -f1 | sort -u); do
         read -r r_in r_out r_cr r_cc <<< "${PRICING[$model]:-0 0 0 0}"
@@ -59,5 +87,12 @@ done < <(jq -r '.modelUsage | to_entries | sort_by(.key) | .[] | [.key, .value.i
     }
     '
 
-saved=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT printf('%.2f', t/1000000.0 + t*0.09362934/200000.0) FROM (SELECT COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) AS t FROM threads)")
+codex_saved_raw=$(sqlite3 "$HOME/.codex/state_5.sqlite" "SELECT COALESCE(SUM(CASE WHEN model LIKE '%qwen%' OR model LIKE '%gemma%' THEN tokens_used ELSE 0 END), 0) FROM threads")
+
+opencode_saved_raw=0
+if [[ -f "$opencode_db" ]]; then
+  opencode_saved_raw=$(sqlite3 "$opencode_db" "SELECT COALESCE(SUM(tokens_input + tokens_output + tokens_reasoning), 0) FROM session WHERE LOWER(JSON_EXTRACT(model,'\$.id')) LIKE '%qwen%' OR LOWER(JSON_EXTRACT(model,'\$.id')) LIKE '%gemma%'")
+fi
+
+saved=$(awk -v a="$codex_saved_raw" -v b="$opencode_saved_raw" 'BEGIN { t = a + b; printf "%.2f", t/1000000.0 + t*0.09362934/200000.0 }')
 printf 'Saved: ~$%s\n' "$saved"
