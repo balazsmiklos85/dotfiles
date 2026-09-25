@@ -38,11 +38,12 @@ if vim.fn.executable("javac") == 1 then
 	table.insert(lsps_to_install, "groovyls")
 	-- Java
 	table.insert(lsps_to_install, "jdtls")
-	-- Kotlin
 	table.insert(tools_to_install, "sonarlint-language-server")
 	table.insert(tools_to_install, "google-java-format")
 	table.insert(tools_to_install, "java-debug-adapter")
 	table.insert(tools_to_install, "java-test")
+	-- Kotlin
+	table.insert(lsps_to_install, "kotlin_lsp")
 end
 
 if vim.fn.executable("terraform") == 1 then

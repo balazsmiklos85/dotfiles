@@ -11,6 +11,7 @@ vim.opt_local.textwidth = 120
 
 require("config.lazy")
 require("config.mason")
+require("config.kotlin")
 require("config.keymaps")
 require("config.relative_numbers")
 require("config.lsp_start")
