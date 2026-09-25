@@ -18,6 +18,7 @@ end
 
 if command -v gh >/dev/null
     alias request_review 'gh pr comment --body "/request-review"'
+    alias run_checks 'gh pr comment --body "/wise-bot run-checks"'
     alias watch_checks 'gh pr checks --json "name,state" | jq \'.[] | select(.name == "Build And Test")| .state\''
 end
 
