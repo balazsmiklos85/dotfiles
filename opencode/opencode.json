@@ -54,7 +54,9 @@
             "xargs grep *": "allow"
         },
         "external_directory": {
-            "*": "deny"
+            "*": "deny",
+            "~/.config/claude": "allow",
+            "~/.config/opencode": "allow"
         }
     },
     "model": "lmstudio/qwen/qwen3.8-27b",
