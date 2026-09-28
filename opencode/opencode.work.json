@@ -25,12 +25,21 @@
     },
     "permission": {
         "edit": "ask",
-        "external_directory": {
-            "~/.config/claude": "ask",
-            "~/.config/opencode": "ask"
+        "bash": {
+            "rtk curl *": "allow",
+            "rtk docker *": "allow",
+            "rtk git diff*": "allow",
+            "rtk git log *": "allow",
+            "rtk git show *": "allow",
+            "rtk git status*": "allow",
+            "rtk gh *": "allow",
+            "rtk gradlew *": "allow",
+            "rtk rg *": "allow"
         },
         "external_directory": {
-            "*": "deny"
+            "*": "deny",
+            "~/.config/opencode": "ask",
+            "~/.config/claude": "ask"
         }
     },
     "model": "ollama/qwen3.8:27b",

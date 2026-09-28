@@ -45,8 +45,6 @@
             "tail *": "allow",
             "readlink *": "allow",
             "rg *": "allow",
-            "rtk find *": "allow",
-            "rtk ls *": "allow",
             "sed *": "allow",
             "sort *": "allow",
             "wc *": "allow",
