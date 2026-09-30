@@ -16,10 +16,10 @@
             "model": "ollama/qwen3.6:35b",
             "permission": {
                 "external_directory": {
-                    "~/Documents/notes": "allow",
+                    "~/Documents/notes/**": "allow",
                     "~/.gradle/**": "allow",
                     "~/projects/**": "allow",
-                    "/tmp": "allow"
+                    "/tmp/**": "allow"
                 }
             }
         }
@@ -39,9 +39,9 @@
         },
         "external_directory": {
             "*": "deny",
-            "~/.config/opencode": "ask",
-            "~/.config/claude": "ask",
-            "~/Documents/notes": "allow"
+            "~/.config/opencode/**": "ask",
+            "~/.config/claude/**": "ask",
+            "~/Documents/notes/**": "allow"
         }
     },
     "model": "ollama/qwen3.8:27b",

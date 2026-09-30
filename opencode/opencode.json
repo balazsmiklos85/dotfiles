@@ -14,7 +14,7 @@
             "permission": {
                 "external_directory": {
                     "~/cargo/**": "allow",
-                    "~/Documents/notes": "allow",
+                    "~/Documents/notes/**": "allow",
                     "~/projects/**": "allow"
                 },
                 "bash": {
@@ -53,8 +53,8 @@
         },
         "external_directory": {
             "*": "deny",
-            "~/.config/claude": "allow",
-            "~/.config/opencode": "allow"
+            "~/.config/claude/**": "allow",
+            "~/.config/opencode/**": "allow"
         }
     },
     "model": "lmstudio/qwen/qwen3.8-27b",
